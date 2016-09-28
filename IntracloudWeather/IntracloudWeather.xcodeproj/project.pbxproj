@@ -16,7 +16,6 @@
 		3FFF3A991D9BB2230069B4A7 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A971D9BB2230069B4A7 /* WeatherViewController.m */; };
 		3FFF3A9A1D9BB2230069B4A7 /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3A981D9BB2230069B4A7 /* WeatherViewController.xib */; };
 		3FFF3AA01D9BB9E00069B4A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A9F1D9BB9E00069B4A7 /* ViewController.m */; };
-		3FFF3AA31D9BBA000069B4A7 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3AA21D9BBA000069B4A7 /* Model.m */; };
 		3FFF3AE71D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3ADF1D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m */; };
 		3FFF3AE81D9BF82F0069B4A7 /* CurrentWeatherDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3AE01D9BF82F0069B4A7 /* CurrentWeatherDetailsView.xib */; };
 		3FFF3AE91D9BF82F0069B4A7 /* LeftWeatherDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3AE21D9BF82F0069B4A7 /* LeftWeatherDetailsView.m */; };
@@ -45,8 +44,6 @@
 		3FFF3A9D1D9BB55C0069B4A7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3FFF3A9E1D9BB9E00069B4A7 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Views/ViewController.h; sourceTree = "<group>"; };
 		3FFF3A9F1D9BB9E00069B4A7 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Views/ViewController.m; sourceTree = "<group>"; };
-		3FFF3AA11D9BBA000069B4A7 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
-		3FFF3AA21D9BBA000069B4A7 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		3FFF3ADE1D9BF82F0069B4A7 /* CurrentWeatherDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentWeatherDetailsView.h; path = Views/CurrentWeatherDetailsView.h; sourceTree = "<group>"; };
 		3FFF3ADF1D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentWeatherDetailsView.m; path = Views/CurrentWeatherDetailsView.m; sourceTree = "<group>"; };
 		3FFF3AE01D9BF82F0069B4A7 /* CurrentWeatherDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CurrentWeatherDetailsView.xib; path = Views/CurrentWeatherDetailsView.xib; sourceTree = "<group>"; };
@@ -146,7 +143,6 @@
 		3FFF3A751D9BABB60069B4A7 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				3FFF3A781D9BAC570069B4A7 /* Model */,
 				3FFF3A771D9BAC280069B4A7 /* Views */,
 				3FFF3A761D9BABD70069B4A7 /* Controllers */,
 			);
@@ -181,16 +177,6 @@
 			);
 			name = Views;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		3FFF3A781D9BAC570069B4A7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3FFF3AA11D9BBA000069B4A7 /* Model.h */,
-				3FFF3AA21D9BBA000069B4A7 /* Model.m */,
-			);
-			name = Model;
-			path = ../Model;
 			sourceTree = "<group>";
 		};
 		E86A1C1B473E67554793E60C /* Pods */ = {
@@ -332,7 +318,6 @@
 				3FFF3A991D9BB2230069B4A7 /* WeatherViewController.m in Sources */,
 				3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */,
 				3FFF3AE71D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m in Sources */,
-				3FFF3AA31D9BBA000069B4A7 /* Model.m in Sources */,
 				3FFF3AEB1D9BF82F0069B4A7 /* RightWeatherDetailsView.m in Sources */,
 				3F0384EE1D9BC5F2004D5423 /* NetWorkRequest.m in Sources */,
 				3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */,
