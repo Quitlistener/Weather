@@ -10,6 +10,8 @@
 		3F0384EE1D9BC5F2004D5423 /* NetWorkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0384ED1D9BC5F2004D5423 /* NetWorkRequest.m */; };
 		3F03851C1D9C04B1004D5423 /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F03851A1D9C04B1004D5423 /* MenuTableViewCell.m */; };
 		3F03851D1D9C04B1004D5423 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F03851B1D9C04B1004D5423 /* MenuTableViewCell.xib */; };
+		3F0385231D9C0533004D5423 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385201D9C0533004D5423 /* LeftMenuViewController.m */; };
+		3F0385241D9C0533004D5423 /* RightMenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385221D9C0533004D5423 /* RightMenViewController.m */; };
 		3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A581D9B9FC80069B4A7 /* main.m */; };
 		3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A5B1D9B9FC80069B4A7 /* AppDelegate.m */; };
 		3FFF3A621D9B9FC80069B4A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3A601D9B9FC80069B4A7 /* Main.storyboard */; };
@@ -34,6 +36,10 @@
 		3F0385191D9C04B1004D5423 /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
 		3F03851A1D9C04B1004D5423 /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
 		3F03851B1D9C04B1004D5423 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		3F03851F1D9C0533004D5423 /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
+		3F0385201D9C0533004D5423 /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
+		3F0385211D9C0533004D5423 /* RightMenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightMenViewController.h; sourceTree = "<group>"; };
+		3F0385221D9C0533004D5423 /* RightMenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightMenViewController.m; sourceTree = "<group>"; };
 		3FFF3A541D9B9FC80069B4A7 /* IntracloudWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntracloudWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFF3A581D9B9FC80069B4A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FFF3A5A1D9B9FC80069B4A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +92,7 @@
 		3F0385171D9C0487004D5423 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				3F03851E1D9C0522004D5423 /* Controller */,
 				3F0385181D9C04B1004D5423 /* View */,
 			);
 			path = Menu;
@@ -99,6 +106,17 @@
 				3F03851B1D9C04B1004D5423 /* MenuTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3F03851E1D9C0522004D5423 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F03851F1D9C0533004D5423 /* LeftMenuViewController.h */,
+				3F0385201D9C0533004D5423 /* LeftMenuViewController.m */,
+				3F0385211D9C0533004D5423 /* RightMenViewController.h */,
+				3F0385221D9C0533004D5423 /* RightMenViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		3FFF3A4B1D9B9FC80069B4A7 = {
@@ -343,10 +361,12 @@
 				3FFF3A991D9BB2230069B4A7 /* WeatherViewController.m in Sources */,
 				3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */,
 				3FFF3AE71D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m in Sources */,
+				3F0385241D9C0533004D5423 /* RightMenViewController.m in Sources */,
 				3FFF3AEB1D9BF82F0069B4A7 /* RightWeatherDetailsView.m in Sources */,
 				3F0384EE1D9BC5F2004D5423 /* NetWorkRequest.m in Sources */,
 				3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */,
 				3F03851C1D9C04B1004D5423 /* MenuTableViewCell.m in Sources */,
+				3F0385231D9C0533004D5423 /* LeftMenuViewController.m in Sources */,
 				3FFF3AE91D9BF82F0069B4A7 /* LeftWeatherDetailsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
