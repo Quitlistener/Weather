@@ -33,12 +33,18 @@
 }
 //
 -(void)initUI{
-    UITableView *XYMenuTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 20, 150, SCREENH_height) style:UITableViewStylePlain];
+    
+    UITableView *XYMenuTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, SCREENH_height) style:UITableViewStylePlain];
     XYMenuTableView.rowHeight = 40;
     [XYMenuTableView registerNib:[UINib nibWithNibName:@"MenuTableViewCell" bundle:nil] forCellReuseIdentifier:@"menu"];
     XYMenuTableView.delegate = self;
     XYMenuTableView.dataSource = self;
     XYMenuTableView.tableFooterView = [UIView new];
+    
+    UIView *myView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 150, 90)];
+    myView.backgroundColor = [UIColor cyanColor];
+    XYMenuTableView.tableHeaderView = myView;
+    
     [self.view addSubview:XYMenuTableView];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
