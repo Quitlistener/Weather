@@ -10,6 +10,8 @@
 #import "LeftWeatherDetailsView.h"
 #import "RightWeatherDetailsView.h"
 #import "CurrentWeatherDetailsView.h"
+#import "MMDrawerBarButtonItem.h"
+#import "UIViewController+MMDrawerController.h"
 
 @interface WeatherViewController ()<UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -23,6 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    MMDrawerBarButtonItem *leftButton = [[MMDrawerBarButtonItem alloc]initWithTarget:self action:@selector(leftBarBtnClick)];
+    [self.navigationItem setLeftBarButtonItem:leftButton animated:YES];
+
     
     [self initUI];
 }
@@ -50,6 +56,20 @@
     [_scrollView addSubview:_current];
     [self.view addSubview:_scrollView];
 
+}
+
+#pragma mark -scrollViewDelegate
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    [self updateView];
+    [_scrollView setContentOffset:CGPointMake(SCREEN_width, 0) animated:NO];
+}
+
+-(void)updateView{
+    
+}
+
+-(void)leftBarBtnClick{
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

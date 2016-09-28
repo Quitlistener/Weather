@@ -25,6 +25,7 @@
     WeatherViewController *weather = [WeatherViewController new];
     RightMenViewController *right = [RightMenViewController new];
     UINavigationController *cent = [[UINavigationController alloc]initWithRootViewController:weather];
+    cent.navigationBarHidden = YES;
     MMDrawerController *drawer = [[MMDrawerController alloc]initWithCenterViewController:cent leftDrawerViewController:left rightDrawerViewController:right];
     
     /** 手势 */
