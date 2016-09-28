@@ -10,10 +10,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="87" id="KGk-i7-Jjw" customClass="MenuTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="87"/>
+            <rect key="frame" x="0.0" y="0.0" width="150" height="87"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="200" height="86"/>
+                <frame key="frameInset" width="150" height="87"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="天气.png" translatesAutoresizingMaskIntoConstraints="NO" id="XNR-rX-XDM">
@@ -21,8 +21,8 @@
                             <constraint firstAttribute="width" secondItem="XNR-rX-XDM" secondAttribute="height" multiplier="70:73" id="3uu-9x-qxK"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天气" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkx-IG-o3i">
-                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="31"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天气" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkx-IG-o3i">
+                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -40,7 +40,7 @@
                 <outlet property="XYImageView" destination="XNR-rX-XDM" id="W8V-kv-Een"/>
                 <outlet property="XYTitleLabel" destination="Fkx-IG-o3i" id="Gbx-KG-i2d"/>
             </connections>
-            <point key="canvasLocation" x="-28" y="74.5"/>
+            <point key="canvasLocation" x="-53" y="74.5"/>
         </tableViewCell>
     </objects>
     <resources>

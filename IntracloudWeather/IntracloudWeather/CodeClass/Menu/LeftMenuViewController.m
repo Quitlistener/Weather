@@ -34,7 +34,7 @@
 //
 -(void)initUI{
     UITableView *XYMenuTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 20, 150, SCREENH_height) style:UITableViewStylePlain];
-    XYMenuTableView.rowHeight = 70;
+    XYMenuTableView.rowHeight = 40;
     [XYMenuTableView registerNib:[UINib nibWithNibName:@"MenuTableViewCell" bundle:nil] forCellReuseIdentifier:@"menu"];
     XYMenuTableView.delegate = self;
     XYMenuTableView.dataSource = self;
