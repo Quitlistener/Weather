@@ -55,6 +55,10 @@
 		3FFF3B0E1D9CF4D00069B4A7 /* LifeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3B0C1D9CF4D00069B4A7 /* LifeTableViewCell.m */; };
 		3FFF3B0F1D9CF4D00069B4A7 /* LifeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3B0D1D9CF4D00069B4A7 /* LifeTableViewCell.xib */; };
 		3FFF3B121D9CF8690069B4A7 /* NewsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3B111D9CF8690069B4A7 /* NewsDetailsViewController.m */; };
+		3FFF3B161D9D07F40069B4A7 /* HeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3B141D9D07F40069B4A7 /* HeaderCollectionViewCell.m */; };
+		3FFF3B171D9D07F40069B4A7 /* HeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3B151D9D07F40069B4A7 /* HeaderCollectionViewCell.xib */; };
+		3FFF3B1A1D9D12CF0069B4A7 /* ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3B191D9D12CF0069B4A7 /* ItemView.m */; };
+		3FFF3B1C1D9D12E20069B4A7 /* ItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3B1B1D9D12E20069B4A7 /* ItemView.xib */; };
 		5C6FEAD38E4F42C9A70CE5F0 /* libPods-IntracloudWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +139,12 @@
 		3FFF3B0D1D9CF4D00069B4A7 /* LifeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LifeTableViewCell.xib; sourceTree = "<group>"; };
 		3FFF3B101D9CF8690069B4A7 /* NewsDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailsViewController.h; sourceTree = "<group>"; };
 		3FFF3B111D9CF8690069B4A7 /* NewsDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailsViewController.m; sourceTree = "<group>"; };
+		3FFF3B131D9D07F40069B4A7 /* HeaderCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCollectionViewCell.h; sourceTree = "<group>"; };
+		3FFF3B141D9D07F40069B4A7 /* HeaderCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionViewCell.m; sourceTree = "<group>"; };
+		3FFF3B151D9D07F40069B4A7 /* HeaderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		3FFF3B181D9D12CF0069B4A7 /* ItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemView.h; sourceTree = "<group>"; };
+		3FFF3B191D9D12CF0069B4A7 /* ItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemView.m; sourceTree = "<group>"; };
+		3FFF3B1B1D9D12E20069B4A7 /* ItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemView.xib; sourceTree = "<group>"; };
 		70DCDCC920066136E11B5CB8 /* Pods-IntracloudWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntracloudWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-IntracloudWeather/Pods-IntracloudWeather.release.xcconfig"; sourceTree = "<group>"; };
 		85A146919A3B73C8FCAFEE05 /* Pods-IntracloudWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntracloudWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IntracloudWeather/Pods-IntracloudWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IntracloudWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -353,6 +363,12 @@
 				3FFF3B0B1D9CF4D00069B4A7 /* LifeTableViewCell.h */,
 				3FFF3B0C1D9CF4D00069B4A7 /* LifeTableViewCell.m */,
 				3FFF3B0D1D9CF4D00069B4A7 /* LifeTableViewCell.xib */,
+				3FFF3B131D9D07F40069B4A7 /* HeaderCollectionViewCell.h */,
+				3FFF3B141D9D07F40069B4A7 /* HeaderCollectionViewCell.m */,
+				3FFF3B151D9D07F40069B4A7 /* HeaderCollectionViewCell.xib */,
+				3FFF3B181D9D12CF0069B4A7 /* ItemView.h */,
+				3FFF3B191D9D12CF0069B4A7 /* ItemView.m */,
+				3FFF3B1B1D9D12E20069B4A7 /* ItemView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -444,6 +460,7 @@
 				3F03852B1D9C07DF004D5423 /* 趋势.png in Resources */,
 				3F0385341D9C1099004D5423 /* AddCitysCollectionViewCell.xib in Resources */,
 				3FFF3A671D9B9FC80069B4A7 /* LaunchScreen.storyboard in Resources */,
+				3FFF3B171D9D07F40069B4A7 /* HeaderCollectionViewCell.xib in Resources */,
 				3FFF3AE81D9BF82F0069B4A7 /* CurrentWeatherDetailsView.xib in Resources */,
 				3F03852D1D9C07DF004D5423 /* 生活.png in Resources */,
 				3F0385481D9CEA8A004D5423 /* MoreCityTableViewCell.xib in Resources */,
@@ -460,6 +477,7 @@
 				3F03854A1D9CEB3A004D5423 /* 向右.png in Resources */,
 				3FFF3A621D9B9FC80069B4A7 /* Main.storyboard in Resources */,
 				3FFF3AFA1D9CAE140069B4A7 /* TodayWeatherView.xib in Resources */,
+				3FFF3B1C1D9D12E20069B4A7 /* ItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +540,7 @@
 				3FFF3AA01D9BB9E00069B4A7 /* ViewController.m in Sources */,
 				3FFF3B021D9CB0320069B4A7 /* ThirddayWeatherView.m in Sources */,
 				3FFF3A991D9BB2230069B4A7 /* WeatherViewController.m in Sources */,
+				3FFF3B161D9D07F40069B4A7 /* HeaderCollectionViewCell.m in Sources */,
 				3F0385471D9CEA8A004D5423 /* MoreCityTableViewCell.m in Sources */,
 				3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */,
 				3F0385331D9C1099004D5423 /* AddCitysCollectionViewCell.m in Sources */,
@@ -538,6 +557,7 @@
 				3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */,
 				3FFF3AFD1D9CAE9F0069B4A7 /* TomorrowWwatherView.m in Sources */,
 				3F03851C1D9C04B1004D5423 /* MenuTableViewCell.m in Sources */,
+				3FFF3B1A1D9D12CF0069B4A7 /* ItemView.m in Sources */,
 				3F03854D1D9CF44D004D5423 /* DetailCityInfoViewController.m in Sources */,
 				3F0385231D9C0533004D5423 /* LeftMenuViewController.m in Sources */,
 				3FFF3B081D9CEEFC0069B4A7 /* LifeViewController.m in Sources */,

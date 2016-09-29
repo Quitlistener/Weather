@@ -9,10 +9,14 @@
 #import "LifeViewController.h"
 #import "LifeTableViewCell.h"
 #import "NewsDetailsViewController.h"
+#import "HeaderCollectionViewCell.h"
+#import "ItemView.h"
 
-@interface LifeViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface LifeViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) ItemView *itemView;
 
 @end
 
@@ -29,6 +33,23 @@
     [_tableView registerNib:[UINib nibWithNibName:@"LifeTableViewCell" bundle:nil] forCellReuseIdentifier:@"lifeCell"];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    self.tableView.estimatedRowHeight = 100;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+    flowLayout.itemSize = CGSizeMake((SCREEN_width-30)/2,(180-26)/3);
+    //设置每个item的间距
+    flowLayout.minimumInteritemSpacing = 5;
+    //设置CollectionView的item距离屏幕上左下右的间距(默认都是10)
+    flowLayout.sectionInset = UIEdgeInsetsMake(10 , 10, 10, 10);
+    //设置每个item的行间距(默认是10.0)
+    flowLayout.minimumLineSpacing = 3;
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_width, 180) collectionViewLayout:flowLayout];
+    [_collectionView registerNib:[UINib nibWithNibName:@"HeaderCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"Headercollection"];
+    _collectionView.backgroundColor = [UIColor grayColor];
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    _tableView.tableHeaderView = _collectionView;
     [self.view addSubview:_tableView];
 }
 
@@ -49,6 +70,28 @@
     [self.navigationController pushViewController:newsVc animated:YES];
 }
 
+#pragma mark -collectionViewDelegate
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 6;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    HeaderCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Headercollection" forIndexPath:indexPath];
+    cell.suitableText.text = @"hunqu";
+    cell.backgroundColor = [UIColor cyanColor];
+    return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    _itemView = [[NSBundle mainBundle]loadNibNamed:@"ItemView" owner:nil options:nil][0];
+    if (indexPath.row % 2 != 0) {
+        _itemView.frame = CGRectMake(10, 10, (SCREEN_width-30)/2, 200);
+    }
+    else{
+        _itemView.frame = CGRectMake((SCREEN_width-30)/2+10, 10, (SCREEN_width-30)/2, 200);
+    }
+    [self.view addSubview:_itemView];
+}
 
 
 - (void)didReceiveMemoryWarning {
