@@ -25,11 +25,12 @@
     WeatherViewController *weather = [WeatherViewController new];
     RightMenViewController *right = [RightMenViewController new];
     UINavigationController *rightNav = [[UINavigationController alloc]initWithRootViewController:right];
-    UINavigationController *cent = [[UINavigationController alloc]initWithRootViewController:weather];
+//    UINavigationController *cent = [[UINavigationController alloc]initWithRootViewController:weather];
     UINavigationController *leftNav = [[UINavigationController alloc]initWithRootViewController:left];
-    cent.navigationBarHidden = YES;
+//    rightNav.navigationBarHidden = YES;
+//    cent.navigationBarHidden = YES;
     leftNav.navigationBarHidden = YES;
-    MMDrawerController *drawer = [[MMDrawerController alloc]initWithCenterViewController:cent leftDrawerViewController:leftNav rightDrawerViewController:rightNav];
+    MMDrawerController *drawer = [[MMDrawerController alloc]initWithCenterViewController:weather leftDrawerViewController:leftNav rightDrawerViewController:rightNav];
     
     /** 手势 */
     [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
