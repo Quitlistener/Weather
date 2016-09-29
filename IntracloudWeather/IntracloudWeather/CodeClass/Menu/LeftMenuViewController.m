@@ -8,6 +8,7 @@
 
 #import "LeftMenuViewController.h"
 #import "MenuTableViewCell.h"
+#import "LifeViewController.h"
 
 @interface LeftMenuViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -55,6 +56,12 @@
     cell.XYImageView.image = [UIImage imageNamed:_dataArr[indexPath.row]];
     cell.XYTitleLabel.text = _dataArr[indexPath.row];
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 2) {
+        LifeViewController *LVVC = [LifeViewController new];
+        [self.navigationController pushViewController:LVVC animated:YES];
+    }
 }
 
 

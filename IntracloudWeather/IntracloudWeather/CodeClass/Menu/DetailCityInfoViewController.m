@@ -1,21 +1,19 @@
 //
-//  MoreCitysViewController.m
+//  DetailCityInfoViewController.m
 //  IntracloudWeather
 //
 //  Created by lanou on 2016/9/29.
 //  Copyright © 2016年 guangjia. All rights reserved.
 //
 
-#import "MoreCitysViewController.h"
-#import "MoreCityTableViewCell.h"
 #import "DetailCityInfoViewController.h"
-#import "ForeignCitysViewController.h"
+#import "DetailCityTableViewCell.h"
 
-@interface MoreCitysViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DetailCityInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
-@implementation MoreCitysViewController
+@implementation DetailCityInfoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,7 +23,7 @@
 -(void)initUI{
     
     UITableView *XYMoretableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 279, SCREENH_height) style:UITableViewStylePlain];
-    [XYMoretableView registerNib:[UINib nibWithNibName:@"MoreCityTableViewCell" bundle:nil] forCellReuseIdentifier:@"More"];
+    [XYMoretableView registerNib:[UINib nibWithNibName:@"DetailCityTableViewCell" bundle:nil] forCellReuseIdentifier:@"Detail"];
     XYMoretableView.rowHeight = 40;
     XYMoretableView.delegate = self;
     XYMoretableView.dataSource = self;
@@ -44,25 +42,13 @@
 }
 
 #pragma -mark tableView协议方法
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row != 0) {
-        DetailCityInfoViewController *DCIVC = [DetailCityInfoViewController new];
-        [self.navigationController pushViewController:DCIVC animated:YES];
-    }
-    else{
-        ForeignCitysViewController *FCVC = [ForeignCitysViewController new];
-        [self.navigationController pushViewController:FCVC animated:YES];
-    }
-}
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 15;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    MoreCityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"More" forIndexPath:indexPath];
-   
+    DetailCityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Detail" forIndexPath:indexPath];
+    
     return cell;
     
 }
