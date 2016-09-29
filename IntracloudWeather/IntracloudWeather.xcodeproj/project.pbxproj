@@ -30,6 +30,8 @@
 		3F0385541D9CF527004D5423 /* DetailCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385521D9CF527004D5423 /* DetailCityTableViewCell.m */; };
 		3F0385551D9CF527004D5423 /* DetailCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */; };
 		3F0385581D9CF919004D5423 /* ForeignCitysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */; };
+		3FD3F8201D9D471900736C0B /* FallsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */; };
+		3FD3F8211D9D471900736C0B /* FallsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */; };
 		3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A581D9B9FC80069B4A7 /* main.m */; };
 		3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A5B1D9B9FC80069B4A7 /* AppDelegate.m */; };
 		3FFF3A621D9B9FC80069B4A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3A601D9B9FC80069B4A7 /* Main.storyboard */; };
@@ -59,6 +61,8 @@
 		3FFF3B171D9D07F40069B4A7 /* HeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3B151D9D07F40069B4A7 /* HeaderCollectionViewCell.xib */; };
 		3FFF3B1A1D9D12CF0069B4A7 /* ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3B191D9D12CF0069B4A7 /* ItemView.m */; };
 		3FFF3B1C1D9D12E20069B4A7 /* ItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3B1B1D9D12E20069B4A7 /* ItemView.xib */; };
+		3FFF3B211D9D43090069B4A7 /* SceneryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3B201D9D43090069B4A7 /* SceneryViewController.m */; };
+		3FFF3B241D9D43FD0069B4A7 /* Waterfall.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3B231D9D43FD0069B4A7 /* Waterfall.m */; };
 		5C6FEAD38E4F42C9A70CE5F0 /* libPods-IntracloudWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +102,9 @@
 		3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCityTableViewCell.xib; sourceTree = "<group>"; };
 		3F0385561D9CF919004D5423 /* ForeignCitysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForeignCitysViewController.h; sourceTree = "<group>"; };
 		3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForeignCitysViewController.m; sourceTree = "<group>"; };
+		3FD3F81D1D9D471900736C0B /* FallsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FallsCollectionViewCell.h; sourceTree = "<group>"; };
+		3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FallsCollectionViewCell.m; sourceTree = "<group>"; };
+		3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FallsCollectionViewCell.xib; sourceTree = "<group>"; };
 		3FFF3A541D9B9FC80069B4A7 /* IntracloudWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntracloudWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFF3A581D9B9FC80069B4A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FFF3A5A1D9B9FC80069B4A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -145,6 +152,10 @@
 		3FFF3B181D9D12CF0069B4A7 /* ItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemView.h; sourceTree = "<group>"; };
 		3FFF3B191D9D12CF0069B4A7 /* ItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemView.m; sourceTree = "<group>"; };
 		3FFF3B1B1D9D12E20069B4A7 /* ItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemView.xib; sourceTree = "<group>"; };
+		3FFF3B1F1D9D43090069B4A7 /* SceneryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneryViewController.h; sourceTree = "<group>"; };
+		3FFF3B201D9D43090069B4A7 /* SceneryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneryViewController.m; sourceTree = "<group>"; };
+		3FFF3B221D9D43FD0069B4A7 /* Waterfall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waterfall.h; sourceTree = "<group>"; };
+		3FFF3B231D9D43FD0069B4A7 /* Waterfall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waterfall.m; sourceTree = "<group>"; };
 		70DCDCC920066136E11B5CB8 /* Pods-IntracloudWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntracloudWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-IntracloudWeather/Pods-IntracloudWeather.release.xcconfig"; sourceTree = "<group>"; };
 		85A146919A3B73C8FCAFEE05 /* Pods-IntracloudWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntracloudWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IntracloudWeather/Pods-IntracloudWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IntracloudWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +244,16 @@
 			path = img;
 			sourceTree = "<group>";
 		};
+		3FD3F81C1D9D465200736C0B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3FD3F81D1D9D471900736C0B /* FallsCollectionViewCell.h */,
+				3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */,
+				3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3FFF3A4B1D9B9FC80069B4A7 = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +305,8 @@
 				3F0384EF1D9BC6DB004D5423 /* UrlHeader.h */,
 				3F0384EC1D9BC5F2004D5423 /* NetWorkRequest.h */,
 				3F0384ED1D9BC5F2004D5423 /* NetWorkRequest.m */,
+				3FFF3B221D9D43FD0069B4A7 /* Waterfall.h */,
+				3FFF3B231D9D43FD0069B4A7 /* Waterfall.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -291,6 +314,7 @@
 		3FFF3A711D9BAA0A0069B4A7 /* CodeClass */ = {
 			isa = PBXGroup;
 			children = (
+				3FFF3B1D1D9D42A80069B4A7 /* Scenery */,
 				3FFF3B051D9CEE770069B4A7 /* Life */,
 				3F0385171D9C0487004D5423 /* Menu */,
 				3FFF3A751D9BABB60069B4A7 /* Weather */,
@@ -382,6 +406,24 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		3FFF3B1D1D9D42A80069B4A7 /* Scenery */ = {
+			isa = PBXGroup;
+			children = (
+				3FD3F81C1D9D465200736C0B /* Views */,
+				3FFF3B1E1D9D42C10069B4A7 /* Controllers */,
+			);
+			path = Scenery;
+			sourceTree = "<group>";
+		};
+		3FFF3B1E1D9D42C10069B4A7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF3B1F1D9D43090069B4A7 /* SceneryViewController.h */,
+				3FFF3B201D9D43090069B4A7 /* SceneryViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		E86A1C1B473E67554793E60C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +500,7 @@
 				3FFF3AF51D9CAB050069B4A7 /* 加号16.png in Resources */,
 				3FFF3B041D9CB0490069B4A7 /* ThirddayWeatherView.xib in Resources */,
 				3F03852B1D9C07DF004D5423 /* 趋势.png in Resources */,
+				3FD3F8211D9D471900736C0B /* FallsCollectionViewCell.xib in Resources */,
 				3F0385341D9C1099004D5423 /* AddCitysCollectionViewCell.xib in Resources */,
 				3FFF3A671D9B9FC80069B4A7 /* LaunchScreen.storyboard in Resources */,
 				3FFF3B171D9D07F40069B4A7 /* HeaderCollectionViewCell.xib in Resources */,
@@ -539,7 +582,9 @@
 				3F0385581D9CF919004D5423 /* ForeignCitysViewController.m in Sources */,
 				3FFF3AA01D9BB9E00069B4A7 /* ViewController.m in Sources */,
 				3FFF3B021D9CB0320069B4A7 /* ThirddayWeatherView.m in Sources */,
+				3FFF3B211D9D43090069B4A7 /* SceneryViewController.m in Sources */,
 				3FFF3A991D9BB2230069B4A7 /* WeatherViewController.m in Sources */,
+				3FD3F8201D9D471900736C0B /* FallsCollectionViewCell.m in Sources */,
 				3FFF3B161D9D07F40069B4A7 /* HeaderCollectionViewCell.m in Sources */,
 				3F0385471D9CEA8A004D5423 /* MoreCityTableViewCell.m in Sources */,
 				3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */,
@@ -555,6 +600,7 @@
 				3FFF3B121D9CF8690069B4A7 /* NewsDetailsViewController.m in Sources */,
 				3FFF3B0E1D9CF4D00069B4A7 /* LifeTableViewCell.m in Sources */,
 				3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */,
+				3FFF3B241D9D43FD0069B4A7 /* Waterfall.m in Sources */,
 				3FFF3AFD1D9CAE9F0069B4A7 /* TomorrowWwatherView.m in Sources */,
 				3F03851C1D9C04B1004D5423 /* MenuTableViewCell.m in Sources */,
 				3FFF3B1A1D9D12CF0069B4A7 /* ItemView.m in Sources */,
