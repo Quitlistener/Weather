@@ -19,6 +19,7 @@
 		3F03852F1D9C07DF004D5423 /* 天气.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F03852A1D9C07DF004D5423 /* 天气.png */; };
 		3F0385331D9C1099004D5423 /* AddCitysCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385311D9C1099004D5423 /* AddCitysCollectionViewCell.m */; };
 		3F0385341D9C1099004D5423 /* AddCitysCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385321D9C1099004D5423 /* AddCitysCollectionViewCell.xib */; };
+		3F0385361D9C9EBF004D5423 /* 图片.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385351D9C9EBF004D5423 /* 图片.png */; };
 		3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A581D9B9FC80069B4A7 /* main.m */; };
 		3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A5B1D9B9FC80069B4A7 /* AppDelegate.m */; };
 		3FFF3A621D9B9FC80069B4A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3A601D9B9FC80069B4A7 /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		3F0385301D9C1099004D5423 /* AddCitysCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCitysCollectionViewCell.h; sourceTree = "<group>"; };
 		3F0385311D9C1099004D5423 /* AddCitysCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCitysCollectionViewCell.m; sourceTree = "<group>"; };
 		3F0385321D9C1099004D5423 /* AddCitysCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCitysCollectionViewCell.xib; sourceTree = "<group>"; };
+		3F0385351D9C9EBF004D5423 /* 图片.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片.png"; sourceTree = "<group>"; };
 		3FFF3A541D9B9FC80069B4A7 /* IntracloudWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntracloudWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFF3A581D9B9FC80069B4A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FFF3A5A1D9B9FC80069B4A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		3F0385251D9C07A3004D5423 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				3F0385351D9C9EBF004D5423 /* 图片.png */,
 				3F0385261D9C07DF004D5423 /* 趋势.png */,
 				3F0385271D9C07DF004D5423 /* 设置.png */,
 				3F0385281D9C07DF004D5423 /* 生活.png */,
@@ -332,6 +335,7 @@
 				3FFF3A9A1D9BB2230069B4A7 /* WeatherViewController.xib in Resources */,
 				3F03852E1D9C07DF004D5423 /* 实景.png in Resources */,
 				3F03852C1D9C07DF004D5423 /* 设置.png in Resources */,
+				3F0385361D9C9EBF004D5423 /* 图片.png in Resources */,
 				3FFF3AEA1D9BF82F0069B4A7 /* LeftWeatherDetailsView.xib in Resources */,
 				3FFF3A641D9B9FC80069B4A7 /* Assets.xcassets in Resources */,
 				3F03851D1D9C04B1004D5423 /* MenuTableViewCell.xib in Resources */,
