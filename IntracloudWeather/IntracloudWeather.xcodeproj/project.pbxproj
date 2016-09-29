@@ -36,6 +36,10 @@
 		3FFF3AEB1D9BF82F0069B4A7 /* RightWeatherDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3AE51D9BF82F0069B4A7 /* RightWeatherDetailsView.m */; };
 		3FFF3AEC1D9BF82F0069B4A7 /* RightWeatherDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3AE61D9BF82F0069B4A7 /* RightWeatherDetailsView.xib */; };
 		3FFF3AF51D9CAB050069B4A7 /* 加号16.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3AF41D9CAB050069B4A7 /* 加号16.png */; };
+		3FFF3AF81D9CAE050069B4A7 /* TodayWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3AF71D9CAE050069B4A7 /* TodayWeatherView.m */; };
+		3FFF3AFA1D9CAE140069B4A7 /* TodayWeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3AF91D9CAE140069B4A7 /* TodayWeatherView.xib */; };
+		3FFF3AFD1D9CAE9F0069B4A7 /* TomorrowWwatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3AFC1D9CAE9F0069B4A7 /* TomorrowWwatherView.m */; };
+		3FFF3AFF1D9CAEB20069B4A7 /* TomorrowWwatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3AFE1D9CAEB20069B4A7 /* TomorrowWwatherView.xib */; };
 		5C6FEAD38E4F42C9A70CE5F0 /* libPods-IntracloudWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +89,12 @@
 		3FFF3AE51D9BF82F0069B4A7 /* RightWeatherDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RightWeatherDetailsView.m; path = Views/RightWeatherDetailsView.m; sourceTree = "<group>"; };
 		3FFF3AE61D9BF82F0069B4A7 /* RightWeatherDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RightWeatherDetailsView.xib; path = Views/RightWeatherDetailsView.xib; sourceTree = "<group>"; };
 		3FFF3AF41D9CAB050069B4A7 /* 加号16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加号16.png"; sourceTree = "<group>"; };
+		3FFF3AF61D9CAE050069B4A7 /* TodayWeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayWeatherView.h; path = Views/TodayWeatherView.h; sourceTree = "<group>"; };
+		3FFF3AF71D9CAE050069B4A7 /* TodayWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayWeatherView.m; path = Views/TodayWeatherView.m; sourceTree = "<group>"; };
+		3FFF3AF91D9CAE140069B4A7 /* TodayWeatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TodayWeatherView.xib; path = Views/TodayWeatherView.xib; sourceTree = "<group>"; };
+		3FFF3AFB1D9CAE9F0069B4A7 /* TomorrowWwatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TomorrowWwatherView.h; path = Views/TomorrowWwatherView.h; sourceTree = "<group>"; };
+		3FFF3AFC1D9CAE9F0069B4A7 /* TomorrowWwatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TomorrowWwatherView.m; path = Views/TomorrowWwatherView.m; sourceTree = "<group>"; };
+		3FFF3AFE1D9CAEB20069B4A7 /* TomorrowWwatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TomorrowWwatherView.xib; path = Views/TomorrowWwatherView.xib; sourceTree = "<group>"; };
 		70DCDCC920066136E11B5CB8 /* Pods-IntracloudWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntracloudWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-IntracloudWeather/Pods-IntracloudWeather.release.xcconfig"; sourceTree = "<group>"; };
 		85A146919A3B73C8FCAFEE05 /* Pods-IntracloudWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntracloudWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IntracloudWeather/Pods-IntracloudWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IntracloudWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,6 +266,12 @@
 				3FFF3AE41D9BF82F0069B4A7 /* RightWeatherDetailsView.h */,
 				3FFF3AE51D9BF82F0069B4A7 /* RightWeatherDetailsView.m */,
 				3FFF3AE61D9BF82F0069B4A7 /* RightWeatherDetailsView.xib */,
+				3FFF3AF61D9CAE050069B4A7 /* TodayWeatherView.h */,
+				3FFF3AF71D9CAE050069B4A7 /* TodayWeatherView.m */,
+				3FFF3AF91D9CAE140069B4A7 /* TodayWeatherView.xib */,
+				3FFF3AFB1D9CAE9F0069B4A7 /* TomorrowWwatherView.h */,
+				3FFF3AFC1D9CAE9F0069B4A7 /* TomorrowWwatherView.m */,
+				3FFF3AFE1D9CAEB20069B4A7 /* TomorrowWwatherView.xib */,
 			);
 			name = Views;
 			path = ..;
@@ -341,6 +357,7 @@
 				3FFF3AE81D9BF82F0069B4A7 /* CurrentWeatherDetailsView.xib in Resources */,
 				3F03852D1D9C07DF004D5423 /* 生活.png in Resources */,
 				3FFF3A9A1D9BB2230069B4A7 /* WeatherViewController.xib in Resources */,
+				3FFF3AFF1D9CAEB20069B4A7 /* TomorrowWwatherView.xib in Resources */,
 				3F03852E1D9C07DF004D5423 /* 实景.png in Resources */,
 				3F03852C1D9C07DF004D5423 /* 设置.png in Resources */,
 				3F0385361D9C9EBF004D5423 /* 图片.png in Resources */,
@@ -348,6 +365,7 @@
 				3FFF3A641D9B9FC80069B4A7 /* Assets.xcassets in Resources */,
 				3F03851D1D9C04B1004D5423 /* MenuTableViewCell.xib in Resources */,
 				3FFF3A621D9B9FC80069B4A7 /* Main.storyboard in Resources */,
+				3FFF3AFA1D9CAE140069B4A7 /* TodayWeatherView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,9 +430,11 @@
 				3F0385331D9C1099004D5423 /* AddCitysCollectionViewCell.m in Sources */,
 				3FFF3AE71D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m in Sources */,
 				3F0385241D9C0533004D5423 /* RightMenViewController.m in Sources */,
+				3FFF3AF81D9CAE050069B4A7 /* TodayWeatherView.m in Sources */,
 				3FFF3AEB1D9BF82F0069B4A7 /* RightWeatherDetailsView.m in Sources */,
 				3F0384EE1D9BC5F2004D5423 /* NetWorkRequest.m in Sources */,
 				3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */,
+				3FFF3AFD1D9CAE9F0069B4A7 /* TomorrowWwatherView.m in Sources */,
 				3F03851C1D9C04B1004D5423 /* MenuTableViewCell.m in Sources */,
 				3F0385231D9C0533004D5423 /* LeftMenuViewController.m in Sources */,
 				3FFF3AE91D9BF82F0069B4A7 /* LeftWeatherDetailsView.m in Sources */,

@@ -48,13 +48,21 @@
                         <action selector="tapAddCity:" destination="-1" eventType="touchUpInside" id="bOw-vB-Pmt"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="加号.png" translatesAutoresizingMaskIntoConstraints="NO" id="A0L-ft-Xfm"/>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="A0L-ft-Xfm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3Aa-G9-ZDP"/>
+                <constraint firstItem="A0L-ft-Xfm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BeR-Yd-V5k"/>
                 <constraint firstItem="dtj-Cg-zIB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="D7T-Xx-hrN"/>
+                <constraint firstAttribute="trailing" secondItem="A0L-ft-Xfm" secondAttribute="trailing" id="Jbx-MB-ee2"/>
+                <constraint firstAttribute="bottom" secondItem="A0L-ft-Xfm" secondAttribute="bottom" id="R01-yT-bkN"/>
                 <constraint firstAttribute="trailing" secondItem="dtj-Cg-zIB" secondAttribute="trailing" constant="25" id="csr-lR-Dzc"/>
                 <constraint firstAttribute="bottom" secondItem="dtj-Cg-zIB" secondAttribute="bottom" constant="90" id="why-SV-qAg"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="加号.png" width="64" height="64"/>
+    </resources>
 </document>

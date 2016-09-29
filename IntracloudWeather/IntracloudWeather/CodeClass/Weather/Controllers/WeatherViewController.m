@@ -44,12 +44,16 @@
     //分页滚动
     _scrollView.pagingEnabled = YES;
     _scrollView.delegate = self;
+    _scrollView.backgroundColor = [UIColor clearColor];
     _left = [[NSBundle mainBundle]loadNibNamed:@"LeftWeatherDetailsView" owner:nil options:nil][0];
     _left.frame = CGRectMake(0, 0, SCREEN_width, SCREENH_height-64 - 95);
+    _left.backgroundColor = [UIColor clearColor];
     _right = [[NSBundle mainBundle]loadNibNamed:@"RightWeatherDetailsView" owner:nil options:nil][0];
     _right.frame = CGRectMake(SCREEN_width*2, 0, SCREEN_width, SCREENH_height-64 - 95);
+    _right.backgroundColor = [UIColor clearColor];
     _current = [[NSBundle mainBundle]loadNibNamed:@"CurrentWeatherDetailsView" owner:nil options:nil][0];
     _current.frame = CGRectMake(SCREEN_width, 0, SCREEN_width, SCREENH_height-64 - 95);
+    _current.backgroundColor = [UIColor clearColor];
     [_scrollView addSubview:_left];
     [_scrollView addSubview:_right];
     [_scrollView addSubview:_current];
