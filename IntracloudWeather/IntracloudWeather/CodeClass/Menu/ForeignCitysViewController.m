@@ -6,16 +6,15 @@
 //  Copyright © 2016年 guangjia. All rights reserved.
 //
 
-#import "MoreCitysViewController.h"
+#import "ForeignCitysViewController.h"
 #import "MoreCityTableViewCell.h"
 #import "DetailCityInfoViewController.h"
-#import "ForeignCitysViewController.h"
 
-@interface MoreCitysViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ForeignCitysViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
-@implementation MoreCitysViewController
+@implementation ForeignCitysViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,14 +45,10 @@
 #pragma -mark tableView协议方法
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row != 0) {
+    
         DetailCityInfoViewController *DCIVC = [DetailCityInfoViewController new];
         [self.navigationController pushViewController:DCIVC animated:YES];
-    }
-    else{
-        ForeignCitysViewController *FCVC = [ForeignCitysViewController new];
-        [self.navigationController pushViewController:FCVC animated:YES];
-    }
+   
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

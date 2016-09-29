@@ -26,6 +26,10 @@
 		3F0385471D9CEA8A004D5423 /* MoreCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385451D9CEA8A004D5423 /* MoreCityTableViewCell.m */; };
 		3F0385481D9CEA8A004D5423 /* MoreCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385461D9CEA8A004D5423 /* MoreCityTableViewCell.xib */; };
 		3F03854A1D9CEB3A004D5423 /* 向右.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385491D9CEB3A004D5423 /* 向右.png */; };
+		3F03854D1D9CF44D004D5423 /* DetailCityInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F03854C1D9CF44D004D5423 /* DetailCityInfoViewController.m */; };
+		3F0385541D9CF527004D5423 /* DetailCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385521D9CF527004D5423 /* DetailCityTableViewCell.m */; };
+		3F0385551D9CF527004D5423 /* DetailCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */; };
+		3F0385581D9CF919004D5423 /* ForeignCitysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */; };
 		3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A581D9B9FC80069B4A7 /* main.m */; };
 		3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A5B1D9B9FC80069B4A7 /* AppDelegate.m */; };
 		3FFF3A621D9B9FC80069B4A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3A601D9B9FC80069B4A7 /* Main.storyboard */; };
@@ -83,6 +87,13 @@
 		3F0385451D9CEA8A004D5423 /* MoreCityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreCityTableViewCell.m; sourceTree = "<group>"; };
 		3F0385461D9CEA8A004D5423 /* MoreCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreCityTableViewCell.xib; sourceTree = "<group>"; };
 		3F0385491D9CEB3A004D5423 /* 向右.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "向右.png"; sourceTree = "<group>"; };
+		3F03854B1D9CF44D004D5423 /* DetailCityInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCityInfoViewController.h; sourceTree = "<group>"; };
+		3F03854C1D9CF44D004D5423 /* DetailCityInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCityInfoViewController.m; sourceTree = "<group>"; };
+		3F0385511D9CF527004D5423 /* DetailCityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCityTableViewCell.h; sourceTree = "<group>"; };
+		3F0385521D9CF527004D5423 /* DetailCityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCityTableViewCell.m; sourceTree = "<group>"; };
+		3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCityTableViewCell.xib; sourceTree = "<group>"; };
+		3F0385561D9CF919004D5423 /* ForeignCitysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForeignCitysViewController.h; sourceTree = "<group>"; };
+		3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForeignCitysViewController.m; sourceTree = "<group>"; };
 		3FFF3A541D9B9FC80069B4A7 /* IntracloudWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntracloudWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFF3A581D9B9FC80069B4A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FFF3A5A1D9B9FC80069B4A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -170,6 +181,9 @@
 				3F0385441D9CEA8A004D5423 /* MoreCityTableViewCell.h */,
 				3F0385451D9CEA8A004D5423 /* MoreCityTableViewCell.m */,
 				3F0385461D9CEA8A004D5423 /* MoreCityTableViewCell.xib */,
+				3F0385511D9CF527004D5423 /* DetailCityTableViewCell.h */,
+				3F0385521D9CF527004D5423 /* DetailCityTableViewCell.m */,
+				3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,6 +199,10 @@
 				3F03853F1D9CCFD4004D5423 /* HotCityViewController.m */,
 				3F0385411D9CE8FF004D5423 /* MoreCitysViewController.h */,
 				3F0385421D9CE8FF004D5423 /* MoreCitysViewController.m */,
+				3F0385561D9CF919004D5423 /* ForeignCitysViewController.h */,
+				3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */,
+				3F03854B1D9CF44D004D5423 /* DetailCityInfoViewController.h */,
+				3F03854C1D9CF44D004D5423 /* DetailCityInfoViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -434,6 +452,7 @@
 				3F03852E1D9C07DF004D5423 /* 实景.png in Resources */,
 				3F03852C1D9C07DF004D5423 /* 设置.png in Resources */,
 				3F0385361D9C9EBF004D5423 /* 图片.png in Resources */,
+				3F0385551D9CF527004D5423 /* DetailCityTableViewCell.xib in Resources */,
 				3FFF3AEA1D9BF82F0069B4A7 /* LeftWeatherDetailsView.xib in Resources */,
 				3FFF3A641D9B9FC80069B4A7 /* Assets.xcassets in Resources */,
 				3F03851D1D9C04B1004D5423 /* MenuTableViewCell.xib in Resources */,
@@ -499,6 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F0385581D9CF919004D5423 /* ForeignCitysViewController.m in Sources */,
 				3FFF3AA01D9BB9E00069B4A7 /* ViewController.m in Sources */,
 				3FFF3B021D9CB0320069B4A7 /* ThirddayWeatherView.m in Sources */,
 				3FFF3A991D9BB2230069B4A7 /* WeatherViewController.m in Sources */,
@@ -506,6 +526,7 @@
 				3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */,
 				3F0385331D9C1099004D5423 /* AddCitysCollectionViewCell.m in Sources */,
 				3F0385401D9CCFD4004D5423 /* HotCityViewController.m in Sources */,
+				3F0385541D9CF527004D5423 /* DetailCityTableViewCell.m in Sources */,
 				3FFF3AE71D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m in Sources */,
 				3F0385241D9C0533004D5423 /* RightMenViewController.m in Sources */,
 				3FFF3AF81D9CAE050069B4A7 /* TodayWeatherView.m in Sources */,
@@ -517,6 +538,7 @@
 				3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */,
 				3FFF3AFD1D9CAE9F0069B4A7 /* TomorrowWwatherView.m in Sources */,
 				3F03851C1D9C04B1004D5423 /* MenuTableViewCell.m in Sources */,
+				3F03854D1D9CF44D004D5423 /* DetailCityInfoViewController.m in Sources */,
 				3F0385231D9C0533004D5423 /* LeftMenuViewController.m in Sources */,
 				3FFF3B081D9CEEFC0069B4A7 /* LifeViewController.m in Sources */,
 				3FFF3AE91D9BF82F0069B4A7 /* LeftWeatherDetailsView.m in Sources */,
