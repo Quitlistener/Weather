@@ -12,40 +12,62 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="今天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaI-2g-xff">
-                    <frame key="frameInset" width="35" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYG-FJ-2eC">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="HJY-q3-mh9"/>
+                        <constraint firstAttribute="height" constant="21" id="L10-QV-DYI"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7S-9L-Ifv">
-                    <frame key="frameInset" minY="21" width="40" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ndy-pL-L2p">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="EoT-la-Z99"/>
+                        <constraint firstAttribute="height" constant="40" id="YgM-BB-saY"/>
+                    </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="天气" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="max-dp-Xx0">
-                    <frame key="frameInset" minX="5" minY="66" width="40" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天气" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gY1-A7-Iz8">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="6pS-PS-tZb"/>
+                        <constraint firstAttribute="width" constant="40" id="IOU-5G-a5Z"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="低温" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29K-16-80v">
-                    <frame key="frameInset" minX="50" minY="49" width="35" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="低温" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEE-u4-rxy">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="2qj-e5-ZBU"/>
+                        <constraint firstAttribute="width" constant="35" id="cBS-1V-Jk6"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="高温" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqh-wu-Z3C">
-                    <frame key="frameInset" minX="50" minY="26" width="35" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高温" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VC5-6d-4jP">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="7KR-Ct-oiV"/>
+                        <constraint firstAttribute="height" constant="21" id="ah6-wI-f8L"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="qYG-FJ-2eC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3Mo-8I-tox"/>
+                <constraint firstItem="JEE-u4-rxy" firstAttribute="top" secondItem="VC5-6d-4jP" secondAttribute="bottom" constant="2" id="MOg-m2-W70"/>
+                <constraint firstItem="VC5-6d-4jP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="O0m-My-9ID"/>
+                <constraint firstItem="JEE-u4-rxy" firstAttribute="leading" secondItem="ndy-pL-L2p" secondAttribute="trailing" constant="10" id="O16-zK-e2R"/>
+                <constraint firstItem="VC5-6d-4jP" firstAttribute="leading" secondItem="ndy-pL-L2p" secondAttribute="trailing" constant="10" id="QEd-b7-iaN"/>
+                <constraint firstItem="qYG-FJ-2eC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="VmN-HK-kTx"/>
+                <constraint firstItem="gY1-A7-Iz8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="npE-Xh-2Ll"/>
+                <constraint firstItem="ndy-pL-L2p" firstAttribute="top" secondItem="qYG-FJ-2eC" secondAttribute="bottom" id="qE0-BK-d1K"/>
+                <constraint firstItem="gY1-A7-Iz8" firstAttribute="top" secondItem="ndy-pL-L2p" secondAttribute="bottom" constant="5" id="yxJ-WN-aAb"/>
+                <constraint firstItem="ndy-pL-L2p" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="zwv-Fi-KtJ"/>
+            </constraints>
         </view>
     </objects>
 </document>

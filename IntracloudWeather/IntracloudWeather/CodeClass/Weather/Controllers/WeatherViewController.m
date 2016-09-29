@@ -15,6 +15,7 @@
 #import "TodayWeatherView.h"
 #import "TomorrowWwatherView.h"
 #import "ThirddayWeatherView.h"
+#import "NetWorkRequest.h"
 
 @interface WeatherViewController ()<UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -35,8 +36,9 @@
 
     
     [self initUI];
+    [self requestData];
 }
-
+#pragma mark -初始化UI
 -(void)initUI{
     _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_width, SCREENH_height-64 - 100)];
     //设置滚动条的滚动范围
@@ -79,6 +81,11 @@
     [self.view addSubview:_thirddayVeiw];
     
 
+}
+
+#pragma mark -网路请求
+-(void)requestData{
+//    [NetWorkRequest requestWithMethod:GET URL:<#(NSString *)#> para: success:<#^(NSData *data)suc#> error:<#^(NSError *error)failerror#>]
 }
 
 #pragma mark -scrollViewDelegate

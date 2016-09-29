@@ -43,6 +43,7 @@
 		3FFF3AFF1D9CAEB20069B4A7 /* TomorrowWwatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3AFE1D9CAEB20069B4A7 /* TomorrowWwatherView.xib */; };
 		3FFF3B021D9CB0320069B4A7 /* ThirddayWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3B011D9CB0320069B4A7 /* ThirddayWeatherView.m */; };
 		3FFF3B041D9CB0490069B4A7 /* ThirddayWeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3B031D9CB0490069B4A7 /* ThirddayWeatherView.xib */; };
+		3FFF3B081D9CEEFC0069B4A7 /* LifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3B071D9CEEFC0069B4A7 /* LifeViewController.m */; };
 		5C6FEAD38E4F42C9A70CE5F0 /* libPods-IntracloudWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,8 @@
 		3FFF3B001D9CB0320069B4A7 /* ThirddayWeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirddayWeatherView.h; path = Views/ThirddayWeatherView.h; sourceTree = "<group>"; };
 		3FFF3B011D9CB0320069B4A7 /* ThirddayWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirddayWeatherView.m; path = Views/ThirddayWeatherView.m; sourceTree = "<group>"; };
 		3FFF3B031D9CB0490069B4A7 /* ThirddayWeatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThirddayWeatherView.xib; path = Views/ThirddayWeatherView.xib; sourceTree = "<group>"; };
+		3FFF3B061D9CEEFC0069B4A7 /* LifeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeViewController.h; sourceTree = "<group>"; };
+		3FFF3B071D9CEEFC0069B4A7 /* LifeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeViewController.m; sourceTree = "<group>"; };
 		70DCDCC920066136E11B5CB8 /* Pods-IntracloudWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntracloudWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-IntracloudWeather/Pods-IntracloudWeather.release.xcconfig"; sourceTree = "<group>"; };
 		85A146919A3B73C8FCAFEE05 /* Pods-IntracloudWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntracloudWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IntracloudWeather/Pods-IntracloudWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IntracloudWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +239,7 @@
 		3FFF3A711D9BAA0A0069B4A7 /* CodeClass */ = {
 			isa = PBXGroup;
 			children = (
+				3FFF3B051D9CEE770069B4A7 /* Life */,
 				3F0385171D9C0487004D5423 /* Menu */,
 				3FFF3A751D9BABB60069B4A7 /* Weather */,
 			);
@@ -288,6 +292,15 @@
 			);
 			name = Views;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		3FFF3B051D9CEE770069B4A7 /* Life */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF3B061D9CEEFC0069B4A7 /* LifeViewController.h */,
+				3FFF3B071D9CEEFC0069B4A7 /* LifeViewController.m */,
+			);
+			path = Life;
 			sourceTree = "<group>";
 		};
 		E86A1C1B473E67554793E60C /* Pods */ = {
@@ -453,6 +466,7 @@
 				3FFF3AFD1D9CAE9F0069B4A7 /* TomorrowWwatherView.m in Sources */,
 				3F03851C1D9C04B1004D5423 /* MenuTableViewCell.m in Sources */,
 				3F0385231D9C0533004D5423 /* LeftMenuViewController.m in Sources */,
+				3FFF3B081D9CEEFC0069B4A7 /* LifeViewController.m in Sources */,
 				3FFF3AE91D9BF82F0069B4A7 /* LeftWeatherDetailsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
