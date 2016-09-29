@@ -18,6 +18,8 @@
 @property (nonatomic, strong) LeftWeatherDetailsView *left;
 @property (nonatomic, strong) RightWeatherDetailsView *right;
 @property (nonatomic, strong) CurrentWeatherDetailsView *current;
+@property (weak, nonatomic) IBOutlet UIButton *XYCity;
+
 @end
 
 @implementation WeatherViewController
@@ -25,16 +27,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    MMDrawerBarButtonItem *leftButton = [[MMDrawerBarButtonItem alloc]initWithTarget:self action:@selector(leftBarBtnClick)];
-    [self.navigationItem setLeftBarButtonItem:leftButton animated:YES];
 
     
     [self initUI];
 }
 
 -(void)initUI{
-    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 94, SCREEN_width, SCREENH_height-64 - 95)];
+    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_width, SCREENH_height-64 - 90)];
     //设置滚动条的滚动范围
     _scrollView.contentSize = CGSizeMake(SCREEN_width * 3, 0);
     _scrollView.contentOffset = CGPointMake(SCREEN_width, 0);
@@ -68,9 +67,20 @@
     
 }
 
--(void)leftBarBtnClick{
+#pragma mark -点击事件
+- (IBAction)tapAddCity:(id)sender {
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
+}
+
+- (IBAction)tapLeftMenu:(id)sender {
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
+
+- (IBAction)tapShare:(UIButton *)sender {
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
