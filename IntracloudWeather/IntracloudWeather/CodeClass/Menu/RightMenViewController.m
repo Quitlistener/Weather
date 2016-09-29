@@ -8,6 +8,7 @@
 
 #import "RightMenViewController.h"
 #import "AddCitysCollectionViewCell.h"
+#import "HotCityViewController.h"
 
 @interface RightMenViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -17,30 +18,53 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
-    flowLayout.itemSize = CGSizeMake(90, 90);
-    
-    UICollectionView *hotCityCollectionVew = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 279, SCREENH_height) collectionViewLayout:flowLayout];
-    hotCityCollectionVew.backgroundColor =  [UIColor whiteColor];
-    hotCityCollectionVew.delegate = self;
-    hotCityCollectionVew.dataSource = self;
-    [hotCityCollectionVew registerNib:[UINib nibWithNibName:@"AddCitysCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"hotCIty"];
-  
-    [self.view addSubview:hotCityCollectionVew];
+    [self initUI];
+   
     
     // Do any additional setup after loading the view.
 }
+-(void)initUI{
+    self.navigationItem.title = @"城市管理";
+    UIBarButtonItem *reloadItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reloadCitys)];
+    UIBarButtonItem *editItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editCitys)];
+    self.navigationItem.rightBarButtonItems = @[reloadItem,editItem];
+    
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+    flowLayout.itemSize = CGSizeMake(83, 93);
+    
+    UICollectionView *CityCollectionVew = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 279, SCREENH_height) collectionViewLayout:flowLayout];
+    CityCollectionVew.backgroundColor =  [UIColor whiteColor];
+    CityCollectionVew.delegate = self;
+    CityCollectionVew.dataSource = self;
+    [CityCollectionVew registerNib:[UINib nibWithNibName:@"AddCitysCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"City"];
+    
+    [self.view addSubview:CityCollectionVew];
+}
+//管理城市 删除操作
+-(void)editCitys{
+    
+}
+
+//刷新管理的城市数据
+-(void)reloadCitys{
+    
+}
+
+#pragma collection协议方法
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return 9;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    AddCitysCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"hotCIty" forIndexPath:indexPath];
+    AddCitysCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"City" forIndexPath:indexPath];
     return cell;
     
 }
-
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    HotCityViewController *HCVC = [HotCityViewController new];
+    [self.navigationController pushViewController:HCVC animated:YES];
+}
 
 
 - (void)didReceiveMemoryWarning {
