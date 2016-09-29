@@ -26,8 +26,10 @@
     RightMenViewController *right = [RightMenViewController new];
     UINavigationController *rightNav = [[UINavigationController alloc]initWithRootViewController:right];
     UINavigationController *cent = [[UINavigationController alloc]initWithRootViewController:weather];
+    UINavigationController *leftNav = [[UINavigationController alloc]initWithRootViewController:left];
     cent.navigationBarHidden = YES;
-    MMDrawerController *drawer = [[MMDrawerController alloc]initWithCenterViewController:cent leftDrawerViewController:left rightDrawerViewController:rightNav];
+    leftNav.navigationBarHidden = YES;
+    MMDrawerController *drawer = [[MMDrawerController alloc]initWithCenterViewController:cent leftDrawerViewController:leftNav rightDrawerViewController:rightNav];
     
     /** 手势 */
     [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];

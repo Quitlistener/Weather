@@ -10,6 +10,8 @@
 
 @interface LifeViewController ()
 
+@property (nonatomic, strong) UITableView *tableView;
+
 @end
 
 @implementation LifeViewController
@@ -17,6 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+-(void)initUI{
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_width, SCREENH_height)];
 }
 
 - (void)didReceiveMemoryWarning {
