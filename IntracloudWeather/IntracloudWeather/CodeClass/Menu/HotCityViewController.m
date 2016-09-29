@@ -7,6 +7,7 @@
 //
 
 #import "HotCityViewController.h"
+#import "MoreCitysViewController.h"
 
 @interface HotCityViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -77,14 +78,27 @@
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         //初始化头部视图
         UICollectionReusableView *heahView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"hotCity" forIndexPath:indexPath];
-        heahView.backgroundColor = [UIColor cyanColor];
+        UITextField *searchTextField = [[UITextField alloc]initWithFrame:CGRectMake(4, 8, 251, 34)];
+        searchTextField.backgroundColor = [UIColor whiteColor];
+        searchTextField.borderStyle = UITextBorderStyleRoundedRect;
+        searchTextField.clearButtonMode = UITextFieldViewModeAlways;
+        searchTextField.placeholder = @"搜索城市首字母拼音或全称🔍";
+        [heahView addSubview:searchTextField];
+        
+        UILabel *hotCityLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 47, 259, 21)];
+        hotCityLabel.text = @"热门城市";
+        hotCityLabel.textColor = [UIColor grayColor];
+        hotCityLabel.backgroundColor = [UIColor whiteColor];
+        [heahView addSubview:hotCityLabel];
+        
+        heahView.backgroundColor = [UIColor grayColor];
         return heahView;
     }
     else{
         //初始化头部视图
         UICollectionReusableView *footView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"hotCity" forIndexPath:indexPath];
         UIButton *moreCityBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        moreCityBtn.frame = CGRectMake(0, 5, 259, 40);
+        moreCityBtn.frame = CGRectMake(0, 8, 259, 34);
         moreCityBtn.backgroundColor = [UIColor whiteColor];
         [moreCityBtn setTitle:@"更多城市" forState:UIControlStateNormal];
         [moreCityBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -97,7 +111,8 @@
 }
 #pragma -mark 更多城市
 -(void)moreCity{
-    
+    MoreCitysViewController *MCVC = [MoreCitysViewController new];
+    [self.navigationController pushViewController:MCVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
