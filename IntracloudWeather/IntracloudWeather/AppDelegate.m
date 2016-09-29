@@ -24,13 +24,15 @@
     LeftMenuViewController *left = [LeftMenuViewController new];
     WeatherViewController *weather = [WeatherViewController new];
     RightMenViewController *right = [RightMenViewController new];
+    UINavigationController *rightNav = [[UINavigationController alloc]initWithRootViewController:right];
     UINavigationController *cent = [[UINavigationController alloc]initWithRootViewController:weather];
     cent.navigationBarHidden = YES;
-    MMDrawerController *drawer = [[MMDrawerController alloc]initWithCenterViewController:cent leftDrawerViewController:left rightDrawerViewController:right];
+    MMDrawerController *drawer = [[MMDrawerController alloc]initWithCenterViewController:cent leftDrawerViewController:left rightDrawerViewController:rightNav];
     
     /** 手势 */
     [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [drawer setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [drawer setMaximumRightDrawerWidth:279];
     [drawer setMaximumLeftDrawerWidth:150];
     self.window.rootViewController = drawer;
     [self.window makeKeyAndVisible];

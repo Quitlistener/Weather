@@ -9,9 +9,7 @@
 #import "RightMenViewController.h"
 #import "AddCitysCollectionViewCell.h"
 
-static NSString *ident = @"hotCIty";
-
-@interface RightMenViewController ()
+@interface RightMenViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @end
 
@@ -19,16 +17,29 @@ static NSString *ident = @"hotCIty";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
-    flowLayout.itemSize = CGSizeMake(120, 120);
     
-    UICollectionView *hotCityCollectionVew = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 300, 400) collectionViewLayout:flowLayout];
-    [hotCityCollectionVew registerNib:[UINib nibWithNibName:@"AddCitysCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:ident];
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+    flowLayout.itemSize = CGSizeMake(90, 90);
+    
+    UICollectionView *hotCityCollectionVew = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 279, SCREENH_height) collectionViewLayout:flowLayout];
+    hotCityCollectionVew.backgroundColor =  [UIColor whiteColor];
+    hotCityCollectionVew.delegate = self;
+    hotCityCollectionVew.dataSource = self;
+    [hotCityCollectionVew registerNib:[UINib nibWithNibName:@"AddCitysCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"hotCIty"];
+  
     [self.view addSubview:hotCityCollectionVew];
     
     // Do any additional setup after loading the view.
 }
-
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 9;
+}
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    AddCitysCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"hotCIty" forIndexPath:indexPath];
+    return cell;
+    
+}
 
 
 
