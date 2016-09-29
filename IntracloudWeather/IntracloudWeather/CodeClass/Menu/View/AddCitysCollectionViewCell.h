@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface AddCitysCollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *XYConditionImageView;
+@property (weak, nonatomic) IBOutlet UILabel *XYTopTempLabel;
+@property (weak, nonatomic) IBOutlet UILabel *XYDownTempLabel;
+@property (weak, nonatomic) IBOutlet UILabel *XYWeatherConLabel;
+@property (weak, nonatomic) IBOutlet UILabel *XYCityLabel;
 
 @end
