@@ -54,6 +54,7 @@
     [_scrollView addSubview:_right];
     [_scrollView addSubview:_current];
     [self.view addSubview:_scrollView];
+    [_XYCity setImage:[UIImage imageNamed:@"加号16.png"] forState:UIControlStateNormal];
 
 }
 

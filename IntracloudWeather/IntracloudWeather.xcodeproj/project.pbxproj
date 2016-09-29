@@ -35,6 +35,7 @@
 		3FFF3AEA1D9BF82F0069B4A7 /* LeftWeatherDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3AE31D9BF82F0069B4A7 /* LeftWeatherDetailsView.xib */; };
 		3FFF3AEB1D9BF82F0069B4A7 /* RightWeatherDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3AE51D9BF82F0069B4A7 /* RightWeatherDetailsView.m */; };
 		3FFF3AEC1D9BF82F0069B4A7 /* RightWeatherDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3AE61D9BF82F0069B4A7 /* RightWeatherDetailsView.xib */; };
+		3FFF3AF51D9CAB050069B4A7 /* 加号16.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3AF41D9CAB050069B4A7 /* 加号16.png */; };
 		5C6FEAD38E4F42C9A70CE5F0 /* libPods-IntracloudWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		3FFF3AE41D9BF82F0069B4A7 /* RightWeatherDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RightWeatherDetailsView.h; path = Views/RightWeatherDetailsView.h; sourceTree = "<group>"; };
 		3FFF3AE51D9BF82F0069B4A7 /* RightWeatherDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RightWeatherDetailsView.m; path = Views/RightWeatherDetailsView.m; sourceTree = "<group>"; };
 		3FFF3AE61D9BF82F0069B4A7 /* RightWeatherDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RightWeatherDetailsView.xib; path = Views/RightWeatherDetailsView.xib; sourceTree = "<group>"; };
+		3FFF3AF41D9CAB050069B4A7 /* 加号16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加号16.png"; sourceTree = "<group>"; };
 		70DCDCC920066136E11B5CB8 /* Pods-IntracloudWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntracloudWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-IntracloudWeather/Pods-IntracloudWeather.release.xcconfig"; sourceTree = "<group>"; };
 		85A146919A3B73C8FCAFEE05 /* Pods-IntracloudWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntracloudWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IntracloudWeather/Pods-IntracloudWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IntracloudWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,7 @@
 		3F0385251D9C07A3004D5423 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				3FFF3AF41D9CAB050069B4A7 /* 加号16.png */,
 				3F0385371D9CA6AC004D5423 /* 加号.png */,
 				3F0385351D9C9EBF004D5423 /* 图片.png */,
 				3F0385261D9C07DF004D5423 /* 趋势.png */,
@@ -331,6 +334,7 @@
 				3F0385381D9CA6AC004D5423 /* 加号.png in Resources */,
 				3F03852F1D9C07DF004D5423 /* 天气.png in Resources */,
 				3FFF3AEC1D9BF82F0069B4A7 /* RightWeatherDetailsView.xib in Resources */,
+				3FFF3AF51D9CAB050069B4A7 /* 加号16.png in Resources */,
 				3F03852B1D9C07DF004D5423 /* 趋势.png in Resources */,
 				3F0385341D9C1099004D5423 /* AddCitysCollectionViewCell.xib in Resources */,
 				3FFF3A671D9B9FC80069B4A7 /* LaunchScreen.storyboard in Resources */,
