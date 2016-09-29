@@ -10,6 +10,7 @@
 #import "MenuTableViewCell.h"
 #import "LifeViewController.h"
 #import "UIViewController+MMDrawerController.h"
+#import "WeatherViewController.h"
 
 @interface LeftMenuViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -21,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+ 
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     [self getData];
@@ -59,11 +61,25 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-   
+    if (indexPath.row == 0) {
+        WeatherViewController *WVC = [WeatherViewController new];
+//        UINavigationController *WNav = [[UINavigationController alloc]initWithRootViewController:WVC];
+        [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
+    }
+    if (indexPath.row == 1) {
+//        LifeViewController *LVVC = [LifeViewController new];
+//        UINavigationController *LVNav = [[UINavigationController alloc]initWithRootViewController:LVVC];
+//        [self.mm_drawerController setCenterViewController:LVNav withCloseAnimation:YES completion:nil];
+    }
     if (indexPath.row == 2) {
         LifeViewController *LVVC = [LifeViewController new];
         UINavigationController *LVNav = [[UINavigationController alloc]initWithRootViewController:LVVC];
          [self.mm_drawerController setCenterViewController:LVNav withCloseAnimation:YES completion:nil];
+    }
+    if (indexPath.row == 3) {
+//        LifeViewController *LVVC = [LifeViewController new];
+//        UINavigationController *LVNav = [[UINavigationController alloc]initWithRootViewController:LVVC];
+//        [self.mm_drawerController setCenterViewController:LVNav withCloseAnimation:YES completion:nil];
     }
 }
 
