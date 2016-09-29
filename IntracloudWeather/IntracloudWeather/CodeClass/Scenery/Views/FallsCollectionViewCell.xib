@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FallsCell" id="gTV-IL-0wX" customClass="FallsCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="153" height="110"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="153" height="110"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x92-CG-wvS"/>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="x92-CG-wvS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="FKl-4e-UCT"/>
+                <constraint firstItem="x92-CG-wvS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="VoK-IC-TVN"/>
+                <constraint firstAttribute="trailing" secondItem="x92-CG-wvS" secondAttribute="trailing" id="ZFy-pP-cmT"/>
+                <constraint firstAttribute="bottom" secondItem="x92-CG-wvS" secondAttribute="bottom" id="jUX-2q-YlH"/>
+            </constraints>
+            <size key="customSize" width="153" height="110"/>
+            <point key="canvasLocation" x="-101" y="22"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -84,15 +84,20 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     _itemView = [[NSBundle mainBundle]loadNibNamed:@"ItemView" owner:nil options:nil][0];
-    if (indexPath.row % 2 != 0) {
-        _itemView.frame = CGRectMake(10, 10, (SCREEN_width-30)/2, 200);
+    if (indexPath.row % 2 == 0) {
+        _itemView.frame = CGRectMake(10, 74, (SCREEN_width-30)/2, 200);
     }
     else{
-        _itemView.frame = CGRectMake((SCREEN_width-30)/2+10, 10, (SCREEN_width-30)/2, 200);
+        _itemView.frame = CGRectMake((SCREEN_width-30)/2+20, 74, (SCREEN_width-30)/2, 200);
     }
     [self.view addSubview:_itemView];
+    
 }
 
+/** 点击view触发的方法 */
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    NSLog(@"点击了view");
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
