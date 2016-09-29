@@ -20,6 +20,9 @@
     [super viewDidLoad];
     [self initUI];
    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    self.navigationItem.backBarButtonItem = backItem;
+    backItem.title = @"返回";
     
     // Do any additional setup after loading the view.
 }
