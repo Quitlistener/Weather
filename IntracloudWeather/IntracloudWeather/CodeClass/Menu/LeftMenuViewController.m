@@ -9,6 +9,7 @@
 #import "LeftMenuViewController.h"
 #import "MenuTableViewCell.h"
 #import "LifeViewController.h"
+#import "UIViewController+MMDrawerController.h"
 
 @interface LeftMenuViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -20,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     [self getData];
     [self initUI];
@@ -34,14 +36,13 @@
 }
 //
 -(void)initUI{
-    
+  
     UITableView *XYMenuTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, SCREENH_height) style:UITableViewStylePlain];
     XYMenuTableView.rowHeight = 40;
     [XYMenuTableView registerNib:[UINib nibWithNibName:@"MenuTableViewCell" bundle:nil] forCellReuseIdentifier:@"menu"];
     XYMenuTableView.delegate = self;
     XYMenuTableView.dataSource = self;
     XYMenuTableView.tableFooterView = [UIView new];
-    
     UIView *myView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 150, 90)];
     myView.backgroundColor = [UIColor cyanColor];
     XYMenuTableView.tableHeaderView = myView;
@@ -58,9 +59,11 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+   
     if (indexPath.row == 2) {
         LifeViewController *LVVC = [LifeViewController new];
-        [self.navigationController pushViewController:LVVC animated:YES];
+        UINavigationController *LVNav = [[UINavigationController alloc]initWithRootViewController:LVVC];
+         [self.mm_drawerController setCenterViewController:LVNav withCloseAnimation:YES completion:nil];
     }
 }
 
