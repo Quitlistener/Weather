@@ -40,6 +40,8 @@
 		3FFF3AFA1D9CAE140069B4A7 /* TodayWeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3AF91D9CAE140069B4A7 /* TodayWeatherView.xib */; };
 		3FFF3AFD1D9CAE9F0069B4A7 /* TomorrowWwatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3AFC1D9CAE9F0069B4A7 /* TomorrowWwatherView.m */; };
 		3FFF3AFF1D9CAEB20069B4A7 /* TomorrowWwatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3AFE1D9CAEB20069B4A7 /* TomorrowWwatherView.xib */; };
+		3FFF3B021D9CB0320069B4A7 /* ThirddayWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3B011D9CB0320069B4A7 /* ThirddayWeatherView.m */; };
+		3FFF3B041D9CB0490069B4A7 /* ThirddayWeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3B031D9CB0490069B4A7 /* ThirddayWeatherView.xib */; };
 		5C6FEAD38E4F42C9A70CE5F0 /* libPods-IntracloudWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +97,9 @@
 		3FFF3AFB1D9CAE9F0069B4A7 /* TomorrowWwatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TomorrowWwatherView.h; path = Views/TomorrowWwatherView.h; sourceTree = "<group>"; };
 		3FFF3AFC1D9CAE9F0069B4A7 /* TomorrowWwatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TomorrowWwatherView.m; path = Views/TomorrowWwatherView.m; sourceTree = "<group>"; };
 		3FFF3AFE1D9CAEB20069B4A7 /* TomorrowWwatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TomorrowWwatherView.xib; path = Views/TomorrowWwatherView.xib; sourceTree = "<group>"; };
+		3FFF3B001D9CB0320069B4A7 /* ThirddayWeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirddayWeatherView.h; path = Views/ThirddayWeatherView.h; sourceTree = "<group>"; };
+		3FFF3B011D9CB0320069B4A7 /* ThirddayWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirddayWeatherView.m; path = Views/ThirddayWeatherView.m; sourceTree = "<group>"; };
+		3FFF3B031D9CB0490069B4A7 /* ThirddayWeatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThirddayWeatherView.xib; path = Views/ThirddayWeatherView.xib; sourceTree = "<group>"; };
 		70DCDCC920066136E11B5CB8 /* Pods-IntracloudWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntracloudWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-IntracloudWeather/Pods-IntracloudWeather.release.xcconfig"; sourceTree = "<group>"; };
 		85A146919A3B73C8FCAFEE05 /* Pods-IntracloudWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntracloudWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IntracloudWeather/Pods-IntracloudWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IntracloudWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +277,9 @@
 				3FFF3AFB1D9CAE9F0069B4A7 /* TomorrowWwatherView.h */,
 				3FFF3AFC1D9CAE9F0069B4A7 /* TomorrowWwatherView.m */,
 				3FFF3AFE1D9CAEB20069B4A7 /* TomorrowWwatherView.xib */,
+				3FFF3B001D9CB0320069B4A7 /* ThirddayWeatherView.h */,
+				3FFF3B011D9CB0320069B4A7 /* ThirddayWeatherView.m */,
+				3FFF3B031D9CB0490069B4A7 /* ThirddayWeatherView.xib */,
 			);
 			name = Views;
 			path = ..;
@@ -351,6 +359,7 @@
 				3F03852F1D9C07DF004D5423 /* 天气.png in Resources */,
 				3FFF3AEC1D9BF82F0069B4A7 /* RightWeatherDetailsView.xib in Resources */,
 				3FFF3AF51D9CAB050069B4A7 /* 加号16.png in Resources */,
+				3FFF3B041D9CB0490069B4A7 /* ThirddayWeatherView.xib in Resources */,
 				3F03852B1D9C07DF004D5423 /* 趋势.png in Resources */,
 				3F0385341D9C1099004D5423 /* AddCitysCollectionViewCell.xib in Resources */,
 				3FFF3A671D9B9FC80069B4A7 /* LaunchScreen.storyboard in Resources */,
@@ -425,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FFF3AA01D9BB9E00069B4A7 /* ViewController.m in Sources */,
+				3FFF3B021D9CB0320069B4A7 /* ThirddayWeatherView.m in Sources */,
 				3FFF3A991D9BB2230069B4A7 /* WeatherViewController.m in Sources */,
 				3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */,
 				3F0385331D9C1099004D5423 /* AddCitysCollectionViewCell.m in Sources */,

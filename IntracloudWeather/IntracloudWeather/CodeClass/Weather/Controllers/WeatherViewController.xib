@@ -17,17 +17,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elt-Zu-stv">
-                    <frame key="frameInset" minX="273" minY="26" width="31" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="分享"/>
-                    <connections>
-                        <action selector="tapShare:" destination="-1" eventType="touchUpInside" id="cMk-GI-FVG"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7L-Yv-ejy">
-                    <frame key="frameInset" minX="16" minY="26" width="46" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="加号.png" translatesAutoresizingMaskIntoConstraints="NO" id="A0L-ft-Xfm"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7L-Yv-ejy">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="3Z7-ZP-Fmn"/>
+                        <constraint firstAttribute="height" constant="30" id="ESu-Ls-MiW"/>
+                    </constraints>
                     <state key="normal" title="左菜单"/>
                     <connections>
                         <action selector="tapLeftMenu:" destination="-1" eventType="touchUpInside" id="4Gw-3C-15R"/>
@@ -39,26 +34,43 @@
                         <constraint firstAttribute="height" constant="1" id="iDB-YI-kHX"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RiL-5W-xcH">
-                    <frame key="frameInset" minX="110" minY="26" width="100" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RiL-5W-xcH">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="G4s-Cc-GAP"/>
+                        <constraint firstAttribute="height" constant="30" id="s6y-Pp-t18"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                     <state key="normal" title="城市"/>
                     <connections>
                         <action selector="tapAddCity:" destination="-1" eventType="touchUpInside" id="bOw-vB-Pmt"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="加号.png" translatesAutoresizingMaskIntoConstraints="NO" id="A0L-ft-Xfm"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elt-Zu-stv">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="M4o-oo-UVS"/>
+                        <constraint firstAttribute="height" constant="30" id="tK4-se-v2j"/>
+                    </constraints>
+                    <state key="normal" title="分享"/>
+                    <connections>
+                        <action selector="tapShare:" destination="-1" eventType="touchUpInside" id="cMk-GI-FVG"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="A0L-ft-Xfm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3Aa-G9-ZDP"/>
+                <constraint firstItem="RiL-5W-xcH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="4k0-CB-cCL"/>
                 <constraint firstItem="A0L-ft-Xfm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BeR-Yd-V5k"/>
                 <constraint firstItem="dtj-Cg-zIB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="D7T-Xx-hrN"/>
                 <constraint firstAttribute="trailing" secondItem="A0L-ft-Xfm" secondAttribute="trailing" id="Jbx-MB-ee2"/>
+                <constraint firstItem="elt-Zu-stv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="LBW-z2-eWO"/>
                 <constraint firstAttribute="bottom" secondItem="A0L-ft-Xfm" secondAttribute="bottom" id="R01-yT-bkN"/>
+                <constraint firstItem="G7L-Yv-ejy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Wdy-ex-54g"/>
+                <constraint firstItem="G7L-Yv-ejy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="Wj5-vg-y0c"/>
                 <constraint firstAttribute="trailing" secondItem="dtj-Cg-zIB" secondAttribute="trailing" constant="25" id="csr-lR-Dzc"/>
-                <constraint firstAttribute="bottom" secondItem="dtj-Cg-zIB" secondAttribute="bottom" constant="90" id="why-SV-qAg"/>
+                <constraint firstItem="RiL-5W-xcH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oGJ-b5-hG5"/>
+                <constraint firstAttribute="bottom" secondItem="dtj-Cg-zIB" secondAttribute="bottom" constant="100" id="why-SV-qAg"/>
+                <constraint firstAttribute="trailing" secondItem="elt-Zu-stv" secondAttribute="trailing" constant="20" id="xQ0-2k-7qy"/>
             </constraints>
         </view>
     </objects>
