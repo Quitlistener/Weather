@@ -44,7 +44,7 @@
     [self.view addSubview:hotCityCollectionVew];
 }
 
-#pragma collection协议方法
+#pragma -mark collection协议方法
 //cell数目
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return 20;
@@ -83,15 +83,23 @@
     else{
         //初始化头部视图
         UICollectionReusableView *footView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"hotCity" forIndexPath:indexPath];
-        
         UIButton *moreCityBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         moreCityBtn.frame = CGRectMake(0, 5, 259, 40);
+        moreCityBtn.backgroundColor = [UIColor whiteColor];
         [moreCityBtn setTitle:@"更多城市" forState:UIControlStateNormal];
-        footView.backgroundColor = [UIColor cyanColor];
+        [moreCityBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [moreCityBtn addTarget:self action:@selector(moreCity) forControlEvents:UIControlEventTouchUpInside];
+        [footView addSubview:moreCityBtn];
+        footView.backgroundColor = [UIColor grayColor];
         return footView;
     }
     
 }
+#pragma -mark 更多城市
+-(void)moreCity{
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

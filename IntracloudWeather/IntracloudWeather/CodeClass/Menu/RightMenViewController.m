@@ -50,7 +50,7 @@
     
 }
 
-#pragma collection协议方法
+#pragma -mark collection协议方法
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return 9;

@@ -21,6 +21,7 @@
 		3F0385341D9C1099004D5423 /* AddCitysCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385321D9C1099004D5423 /* AddCitysCollectionViewCell.xib */; };
 		3F0385361D9C9EBF004D5423 /* 图片.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385351D9C9EBF004D5423 /* 图片.png */; };
 		3F0385381D9CA6AC004D5423 /* 加号.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385371D9CA6AC004D5423 /* 加号.png */; };
+		3F0385401D9CCFD4004D5423 /* HotCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F03853F1D9CCFD4004D5423 /* HotCityViewController.m */; };
 		3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A581D9B9FC80069B4A7 /* main.m */; };
 		3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A5B1D9B9FC80069B4A7 /* AppDelegate.m */; };
 		3FFF3A621D9B9FC80069B4A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3A601D9B9FC80069B4A7 /* Main.storyboard */; };
@@ -66,6 +67,8 @@
 		3F0385321D9C1099004D5423 /* AddCitysCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCitysCollectionViewCell.xib; sourceTree = "<group>"; };
 		3F0385351D9C9EBF004D5423 /* 图片.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片.png"; sourceTree = "<group>"; };
 		3F0385371D9CA6AC004D5423 /* 加号.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加号.png"; sourceTree = "<group>"; };
+		3F03853E1D9CCFD4004D5423 /* HotCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCityViewController.h; sourceTree = "<group>"; };
+		3F03853F1D9CCFD4004D5423 /* HotCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCityViewController.m; sourceTree = "<group>"; };
 		3FFF3A541D9B9FC80069B4A7 /* IntracloudWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntracloudWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFF3A581D9B9FC80069B4A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FFF3A5A1D9B9FC80069B4A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -154,6 +157,8 @@
 				3F0385201D9C0533004D5423 /* LeftMenuViewController.m */,
 				3F0385211D9C0533004D5423 /* RightMenViewController.h */,
 				3F0385221D9C0533004D5423 /* RightMenViewController.m */,
+				3F03853E1D9CCFD4004D5423 /* HotCityViewController.h */,
+				3F03853F1D9CCFD4004D5423 /* HotCityViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 				3FFF3A991D9BB2230069B4A7 /* WeatherViewController.m in Sources */,
 				3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */,
 				3F0385331D9C1099004D5423 /* AddCitysCollectionViewCell.m in Sources */,
+				3F0385401D9CCFD4004D5423 /* HotCityViewController.m in Sources */,
 				3FFF3AE71D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m in Sources */,
 				3F0385241D9C0533004D5423 /* RightMenViewController.m in Sources */,
 				3FFF3AF81D9CAE050069B4A7 /* TodayWeatherView.m in Sources */,
