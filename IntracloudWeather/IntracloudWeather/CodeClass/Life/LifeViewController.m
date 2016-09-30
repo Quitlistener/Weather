@@ -14,6 +14,7 @@
 #import "NetWorkRequest.h"
 
 
+
 @interface LifeViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) ItemView *itemView;
 @property (nonatomic, strong) NewsBaseClass *XYBase;
 @property (nonatomic, strong) NSMutableArray *muArr;
+@property (nonatomic, assign) NSInteger urlIndex;
 @end
 
 @implementation LifeViewController
@@ -28,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.muArr = [NSMutableArray array];
     [self initUI];
     [self requestData];
 }
@@ -55,9 +59,23 @@
     _collectionView.dataSource = self;
     _tableView.tableHeaderView = _collectionView;
     [self.view addSubview:_tableView];
+    
+    /** 上拉加载更多 */
+    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        self.urlIndex += 21;
+        [self requestMoreData];
+    }];
+    
+    /** 下拉刷新 */
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        //进入刷新状态后会自动调用block
+        [self.muArr removeAllObjects];
+        [self requestData];
+    }];
 }
 
 #pragma mark -网络请求
+/** 第一次请求(下来刷新) */
 -(void)requestData{
     [NetWorkRequest requestWithMethod:GET URL:@"http://c.m.163.com/nc/article/local/5bm%2F5bee/0-20.html" para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -72,6 +90,35 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
             [self.collectionView reloadData];
+            [_tableView.mj_header endRefreshing];
+        });
+    } error:^(NSError *error) {
+        
+    }];
+}
+
+/** 上拉加载更多 */
+-(void)requestMoreData{
+    NSString *str1 = @"http://c.m.163.com/nc/article/local/5bm%2F5bee/";
+    NSString *str2 = [NSString stringWithFormat:@"%ld",(long)_urlIndex];
+    NSString *str3 = [str1 stringByAppendingString:str2];
+    NSString *url = [str3 stringByAppendingString:@"-20.html"];
+    [NetWorkRequest requestWithMethod:GET URL:url para:nil success:^(NSData *data) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        _XYBase = [[NewsBaseClass alloc]initWithDictionary:dic];
+        NSMutableArray *loadArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
+        /** 删除数组中的NewsInternalBaseClass1对象含有imgextra数组的对象 */
+        for (int i = 0 ; i < _XYBase.myProperty1.count; i++) {
+            if ([_XYBase.myProperty1[i] imgextra].count > 0) {
+                [loadArr removeObject:_XYBase.myProperty1[i]];
+            }
+        }
+        for (id obj in loadArr) {
+            [_muArr addObject:obj];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_tableView reloadData];
+            [_tableView.mj_footer endRefreshing];
         });
     } error:^(NSError *error) {
         
@@ -88,6 +135,10 @@
         LifeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"lifeCell" forIndexPath:indexPath];
         cell.newsLive = newsModel;
         return cell;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return @"本地新闻";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

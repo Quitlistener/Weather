@@ -13,6 +13,7 @@
 #import "NetWorkRequest.h"
 #import "NewsDataModels.h"
 #import "UIImageView+WebCache.h"
+#import "MJRefresh.h"
 
 
 

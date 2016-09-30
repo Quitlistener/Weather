@@ -45,6 +45,7 @@
 		3FD3F83C1D9DED0400736C0B /* NewsLiveInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8361D9DED0400736C0B /* NewsLiveInfo.m */; };
 		3FD3F83D1D9DED0400736C0B /* NewsWapPortalV2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8381D9DED0400736C0B /* NewsWapPortalV2.m */; };
 		3FD3F8441D9E238E00736C0B /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3F8431D9E238E00736C0B /* style.css */; };
+		3FD3F8471D9E4E9200736C0B /* ChangeVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8461D9E4E9200736C0B /* ChangeVoiceViewController.m */; };
 		3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A581D9B9FC80069B4A7 /* main.m */; };
 		3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A5B1D9B9FC80069B4A7 /* AppDelegate.m */; };
 		3FFF3A621D9B9FC80069B4A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3A601D9B9FC80069B4A7 /* Main.storyboard */; };
@@ -142,6 +143,8 @@
 		3FD3F8371D9DED0400736C0B /* NewsWapPortalV2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWapPortalV2.h; sourceTree = "<group>"; };
 		3FD3F8381D9DED0400736C0B /* NewsWapPortalV2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsWapPortalV2.m; sourceTree = "<group>"; };
 		3FD3F8431D9E238E00736C0B /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		3FD3F8451D9E4E9200736C0B /* ChangeVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeVoiceViewController.h; sourceTree = "<group>"; };
+		3FD3F8461D9E4E9200736C0B /* ChangeVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeVoiceViewController.m; sourceTree = "<group>"; };
 		3FFF3A541D9B9FC80069B4A7 /* IntracloudWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntracloudWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFF3A581D9B9FC80069B4A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FFF3A5A1D9B9FC80069B4A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -325,6 +328,8 @@
 			children = (
 				3FD3F8241D9D49DD00736C0B /* SettingViewController.h */,
 				3FD3F8251D9D49DD00736C0B /* SettingViewController.m */,
+				3FD3F8451D9E4E9200736C0B /* ChangeVoiceViewController.h */,
+				3FD3F8461D9E4E9200736C0B /* ChangeVoiceViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -711,6 +716,7 @@
 				3FD3F83D1D9DED0400736C0B /* NewsWapPortalV2.m in Sources */,
 				3FFF3AF81D9CAE050069B4A7 /* TodayWeatherView.m in Sources */,
 				3FFF3AEB1D9BF82F0069B4A7 /* RightWeatherDetailsView.m in Sources */,
+				3FD3F8471D9E4E9200736C0B /* ChangeVoiceViewController.m in Sources */,
 				3FBEB69E1D9E36510092E47F /* CityInfoBaseClass.m in Sources */,
 				3F0385431D9CE8FF004D5423 /* MoreCitysViewController.m in Sources */,
 				3FD3F82A1D9D504F00736C0B /* XYtodayCollectionViewCell.m in Sources */,

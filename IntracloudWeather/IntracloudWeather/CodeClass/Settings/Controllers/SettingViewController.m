@@ -7,6 +7,7 @@
 //
 
 #import "SettingViewController.h"
+#import "ChangeVoiceViewController.h"
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -48,7 +49,16 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (indexPath.row == 0) {
+        ChangeVoiceViewController *changeVc = [ChangeVoiceViewController new];
+        [self.navigationController pushViewController:changeVc animated:YES];
+    }
+    else if (indexPath.row == 1){
+        
+    }
+    else{
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {
