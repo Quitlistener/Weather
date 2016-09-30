@@ -21,6 +21,7 @@
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     self.navigationItem.backBarButtonItem = backItem;
     backItem.title = @"返回";
+    
     [self initUI];
     // Do any additional setup after loading the view.
 }
@@ -36,7 +37,7 @@
     searchTextField.backgroundColor = [UIColor whiteColor];
     searchTextField.borderStyle = UITextBorderStyleRoundedRect;
     searchTextField.clearButtonMode = UITextFieldViewModeAlways;
-    searchTextField.placeholder = @"搜索城市首字母拼音或全称🔍";
+    searchTextField.placeholder = @"搜索支持城市英文全称🔍";
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 279, 50)];
     [headerView addSubview:searchTextField];
     XYMoretableView.tableHeaderView = headerView;
@@ -49,8 +50,6 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-        DetailCityInfoViewController *DCIVC = [DetailCityInfoViewController new];
-        [self.navigationController pushViewController:DCIVC animated:YES];
    
 }
 

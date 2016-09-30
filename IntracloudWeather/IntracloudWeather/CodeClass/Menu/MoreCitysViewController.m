@@ -13,6 +13,10 @@
 
 @interface MoreCitysViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+{
+    NSMutableArray *_dataArr;
+}
+
 @end
 
 @implementation MoreCitysViewController
@@ -22,9 +26,17 @@
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     self.navigationItem.backBarButtonItem = backItem;
     backItem.title = @"返回";
+    [self loadData];
     [self initUI];
     // Do any additional setup after loading the view.
 }
+-(void)loadData{
+    _dataArr = [NSMutableArray arrayWithObjects:@"上海",@"云南",@"内蒙古",@"北京",@"台湾",@"吉林",@"四川",@"天津",@"宁夏",@"安徽",@"山东",@"山西",@"广东",@"广西",@"新疆",@"江苏",@"江西",@"河北",@"河南",@"浙江",@"海南",@"湖北",@"湖南",@"澳门",@"甘肃",@"福建",@"西藏",@"贵州",@"辽宁",@"重庆",@"陕西",@"青海",@"香港",@"黑龙江", nil];
+//    NSString *filename=[NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/cityData.plist"];
+//    NSDictionary* dic2 = [NSDictionary dictionaryWithContentsOfFile:filename];
+//    _dataArr = dic2[@"Root"];
+}
+
 -(void)initUI{
     
     UITableView *XYMoretableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 279, SCREENH_height) style:UITableViewStylePlain];
@@ -51,6 +63,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row != 0) {
         DetailCityInfoViewController *DCIVC = [DetailCityInfoViewController new];
+        DCIVC.cityName = _dataArr[indexPath.row - 1];
         [self.navigationController pushViewController:DCIVC animated:YES];
     }
     else{
@@ -60,12 +73,17 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 15;
+    return _dataArr.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     MoreCityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"More" forIndexPath:indexPath];
-   
+    if (indexPath.row == 0) {
+        cell.XYCityNameLabel.text = @"国际国外";
+    }
+    else{
+        cell.XYCityNameLabel.text = _dataArr[indexPath.row - 1];
+    }
     return cell;
     
 }

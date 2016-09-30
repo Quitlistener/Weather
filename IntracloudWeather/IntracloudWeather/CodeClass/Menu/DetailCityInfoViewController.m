@@ -8,9 +8,12 @@
 
 #import "DetailCityInfoViewController.h"
 #import "DetailCityTableViewCell.h"
+#import "CityInfoDataModels.h"
 
 @interface DetailCityInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
-
+{
+    NSMutableArray *_cityInfoArr;
+}
 @end
 
 @implementation DetailCityInfoViewController
@@ -20,8 +23,26 @@
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     self.navigationItem.backBarButtonItem = backItem;
     backItem.title = @"返回";
+    [self loadData];
     [self initUI];
     // Do any additional setup after loading the view.
+}
+-(void)loadData{
+    
+//    NSString *filename=[NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/allchina.plist"];
+    NSString *filename = [[NSBundle mainBundle] pathForResource:@"allchina" ofType:@"plist"];
+    NSDictionary* dic2 = [NSDictionary dictionaryWithContentsOfFile:filename];
+    CityInfoBaseClass *Models = [CityInfoBaseClass  modelObjectWithDictionary:dic2];
+    _cityInfoArr = [NSMutableArray array];
+    NSLog(@"%@",filename);
+    NSArray *arr = Models.cityInfo;
+    for (CityInfoCityInfo *city in arr) {
+        if ([city.prov isEqualToString:_cityName]) {
+            [_cityInfoArr addObject:city];
+        }
+    }
+    NSLog(@"1____%ld",_cityInfoArr.count);
+    
 }
 -(void)initUI{
     
@@ -46,12 +67,14 @@
 
 #pragma -mark tableView协议方法
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 15;
+    return _cityInfoArr.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     DetailCityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Detail" forIndexPath:indexPath];
-    
+    CityInfoCityInfo *city = _cityInfoArr[indexPath.row];
+    NSString *str = city.city;
+    cell.XYCityNameLabel.text = str;
     return cell;
     
 }

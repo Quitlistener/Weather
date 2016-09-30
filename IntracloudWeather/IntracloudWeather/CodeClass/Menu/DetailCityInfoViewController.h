@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailCityInfoViewController : UIViewController
-
+@property(nonatomic,strong)NSString *cityName;
 @end
