@@ -23,10 +23,10 @@
 }
 
 -(void)initUI{
-    self.newsWebiew = [[WKWebView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_width, SCREENH_height-64)];
+    self.newsWebiew = [[WKWebView alloc]initWithFrame:CGRectMake(0, -44, SCREEN_width, SCREENH_height+44)];
+    [self.newsWebiew loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_URLstr]]];
     [self.view addSubview:_newsWebiew];
 }
-
 
 
 - (void)didReceiveMemoryWarning {
