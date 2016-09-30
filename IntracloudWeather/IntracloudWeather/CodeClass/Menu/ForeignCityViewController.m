@@ -1,22 +1,22 @@
 //
-//  MoreCitysViewController.m
+//  DetailCityInfoViewController.m
 //  IntracloudWeather
 //
 //  Created by lanou on 2016/9/29.
 //  Copyright © 2016年 guangjia. All rights reserved.
 //
 
-#import "ForeignCitysViewController.h"
-#import "MoreCityTableViewCell.h"
 #import "ForeignCityViewController.h"
+#import "DetailCityTableViewCell.h"
+#import "CityInfoDataModels.h"
 
-@interface ForeignCitysViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ForeignCityViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
-    NSMutableArray *_dataArr;
+    NSMutableArray *_cityInfoArr;
 }
 @end
 
-@implementation ForeignCitysViewController
+@implementation ForeignCityViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,16 +29,25 @@
 }
 -(void)loadData{
     
-    NSString *filename = [[NSBundle mainBundle] pathForResource:@"country" ofType:@"plist"];
+//    NSString *filename=[NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/allchina.plist"];
+    NSString *filename = [[NSBundle mainBundle] pathForResource:@"mainCity" ofType:@"plist"];
     NSDictionary* dic2 = [NSDictionary dictionaryWithContentsOfFile:filename];
-    _dataArr = [NSMutableArray array];
-    [_dataArr addObjectsFromArray:dic2[@"countrys"]];
+    CityInfoBaseClass *Models = [CityInfoBaseClass  modelObjectWithDictionary:dic2];
+    _cityInfoArr = [NSMutableArray array];
+    NSLog(@"%@",filename);
+    NSArray *arr = Models.cityInfo;
+    for (CityInfoCityInfo *city in arr) {
+        if ([city.cnty isEqualToString:_countryName]) {
+            [_cityInfoArr addObject:city];
+        }
+    }
+    NSLog(@"1____%ld",_cityInfoArr.count);
     
 }
 -(void)initUI{
     
     UITableView *XYMoretableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 279, SCREENH_height) style:UITableViewStylePlain];
-    [XYMoretableView registerNib:[UINib nibWithNibName:@"MoreCityTableViewCell" bundle:nil] forCellReuseIdentifier:@"More"];
+    [XYMoretableView registerNib:[UINib nibWithNibName:@"DetailCityTableViewCell" bundle:nil] forCellReuseIdentifier:@"Detail"];
     XYMoretableView.rowHeight = 40;
     XYMoretableView.delegate = self;
     XYMoretableView.dataSource = self;
@@ -47,7 +56,7 @@
     searchTextField.backgroundColor = [UIColor whiteColor];
     searchTextField.borderStyle = UITextBorderStyleRoundedRect;
     searchTextField.clearButtonMode = UITextFieldViewModeAlways;
-    searchTextField.placeholder = @"搜索支持城市英文全称🔍";
+    searchTextField.placeholder = @"搜索城市英文全称🔍";
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 279, 50)];
     [headerView addSubview:searchTextField];
     XYMoretableView.tableHeaderView = headerView;
@@ -57,25 +66,15 @@
 }
 
 #pragma -mark tableView协议方法
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    ForeignCityViewController *FCVC = [ForeignCityViewController new];
-    NSDictionary *dic = (NSDictionary *)_dataArr[indexPath.row];
-    FCVC.countryName = dic[@"english"];
-    [self.navigationController pushViewController:FCVC animated:YES];
-    
-}
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _dataArr.count;
+    return _cityInfoArr.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    MoreCityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"More" forIndexPath:indexPath];
-    NSDictionary *dic = (NSDictionary *)_dataArr[indexPath.row];
-    NSString *str = [NSString stringWithFormat:@"%@/",dic[@"english"]];
-    cell.XYCityNameLabel.text = [str stringByAppendingString:dic[@"chinese"]];
+    DetailCityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Detail" forIndexPath:indexPath];
+    CityInfoCityInfo *city = _cityInfoArr[indexPath.row];
+    NSString *str = city.city;
+    cell.XYCityNameLabel.text = str;
     return cell;
     
 }
