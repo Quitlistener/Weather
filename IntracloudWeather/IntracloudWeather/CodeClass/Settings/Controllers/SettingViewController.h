@@ -1,5 +1,5 @@
 //
-//  NewsDetailsViewController.h
+//  SettingViewController.h
 //  IntracloudWeather
 //
 //  Created by lanou on 2016/9/29.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewsDetailsViewController : UIViewController
-
-@property (nonatomic, strong) NSString *URLstr;
+@interface SettingViewController : UIViewController
 
 @end

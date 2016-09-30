@@ -11,13 +11,16 @@
 #import "NewsDetailsViewController.h"
 #import "HeaderCollectionViewCell.h"
 #import "ItemView.h"
+#import "NetWorkRequest.h"
+
 
 @interface LifeViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) ItemView *itemView;
-
+@property (nonatomic, strong) NewsBaseClass *XYBase;
+@property (nonatomic, strong) NSMutableArray *muArr;
 @end
 
 @implementation LifeViewController
@@ -26,6 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initUI];
+    [self requestData];
 }
 
 -(void)initUI{
@@ -33,7 +37,7 @@
     [_tableView registerNib:[UINib nibWithNibName:@"LifeTableViewCell" bundle:nil] forCellReuseIdentifier:@"lifeCell"];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    self.tableView.estimatedRowHeight = 100;
+    self.tableView.estimatedRowHeight = 150;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
@@ -53,20 +57,42 @@
     [self.view addSubview:_tableView];
 }
 
+#pragma mark -网络请求
+-(void)requestData{
+    [NetWorkRequest requestWithMethod:GET URL:@"http://c.m.163.com/nc/article/local/5bm%2F5bee/0-20.html" para:nil success:^(NSData *data) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        _XYBase = [[NewsBaseClass alloc]initWithDictionary:dic];
+        _muArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
+        /** 删除数组中的NewsInternalBaseClass1对象含有imgextra数组的对象 */
+        for (int i = 0 ; i < _XYBase.myProperty1.count; i++) {
+            if ([_XYBase.myProperty1[i] imgextra].count > 0) {
+                [_muArr removeObject:_XYBase.myProperty1[i]];
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+            [self.collectionView reloadData];
+        });
+    } error:^(NSError *error) {
+        
+    }];
+}
 
 #pragma mark -tableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return _muArr.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    LifeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"lifeCell" forIndexPath:indexPath];
-    cell.newsText.text = @"nb";
-    return cell;
+    NewsInternalBaseClass1 *newsModel =_muArr[indexPath.row];
+        LifeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"lifeCell" forIndexPath:indexPath];
+        cell.newsLive = newsModel;
+        return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NewsDetailsViewController *newsVc = [NewsDetailsViewController new];
+    newsVc.URLstr = [_muArr[indexPath.row] url];
     [self.navigationController pushViewController:newsVc animated:YES];
 }
 

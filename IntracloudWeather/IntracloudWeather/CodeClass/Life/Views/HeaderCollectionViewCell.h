@@ -13,4 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *suitable;
 @property (weak, nonatomic) IBOutlet UILabel *suitableText;
 
+
+
+
 @end

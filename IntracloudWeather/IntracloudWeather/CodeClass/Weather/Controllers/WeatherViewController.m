@@ -16,8 +16,9 @@
 #import "TomorrowWwatherView.h"
 #import "ThirddayWeatherView.h"
 #import "NetWorkRequest.h"
+#import "XYtodayCollectionViewCell.h"
 
-@interface WeatherViewController ()<UIScrollViewDelegate>
+@interface WeatherViewController ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) LeftWeatherDetailsView *left;
 @property (nonatomic, strong) RightWeatherDetailsView *right;
@@ -26,6 +27,7 @@
 @property (nonatomic, strong) TodayWeatherView *todayView;
 @property (nonatomic, strong) TomorrowWwatherView *tomorrowView;
 @property (nonatomic, strong) ThirddayWeatherView *thirddayVeiw;
+@property (nonatomic, strong) UICollectionView *XYcollection;
 @end
 
 @implementation WeatherViewController
@@ -67,6 +69,7 @@
     [self.view addSubview:_scrollView];
     [_XYCity setImage:[UIImage imageNamed:@"加号16.png"] forState:UIControlStateNormal];
     
+    /*
     _todayView = [[NSBundle mainBundle]loadNibNamed:@"TodayWeatherView" owner:nil options:nil][0];
     _todayView.frame = CGRectMake(10, SCREENH_height-100, SCREEN_width/3-60, 90);
     _todayView.backgroundColor = [UIColor clearColor];
@@ -79,6 +82,22 @@
     [self.view addSubview:_todayView];
     [self.view addSubview:_tomorrowView];
     [self.view addSubview:_thirddayVeiw];
+    */
+     
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+    flowLayout.itemSize = CGSizeMake((SCREEN_width-40)/3,(100-20));
+    //设置每个item的间距
+    flowLayout.minimumInteritemSpacing = 5;
+    //设置CollectionView的item距离屏幕上左下右的间距(默认都是10)
+    flowLayout.sectionInset = UIEdgeInsetsMake(10 , 10, 10, 10);
+    //设置每个item的行间距(默认是10.0)
+//    flowLayout.minimumLineSpacing = 3;
+    _XYcollection = [[UICollectionView alloc]initWithFrame:CGRectMake(0, SCREENH_height-100, SCREEN_width, 100) collectionViewLayout:flowLayout];
+    [_XYcollection registerNib:[UINib nibWithNibName:@"XYtodayCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"XYcollection"];
+    _XYcollection.backgroundColor = [UIColor clearColor];
+    _XYcollection.delegate = self;
+    _XYcollection.dataSource = self;
+    [self.view addSubview:_XYcollection];
     
 
 }
@@ -86,6 +105,15 @@
 #pragma mark -网路请求
 -(void)requestData{
 //    [NetWorkRequest requestWithMethod:GET URL:<#(NSString *)#> para: success:<#^(NSData *data)suc#> error:<#^(NSError *error)failerror#>]
+}
+
+#pragma mark -collectionViewDelegate
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 3;
+}
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    XYtodayCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"XYcollection" forIndexPath:indexPath];
+    return cell;
 }
 
 #pragma mark -scrollViewDelegate

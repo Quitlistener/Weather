@@ -30,12 +30,17 @@
 		3F0385541D9CF527004D5423 /* DetailCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385521D9CF527004D5423 /* DetailCityTableViewCell.m */; };
 		3F0385551D9CF527004D5423 /* DetailCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */; };
 		3F0385581D9CF919004D5423 /* ForeignCitysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */; };
-		3F0385A81D9D556E004D5423 /* cityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385A71D9D556E004D5423 /* cityData.plist */; };
-		3FBEB6831D9DF3100092E47F /* allchina.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEB6821D9DF3100092E47F /* allchina.plist */; };
-		3FBEB68B1D9DF3E80092E47F /* CityInfoBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEB6871D9DF3E80092E47F /* CityInfoBaseClass.m */; };
-		3FBEB68C1D9DF3E80092E47F /* CityInfoCityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEB6891D9DF3E80092E47F /* CityInfoCityInfo.m */; };
 		3FD3F8201D9D471900736C0B /* FallsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */; };
 		3FD3F8211D9D471900736C0B /* FallsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */; };
+		3FD3F8261D9D49DD00736C0B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8251D9D49DD00736C0B /* SettingViewController.m */; };
+		3FD3F82A1D9D504F00736C0B /* XYtodayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8281D9D504F00736C0B /* XYtodayCollectionViewCell.m */; };
+		3FD3F82B1D9D504F00736C0B /* XYtodayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3F8291D9D504F00736C0B /* XYtodayCollectionViewCell.xib */; };
+		3FD3F8391D9DED0400736C0B /* NewsBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8301D9DED0400736C0B /* NewsBaseClass.m */; };
+		3FD3F83A1D9DED0400736C0B /* NewsImgextra.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8321D9DED0400736C0B /* NewsImgextra.m */; };
+		3FD3F83B1D9DED0400736C0B /* NewsInternalBaseClass1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8341D9DED0400736C0B /* NewsInternalBaseClass1.m */; };
+		3FD3F83C1D9DED0400736C0B /* NewsLiveInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8361D9DED0400736C0B /* NewsLiveInfo.m */; };
+		3FD3F83D1D9DED0400736C0B /* NewsWapPortalV2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8381D9DED0400736C0B /* NewsWapPortalV2.m */; };
+		3FD3F8441D9E238E00736C0B /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3F8431D9E238E00736C0B /* style.css */; };
 		3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A581D9B9FC80069B4A7 /* main.m */; };
 		3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A5B1D9B9FC80069B4A7 /* AppDelegate.m */; };
 		3FFF3A621D9B9FC80069B4A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3A601D9B9FC80069B4A7 /* Main.storyboard */; };
@@ -106,16 +111,26 @@
 		3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCityTableViewCell.xib; sourceTree = "<group>"; };
 		3F0385561D9CF919004D5423 /* ForeignCitysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForeignCitysViewController.h; sourceTree = "<group>"; };
 		3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForeignCitysViewController.m; sourceTree = "<group>"; };
-		3F0385A71D9D556E004D5423 /* cityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityData.plist; sourceTree = "<group>"; };
-		3FBEB6821D9DF3100092E47F /* allchina.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = allchina.plist; sourceTree = "<group>"; };
-		3FBEB6861D9DF3E80092E47F /* CityInfoBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityInfoBaseClass.h; sourceTree = "<group>"; };
-		3FBEB6871D9DF3E80092E47F /* CityInfoBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityInfoBaseClass.m; sourceTree = "<group>"; };
-		3FBEB6881D9DF3E80092E47F /* CityInfoCityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityInfoCityInfo.h; sourceTree = "<group>"; };
-		3FBEB6891D9DF3E80092E47F /* CityInfoCityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityInfoCityInfo.m; sourceTree = "<group>"; };
-		3FBEB68A1D9DF3E80092E47F /* CityInfoDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityInfoDataModels.h; sourceTree = "<group>"; };
 		3FD3F81D1D9D471900736C0B /* FallsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FallsCollectionViewCell.h; sourceTree = "<group>"; };
 		3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FallsCollectionViewCell.m; sourceTree = "<group>"; };
 		3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FallsCollectionViewCell.xib; sourceTree = "<group>"; };
+		3FD3F8241D9D49DD00736C0B /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		3FD3F8251D9D49DD00736C0B /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		3FD3F8271D9D504F00736C0B /* XYtodayCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XYtodayCollectionViewCell.h; path = Views/XYtodayCollectionViewCell.h; sourceTree = "<group>"; };
+		3FD3F8281D9D504F00736C0B /* XYtodayCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XYtodayCollectionViewCell.m; path = Views/XYtodayCollectionViewCell.m; sourceTree = "<group>"; };
+		3FD3F8291D9D504F00736C0B /* XYtodayCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = XYtodayCollectionViewCell.xib; path = Views/XYtodayCollectionViewCell.xib; sourceTree = "<group>"; };
+		3FD3F82E1D9DED0400736C0B /* NewsDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDataModels.h; sourceTree = "<group>"; };
+		3FD3F82F1D9DED0400736C0B /* NewsBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsBaseClass.h; sourceTree = "<group>"; };
+		3FD3F8301D9DED0400736C0B /* NewsBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsBaseClass.m; sourceTree = "<group>"; };
+		3FD3F8311D9DED0400736C0B /* NewsImgextra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsImgextra.h; sourceTree = "<group>"; };
+		3FD3F8321D9DED0400736C0B /* NewsImgextra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsImgextra.m; sourceTree = "<group>"; };
+		3FD3F8331D9DED0400736C0B /* NewsInternalBaseClass1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsInternalBaseClass1.h; sourceTree = "<group>"; };
+		3FD3F8341D9DED0400736C0B /* NewsInternalBaseClass1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsInternalBaseClass1.m; sourceTree = "<group>"; };
+		3FD3F8351D9DED0400736C0B /* NewsLiveInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsLiveInfo.h; sourceTree = "<group>"; };
+		3FD3F8361D9DED0400736C0B /* NewsLiveInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsLiveInfo.m; sourceTree = "<group>"; };
+		3FD3F8371D9DED0400736C0B /* NewsWapPortalV2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWapPortalV2.h; sourceTree = "<group>"; };
+		3FD3F8381D9DED0400736C0B /* NewsWapPortalV2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsWapPortalV2.m; sourceTree = "<group>"; };
+		3FD3F8431D9E238E00736C0B /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		3FFF3A541D9B9FC80069B4A7 /* IntracloudWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntracloudWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFF3A581D9B9FC80069B4A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FFF3A5A1D9B9FC80069B4A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -195,7 +210,6 @@
 		3F0385171D9C0487004D5423 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				3FBEB6841D9DF3BE0092E47F /* Model */,
 				3F03851E1D9C0522004D5423 /* Controller */,
 				3F0385181D9C04B1004D5423 /* View */,
 			);
@@ -256,26 +270,6 @@
 			path = img;
 			sourceTree = "<group>";
 		};
-		3FBEB6841D9DF3BE0092E47F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3FBEB6851D9DF3E80092E47F /* CityModel */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		3FBEB6851D9DF3E80092E47F /* CityModel */ = {
-			isa = PBXGroup;
-			children = (
-				3FBEB6861D9DF3E80092E47F /* CityInfoBaseClass.h */,
-				3FBEB6871D9DF3E80092E47F /* CityInfoBaseClass.m */,
-				3FBEB6881D9DF3E80092E47F /* CityInfoCityInfo.h */,
-				3FBEB6891D9DF3E80092E47F /* CityInfoCityInfo.m */,
-				3FBEB68A1D9DF3E80092E47F /* CityInfoDataModels.h */,
-			);
-			path = CityModel;
-			sourceTree = "<group>";
-		};
 		3FD3F81C1D9D465200736C0B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +278,49 @@
 				3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3FD3F8221D9D498B00736C0B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3FD3F8231D9D499E00736C0B /* Controllers */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		3FD3F8231D9D499E00736C0B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FD3F8241D9D49DD00736C0B /* SettingViewController.h */,
+				3FD3F8251D9D49DD00736C0B /* SettingViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3FD3F82C1D9DECAD00736C0B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3FD3F82D1D9DED0400736C0B /* NewsModel */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3FD3F82D1D9DED0400736C0B /* NewsModel */ = {
+			isa = PBXGroup;
+			children = (
+				3FD3F82E1D9DED0400736C0B /* NewsDataModels.h */,
+				3FD3F82F1D9DED0400736C0B /* NewsBaseClass.h */,
+				3FD3F8301D9DED0400736C0B /* NewsBaseClass.m */,
+				3FD3F8311D9DED0400736C0B /* NewsImgextra.h */,
+				3FD3F8321D9DED0400736C0B /* NewsImgextra.m */,
+				3FD3F8331D9DED0400736C0B /* NewsInternalBaseClass1.h */,
+				3FD3F8341D9DED0400736C0B /* NewsInternalBaseClass1.m */,
+				3FD3F8351D9DED0400736C0B /* NewsLiveInfo.h */,
+				3FD3F8361D9DED0400736C0B /* NewsLiveInfo.m */,
+				3FD3F8371D9DED0400736C0B /* NewsWapPortalV2.h */,
+				3FD3F8381D9DED0400736C0B /* NewsWapPortalV2.m */,
+			);
+			path = NewsModel;
 			sourceTree = "<group>";
 		};
 		3FFF3A4B1D9B9FC80069B4A7 = {
@@ -315,8 +352,6 @@
 				3FFF3A601D9B9FC80069B4A7 /* Main.storyboard */,
 				3FFF3A631D9B9FC80069B4A7 /* Assets.xcassets */,
 				3FFF3A651D9B9FC80069B4A7 /* LaunchScreen.storyboard */,
-				3F0385A71D9D556E004D5423 /* cityData.plist */,
-				3FBEB6821D9DF3100092E47F /* allchina.plist */,
 				3FFF3A681D9B9FC80069B4A7 /* Info.plist */,
 				3FFF3A571D9B9FC80069B4A7 /* Supporting Files */,
 			);
@@ -334,6 +369,7 @@
 		3FFF3A6F1D9BA9BA0069B4A7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				3FD3F8431D9E238E00736C0B /* style.css */,
 				3FFF3A9C1D9BB4630069B4A7 /* ToolsHelper.h */,
 				3FFF3A9D1D9BB55C0069B4A7 /* PrefixHeader.pch */,
 				3F0384EF1D9BC6DB004D5423 /* UrlHeader.h */,
@@ -348,6 +384,7 @@
 		3FFF3A711D9BAA0A0069B4A7 /* CodeClass */ = {
 			isa = PBXGroup;
 			children = (
+				3FD3F8221D9D498B00736C0B /* Settings */,
 				3FFF3B1D1D9D42A80069B4A7 /* Scenery */,
 				3FFF3B051D9CEE770069B4A7 /* Life */,
 				3F0385171D9C0487004D5423 /* Menu */,
@@ -399,6 +436,9 @@
 				3FFF3B001D9CB0320069B4A7 /* ThirddayWeatherView.h */,
 				3FFF3B011D9CB0320069B4A7 /* ThirddayWeatherView.m */,
 				3FFF3B031D9CB0490069B4A7 /* ThirddayWeatherView.xib */,
+				3FD3F8271D9D504F00736C0B /* XYtodayCollectionViewCell.h */,
+				3FD3F8281D9D504F00736C0B /* XYtodayCollectionViewCell.m */,
+				3FD3F8291D9D504F00736C0B /* XYtodayCollectionViewCell.xib */,
 			);
 			name = Views;
 			path = ..;
@@ -407,6 +447,7 @@
 		3FFF3B051D9CEE770069B4A7 /* Life */ = {
 			isa = PBXGroup;
 			children = (
+				3FD3F82C1D9DECAD00736C0B /* Models */,
 				3FFF3B0A1D9CF4740069B4A7 /* Controllers */,
 				3FFF3B091D9CF4400069B4A7 /* Views */,
 				3FFF3B061D9CEEFC0069B4A7 /* LifeViewController.h */,
@@ -543,6 +584,7 @@
 				3F0385481D9CEA8A004D5423 /* MoreCityTableViewCell.xib in Resources */,
 				3FFF3A9A1D9BB2230069B4A7 /* WeatherViewController.xib in Resources */,
 				3FFF3AFF1D9CAEB20069B4A7 /* TomorrowWwatherView.xib in Resources */,
+				3FD3F82B1D9D504F00736C0B /* XYtodayCollectionViewCell.xib in Resources */,
 				3F03852E1D9C07DF004D5423 /* 实景.png in Resources */,
 				3F03852C1D9C07DF004D5423 /* 设置.png in Resources */,
 				3F0385361D9C9EBF004D5423 /* 图片.png in Resources */,
@@ -551,9 +593,8 @@
 				3FFF3A641D9B9FC80069B4A7 /* Assets.xcassets in Resources */,
 				3F03851D1D9C04B1004D5423 /* MenuTableViewCell.xib in Resources */,
 				3FFF3B0F1D9CF4D00069B4A7 /* LifeTableViewCell.xib in Resources */,
-				3F0385A81D9D556E004D5423 /* cityData.plist in Resources */,
 				3F03854A1D9CEB3A004D5423 /* 向右.png in Resources */,
-				3FBEB6831D9DF3100092E47F /* allchina.plist in Resources */,
+				3FD3F8441D9E238E00736C0B /* style.css in Resources */,
 				3FFF3A621D9B9FC80069B4A7 /* Main.storyboard in Resources */,
 				3FFF3AFA1D9CAE140069B4A7 /* TodayWeatherView.xib in Resources */,
 				3FFF3B1C1D9D12E20069B4A7 /* ItemView.xib in Resources */,
@@ -616,9 +657,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F0385581D9CF919004D5423 /* ForeignCitysViewController.m in Sources */,
-				3FBEB68C1D9DF3E80092E47F /* CityInfoCityInfo.m in Sources */,
 				3FFF3AA01D9BB9E00069B4A7 /* ViewController.m in Sources */,
 				3FFF3B021D9CB0320069B4A7 /* ThirddayWeatherView.m in Sources */,
+				3FD3F83C1D9DED0400736C0B /* NewsLiveInfo.m in Sources */,
 				3FFF3B211D9D43090069B4A7 /* SceneryViewController.m in Sources */,
 				3FFF3A991D9BB2230069B4A7 /* WeatherViewController.m in Sources */,
 				3FD3F8201D9D471900736C0B /* FallsCollectionViewCell.m in Sources */,
@@ -630,22 +671,27 @@
 				3F0385541D9CF527004D5423 /* DetailCityTableViewCell.m in Sources */,
 				3FFF3AE71D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m in Sources */,
 				3F0385241D9C0533004D5423 /* RightMenViewController.m in Sources */,
-				3FBEB68B1D9DF3E80092E47F /* CityInfoBaseClass.m in Sources */,
+				3FD3F83D1D9DED0400736C0B /* NewsWapPortalV2.m in Sources */,
 				3FFF3AF81D9CAE050069B4A7 /* TodayWeatherView.m in Sources */,
 				3FFF3AEB1D9BF82F0069B4A7 /* RightWeatherDetailsView.m in Sources */,
 				3F0385431D9CE8FF004D5423 /* MoreCitysViewController.m in Sources */,
+				3FD3F82A1D9D504F00736C0B /* XYtodayCollectionViewCell.m in Sources */,
 				3F0384EE1D9BC5F2004D5423 /* NetWorkRequest.m in Sources */,
 				3FFF3B121D9CF8690069B4A7 /* NewsDetailsViewController.m in Sources */,
 				3FFF3B0E1D9CF4D00069B4A7 /* LifeTableViewCell.m in Sources */,
 				3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */,
 				3FFF3B241D9D43FD0069B4A7 /* Waterfall.m in Sources */,
 				3FFF3AFD1D9CAE9F0069B4A7 /* TomorrowWwatherView.m in Sources */,
+				3FD3F83A1D9DED0400736C0B /* NewsImgextra.m in Sources */,
+				3FD3F8391D9DED0400736C0B /* NewsBaseClass.m in Sources */,
 				3F03851C1D9C04B1004D5423 /* MenuTableViewCell.m in Sources */,
 				3FFF3B1A1D9D12CF0069B4A7 /* ItemView.m in Sources */,
 				3F03854D1D9CF44D004D5423 /* DetailCityInfoViewController.m in Sources */,
 				3F0385231D9C0533004D5423 /* LeftMenuViewController.m in Sources */,
 				3FFF3B081D9CEEFC0069B4A7 /* LifeViewController.m in Sources */,
 				3FFF3AE91D9BF82F0069B4A7 /* LeftWeatherDetailsView.m in Sources */,
+				3FD3F8261D9D49DD00736C0B /* SettingViewController.m in Sources */,
+				3FD3F83B1D9DED0400736C0B /* NewsInternalBaseClass1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,6 +813,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IntracloudWeather/Tools/PrefixHeader.pch";
 				INFOPLIST_FILE = IntracloudWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = llll.IntracloudWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -781,6 +828,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IntracloudWeather/Tools/PrefixHeader.pch";
 				INFOPLIST_FILE = IntracloudWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = llll.IntracloudWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
