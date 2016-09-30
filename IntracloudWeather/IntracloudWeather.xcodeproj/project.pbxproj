@@ -30,6 +30,10 @@
 		3F0385541D9CF527004D5423 /* DetailCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385521D9CF527004D5423 /* DetailCityTableViewCell.m */; };
 		3F0385551D9CF527004D5423 /* DetailCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */; };
 		3F0385581D9CF919004D5423 /* ForeignCitysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */; };
+		3FBEB69E1D9E36510092E47F /* CityInfoBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEB69A1D9E36510092E47F /* CityInfoBaseClass.m */; };
+		3FBEB69F1D9E36510092E47F /* CityInfoCityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEB69C1D9E36510092E47F /* CityInfoCityInfo.m */; };
+		3FBEB6A11D9E36880092E47F /* cityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEB6A01D9E36880092E47F /* cityData.plist */; };
+		3FBEB6A31D9E36E40092E47F /* allchina.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEB6A21D9E36E40092E47F /* allchina.plist */; };
 		3FD3F8201D9D471900736C0B /* FallsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */; };
 		3FD3F8211D9D471900736C0B /* FallsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */; };
 		3FD3F8261D9D49DD00736C0B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8251D9D49DD00736C0B /* SettingViewController.m */; };
@@ -111,6 +115,13 @@
 		3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCityTableViewCell.xib; sourceTree = "<group>"; };
 		3F0385561D9CF919004D5423 /* ForeignCitysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForeignCitysViewController.h; sourceTree = "<group>"; };
 		3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForeignCitysViewController.m; sourceTree = "<group>"; };
+		3FBEB6991D9E36510092E47F /* CityInfoBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityInfoBaseClass.h; sourceTree = "<group>"; };
+		3FBEB69A1D9E36510092E47F /* CityInfoBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityInfoBaseClass.m; sourceTree = "<group>"; };
+		3FBEB69B1D9E36510092E47F /* CityInfoCityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityInfoCityInfo.h; sourceTree = "<group>"; };
+		3FBEB69C1D9E36510092E47F /* CityInfoCityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityInfoCityInfo.m; sourceTree = "<group>"; };
+		3FBEB69D1D9E36510092E47F /* CityInfoDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityInfoDataModels.h; sourceTree = "<group>"; };
+		3FBEB6A01D9E36880092E47F /* cityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityData.plist; sourceTree = "<group>"; };
+		3FBEB6A21D9E36E40092E47F /* allchina.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = allchina.plist; sourceTree = "<group>"; };
 		3FD3F81D1D9D471900736C0B /* FallsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FallsCollectionViewCell.h; sourceTree = "<group>"; };
 		3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FallsCollectionViewCell.m; sourceTree = "<group>"; };
 		3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FallsCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -210,6 +221,7 @@
 		3F0385171D9C0487004D5423 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				3FBEB6971D9E36510092E47F /* Model */,
 				3F03851E1D9C0522004D5423 /* Controller */,
 				3F0385181D9C04B1004D5423 /* View */,
 			);
@@ -268,6 +280,26 @@
 				3F03852A1D9C07DF004D5423 /* 天气.png */,
 			);
 			path = img;
+			sourceTree = "<group>";
+		};
+		3FBEB6971D9E36510092E47F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3FBEB6981D9E36510092E47F /* CityModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3FBEB6981D9E36510092E47F /* CityModel */ = {
+			isa = PBXGroup;
+			children = (
+				3FBEB6991D9E36510092E47F /* CityInfoBaseClass.h */,
+				3FBEB69A1D9E36510092E47F /* CityInfoBaseClass.m */,
+				3FBEB69B1D9E36510092E47F /* CityInfoCityInfo.h */,
+				3FBEB69C1D9E36510092E47F /* CityInfoCityInfo.m */,
+				3FBEB69D1D9E36510092E47F /* CityInfoDataModels.h */,
+			);
+			path = CityModel;
 			sourceTree = "<group>";
 		};
 		3FD3F81C1D9D465200736C0B /* Views */ = {
@@ -352,6 +384,8 @@
 				3FFF3A601D9B9FC80069B4A7 /* Main.storyboard */,
 				3FFF3A631D9B9FC80069B4A7 /* Assets.xcassets */,
 				3FFF3A651D9B9FC80069B4A7 /* LaunchScreen.storyboard */,
+				3FBEB6A21D9E36E40092E47F /* allchina.plist */,
+				3FBEB6A01D9E36880092E47F /* cityData.plist */,
 				3FFF3A681D9B9FC80069B4A7 /* Info.plist */,
 				3FFF3A571D9B9FC80069B4A7 /* Supporting Files */,
 			);
@@ -573,9 +607,11 @@
 				3F03852F1D9C07DF004D5423 /* 天气.png in Resources */,
 				3FFF3AEC1D9BF82F0069B4A7 /* RightWeatherDetailsView.xib in Resources */,
 				3FFF3AF51D9CAB050069B4A7 /* 加号16.png in Resources */,
+				3FBEB6A31D9E36E40092E47F /* allchina.plist in Resources */,
 				3FFF3B041D9CB0490069B4A7 /* ThirddayWeatherView.xib in Resources */,
 				3F03852B1D9C07DF004D5423 /* 趋势.png in Resources */,
 				3FD3F8211D9D471900736C0B /* FallsCollectionViewCell.xib in Resources */,
+				3FBEB6A11D9E36880092E47F /* cityData.plist in Resources */,
 				3F0385341D9C1099004D5423 /* AddCitysCollectionViewCell.xib in Resources */,
 				3FFF3A671D9B9FC80069B4A7 /* LaunchScreen.storyboard in Resources */,
 				3FFF3B171D9D07F40069B4A7 /* HeaderCollectionViewCell.xib in Resources */,
@@ -671,9 +707,11 @@
 				3F0385541D9CF527004D5423 /* DetailCityTableViewCell.m in Sources */,
 				3FFF3AE71D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m in Sources */,
 				3F0385241D9C0533004D5423 /* RightMenViewController.m in Sources */,
+				3FBEB69F1D9E36510092E47F /* CityInfoCityInfo.m in Sources */,
 				3FD3F83D1D9DED0400736C0B /* NewsWapPortalV2.m in Sources */,
 				3FFF3AF81D9CAE050069B4A7 /* TodayWeatherView.m in Sources */,
 				3FFF3AEB1D9BF82F0069B4A7 /* RightWeatherDetailsView.m in Sources */,
+				3FBEB69E1D9E36510092E47F /* CityInfoBaseClass.m in Sources */,
 				3F0385431D9CE8FF004D5423 /* MoreCitysViewController.m in Sources */,
 				3FD3F82A1D9D504F00736C0B /* XYtodayCollectionViewCell.m in Sources */,
 				3F0384EE1D9BC5F2004D5423 /* NetWorkRequest.m in Sources */,
