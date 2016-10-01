@@ -45,7 +45,7 @@
                             <constraint firstAttribute="height" constant="42" id="jXX-wT-FME"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jI1-wT-MEJ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jI1-wT-MEJ">
                         <color key="backgroundColor" red="0.93551475763320924" green="0.93551475763320924" blue="0.93551475763320924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -78,7 +78,7 @@
                 <outlet property="XYTopTempLabel" destination="hzm-jB-Y0x" id="3PU-B5-jez"/>
                 <outlet property="XYWeatherConLabel" destination="mQa-OX-6ho" id="uZK-4G-Wk6"/>
             </connections>
-            <point key="canvasLocation" x="-1" y="-94"/>
+            <point key="canvasLocation" x="-1.5" y="-94"/>
         </collectionViewCell>
     </objects>
     <resources>

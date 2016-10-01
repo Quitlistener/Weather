@@ -9,12 +9,23 @@
 #import "RightMenViewController.h"
 #import "AddCitysCollectionViewCell.h"
 #import "HotCityViewController.h"
+#import "CityDetailDBManager.h"
+#import "CityInfoDataModels.h"
 
 @interface RightMenViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
-
+{
+    NSMutableArray *_citysDataArr;
+    UICollectionView *_CityCollectionVew;
+}
 @end
 
 @implementation RightMenViewController
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self reloadCitys];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,35 +44,53 @@
     self.navigationItem.rightBarButtonItems = @[reloadItem,editItem];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
-    flowLayout.itemSize = CGSizeMake(83, 93);
+    flowLayout.itemSize = CGSizeMake(83, 109);
     
     UICollectionView *CityCollectionVew = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 279, SCREENH_height) collectionViewLayout:flowLayout];
     CityCollectionVew.backgroundColor =  [UIColor whiteColor];
     CityCollectionVew.delegate = self;
     CityCollectionVew.dataSource = self;
     [CityCollectionVew registerNib:[UINib nibWithNibName:@"AddCitysCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"City"];
-    
+    _CityCollectionVew = CityCollectionVew;
     [self.view addSubview:CityCollectionVew];
 }
 //管理城市 删除操作
 -(void)editCitys{
+    
+    
     
 }
 
 //刷新管理的城市数据
 -(void)reloadCitys{
     
+    NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
+    _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
+    [_CityCollectionVew reloadData];
+    
 }
 
 #pragma -mark collection协议方法
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 9;
+    return _citysDataArr.count + 1;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    AddCitysCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"City" forIndexPath:indexPath];
-    return cell;
+   
+    if (indexPath.row < _citysDataArr.count) {
+        
+        CityInfoCityInfo *city = _citysDataArr[indexPath.row];
+        AddCitysCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"City" forIndexPath:indexPath];
+        cell.XYCityLabel.text = city.city;
+            return cell;
+
+    }
+    else{
+        
+        AddCitysCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"City" forIndexPath:indexPath];
+        return cell;
+        
+    }
     
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{

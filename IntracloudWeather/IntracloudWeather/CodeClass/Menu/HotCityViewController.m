@@ -8,6 +8,7 @@
 
 #import "HotCityViewController.h"
 #import "MoreCitysViewController.h"
+#import "CityDetailDBManager.h"
 
 @interface HotCityViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -49,6 +50,16 @@
 }
 
 #pragma -mark collection协议方法
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //    CityInfoCityInfo *city = _cityInfoArr[indexPath.row];
+    //    [[CityDetailDBManager defaultManager] createTable];
+    //    [[CityDetailDBManager defaultManager] insertDataModel:city];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+}
+
 //cell数目
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return 20;
@@ -64,14 +75,10 @@
     [cell addSubview:nameLabel];
     return cell;
 }
+
 //设置多少个分区
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
-}
-
-//cell的点击方法
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%@",indexPath);
 }
 
 

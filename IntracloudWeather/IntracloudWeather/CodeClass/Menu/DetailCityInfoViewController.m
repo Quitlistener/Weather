@@ -9,6 +9,7 @@
 #import "DetailCityInfoViewController.h"
 #import "DetailCityTableViewCell.h"
 #import "CityInfoDataModels.h"
+#import "CityDetailDBManager.h"
 
 @interface DetailCityInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -66,6 +67,17 @@
 }
 
 #pragma -mark tableView协议方法
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    CityInfoCityInfo *city = _cityInfoArr[indexPath.row];
+    [[CityDetailDBManager defaultManager] createTable];
+    [[CityDetailDBManager defaultManager] insertDataModel:city];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+}
+
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _cityInfoArr.count;
 }

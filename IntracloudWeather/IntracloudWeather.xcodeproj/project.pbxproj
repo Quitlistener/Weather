@@ -81,6 +81,7 @@
 		3FFF3B211D9D43090069B4A7 /* SceneryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3B201D9D43090069B4A7 /* SceneryViewController.m */; };
 		3FFF3B241D9D43FD0069B4A7 /* Waterfall.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3B231D9D43FD0069B4A7 /* Waterfall.m */; };
 		5C6FEAD38E4F42C9A70CE5F0 /* libPods-IntracloudWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */; };
+		F270AAA81D9F611A0051959A /* CityDetailDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F270AAA71D9F611A0051959A /* CityDetailDBManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -206,6 +207,8 @@
 		70DCDCC920066136E11B5CB8 /* Pods-IntracloudWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntracloudWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-IntracloudWeather/Pods-IntracloudWeather.release.xcconfig"; sourceTree = "<group>"; };
 		85A146919A3B73C8FCAFEE05 /* Pods-IntracloudWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntracloudWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IntracloudWeather/Pods-IntracloudWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IntracloudWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F270AAA61D9F611A0051959A /* CityDetailDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityDetailDBManager.h; sourceTree = "<group>"; };
+		F270AAA71D9F611A0051959A /* CityDetailDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityDetailDBManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -427,6 +430,8 @@
 				3F0384ED1D9BC5F2004D5423 /* NetWorkRequest.m */,
 				3FFF3B221D9D43FD0069B4A7 /* Waterfall.h */,
 				3FFF3B231D9D43FD0069B4A7 /* Waterfall.m */,
+				F270AAA61D9F611A0051959A /* CityDetailDBManager.h */,
+				F270AAA71D9F611A0051959A /* CityDetailDBManager.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -720,6 +725,7 @@
 				3FFF3B161D9D07F40069B4A7 /* HeaderCollectionViewCell.m in Sources */,
 				3F0385471D9CEA8A004D5423 /* MoreCityTableViewCell.m in Sources */,
 				3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */,
+				F270AAA81D9F611A0051959A /* CityDetailDBManager.m in Sources */,
 				3F0385331D9C1099004D5423 /* AddCitysCollectionViewCell.m in Sources */,
 				3F0385401D9CCFD4004D5423 /* HotCityViewController.m in Sources */,
 				3FBEB6AA1D9E536B0092E47F /* ForeignCityViewController.m in Sources */,

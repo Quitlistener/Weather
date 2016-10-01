@@ -9,6 +9,7 @@
 #import "ForeignCityViewController.h"
 #import "DetailCityTableViewCell.h"
 #import "CityInfoDataModels.h"
+#import "CityDetailDBManager.h"
 
 @interface ForeignCityViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -56,7 +57,7 @@
     searchTextField.backgroundColor = [UIColor whiteColor];
     searchTextField.borderStyle = UITextBorderStyleRoundedRect;
     searchTextField.clearButtonMode = UITextFieldViewModeAlways;
-    searchTextField.placeholder = @"搜索城市英文全称🔍";
+    searchTextField.placeholder = @"搜索支持城市英文全称🔍";
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 279, 50)];
     [headerView addSubview:searchTextField];
     XYMoretableView.tableHeaderView = headerView;
@@ -66,6 +67,17 @@
 }
 
 #pragma -mark tableView协议方法
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    CityInfoCityInfo *city = _cityInfoArr[indexPath.row];
+    [[CityDetailDBManager defaultManager] createTable];
+    [[CityDetailDBManager defaultManager] insertDataModel:city];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+}
+
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _cityInfoArr.count;
 }
