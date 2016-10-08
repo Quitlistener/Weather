@@ -30,6 +30,10 @@
 		3F0385541D9CF527004D5423 /* DetailCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385521D9CF527004D5423 /* DetailCityTableViewCell.m */; };
 		3F0385551D9CF527004D5423 /* DetailCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */; };
 		3F0385581D9CF919004D5423 /* ForeignCitysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */; };
+		3F5433201DA9040500E4D290 /* 添加.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54331F1DA9040500E4D290 /* 添加.png */; };
+		3F5433221DA9043000E4D290 /* hotCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F5433211DA9043000E4D290 /* hotCity.plist */; };
+		3F5433261DA9045F00E4D290 /* AddCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5433241DA9045F00E4D290 /* AddCollectionViewCell.m */; };
+		3F5433271DA9045F00E4D290 /* AddCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F5433251DA9045F00E4D290 /* AddCollectionViewCell.xib */; };
 		3F6B08751DA8B0E100814A0F /* TTSConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B08741DA8B0E100814A0F /* TTSConfig.m */; };
 		3F6B08781DA8B15800814A0F /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B08771DA8B15800814A0F /* iflyMSC.framework */; };
 		3F6B087A1DA8B19900814A0F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B08791DA8B19900814A0F /* libz.tbd */; };
@@ -139,6 +143,11 @@
 		3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCityTableViewCell.xib; sourceTree = "<group>"; };
 		3F0385561D9CF919004D5423 /* ForeignCitysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForeignCitysViewController.h; sourceTree = "<group>"; };
 		3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForeignCitysViewController.m; sourceTree = "<group>"; };
+		3F54331F1DA9040500E4D290 /* 添加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加.png"; sourceTree = "<group>"; };
+		3F5433211DA9043000E4D290 /* hotCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hotCity.plist; sourceTree = "<group>"; };
+		3F5433231DA9045F00E4D290 /* AddCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCollectionViewCell.h; sourceTree = "<group>"; };
+		3F5433241DA9045F00E4D290 /* AddCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCollectionViewCell.m; sourceTree = "<group>"; };
+		3F5433251DA9045F00E4D290 /* AddCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCollectionViewCell.xib; sourceTree = "<group>"; };
 		3F6B08721DA8B09300814A0F /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
 		3F6B08731DA8B0E100814A0F /* TTSConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSConfig.h; sourceTree = "<group>"; };
 		3F6B08741DA8B0E100814A0F /* TTSConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSConfig.m; sourceTree = "<group>"; };
@@ -325,6 +334,9 @@
 				3F0385511D9CF527004D5423 /* DetailCityTableViewCell.h */,
 				3F0385521D9CF527004D5423 /* DetailCityTableViewCell.m */,
 				3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */,
+				3F5433231DA9045F00E4D290 /* AddCollectionViewCell.h */,
+				3F5433241DA9045F00E4D290 /* AddCollectionViewCell.m */,
+				3F5433251DA9045F00E4D290 /* AddCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,6 +374,7 @@
 				3F0385281D9C07DF004D5423 /* 生活.png */,
 				3F0385291D9C07DF004D5423 /* 实景.png */,
 				3F03852A1D9C07DF004D5423 /* 天气.png */,
+				3F54331F1DA9040500E4D290 /* 添加.png */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -510,6 +523,7 @@
 				3FFF3A601D9B9FC80069B4A7 /* Main.storyboard */,
 				3FFF3A631D9B9FC80069B4A7 /* Assets.xcassets */,
 				3FFF3A651D9B9FC80069B4A7 /* LaunchScreen.storyboard */,
+				3F5433211DA9043000E4D290 /* hotCity.plist */,
 				3FBEB6A41D9E4DE30092E47F /* mainCity.plist */,
 				3FBEB6A61D9E4EFA0092E47F /* country.plist */,
 				3FBEB6A21D9E36E40092E47F /* allchina.plist */,
@@ -733,6 +747,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F5433201DA9040500E4D290 /* 添加.png in Resources */,
 				3FBEB6A71D9E4EFA0092E47F /* country.plist in Resources */,
 				3F0385381D9CA6AC004D5423 /* 加号.png in Resources */,
 				3F03852F1D9C07DF004D5423 /* 天气.png in Resources */,
@@ -742,6 +757,7 @@
 				3FFF3B041D9CB0490069B4A7 /* ThirddayWeatherView.xib in Resources */,
 				3FBEB6A51D9E4DE30092E47F /* mainCity.plist in Resources */,
 				3F03852B1D9C07DF004D5423 /* 趋势.png in Resources */,
+				3F5433271DA9045F00E4D290 /* AddCollectionViewCell.xib in Resources */,
 				3FD3F8211D9D471900736C0B /* FallsCollectionViewCell.xib in Resources */,
 				3FBEB6A11D9E36880092E47F /* cityData.plist in Resources */,
 				3F0385341D9C1099004D5423 /* AddCitysCollectionViewCell.xib in Resources */,
@@ -755,6 +771,7 @@
 				3FD3F82B1D9D504F00736C0B /* XYtodayCollectionViewCell.xib in Resources */,
 				3F03852E1D9C07DF004D5423 /* 实景.png in Resources */,
 				3F03852C1D9C07DF004D5423 /* 设置.png in Resources */,
+				3F5433221DA9043000E4D290 /* hotCity.plist in Resources */,
 				3F0385361D9C9EBF004D5423 /* 图片.png in Resources */,
 				3F0385551D9CF527004D5423 /* DetailCityTableViewCell.xib in Resources */,
 				3FFF3AEA1D9BF82F0069B4A7 /* LeftWeatherDetailsView.xib in Resources */,
@@ -827,6 +844,7 @@
 			files = (
 				3F0385581D9CF919004D5423 /* ForeignCitysViewController.m in Sources */,
 				3FFF3AA01D9BB9E00069B4A7 /* ViewController.m in Sources */,
+				3F5433261DA9045F00E4D290 /* AddCollectionViewCell.m in Sources */,
 				3FFF3B021D9CB0320069B4A7 /* ThirddayWeatherView.m in Sources */,
 				3F6B08911DA8B39300814A0F /* AlertView.m in Sources */,
 				3FD3F83C1D9DED0400736C0B /* NewsLiveInfo.m in Sources */,
