@@ -67,10 +67,14 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-        CityInfoCityInfo *city = _dataArr[indexPath.row];
-        [[CityDetailDBManager defaultManager] createTable];
-        [[CityDetailDBManager defaultManager] insertDataModel:city];
+    NSArray *arr = [[CityDetailDBManager defaultManager] selectData];
+    if (arr.count == 9) {
         [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    CityInfoCityInfo *city = _dataArr[indexPath.row];
+    [[CityDetailDBManager defaultManager] createTable];
+    [[CityDetailDBManager defaultManager] insertDataModel:city];
+    [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
 

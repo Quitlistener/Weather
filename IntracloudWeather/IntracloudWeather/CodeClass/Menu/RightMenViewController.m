@@ -94,7 +94,14 @@
             return cell;
 
     }
-   
+    if (_citysDataArr.count == 9 ) {
+        
+        CityInfoCityInfo *city = _citysDataArr[indexPath.row];
+        AddCitysCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"City" forIndexPath:indexPath];
+        cell.XYCityLabel.text = city.city;
+        return cell;
+        
+    }
     
         AddCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Add" forIndexPath:indexPath];
         return cell;
@@ -103,6 +110,9 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (_citysDataArr.count < 9 && indexPath.item != _citysDataArr.count) {
+        
+    }
+    else if (_citysDataArr.count == 9){
         
     }
     else{
