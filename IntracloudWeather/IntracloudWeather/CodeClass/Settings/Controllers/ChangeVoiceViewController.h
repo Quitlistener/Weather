@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChangeVoiceViewController : UIViewController
+#import "SAMultisectorControl.h"
+#import "AKPickerView.h"
+#import "iflyMSC/iflyMSC.h"
+
+@interface ChangeVoiceViewController : UIViewController<AKPickerViewDataSource,AKPickerViewDelegate>
+@property (weak, nonatomic) IBOutlet AKPickerView *vcnPicker;
+/**
+ *  发音人列表
+ */
+@property (nonatomic, strong) NSArray *spVcnList;
 
 @end

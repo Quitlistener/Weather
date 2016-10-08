@@ -9,6 +9,7 @@
 #import "SettingViewController.h"
 #import "ChangeVoiceViewController.h"
 
+
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;

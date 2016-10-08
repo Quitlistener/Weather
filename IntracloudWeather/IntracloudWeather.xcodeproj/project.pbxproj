@@ -30,6 +30,25 @@
 		3F0385541D9CF527004D5423 /* DetailCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385521D9CF527004D5423 /* DetailCityTableViewCell.m */; };
 		3F0385551D9CF527004D5423 /* DetailCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */; };
 		3F0385581D9CF919004D5423 /* ForeignCitysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */; };
+		3F6B08751DA8B0E100814A0F /* TTSConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B08741DA8B0E100814A0F /* TTSConfig.m */; };
+		3F6B08781DA8B15800814A0F /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B08771DA8B15800814A0F /* iflyMSC.framework */; };
+		3F6B087A1DA8B19900814A0F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B08791DA8B19900814A0F /* libz.tbd */; };
+		3F6B087C1DA8B1A700814A0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B087B1DA8B1A700814A0F /* CoreLocation.framework */; };
+		3F6B087E1DA8B1B200814A0F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B087D1DA8B1B200814A0F /* CoreTelephony.framework */; };
+		3F6B08801DA8B1BD00814A0F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B087F1DA8B1BD00814A0F /* AVFoundation.framework */; };
+		3F6B08821DA8B1C900814A0F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B08811DA8B1C900814A0F /* AddressBook.framework */; };
+		3F6B08841DA8B1D500814A0F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B08831DA8B1D500814A0F /* AudioToolbox.framework */; };
+		3F6B08861DA8B1E100814A0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B08851DA8B1E100814A0F /* SystemConfiguration.framework */; };
+		3F6B08881DA8B1EB00814A0F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B08871DA8B1EB00814A0F /* QuartzCore.framework */; };
+		3F6B088A1DA8B1F300814A0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B08891DA8B1F300814A0F /* UIKit.framework */; };
+		3F6B088C1DA8B1FD00814A0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B088B1DA8B1FD00814A0F /* Foundation.framework */; };
+		3F6B088E1DA8B20700814A0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B088D1DA8B20700814A0F /* CoreGraphics.framework */; };
+		3F6B08911DA8B39300814A0F /* AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B08901DA8B39300814A0F /* AlertView.m */; };
+		3F6B08951DA8B3D000814A0F /* PcmPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B08931DA8B3D000814A0F /* PcmPlayer.m */; };
+		3F6B089D1DA8C71E00814A0F /* AKPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B08981DA8C71E00814A0F /* AKPickerView.m */; };
+		3F6B089E1DA8C71E00814A0F /* SAMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B089A1DA8C71E00814A0F /* SAMath.m */; };
+		3F6B089F1DA8C71E00814A0F /* SAMultisectorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B089C1DA8C71E00814A0F /* SAMultisectorControl.m */; };
+		3F6B08A61DA8D15000814A0F /* ChangeVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F6B08A51DA8D15000814A0F /* ChangeVoiceViewController.xib */; };
 		3FBEB69E1D9E36510092E47F /* CityInfoBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEB69A1D9E36510092E47F /* CityInfoBaseClass.m */; };
 		3FBEB69F1D9E36510092E47F /* CityInfoCityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEB69C1D9E36510092E47F /* CityInfoCityInfo.m */; };
 		3FBEB6A11D9E36880092E47F /* cityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEB6A01D9E36880092E47F /* cityData.plist */; };
@@ -120,6 +139,33 @@
 		3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCityTableViewCell.xib; sourceTree = "<group>"; };
 		3F0385561D9CF919004D5423 /* ForeignCitysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForeignCitysViewController.h; sourceTree = "<group>"; };
 		3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForeignCitysViewController.m; sourceTree = "<group>"; };
+		3F6B08721DA8B09300814A0F /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
+		3F6B08731DA8B0E100814A0F /* TTSConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSConfig.h; sourceTree = "<group>"; };
+		3F6B08741DA8B0E100814A0F /* TTSConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSConfig.m; sourceTree = "<group>"; };
+		3F6B08771DA8B15800814A0F /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		3F6B08791DA8B19900814A0F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		3F6B087B1DA8B1A700814A0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3F6B087D1DA8B1B200814A0F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3F6B087F1DA8B1BD00814A0F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3F6B08811DA8B1C900814A0F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		3F6B08831DA8B1D500814A0F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3F6B08851DA8B1E100814A0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3F6B08871DA8B1EB00814A0F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3F6B08891DA8B1F300814A0F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3F6B088B1DA8B1FD00814A0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3F6B088D1DA8B20700814A0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3F6B088F1DA8B39300814A0F /* AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertView.h; sourceTree = "<group>"; };
+		3F6B08901DA8B39300814A0F /* AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertView.m; sourceTree = "<group>"; };
+		3F6B08921DA8B3D000814A0F /* PcmPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PcmPlayer.h; sourceTree = "<group>"; };
+		3F6B08931DA8B3D000814A0F /* PcmPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PcmPlayer.m; sourceTree = "<group>"; };
+		3F6B08941DA8B3D000814A0F /* PcmPlayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PcmPlayerDelegate.h; sourceTree = "<group>"; };
+		3F6B08971DA8C71E00814A0F /* AKPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKPickerView.h; sourceTree = "<group>"; };
+		3F6B08981DA8C71E00814A0F /* AKPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKPickerView.m; sourceTree = "<group>"; };
+		3F6B08991DA8C71E00814A0F /* SAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMath.h; sourceTree = "<group>"; };
+		3F6B089A1DA8C71E00814A0F /* SAMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMath.m; sourceTree = "<group>"; };
+		3F6B089B1DA8C71E00814A0F /* SAMultisectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMultisectorControl.h; sourceTree = "<group>"; };
+		3F6B089C1DA8C71E00814A0F /* SAMultisectorControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMultisectorControl.m; sourceTree = "<group>"; };
+		3F6B08A51DA8D15000814A0F /* ChangeVoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeVoiceViewController.xib; sourceTree = "<group>"; };
 		3FBEB6991D9E36510092E47F /* CityInfoBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityInfoBaseClass.h; sourceTree = "<group>"; };
 		3FBEB69A1D9E36510092E47F /* CityInfoBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityInfoBaseClass.m; sourceTree = "<group>"; };
 		3FBEB69B1D9E36510092E47F /* CityInfoCityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityInfoCityInfo.h; sourceTree = "<group>"; };
@@ -216,6 +262,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F6B088E1DA8B20700814A0F /* CoreGraphics.framework in Frameworks */,
+				3F6B088C1DA8B1FD00814A0F /* Foundation.framework in Frameworks */,
+				3F6B088A1DA8B1F300814A0F /* UIKit.framework in Frameworks */,
+				3F6B08881DA8B1EB00814A0F /* QuartzCore.framework in Frameworks */,
+				3F6B08861DA8B1E100814A0F /* SystemConfiguration.framework in Frameworks */,
+				3F6B08841DA8B1D500814A0F /* AudioToolbox.framework in Frameworks */,
+				3F6B08821DA8B1C900814A0F /* AddressBook.framework in Frameworks */,
+				3F6B08801DA8B1BD00814A0F /* AVFoundation.framework in Frameworks */,
+				3F6B087E1DA8B1B200814A0F /* CoreTelephony.framework in Frameworks */,
+				3F6B087C1DA8B1A700814A0F /* CoreLocation.framework in Frameworks */,
+				3F6B087A1DA8B19900814A0F /* libz.tbd in Frameworks */,
+				3F6B08781DA8B15800814A0F /* iflyMSC.framework in Frameworks */,
 				5C6FEAD38E4F42C9A70CE5F0 /* libPods-IntracloudWeather.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +284,17 @@
 		2CC08F67137B966E3E2B1E6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F6B088D1DA8B20700814A0F /* CoreGraphics.framework */,
+				3F6B088B1DA8B1FD00814A0F /* Foundation.framework */,
+				3F6B08891DA8B1F300814A0F /* UIKit.framework */,
+				3F6B08871DA8B1EB00814A0F /* QuartzCore.framework */,
+				3F6B08851DA8B1E100814A0F /* SystemConfiguration.framework */,
+				3F6B08831DA8B1D500814A0F /* AudioToolbox.framework */,
+				3F6B08811DA8B1C900814A0F /* AddressBook.framework */,
+				3F6B087F1DA8B1BD00814A0F /* AVFoundation.framework */,
+				3F6B087D1DA8B1B200814A0F /* CoreTelephony.framework */,
+				3F6B087B1DA8B1A700814A0F /* CoreLocation.framework */,
+				3F6B08791DA8B19900814A0F /* libz.tbd */,
 				AB5C131DFEB01CF7EEFB3B23 /* libPods-IntracloudWeather.a */,
 			);
 			name = Frameworks;
@@ -297,6 +366,43 @@
 			path = img;
 			sourceTree = "<group>";
 		};
+		3F6B086E1DA8AFF600814A0F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3F6B08961DA8C71E00814A0F /* SettingView */,
+				3F6B08731DA8B0E100814A0F /* TTSConfig.h */,
+				3F6B08741DA8B0E100814A0F /* TTSConfig.m */,
+				3F6B088F1DA8B39300814A0F /* AlertView.h */,
+				3F6B08901DA8B39300814A0F /* AlertView.m */,
+				3F6B08921DA8B3D000814A0F /* PcmPlayer.h */,
+				3F6B08931DA8B3D000814A0F /* PcmPlayer.m */,
+				3F6B08941DA8B3D000814A0F /* PcmPlayerDelegate.h */,
+				3F6B08721DA8B09300814A0F /* Definition.h */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		3F6B08761DA8B15800814A0F /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				3F6B08771DA8B15800814A0F /* iflyMSC.framework */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		3F6B08961DA8C71E00814A0F /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				3F6B08971DA8C71E00814A0F /* AKPickerView.h */,
+				3F6B08981DA8C71E00814A0F /* AKPickerView.m */,
+				3F6B08991DA8C71E00814A0F /* SAMath.h */,
+				3F6B089A1DA8C71E00814A0F /* SAMath.m */,
+				3F6B089B1DA8C71E00814A0F /* SAMultisectorControl.h */,
+				3F6B089C1DA8C71E00814A0F /* SAMultisectorControl.m */,
+			);
+			path = SettingView;
+			sourceTree = "<group>";
+		};
 		3FBEB6971D9E36510092E47F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +448,7 @@
 				3FD3F8251D9D49DD00736C0B /* SettingViewController.m */,
 				3FD3F8451D9E4E9200736C0B /* ChangeVoiceViewController.h */,
 				3FD3F8461D9E4E9200736C0B /* ChangeVoiceViewController.m */,
+				3F6B08A51DA8D15000814A0F /* ChangeVoiceViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -393,6 +500,8 @@
 		3FFF3A561D9B9FC80069B4A7 /* IntracloudWeather */ = {
 			isa = PBXGroup;
 			children = (
+				3F6B08761DA8B15800814A0F /* lib */,
+				3F6B086E1DA8AFF600814A0F /* Base */,
 				3F0385251D9C07A3004D5423 /* img */,
 				3FFF3A711D9BAA0A0069B4A7 /* CodeClass */,
 				3FFF3A6F1D9BA9BA0069B4A7 /* Tools */,
@@ -653,6 +762,7 @@
 				3F03851D1D9C04B1004D5423 /* MenuTableViewCell.xib in Resources */,
 				3FFF3B0F1D9CF4D00069B4A7 /* LifeTableViewCell.xib in Resources */,
 				3F03854A1D9CEB3A004D5423 /* 向右.png in Resources */,
+				3F6B08A61DA8D15000814A0F /* ChangeVoiceViewController.xib in Resources */,
 				3FD3F8441D9E238E00736C0B /* style.css in Resources */,
 				3FFF3A621D9B9FC80069B4A7 /* Main.storyboard in Resources */,
 				3FFF3AFA1D9CAE140069B4A7 /* TodayWeatherView.xib in Resources */,
@@ -718,9 +828,11 @@
 				3F0385581D9CF919004D5423 /* ForeignCitysViewController.m in Sources */,
 				3FFF3AA01D9BB9E00069B4A7 /* ViewController.m in Sources */,
 				3FFF3B021D9CB0320069B4A7 /* ThirddayWeatherView.m in Sources */,
+				3F6B08911DA8B39300814A0F /* AlertView.m in Sources */,
 				3FD3F83C1D9DED0400736C0B /* NewsLiveInfo.m in Sources */,
 				3FFF3B211D9D43090069B4A7 /* SceneryViewController.m in Sources */,
 				3FFF3A991D9BB2230069B4A7 /* WeatherViewController.m in Sources */,
+				3F6B089D1DA8C71E00814A0F /* AKPickerView.m in Sources */,
 				3FD3F8201D9D471900736C0B /* FallsCollectionViewCell.m in Sources */,
 				3FFF3B161D9D07F40069B4A7 /* HeaderCollectionViewCell.m in Sources */,
 				3F0385471D9CEA8A004D5423 /* MoreCityTableViewCell.m in Sources */,
@@ -730,6 +842,7 @@
 				3F0385401D9CCFD4004D5423 /* HotCityViewController.m in Sources */,
 				3FBEB6AA1D9E536B0092E47F /* ForeignCityViewController.m in Sources */,
 				3F0385541D9CF527004D5423 /* DetailCityTableViewCell.m in Sources */,
+				3F6B089E1DA8C71E00814A0F /* SAMath.m in Sources */,
 				3FFF3AE71D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m in Sources */,
 				3F0385241D9C0533004D5423 /* RightMenViewController.m in Sources */,
 				3FBEB69F1D9E36510092E47F /* CityInfoCityInfo.m in Sources */,
@@ -753,9 +866,12 @@
 				3F03854D1D9CF44D004D5423 /* DetailCityInfoViewController.m in Sources */,
 				3F0385231D9C0533004D5423 /* LeftMenuViewController.m in Sources */,
 				3FFF3B081D9CEEFC0069B4A7 /* LifeViewController.m in Sources */,
+				3F6B089F1DA8C71E00814A0F /* SAMultisectorControl.m in Sources */,
 				3FFF3AE91D9BF82F0069B4A7 /* LeftWeatherDetailsView.m in Sources */,
+				3F6B08751DA8B0E100814A0F /* TTSConfig.m in Sources */,
 				3FD3F8261D9D49DD00736C0B /* SettingViewController.m in Sources */,
 				3FD3F83B1D9DED0400736C0B /* NewsInternalBaseClass1.m in Sources */,
+				3F6B08951DA8B3D000814A0F /* PcmPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -874,6 +990,10 @@
 			baseConfigurationReference = 85A146919A3B73C8FCAFEE05 /* Pods-IntracloudWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/IntracloudWeather/lib",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IntracloudWeather/Tools/PrefixHeader.pch";
 				INFOPLIST_FILE = IntracloudWeather/Info.plist;
@@ -889,6 +1009,10 @@
 			baseConfigurationReference = 70DCDCC920066136E11B5CB8 /* Pods-IntracloudWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/IntracloudWeather/lib",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IntracloudWeather/Tools/PrefixHeader.pch";
 				INFOPLIST_FILE = IntracloudWeather/Info.plist;
