@@ -11,6 +11,7 @@
 #import "HotCityViewController.h"
 #import "CityDetailDBManager.h"
 #import "CityInfoDataModels.h"
+#import "AddCollectionViewCell.h"
 
 @interface RightMenViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 {
@@ -23,14 +24,18 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    [self reloadCitys];
+    NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
+    _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
+    [_CityCollectionVew reloadData];
     
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self reloadCitys];
     [self initUI];
-   
+    
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     self.navigationItem.backBarButtonItem = backItem;
     backItem.title = @"返回";
@@ -52,6 +57,7 @@
     CityCollectionVew.delegate = self;
     CityCollectionVew.dataSource = self;
     [CityCollectionVew registerNib:[UINib nibWithNibName:@"AddCitysCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"City"];
+    [CityCollectionVew registerNib:[UINib nibWithNibName:@"AddCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"Add"];
     _CityCollectionVew = CityCollectionVew;
     [self.view addSubview:CityCollectionVew];
 }
@@ -67,18 +73,20 @@
     
     NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
     _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
-    [_CityCollectionVew reloadData];
     
 }
 
 #pragma -mark collection协议方法
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    if (_citysDataArr.count == 9) {
+        return 9;
+    }
     return _citysDataArr.count + 1;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
    
-    if (indexPath.row < _citysDataArr.count) {
+    if (_citysDataArr.count < 9 && indexPath.item != _citysDataArr.count) {
         
         CityInfoCityInfo *city = _citysDataArr[indexPath.row];
         AddCitysCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"City" forIndexPath:indexPath];
@@ -86,17 +94,22 @@
             return cell;
 
     }
-    else{
-        
-        AddCitysCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"City" forIndexPath:indexPath];
-        return cell;
-        
-    }
+   
     
+        AddCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Add" forIndexPath:indexPath];
+        return cell;
+
+
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    HotCityViewController *HCVC = [HotCityViewController new];
-    [self.navigationController pushViewController:HCVC animated:YES];
+    if (_citysDataArr.count < 9 && indexPath.item != _citysDataArr.count) {
+        
+    }
+    else{
+        HotCityViewController *HCVC = [HotCityViewController new];
+        [self.navigationController pushViewController:HCVC animated:YES];
+    }
+   
 }
 
 

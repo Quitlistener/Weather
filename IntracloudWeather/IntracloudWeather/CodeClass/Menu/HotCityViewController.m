@@ -10,8 +10,11 @@
 #import "MoreCitysViewController.h"
 #import "CityDetailDBManager.h"
 
-@interface HotCityViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 
+@interface HotCityViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+{
+    NSMutableArray *_dataArr;
+}
 @end
 
 @implementation HotCityViewController
@@ -19,11 +22,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
+    [self loadData];
     [self initUI];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     self.navigationItem.backBarButtonItem = backItem;
     backItem.title = @"返回";
     // Do any additional setup after loading the view.
+}
+-(void)loadData{
+    
+    //    NSString *filename=[NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/allchina.plist"];
+    NSString *filename = [[NSBundle mainBundle] pathForResource:@"hotCity" ofType:@"plist"];
+    NSDictionary* dic2 = [NSDictionary dictionaryWithContentsOfFile:filename];
+    CityInfoBaseClass *Models = [CityInfoBaseClass  modelObjectWithDictionary:dic2];
+    NSArray *arr = Models.cityInfo;
+    _dataArr = [NSMutableArray arrayWithArray:arr];
+    
 }
 -(void)initUI{
     self.navigationItem.title = @"热门城市";
@@ -53,27 +67,32 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    //    CityInfoCityInfo *city = _cityInfoArr[indexPath.row];
-    //    [[CityDetailDBManager defaultManager] createTable];
-    //    [[CityDetailDBManager defaultManager] insertDataModel:city];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+        CityInfoCityInfo *city = _dataArr[indexPath.row];
+        [[CityDetailDBManager defaultManager] createTable];
+        [[CityDetailDBManager defaultManager] insertDataModel:city];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
 
 //cell数目
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 20;
+
+        return _dataArr.count;
+   
 }
 //返回cell
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"hotCity" forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor whiteColor];
     UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 64, 50)];
     nameLabel.textAlignment = NSTextAlignmentCenter;
-    nameLabel.text = @"城市名";
+    nameLabel.font = [UIFont systemFontOfSize:15];
+    CityInfoCityInfo *city = _dataArr[indexPath.row];
+    nameLabel.text = city.city;
     [cell addSubview:nameLabel];
     return cell;
+    
 }
 
 //设置多少个分区
@@ -111,7 +130,7 @@
         moreCityBtn.frame = CGRectMake(0, 8, 259, 34);
         moreCityBtn.backgroundColor = [UIColor whiteColor];
         [moreCityBtn setTitle:@"更多城市" forState:UIControlStateNormal];
-        [moreCityBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [moreCityBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [moreCityBtn addTarget:self action:@selector(moreCity) forControlEvents:UIControlEventTouchUpInside];
         [footView addSubview:moreCityBtn];
         footView.backgroundColor = [UIColor grayColor];

@@ -70,6 +70,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    NSArray *arr = [[CityDetailDBManager defaultManager] selectData];
+    if (arr.count == 9) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
     CityInfoCityInfo *city = _cityInfoArr[indexPath.row];
     [[CityDetailDBManager defaultManager] createTable];
     [[CityDetailDBManager defaultManager] insertDataModel:city];
