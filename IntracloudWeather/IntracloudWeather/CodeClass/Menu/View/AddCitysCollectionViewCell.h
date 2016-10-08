@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *XYDownTempLabel;
 @property (weak, nonatomic) IBOutlet UILabel *XYWeatherConLabel;
 @property (weak, nonatomic) IBOutlet UILabel *XYCityLabel;
+@property (weak, nonatomic) IBOutlet UIButton *XYDelectBtn;
 
 @end

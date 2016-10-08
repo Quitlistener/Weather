@@ -67,11 +67,26 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    
+    CityInfoCityInfo *city = _dataArr[indexPath.row];
     NSArray *arr = [[CityDetailDBManager defaultManager] selectData];
     if (arr.count == 9) {
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
-    CityInfoCityInfo *city = _dataArr[indexPath.row];
+    for (CityInfoCityInfo *city2 in arr) {
+        if ([city.city isEqualToString:city2.city]) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"您已添加过%@",city.city]
+                                                                message:nil
+                                                               delegate:nil
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:nil];
+            alertView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
+            [alertView show];
+//            sleep(1.5);
+            [alertView dismissWithClickedButtonIndex:0 animated:YES];
+            return;
+        }
+    }
     [[CityDetailDBManager defaultManager] createTable];
     [[CityDetailDBManager defaultManager] insertDataModel:city];
     [self.navigationController popToRootViewControllerAnimated:YES];
@@ -93,6 +108,13 @@
     nameLabel.textAlignment = NSTextAlignmentCenter;
     nameLabel.font = [UIFont systemFontOfSize:15];
     CityInfoCityInfo *city = _dataArr[indexPath.row];
+    NSArray *arr = [[CityDetailDBManager defaultManager] selectData];
+    for (CityInfoCityInfo *city2 in arr) {
+        if ([city.city isEqualToString:city2.city]) {
+            nameLabel.textColor = [UIColor grayColor];
+        }
+    }
+    
     nameLabel.text = city.city;
     [cell addSubview:nameLabel];
     return cell;
