@@ -15,7 +15,7 @@
 
 
 
-@interface LifeViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
+@interface LifeViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,CAAnimationDelegate,UIScrollViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -161,6 +161,8 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     _itemView = [[NSBundle mainBundle]loadNibNamed:@"ItemView" owner:nil options:nil][0];
+    /** 添加动画 */
+    [self flash];
     if (indexPath.row % 2 == 0) {
         _itemView.frame = CGRectMake(10, 74, (SCREEN_width-30)/2, 200);
     }
@@ -168,13 +170,49 @@
         _itemView.frame = CGRectMake((SCREEN_width-30)/2+20, 74, (SCREEN_width-30)/2, 200);
     }
     [self.view addSubview:_itemView];
-    
+    /** collectionView的cell交互关闭 */
+    _collectionView.allowsSelection = NO;
+    _tableView.allowsSelection = NO;
+}
+
+/** scrollviewdelegate */
+/** 只要视图滚动,就会检测到这个方法 */
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [_itemView removeFromSuperview];
+    self.collectionView.allowsSelection = YES;
+    self.tableView.allowsSelection = YES;
 }
 
 /** 点击view触发的方法 */
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     NSLog(@"点击了view");
+    /** 移除view */
+    [_itemView removeFromSuperview];
+    self.collectionView.allowsSelection = YES;
+    self.tableView.allowsSelection = YES;
+//    _cell.userInteractionEnabled = NO;
 }
+
+
+#pragma mark -view动画
+-(void)flash{
+    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAnimation.removedOnCompletion = NO;
+    scaleAnimation.fillMode = kCAFillModeForwards;
+    scaleAnimation.duration = 0.2;
+    scaleAnimation.toValue = @(1.2);
+    //group
+    CAAnimationGroup *groupAnimation = [CAAnimationGroup animation];
+    groupAnimation.duration = 0.2;
+    groupAnimation.repeatCount = 0;
+    groupAnimation.animations = @[scaleAnimation];
+    //按照原路返回
+    groupAnimation.autoreverses = YES;
+    [_itemView.layer addAnimation:groupAnimation forKey:@"eee"];
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
