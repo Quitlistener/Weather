@@ -11,6 +11,7 @@
 #import "LifeViewController.h"
 #import "UIViewController+MMDrawerController.h"
 #import "WeatherViewController.h"
+#import "SettingViewController.h"
 
 @interface LeftMenuViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -80,6 +81,11 @@
 //        LifeViewController *LVVC = [LifeViewController new];
 //        UINavigationController *LVNav = [[UINavigationController alloc]initWithRootViewController:LVVC];
 //        [self.mm_drawerController setCenterViewController:LVNav withCloseAnimation:YES completion:nil];
+    }
+    if (indexPath.row == 4) {
+                SettingViewController *SEVC = [SettingViewController new];
+                UINavigationController *SENav = [[UINavigationController alloc]initWithRootViewController:SEVC];
+                [self.mm_drawerController setCenterViewController:SENav withCloseAnimation:YES completion:nil];
     }
 }
 
