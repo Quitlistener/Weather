@@ -18,7 +18,15 @@
 #import "NetWorkRequest.h"
 #import "XYtodayCollectionViewCell.h"
 
-@interface WeatherViewController ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
+#import <QuartzCore/QuartzCore.h>
+#import <AVFoundation/AVAudioSession.h>
+#import <AudioToolbox/AudioSession.h>
+#import "Definition.h"
+//#import "PopupView.h"
+#import "AlertView.h"
+#import "TTSConfig.h"
+
+@interface WeatherViewController ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,IFlySpeechSynthesizerDelegate,UIActionSheetDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) LeftWeatherDetailsView *left;
 @property (nonatomic, strong) RightWeatherDetailsView *right;
@@ -139,12 +147,95 @@
     
 }
 
+//- (IBAction)tapVoice:(id)sender {
+//    _iFlySpeechSynthesizer.delegate = self;
+//    NSString* str = @"啦啦啦可以了";
+//    [_iFlySpeechSynthesizer startSpeaking:str];
+//    if (_iFlySpeechSynthesizer.isSpeaking) {
+//        _state = Playing;
+//    }
+//}
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark -讯飞
+- (BOOL)shouldAutorotate{
+    return NO;
 }
+
+- (void)didReceiveMemoryWarning{
+    [super didReceiveMemoryWarning];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self initSynthesizer];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    self.isViewDidDisappear = true;
+    [_iFlySpeechSynthesizer stopSpeaking];
+    [_audioPlayer stop];
+    [_inidicateView hide];
+    _iFlySpeechSynthesizer.delegate = nil;
+}
+
+#pragma mark - 设置合成参数
+- (void)initSynthesizer
+{
+    TTSConfig *instance = [TTSConfig sharedInstance];
+    if (instance == nil) {
+        return;
+    }
+    
+    //合成服务单例
+    if (_iFlySpeechSynthesizer == nil) {
+        _iFlySpeechSynthesizer = [IFlySpeechSynthesizer sharedInstance];
+    }
+    _iFlySpeechSynthesizer.delegate = self;
+    //设置语速1-100
+    [_iFlySpeechSynthesizer setParameter:instance.speed forKey:[IFlySpeechConstant SPEED]];
+    
+    //设置音量1-100
+    [_iFlySpeechSynthesizer setParameter:instance.volume forKey:[IFlySpeechConstant VOLUME]];
+    
+    //设置音调1-100
+    [_iFlySpeechSynthesizer setParameter:instance.pitch forKey:[IFlySpeechConstant PITCH]];
+    
+    //设置采样率
+    [_iFlySpeechSynthesizer setParameter:instance.sampleRate forKey:[IFlySpeechConstant SAMPLE_RATE]];
+    
+    //设置发音人
+    [_iFlySpeechSynthesizer setParameter:instance.vcnName forKey:[IFlySpeechConstant VOICE_NAME]];
+    
+    //设置文本编码格式
+    [_iFlySpeechSynthesizer setParameter:@"unicode" forKey:[IFlySpeechConstant TEXT_ENCODING]];
+    NSString* textSample=nil;
+    textSample=NSLocalizedStringFromTable(@"text_chinese", @"tts/tts", nil);
+}
+
+#pragma mark - 合成回调 IFlySpeechSynthesizerDelegate
+
+/**
+ 开始播放回调
+ 注：
+ 对通用合成方式有效，
+ ****/
+- (void)onSpeakBegin
+{
+    [_inidicateView hide];
+    self.isCanceled = NO;
+    if (_state  != Playing) {
+    }
+    _state = Playing;
+}
+
+
+//- (void)didReceiveMemoryWarning {
+//    [super didReceiveMemoryWarning];
+//    // Dispose of any resources that can be recreated.
+//}
 
 /*
 #pragma mark - Navigation
