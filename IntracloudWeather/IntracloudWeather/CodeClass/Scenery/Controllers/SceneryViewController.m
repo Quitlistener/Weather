@@ -56,13 +56,14 @@
 }
 
 #pragma -mark  重新设置后的方法  新的高
-//-(CGFloat)heihForIndex:(NSIndexPath *)indexPath{
-//    
+-(CGFloat)heihForIndex:(NSIndexPath *)indexPath{
+    
 //    imageModel *model = self.muArr[indexPath.item];
 //    CGFloat currentw = (SCREEN_width-40)/3;
 //    CGFloat currenth = model.height/model.width*currentw;
 //    return currenth;
-//}
+    return 0;
+}
 
 
 
