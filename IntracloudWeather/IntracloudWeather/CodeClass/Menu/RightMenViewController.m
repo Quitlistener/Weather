@@ -15,7 +15,9 @@
 #import "NetWorkRequest.h"
 #import "WeatherDataModels.h"
 #import "UIImageView+WebCache.h"
-
+#import "userInfoManager.h"
+#import "UIViewController+MMDrawerController.h"
+#import "WeatherViewController.h"
 
 @interface RightMenViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -36,6 +38,7 @@
     
     NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
     _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
+    [_CityCollectionVew reloadData];
     for (int i = 0; i < _citysDataArr.count; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
         CityInfoCityInfo *city = _citysDataArr[i] ;
@@ -62,6 +65,7 @@
     // Do any additional setup after loading the view.
 }
 -(void)initUI{
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backWeatherController)];
     self.navigationItem.title = @"城市管理";
     UIBarButtonItem *reloadItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reloadCitys)];
     _editItem = [[UIBarButtonItem alloc]initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editCitys)];
@@ -81,6 +85,10 @@
     _CityCollectionVew = CityCollectionVew;
     [self.view addSubview:CityCollectionVew];
 }
+-(void)backWeatherController{
+     WeatherViewController *WVC = [WeatherViewController new];
+     [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
+}
 #pragma -mark 网络请求
 -(void)dataRequestWithCityid:(NSString *)cityid indexPath:(NSIndexPath *)indexPath{
     
@@ -89,7 +97,7 @@
     
     [NetWorkRequest requestWithMethod:GET URL:urlStr para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"dic_____%@",dic);
+//        NSLog(@"dic_____%@",dic);
         _BaseModels = [WeatherBaseClass modelObjectWithDictionary:dic];
         WeatherHeWeatherDataService30 *HeWeatherDataService30 = [_BaseModels heWeatherDataService30][0];
         WeatherDailyForecast *today = [HeWeatherDataService30 dailyForecast][0];
@@ -233,10 +241,28 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (_citysDataArr.count < 9 && indexPath.item != _citysDataArr.count) {
-        
+         CityInfoCityInfo *city = _citysDataArr[indexPath.row];
+        [[userInfoManager defaultManager] createTable];
+        NSArray *arr = [[userInfoManager defaultManager] selectData];
+        [[userInfoManager defaultManager] deleteDataWithcityid:[arr.firstObject cityInfoIdentifier]];
+        userInfoModel *model = [userInfoModel new];
+        model.city = city.city;
+        model.cityInfoIdentifier = city.cityInfoIdentifier;
+        [[userInfoManager defaultManager] insertDataModel:model];
+        WeatherViewController *WVC = [WeatherViewController new];
+        [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
     }
     else if (_citysDataArr.count == 9){
-        
+        CityInfoCityInfo *city = _citysDataArr[indexPath.row];
+        [[userInfoManager defaultManager] createTable];
+        NSArray *arr = [[userInfoManager defaultManager] selectData];
+        [[userInfoManager defaultManager] deleteDataWithcityid:[arr.firstObject cityInfoIdentifier]];
+        userInfoModel *model = [userInfoModel new];
+        model.city = city.city;
+        model.cityInfoIdentifier = city.cityInfoIdentifier;
+        [[userInfoManager defaultManager] insertDataModel:model];
+        WeatherViewController *WVC = [WeatherViewController new];
+        [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
     }
     else{
         HotCityViewController *HCVC = [HotCityViewController new];

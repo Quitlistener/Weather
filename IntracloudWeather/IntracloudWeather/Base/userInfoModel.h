@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface userInfoModel : NSObject
+@property(nonatomic,strong)NSString *city;
 @property(nonatomic,strong)NSString *cityInfoIdentifier;
 @property(nonatomic,strong)NSString *voiceAI;
 @end

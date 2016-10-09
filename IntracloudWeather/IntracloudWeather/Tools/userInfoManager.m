@@ -33,7 +33,7 @@
 -(void)createTable{
     
     [_db open];
-    NSString *sqlStr = @"create table if not exists UserInfo ( cityid text,voiceAI text);";
+    NSString *sqlStr = @"create table if not exists UserInfo (city text,cityid text,voiceAI text);";
     BOOL result = [_db executeUpdate:sqlStr];
     if (result) {
         NSLog(@"创建表成功");
@@ -46,7 +46,7 @@
 -(void)insertDataModel:(userInfoModel *)model{
     
     [_db open];
-    NSString *sqlStr = [NSString stringWithFormat:@"insert into UserInfo(cityid,voiceAI)values('%@','%@')",model.cityInfoIdentifier,model.voiceAI];
+    NSString *sqlStr = [NSString stringWithFormat:@"insert into UserInfo(city,cityid,voiceAI)values('%@','%@','%@')",model.city,model.cityInfoIdentifier,model.voiceAI];
     BOOL result = [_db executeUpdate:sqlStr];
     if (result) {
         NSLog(@"添加成功");
@@ -70,9 +70,9 @@
     [_db close];
 }
 //根据原城市id 修改城市id
--(void)updateDataWithCityid:(NSString *)cityid newCityid:(NSString *)newCityid{
+-(void)updateDataWithNewCity:(NSString *)city newCityid:(NSString *)newCityid Cityid:(NSString *)cityid {
     [self.db open];
-    BOOL result =  [self.db executeUpdate:@"update UserInfo set cityid = %@ where cityid = %@",newCityid,cityid];
+    BOOL result =  [self.db executeUpdate:@"update UserInfo set city = %@ cityid = %@ where cityid = %@",city,newCityid,cityid];
     if (result) {
         NSLog(@"更新成功");
     }

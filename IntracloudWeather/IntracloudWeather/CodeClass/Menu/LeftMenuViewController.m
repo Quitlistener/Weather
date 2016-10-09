@@ -12,6 +12,8 @@
 #import "UIViewController+MMDrawerController.h"
 #import "WeatherViewController.h"
 #import "SettingViewController.h"
+#import "SceneryViewController.h"
+#import "TrendViewController.h"
 
 @interface LeftMenuViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -68,9 +70,9 @@
         [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
     }
     if (indexPath.row == 1) {
-//        LifeViewController *LVVC = [LifeViewController new];
+        TrendViewController *TRVC = [TrendViewController new];
 //        UINavigationController *LVNav = [[UINavigationController alloc]initWithRootViewController:LVVC];
-//        [self.mm_drawerController setCenterViewController:LVNav withCloseAnimation:YES completion:nil];
+        [self.mm_drawerController setCenterViewController:TRVC withCloseAnimation:YES completion:nil];
     }
     if (indexPath.row == 2) {
         LifeViewController *LVVC = [LifeViewController new];
@@ -78,9 +80,9 @@
          [self.mm_drawerController setCenterViewController:LVNav withCloseAnimation:YES completion:nil];
     }
     if (indexPath.row == 3) {
-//        LifeViewController *LVVC = [LifeViewController new];
+        SceneryViewController *SCVC = [SceneryViewController new];
 //        UINavigationController *LVNav = [[UINavigationController alloc]initWithRootViewController:LVVC];
-//        [self.mm_drawerController setCenterViewController:LVNav withCloseAnimation:YES completion:nil];
+        [self.mm_drawerController setCenterViewController:SCVC withCloseAnimation:YES completion:nil];
     }
     if (indexPath.row == 4) {
                 SettingViewController *SEVC = [SettingViewController new];
