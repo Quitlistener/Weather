@@ -12,6 +12,7 @@
 #import "HeaderCollectionViewCell.h"
 #import "ItemView.h"
 #import "NetWorkRequest.h"
+#import "UIViewController+MMDrawerController.h"
 
 
 
@@ -33,6 +34,8 @@
     
     self.muArr = [NSMutableArray array];
     [self initUI];
+    UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(TapBackAction)];
     [self requestData];
 }
 
@@ -212,7 +215,9 @@
 }
 
 
-
+-(void)TapBackAction{
+   [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

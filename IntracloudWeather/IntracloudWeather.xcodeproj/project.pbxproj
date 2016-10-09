@@ -57,6 +57,7 @@
 		3FB572AE1DAA065E00590913 /* JHLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB572AD1DAA065E00590913 /* JHLineChart.m */; };
 		3FB572B11DAA067000590913 /* JHChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB572B01DAA067000590913 /* JHChart.m */; };
 		3FB572B61DAA074B00590913 /* TrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB572B51DAA074B00590913 /* TrendViewController.m */; };
+		3FB572B81DAA3E1800590913 /* 返回.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB572B71DAA3E1800590913 /* 返回.png */; };
 		3FBEB69E1D9E36510092E47F /* CityInfoBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEB69A1D9E36510092E47F /* CityInfoBaseClass.m */; };
 		3FBEB69F1D9E36510092E47F /* CityInfoCityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEB69C1D9E36510092E47F /* CityInfoCityInfo.m */; };
 		3FBEB6A11D9E36880092E47F /* cityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEB6A01D9E36880092E47F /* cityData.plist */; };
@@ -209,6 +210,7 @@
 		3FB572B01DAA067000590913 /* JHChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChart.m; sourceTree = "<group>"; };
 		3FB572B41DAA074B00590913 /* TrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendViewController.h; sourceTree = "<group>"; };
 		3FB572B51DAA074B00590913 /* TrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendViewController.m; sourceTree = "<group>"; };
+		3FB572B71DAA3E1800590913 /* 返回.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回.png"; sourceTree = "<group>"; };
 		3FBEB6991D9E36510092E47F /* CityInfoBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityInfoBaseClass.h; sourceTree = "<group>"; };
 		3FBEB69A1D9E36510092E47F /* CityInfoBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityInfoBaseClass.m; sourceTree = "<group>"; };
 		3FBEB69B1D9E36510092E47F /* CityInfoCityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityInfoCityInfo.h; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 		3F0385251D9C07A3004D5423 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				3FB572B71DAA3E1800590913 /* 返回.png */,
 				3F0385491D9CEB3A004D5423 /* 向右.png */,
 				3FFF3AF41D9CAB050069B4A7 /* 加号16.png */,
 				3F0385371D9CA6AC004D5423 /* 加号.png */,
@@ -927,6 +930,7 @@
 				3F5433271DA9045F00E4D290 /* AddCollectionViewCell.xib in Resources */,
 				3FD3F8211D9D471900736C0B /* FallsCollectionViewCell.xib in Resources */,
 				3FBEB6A11D9E36880092E47F /* cityData.plist in Resources */,
+				3FB572B81DAA3E1800590913 /* 返回.png in Resources */,
 				3F0385341D9C1099004D5423 /* AddCitysCollectionViewCell.xib in Resources */,
 				3FFF3A671D9B9FC80069B4A7 /* LaunchScreen.storyboard in Resources */,
 				3FFF3B171D9D07F40069B4A7 /* HeaderCollectionViewCell.xib in Resources */,
