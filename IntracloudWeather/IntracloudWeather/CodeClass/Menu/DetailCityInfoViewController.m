@@ -70,11 +70,26 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    CityInfoCityInfo *city = _cityInfoArr[indexPath.row];
     NSArray *arr = [[CityDetailDBManager defaultManager] selectData];
     if (arr.count == 9) {
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
-    CityInfoCityInfo *city = _cityInfoArr[indexPath.row];
+    for (CityInfoCityInfo *city2 in arr) {
+        if ([city.city isEqualToString:city2.city]) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"您已添加过%@",city.city]
+                                                                message:nil
+                                                               delegate:nil
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:nil];
+            alertView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
+            [alertView show];
+            //            sleep(1.5);
+            [alertView dismissWithClickedButtonIndex:0 animated:YES];
+            return;
+        }
+    }
+
     [[CityDetailDBManager defaultManager] createTable];
     [[CityDetailDBManager defaultManager] insertDataModel:city];
     [self.navigationController popToRootViewControllerAnimated:YES];
