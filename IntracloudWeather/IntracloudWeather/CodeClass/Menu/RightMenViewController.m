@@ -12,7 +12,9 @@
 #import "CityDetailDBManager.h"
 #import "CityInfoDataModels.h"
 #import "AddCollectionViewCell.h"
-
+#import "NetWorkRequest.h"
+#import "WeatherDataModels.h"
+#import "UIImageView+WebCache.h"
 
 
 @interface RightMenViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
@@ -22,6 +24,7 @@
     UICollectionView *_CityCollectionVew;
     BOOL isEdit;
     UIBarButtonItem *_editItem;
+    WeatherBaseClass *_BaseModels;
 }
 
 
@@ -33,7 +36,12 @@
     
     NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
     _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
-    [_CityCollectionVew reloadData];
+    for (int i = 0; i < _citysDataArr.count; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+        CityInfoCityInfo *city = _citysDataArr[i] ;
+        [self dataRequestWithCityid:city.cityInfoIdentifier indexPath:indexPath];
+    }
+//    [_CityCollectionVew reloadData];
     
 }
 
@@ -42,7 +50,11 @@
     
     [self reloadCitys];
     [self initUI];
-    
+    for (int i = 0; i < _citysDataArr.count; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+        CityInfoCityInfo *city = _citysDataArr[i] ;
+        [self dataRequestWithCityid:city.cityInfoIdentifier indexPath:indexPath];
+    }
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     self.navigationItem.backBarButtonItem = backItem;
     backItem.title = @"返回";
@@ -69,6 +81,37 @@
     _CityCollectionVew = CityCollectionVew;
     [self.view addSubview:CityCollectionVew];
 }
+#pragma -mark 网络请求
+-(void)dataRequestWithCityid:(NSString *)cityid indexPath:(NSIndexPath *)indexPath{
+    
+    NSString *str = [NSString stringWithFormat:@"key=2e39142365f74cba8c3d9ccc09f73eaa&cityid=%@",cityid];
+    NSString *urlStr = [@"https://api.heweather.com/x3/weather?" stringByAppendingString:str];
+    
+    [NetWorkRequest requestWithMethod:GET URL:urlStr para:nil success:^(NSData *data) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"dic_____%@",dic);
+        _BaseModels = [WeatherBaseClass modelObjectWithDictionary:dic];
+        WeatherHeWeatherDataService30 *HeWeatherDataService30 = [_BaseModels heWeatherDataService30][0];
+        WeatherDailyForecast *today = [HeWeatherDataService30 dailyForecast][0];
+        WeatherCond *cond = [today cond];
+        WeatherTmp *tmp = [today tmp];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            AddCitysCollectionViewCell *cell = ( AddCitysCollectionViewCell *)[_CityCollectionVew cellForItemAtIndexPath:indexPath];
+            cell.XYTopTempLabel.text = [tmp.max stringByAppendingString:@"℃"];
+            cell.XYDownTempLabel.text = [tmp.min stringByAppendingString:@"℃"];
+            cell.XYWeatherConLabel.text = [cond txtD];
+            NSString *urlStr = [NSString stringWithFormat:@"http://files.heweather.com/cond_icon/%@.png",cond.codeD];
+            [cell.XYConditionImageView sd_setImageWithURL:[NSURL URLWithString:urlStr]];
+            
+        });
+    } error:^(NSError *error) {
+        //        NSLog(@"error____%@",[error description]);
+    }];
+
+    
+}
+
 //管理城市 删除操作
 -(void)editCitys{
     
@@ -109,8 +152,6 @@
 }
 - (void)deleteCellButtonPressed: (id)sender{
     
-//    AddCitysCollectionViewCell *cell = (AddCitysCollectionViewCell *)[sender superview];//获取cell
-//    NSIndexPath *indexpath = [_CityCollectionVew indexPathForCell:cell];//获取cell对应的indexpath;
     UIButton *btn = (UIButton *)sender;
     //删除cell；
     CityInfoCityInfo *city = _citysDataArr[btn.tag - 10];
