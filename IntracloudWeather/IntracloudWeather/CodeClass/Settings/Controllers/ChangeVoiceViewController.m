@@ -47,6 +47,7 @@
         self.navigationController.navigationBar.translucent = NO;
     }
 #endif
+    self.title = @"选择语音";
     self.view.backgroundColor = [UIColor colorWithRed:26.0/255.0 green:26.0/255.0 blue:26.0/255.0 alpha:1.0];
     // 初始化发音人选择界面
     _vcnPicker.delegate = self;

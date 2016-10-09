@@ -231,6 +231,9 @@
     _state = Playing;
 }
 
+- (void)onCompleted:(IFlySpeechError *) error{
+    
+}
 
 //- (void)didReceiveMemoryWarning {
 //    [super didReceiveMemoryWarning];
