@@ -23,7 +23,17 @@
 }
 
 -(void)initUI{
-    self.newsWebiew = [[WKWebView alloc]initWithFrame:CGRectMake(0, -44, SCREEN_width, SCREENH_height+44)];
+    if (SCREEN_width == 320) {
+        self.newsWebiew = [[WKWebView alloc]initWithFrame:CGRectMake(0, -44, SCREEN_width, SCREENH_height+44)];
+    }
+    else if (SCREEN_width == 375){
+        self.newsWebiew = [[WKWebView alloc]initWithFrame:CGRectMake(0, -50, SCREEN_width, SCREENH_height+50)];
+    }
+    else{
+        self.newsWebiew = [[WKWebView alloc]initWithFrame:CGRectMake(0, -54, SCREEN_width, SCREENH_height+54)];
+    }
+    
+    
     [self.newsWebiew loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_URLstr]]];
     [self.view addSubview:_newsWebiew];
 }

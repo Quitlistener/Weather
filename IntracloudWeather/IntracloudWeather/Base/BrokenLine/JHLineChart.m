@@ -9,7 +9,7 @@
 #import "JHLineChart.h"
 #define kXandYSpaceForSuperView 20.0
 
-@interface JHLineChart ()
+@interface JHLineChart ()<CAAnimationDelegate>
 
 @property (assign, nonatomic)   CGFloat  xLength;
 @property (assign , nonatomic)  CGFloat  yLength;
