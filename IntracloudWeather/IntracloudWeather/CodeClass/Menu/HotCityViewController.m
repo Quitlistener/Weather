@@ -137,6 +137,7 @@
         searchTextField.borderStyle = UITextBorderStyleRoundedRect;
         searchTextField.clearButtonMode = UITextFieldViewModeAlways;
         searchTextField.placeholder = @"搜索城市首字母拼音或全称🔍";
+        [searchTextField addTarget:self action:@selector(textFieldEditChange:) forControlEvents:UIControlEventEditingChanged];
         [heahView addSubview:searchTextField];
         
         UILabel *hotCityLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 47, 259, 21)];
@@ -162,6 +163,13 @@
     }
     
 }
+#pragma -mark textFiled搜索
+-(void)textFieldEditChange:(UITextField *)textField{
+    
+    NSLog(@"%@",textField.text);
+    
+}
+
 #pragma -mark 更多城市
 -(void)moreCity{
     MoreCitysViewController *MCVC = [MoreCitysViewController new];
