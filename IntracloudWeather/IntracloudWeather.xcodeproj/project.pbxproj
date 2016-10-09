@@ -61,6 +61,7 @@
 		3FBEB6A51D9E4DE30092E47F /* mainCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEB6A41D9E4DE30092E47F /* mainCity.plist */; };
 		3FBEB6A71D9E4EFA0092E47F /* country.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEB6A61D9E4EFA0092E47F /* country.plist */; };
 		3FBEB6AA1D9E536B0092E47F /* ForeignCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEB6A91D9E536B0092E47F /* ForeignCityViewController.m */; };
+		3FD0A7831DA9D0BF004BEDD3 /* userInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0A7821DA9D0BF004BEDD3 /* userInfoModel.m */; };
 		3FD3F8201D9D471900736C0B /* FallsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */; };
 		3FD3F8211D9D471900736C0B /* FallsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */; };
 		3FD3F8261D9D49DD00736C0B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8251D9D49DD00736C0B /* SettingViewController.m */; };
@@ -188,6 +189,8 @@
 		3FBEB6A61D9E4EFA0092E47F /* country.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = country.plist; sourceTree = "<group>"; };
 		3FBEB6A81D9E536B0092E47F /* ForeignCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForeignCityViewController.h; sourceTree = "<group>"; };
 		3FBEB6A91D9E536B0092E47F /* ForeignCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForeignCityViewController.m; sourceTree = "<group>"; };
+		3FD0A7811DA9D0BF004BEDD3 /* userInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userInfoModel.h; sourceTree = "<group>"; };
+		3FD0A7821DA9D0BF004BEDD3 /* userInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userInfoModel.m; sourceTree = "<group>"; };
 		3FD3F81D1D9D471900736C0B /* FallsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FallsCollectionViewCell.h; sourceTree = "<group>"; };
 		3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FallsCollectionViewCell.m; sourceTree = "<group>"; };
 		3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FallsCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -394,6 +397,8 @@
 				3F6B08931DA8B3D000814A0F /* PcmPlayer.m */,
 				3F6B08941DA8B3D000814A0F /* PcmPlayerDelegate.h */,
 				3F6B08721DA8B09300814A0F /* Definition.h */,
+				3FD0A7811DA9D0BF004BEDD3 /* userInfoModel.h */,
+				3FD0A7821DA9D0BF004BEDD3 /* userInfoModel.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -855,6 +860,7 @@
 				3FFF3B211D9D43090069B4A7 /* SceneryViewController.m in Sources */,
 				3FFF3A991D9BB2230069B4A7 /* WeatherViewController.m in Sources */,
 				3F6B089D1DA8C71E00814A0F /* AKPickerView.m in Sources */,
+				3FD0A7831DA9D0BF004BEDD3 /* userInfoModel.m in Sources */,
 				3FD3F8201D9D471900736C0B /* FallsCollectionViewCell.m in Sources */,
 				3FFF3B161D9D07F40069B4A7 /* HeaderCollectionViewCell.m in Sources */,
 				3F0385471D9CEA8A004D5423 /* MoreCityTableViewCell.m in Sources */,
