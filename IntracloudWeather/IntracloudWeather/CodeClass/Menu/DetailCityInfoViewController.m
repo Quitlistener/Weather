@@ -20,6 +20,7 @@
 @implementation DetailCityInfoViewController
 
 - (void)viewDidLoad {
+    self.navigationItem.title = _cityName;
     [super viewDidLoad];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     self.navigationItem.backBarButtonItem = backItem;

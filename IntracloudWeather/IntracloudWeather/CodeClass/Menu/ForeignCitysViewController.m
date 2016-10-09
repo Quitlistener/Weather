@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"国际国外";
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     self.navigationItem.backBarButtonItem = backItem;
     backItem.title = @"返回";

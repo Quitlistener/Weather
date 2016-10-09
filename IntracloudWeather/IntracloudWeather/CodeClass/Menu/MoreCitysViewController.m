@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"更多城市";
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     self.navigationItem.backBarButtonItem = backItem;
     backItem.title = @"返回";

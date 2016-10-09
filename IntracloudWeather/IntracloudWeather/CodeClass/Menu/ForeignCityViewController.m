@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = _countryName;
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     self.navigationItem.backBarButtonItem = backItem;
     backItem.title = @"返回";

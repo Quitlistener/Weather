@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1];
     [self loadData];
     [self initUI];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
@@ -40,7 +40,6 @@
     
 }
 -(void)initUI{
-    self.navigationItem.title = @"热门城市";
 //    UIBarButtonItem *reloadItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reloadCitys)];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
@@ -50,7 +49,7 @@
     flowLayout.headerReferenceSize = CGSizeMake(100, 70);
     flowLayout.footerReferenceSize = CGSizeMake(100, 50);
     UICollectionView *hotCityCollectionVew = [[UICollectionView alloc]initWithFrame:CGRectMake(10, 0, 259, SCREENH_height) collectionViewLayout:flowLayout];
-    hotCityCollectionVew.backgroundColor = [UIColor grayColor];
+    hotCityCollectionVew.backgroundColor = [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1];
     hotCityCollectionVew.delegate = self;
     hotCityCollectionVew.dataSource = self;
     [hotCityCollectionVew registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"hotCity"];
@@ -103,7 +102,7 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"hotCity" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor whiteColor];
+    cell.backgroundColor =  [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1];;
     UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 64, 50)];
     nameLabel.textAlignment = NSTextAlignmentCenter;
     nameLabel.font = [UIFont systemFontOfSize:15];
@@ -114,7 +113,7 @@
             nameLabel.textColor = [UIColor grayColor];
         }
     }
-    
+    nameLabel.backgroundColor = [UIColor whiteColor];
     nameLabel.text = city.city;
     [cell addSubview:nameLabel];
     return cell;
@@ -145,8 +144,7 @@
         hotCityLabel.textColor = [UIColor grayColor];
         hotCityLabel.backgroundColor = [UIColor whiteColor];
         [heahView addSubview:hotCityLabel];
-        
-        heahView.backgroundColor = [UIColor grayColor];
+        heahView.backgroundColor = [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1];
         return heahView;
     }
     else{
@@ -159,7 +157,7 @@
         [moreCityBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [moreCityBtn addTarget:self action:@selector(moreCity) forControlEvents:UIControlEventTouchUpInside];
         [footView addSubview:moreCityBtn];
-        footView.backgroundColor = [UIColor grayColor];
+        footView.backgroundColor = [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1];
         return footView;
     }
     

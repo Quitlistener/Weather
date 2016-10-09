@@ -19,8 +19,8 @@
 -(void)createTable;
 -(void)insertDataModel:(userInfoModel *)model;
 -(void)deleteDataWithcityid:(NSString *)cityid;
--(void)updateDataWithNewCity:(NSString *)city newCityid:(NSString *)newCityid Cityid:(NSString *)cityid ;
--(void)updateDataWithVoiceAI:(NSString *)VoiceAI newVoiceAI:(NSString *)newVoiceAI;
+-(void)updateDataWithNewCity:(NSString *)city newCityid:(NSString *)newCityid newIdenx:(NSString *)newIndex Cityid:(NSString *)cityid ;
+-(void)updateDataWithCityid:(NSString *)cityid newVoiceAI:(NSString *)newVoiceAI;
 -(NSArray<userInfoModel *> *)selectData;
 
 

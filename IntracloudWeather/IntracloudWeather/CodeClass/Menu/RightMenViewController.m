@@ -175,6 +175,11 @@
     NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
     _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
     [_CityCollectionVew reloadData];
+    for (int i = 0; i < _citysDataArr.count; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+        CityInfoCityInfo *city = _citysDataArr[i] ;
+        [self dataRequestWithCityid:city.cityInfoIdentifier indexPath:indexPath];
+    }
     
 }
 
@@ -193,6 +198,8 @@
         CityInfoCityInfo *city = _citysDataArr[indexPath.row];
         AddCitysCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"City" forIndexPath:indexPath];
         cell.XYCityLabel.text = city.city;
+        cell.XYCityLabel.layer.cornerRadius = 5;
+        cell.XYCityLabel.layer.masksToBounds = YES;
         //设置删除按钮
         // 点击编辑按钮触发事件
         if(isEdit == 0){
@@ -240,33 +247,42 @@
 
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
     if (_citysDataArr.count < 9 && indexPath.item != _citysDataArr.count) {
+        
          CityInfoCityInfo *city = _citysDataArr[indexPath.row];
         [[userInfoManager defaultManager] createTable];
         NSArray *arr = [[userInfoManager defaultManager] selectData];
         [[userInfoManager defaultManager] deleteDataWithcityid:[arr.firstObject cityInfoIdentifier]];
         userInfoModel *model = [userInfoModel new];
+        model.index = [NSString stringWithFormat:@"%ld",indexPath.row];
         model.city = city.city;
         model.cityInfoIdentifier = city.cityInfoIdentifier;
         [[userInfoManager defaultManager] insertDataModel:model];
         WeatherViewController *WVC = [WeatherViewController new];
         [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
+        
     }
     else if (_citysDataArr.count == 9){
+        
         CityInfoCityInfo *city = _citysDataArr[indexPath.row];
         [[userInfoManager defaultManager] createTable];
         NSArray *arr = [[userInfoManager defaultManager] selectData];
         [[userInfoManager defaultManager] deleteDataWithcityid:[arr.firstObject cityInfoIdentifier]];
         userInfoModel *model = [userInfoModel new];
+        model.index = [NSString stringWithFormat:@"%ld",indexPath.row];
         model.city = city.city;
         model.cityInfoIdentifier = city.cityInfoIdentifier;
         [[userInfoManager defaultManager] insertDataModel:model];
         WeatherViewController *WVC = [WeatherViewController new];
         [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
+        
     }
     else{
+        
         HotCityViewController *HCVC = [HotCityViewController new];
         [self.navigationController pushViewController:HCVC animated:YES];
+        
     }
    
 }
