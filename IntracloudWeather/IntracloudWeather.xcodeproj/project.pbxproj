@@ -54,6 +54,9 @@
 		3F6B089E1DA8C71E00814A0F /* SAMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B089A1DA8C71E00814A0F /* SAMath.m */; };
 		3F6B089F1DA8C71E00814A0F /* SAMultisectorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B089C1DA8C71E00814A0F /* SAMultisectorControl.m */; };
 		3F6B08A61DA8D15000814A0F /* ChangeVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F6B08A51DA8D15000814A0F /* ChangeVoiceViewController.xib */; };
+		3FB572AE1DAA065E00590913 /* JHLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB572AD1DAA065E00590913 /* JHLineChart.m */; };
+		3FB572B11DAA067000590913 /* JHChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB572B01DAA067000590913 /* JHChart.m */; };
+		3FB572B61DAA074B00590913 /* TrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB572B51DAA074B00590913 /* TrendViewController.m */; };
 		3FBEB69E1D9E36510092E47F /* CityInfoBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEB69A1D9E36510092E47F /* CityInfoBaseClass.m */; };
 		3FBEB69F1D9E36510092E47F /* CityInfoCityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEB69C1D9E36510092E47F /* CityInfoCityInfo.m */; };
 		3FBEB6A11D9E36880092E47F /* cityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEB6A01D9E36880092E47F /* cityData.plist */; };
@@ -200,6 +203,12 @@
 		3F6B089B1DA8C71E00814A0F /* SAMultisectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMultisectorControl.h; sourceTree = "<group>"; };
 		3F6B089C1DA8C71E00814A0F /* SAMultisectorControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMultisectorControl.m; sourceTree = "<group>"; };
 		3F6B08A51DA8D15000814A0F /* ChangeVoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeVoiceViewController.xib; sourceTree = "<group>"; };
+		3FB572AC1DAA065E00590913 /* JHLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHLineChart.h; sourceTree = "<group>"; };
+		3FB572AD1DAA065E00590913 /* JHLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHLineChart.m; sourceTree = "<group>"; };
+		3FB572AF1DAA067000590913 /* JHChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChart.h; sourceTree = "<group>"; };
+		3FB572B01DAA067000590913 /* JHChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHChart.m; sourceTree = "<group>"; };
+		3FB572B41DAA074B00590913 /* TrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendViewController.h; sourceTree = "<group>"; };
+		3FB572B51DAA074B00590913 /* TrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendViewController.m; sourceTree = "<group>"; };
 		3FBEB6991D9E36510092E47F /* CityInfoBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityInfoBaseClass.h; sourceTree = "<group>"; };
 		3FBEB69A1D9E36510092E47F /* CityInfoBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityInfoBaseClass.m; sourceTree = "<group>"; };
 		3FBEB69B1D9E36510092E47F /* CityInfoCityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityInfoCityInfo.h; sourceTree = "<group>"; };
@@ -455,6 +464,7 @@
 		3F6B086E1DA8AFF600814A0F /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				3FB572AB1DAA062900590913 /* BrokenLine */,
 				3F6B08961DA8C71E00814A0F /* SettingView */,
 				3F6B08731DA8B0E100814A0F /* TTSConfig.h */,
 				3F6B08741DA8B0E100814A0F /* TTSConfig.m */,
@@ -489,6 +499,34 @@
 				3F6B089C1DA8C71E00814A0F /* SAMultisectorControl.m */,
 			);
 			path = SettingView;
+			sourceTree = "<group>";
+		};
+		3FB572AB1DAA062900590913 /* BrokenLine */ = {
+			isa = PBXGroup;
+			children = (
+				3FB572AF1DAA067000590913 /* JHChart.h */,
+				3FB572B01DAA067000590913 /* JHChart.m */,
+				3FB572AC1DAA065E00590913 /* JHLineChart.h */,
+				3FB572AD1DAA065E00590913 /* JHLineChart.m */,
+			);
+			path = BrokenLine;
+			sourceTree = "<group>";
+		};
+		3FB572B21DAA06E100590913 /* Trend */ = {
+			isa = PBXGroup;
+			children = (
+				3FB572B31DAA070100590913 /* Controllers */,
+			);
+			path = Trend;
+			sourceTree = "<group>";
+		};
+		3FB572B31DAA070100590913 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FB572B41DAA074B00590913 /* TrendViewController.h */,
+				3FB572B51DAA074B00590913 /* TrendViewController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		3FBEB6971D9E36510092E47F /* Model */ = {
@@ -690,6 +728,7 @@
 		3FFF3A711D9BAA0A0069B4A7 /* CodeClass */ = {
 			isa = PBXGroup;
 			children = (
+				3FB572B21DAA06E100590913 /* Trend */,
 				3FD3F8221D9D498B00736C0B /* Settings */,
 				3FFF3B1D1D9D42A80069B4A7 /* Scenery */,
 				3FFF3B051D9CEE770069B4A7 /* Life */,
@@ -998,6 +1037,7 @@
 				3F0385401D9CCFD4004D5423 /* HotCityViewController.m in Sources */,
 				3FBEB6AA1D9E536B0092E47F /* ForeignCityViewController.m in Sources */,
 				3F0385541D9CF527004D5423 /* DetailCityTableViewCell.m in Sources */,
+				3FB572AE1DAA065E00590913 /* JHLineChart.m in Sources */,
 				3F6B089E1DA8C71E00814A0F /* SAMath.m in Sources */,
 				3FD0A7861DA9D342004BEDD3 /* userInfoManager.m in Sources */,
 				3FFF3AE71D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m in Sources */,
@@ -1026,12 +1066,14 @@
 				3FD3F8391D9DED0400736C0B /* NewsBaseClass.m in Sources */,
 				3FD0A7C51DA9E7B4004BEDD3 /* WeatherUpdate.m in Sources */,
 				3F03851C1D9C04B1004D5423 /* MenuTableViewCell.m in Sources */,
+				3FB572B61DAA074B00590913 /* TrendViewController.m in Sources */,
 				3FFF3B1A1D9D12CF0069B4A7 /* ItemView.m in Sources */,
 				3F03854D1D9CF44D004D5423 /* DetailCityInfoViewController.m in Sources */,
 				3FD0A7B51DA9E7B4004BEDD3 /* WeatherBaseClass.m in Sources */,
 				3FD0A7C61DA9E7B4004BEDD3 /* WeatherUv.m in Sources */,
 				3FD0A7BF1DA9E7B4004BEDD3 /* WeatherHourlyForecast.m in Sources */,
 				3F0385231D9C0533004D5423 /* LeftMenuViewController.m in Sources */,
+				3FB572B11DAA067000590913 /* JHChart.m in Sources */,
 				3FFF3B081D9CEEFC0069B4A7 /* LifeViewController.m in Sources */,
 				3F6B089F1DA8C71E00814A0F /* SAMultisectorControl.m in Sources */,
 				3FFF3AE91D9BF82F0069B4A7 /* LeftWeatherDetailsView.m in Sources */,
