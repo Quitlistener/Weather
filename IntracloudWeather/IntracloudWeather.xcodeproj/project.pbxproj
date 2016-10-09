@@ -62,6 +62,7 @@
 		3FBEB6A71D9E4EFA0092E47F /* country.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEB6A61D9E4EFA0092E47F /* country.plist */; };
 		3FBEB6AA1D9E536B0092E47F /* ForeignCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEB6A91D9E536B0092E47F /* ForeignCityViewController.m */; };
 		3FD0A7831DA9D0BF004BEDD3 /* userInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0A7821DA9D0BF004BEDD3 /* userInfoModel.m */; };
+		3FD0A7861DA9D342004BEDD3 /* userInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0A7851DA9D342004BEDD3 /* userInfoManager.m */; };
 		3FD3F8201D9D471900736C0B /* FallsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */; };
 		3FD3F8211D9D471900736C0B /* FallsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */; };
 		3FD3F8261D9D49DD00736C0B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8251D9D49DD00736C0B /* SettingViewController.m */; };
@@ -191,6 +192,8 @@
 		3FBEB6A91D9E536B0092E47F /* ForeignCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForeignCityViewController.m; sourceTree = "<group>"; };
 		3FD0A7811DA9D0BF004BEDD3 /* userInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userInfoModel.h; sourceTree = "<group>"; };
 		3FD0A7821DA9D0BF004BEDD3 /* userInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userInfoModel.m; sourceTree = "<group>"; };
+		3FD0A7841DA9D342004BEDD3 /* userInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userInfoManager.h; sourceTree = "<group>"; };
+		3FD0A7851DA9D342004BEDD3 /* userInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userInfoManager.m; sourceTree = "<group>"; };
 		3FD3F81D1D9D471900736C0B /* FallsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FallsCollectionViewCell.h; sourceTree = "<group>"; };
 		3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FallsCollectionViewCell.m; sourceTree = "<group>"; };
 		3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FallsCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -563,6 +566,8 @@
 				3FFF3B231D9D43FD0069B4A7 /* Waterfall.m */,
 				F270AAA61D9F611A0051959A /* CityDetailDBManager.h */,
 				F270AAA71D9F611A0051959A /* CityDetailDBManager.m */,
+				3FD0A7841DA9D342004BEDD3 /* userInfoManager.h */,
+				3FD0A7851DA9D342004BEDD3 /* userInfoManager.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -871,6 +876,7 @@
 				3FBEB6AA1D9E536B0092E47F /* ForeignCityViewController.m in Sources */,
 				3F0385541D9CF527004D5423 /* DetailCityTableViewCell.m in Sources */,
 				3F6B089E1DA8C71E00814A0F /* SAMath.m in Sources */,
+				3FD0A7861DA9D342004BEDD3 /* userInfoManager.m in Sources */,
 				3FFF3AE71D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m in Sources */,
 				3F0385241D9C0533004D5423 /* RightMenViewController.m in Sources */,
 				3FBEB69F1D9E36510092E47F /* CityInfoCityInfo.m in Sources */,
