@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="加号.png" translatesAutoresizingMaskIntoConstraints="NO" id="A0L-ft-Xfm"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A0L-ft-Xfm"/>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7L-Yv-ejy">
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="3Z7-ZP-Fmn"/>
@@ -74,7 +74,4 @@
             </constraints>
         </view>
     </objects>
-    <resources>
-        <image name="加号.png" width="64" height="64"/>
-    </resources>
 </document>

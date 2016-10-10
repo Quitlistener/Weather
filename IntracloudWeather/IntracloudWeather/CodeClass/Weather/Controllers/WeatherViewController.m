@@ -17,6 +17,7 @@
 #import "ThirddayWeatherView.h"
 #import "NetWorkRequest.h"
 #import "XYtodayCollectionViewCell.h"
+#import "userInfoManager.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import <AVFoundation/AVAudioSession.h>
@@ -25,6 +26,7 @@
 //#import "PopupView.h"
 #import "AlertView.h"
 #import "TTSConfig.h"
+#import "WeatherBaseClass.h"
 
 @interface WeatherViewController ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,IFlySpeechSynthesizerDelegate,UIActionSheetDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -36,17 +38,26 @@
 @property (nonatomic, strong) TomorrowWwatherView *tomorrowView;
 @property (nonatomic, strong) ThirddayWeatherView *thirddayVeiw;
 @property (nonatomic, strong) UICollectionView *XYcollection;
+@property (nonatomic, strong) userInfoManager *userCity;
+@property (nonatomic, strong) userInfoModel *userModer;
+@property (nonatomic, strong) WeatherBaseClass *weathBase;
 @end
 
 @implementation WeatherViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
     
+//    self.userCity = [userInfoManager defaultManager];
+//    self.userModer = [self.userCity selectData][0];
+//    if (self.userModer.city) {
+//        [self.XYCity setTitle:self.userModer.city forState:UIControlStateNormal];
+//    }
+//    [self requestData:self.userModer.cityInfoIdentifier];
     [self initUI];
-    [self requestData];
 }
 #pragma mark -初始化UI
 -(void)initUI{
@@ -111,8 +122,16 @@
 }
 
 #pragma mark -网路请求
--(void)requestData{
-//    [NetWorkRequest requestWithMethod:GET URL:<#(NSString *)#> para: success:<#^(NSData *data)suc#> error:<#^(NSError *error)failerror#>]
+-(void)requestData:(NSString *)str{
+    [NetWorkRequest requestWithMethod:GET URL:[NSString stringWithFormat:@"https://api.heweather.com/x3/weather?key=2e39142365f74cba8c3d9ccc09f73eaa&cityid=%@",str] para:nil success:^(NSData *data) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        _weathBase = [[WeatherBaseClass alloc]initWithDictionary:dic];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.XYcollection reloadData];
+        });
+    } error:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark -collectionViewDelegate
@@ -121,6 +140,7 @@
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     XYtodayCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"XYcollection" forIndexPath:indexPath];
+//    cell.weatherDaily = [[_weathBase heWeatherDataService30][0] dailyForecast][indexPath.row];
     return cell;
 }
 
@@ -167,6 +187,12 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    self.userCity = [userInfoManager defaultManager];
+//    self.userModer = [self.userCity selectData][0];
+//    [self requestData:self.userModer.cityInfoIdentifier];
+//    self.XYCity.titleLabel.text = self.userModer.city;
+    
+    /** 讯飞 */
     [super viewWillAppear:animated];
     [self initSynthesizer];
 }
@@ -234,6 +260,9 @@
 - (void)onCompleted:(IFlySpeechError *) error{
     
 }
+
+
+
 
 //- (void)didReceiveMemoryWarning {
 //    [super didReceiveMemoryWarning];

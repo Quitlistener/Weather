@@ -30,11 +30,8 @@
                             <constraint firstAttribute="height" constant="40" id="dIG-j8-5cI"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天气" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHA-Vn-S4H">
-                        <constraints>
-                            <constraint firstAttribute="width" constant="40" id="aIz-9d-345"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天气" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHA-Vn-S4H">
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -57,21 +54,29 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="WHA-Vn-S4H" secondAttribute="bottom" constant="2" id="1Ve-Vl-IzU"/>
                 <constraint firstItem="04D-CB-ZuO" firstAttribute="top" secondItem="rKR-9O-KAt" secondAttribute="bottom" constant="5" id="3A0-LV-CIS"/>
+                <constraint firstItem="WHA-Vn-S4H" firstAttribute="top" secondItem="04D-CB-ZuO" secondAttribute="bottom" constant="2" id="9tS-LD-gAA"/>
                 <constraint firstItem="rKR-9O-KAt" firstAttribute="leading" secondItem="SDa-7v-yAw" secondAttribute="trailing" constant="5" id="CON-St-HtC"/>
-                <constraint firstItem="WHA-Vn-S4H" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Jod-Ve-2OR"/>
                 <constraint firstItem="SDa-7v-yAw" firstAttribute="top" secondItem="kqf-jz-veZ" secondAttribute="bottom" constant="2" id="RbL-br-Roe"/>
-                <constraint firstAttribute="bottom" secondItem="WHA-Vn-S4H" secondAttribute="bottom" id="Uvi-gf-AW1"/>
                 <constraint firstItem="04D-CB-ZuO" firstAttribute="leading" secondItem="SDa-7v-yAw" secondAttribute="trailing" constant="5" id="VAN-c5-jA3"/>
-                <constraint firstItem="kqf-jz-veZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cq7-l3-rkS"/>
-                <constraint firstItem="WHA-Vn-S4H" firstAttribute="top" secondItem="SDa-7v-yAw" secondAttribute="bottom" constant="3" id="eke-KV-ubh"/>
+                <constraint firstAttribute="trailing" secondItem="WHA-Vn-S4H" secondAttribute="trailing" id="ccD-dq-Tl1"/>
+                <constraint firstItem="kqf-jz-veZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="cq7-l3-rkS"/>
+                <constraint firstItem="WHA-Vn-S4H" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="is7-CL-rZs"/>
                 <constraint firstAttribute="trailing" secondItem="04D-CB-ZuO" secondAttribute="trailing" id="sKI-vh-bAC"/>
                 <constraint firstItem="kqf-jz-veZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="thB-dg-NXn"/>
                 <constraint firstItem="SDa-7v-yAw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="vcr-Zz-u2h"/>
-                <constraint firstItem="rKR-9O-KAt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="26" id="vnb-Zr-sfz"/>
+                <constraint firstItem="rKR-9O-KAt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="vnb-Zr-sfz"/>
                 <constraint firstAttribute="trailing" secondItem="rKR-9O-KAt" secondAttribute="trailing" id="yG8-Ng-meS"/>
             </constraints>
             <size key="customSize" width="97" height="89"/>
+            <connections>
+                <outlet property="maxTemperature" destination="rKR-9O-KAt" id="jmz-Yh-TRc"/>
+                <outlet property="minTemperature" destination="04D-CB-ZuO" id="UeN-3h-Ilt"/>
+                <outlet property="todayLabel" destination="kqf-jz-veZ" id="S7h-1Z-A6T"/>
+                <outlet property="weatherImage" destination="SDa-7v-yAw" id="ynl-zV-BSf"/>
+                <outlet property="weatherLbel" destination="WHA-Vn-S4H" id="w4E-1d-ryl"/>
+            </connections>
             <point key="canvasLocation" x="49.5" y="28.5"/>
         </collectionViewCell>
     </objects>
