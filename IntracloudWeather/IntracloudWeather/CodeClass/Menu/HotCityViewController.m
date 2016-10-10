@@ -10,6 +10,7 @@
 #import "MoreCitysViewController.h"
 #import "CityDetailDBManager.h"
 #import "PinYin4Objc.h"
+#import "SearchCityViewController.h"
 
 @interface HotCityViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UITextFieldDelegate>
 {
@@ -138,7 +139,7 @@
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         //初始化头部视图
         UICollectionReusableView *heahView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"hotCity" forIndexPath:indexPath];
-        UITextField *searchTextField = [[UITextField alloc]initWithFrame:CGRectMake(4, 8, 211, 34)];
+        UITextField *searchTextField = [[UITextField alloc]initWithFrame:CGRectMake(4, 8, 251, 34)];
         searchTextField.backgroundColor = [UIColor whiteColor];
         searchTextField.borderStyle = UITextBorderStyleRoundedRect;
         searchTextField.clearButtonMode = UITextFieldViewModeAlways;
@@ -148,12 +149,12 @@
         _searchTextField = searchTextField;
         [heahView addSubview:_searchTextField];
         
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(215, 8, 40, 34);
-        [button setTitle:@"取消" forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(cancelBtn) forControlEvents:UIControlEventTouchUpInside];
-        [button setTitleColor:[UIColor colorWithRed:20/255.0 green:150/255.0 blue:220/255.0 alpha:1] forState:UIControlStateNormal];
-        [heahView addSubview:button];
+//        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//        button.frame = CGRectMake(215, 8, 40, 34);
+//        [button setTitle:@"取消" forState:UIControlStateNormal];
+//        [button addTarget:self action:@selector(cancelBtn) forControlEvents:UIControlEventTouchUpInside];
+//        [button setTitleColor:[UIColor colorWithRed:20/255.0 green:150/255.0 blue:220/255.0 alpha:1] forState:UIControlStateNormal];
+//        [heahView addSubview:button];
         
         UILabel *hotCityLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 47, 259, 21)];
         hotCityLabel.text = @"热门城市";
@@ -179,6 +180,19 @@
     
 }
 #pragma -mark textFiled搜索
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    SearchCityViewController * SCVC = [SearchCityViewController new];
+    self.definesPresentationContext = YES; //self is presenting view controller
+    SCVC.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.4];
+    SCVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    self.navigationController.navigationBarHidden = YES;
+    [self presentViewController:SCVC animated:NO completion:nil];
+    return YES;
+    
+}
 
 -(void)textFieldEditChange:(UITextField *)textField{
     
@@ -261,7 +275,7 @@
 
 -(NSArray *)loadAllWorldCityData{
     
-    NSString *filename = [[NSBundle mainBundle] pathForResource:@"allworld" ofType:@"plist"];
+    NSString *filename = [[NSBundle mainBundle] pathForResource:@"allcitys" ofType:@"plist"];
     NSDictionary* dic2 = [NSDictionary dictionaryWithContentsOfFile:filename];
     CityInfoBaseClass *Models = [CityInfoBaseClass  modelObjectWithDictionary:dic2];
     NSArray *arr = Models.cityInfo;
