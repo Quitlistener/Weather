@@ -275,6 +275,10 @@
     _searchDataArr = nil;
     
 }
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 #pragma -mark 更多城市
 -(void)moreCity{

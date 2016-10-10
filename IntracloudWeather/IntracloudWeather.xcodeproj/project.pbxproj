@@ -95,6 +95,7 @@
 		3FD0A7E11DAB2756004BEDD3 /* PinyinFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0A7D91DAB2756004BEDD3 /* PinyinFormatter.m */; };
 		3FD0A7E21DAB2756004BEDD3 /* PinyinHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0A7DB1DAB2756004BEDD3 /* PinyinHelper.m */; };
 		3FD0A7E31DAB2756004BEDD3 /* unicode_to_hanyu_pinyin.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3FD0A7DD1DAB2756004BEDD3 /* unicode_to_hanyu_pinyin.txt */; };
+		3FD0A7E51DABAB5A004BEDD3 /* allcitys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FD0A7E41DABAB5A004BEDD3 /* allcitys.plist */; };
 		3FD3F8201D9D471900736C0B /* FallsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */; };
 		3FD3F8211D9D471900736C0B /* FallsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */; };
 		3FD3F8261D9D49DD00736C0B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8251D9D49DD00736C0B /* SettingViewController.m */; };
@@ -289,6 +290,7 @@
 		3FD0A7DA1DAB2756004BEDD3 /* PinyinHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinHelper.h; sourceTree = "<group>"; };
 		3FD0A7DB1DAB2756004BEDD3 /* PinyinHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinHelper.m; sourceTree = "<group>"; };
 		3FD0A7DD1DAB2756004BEDD3 /* unicode_to_hanyu_pinyin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unicode_to_hanyu_pinyin.txt; sourceTree = "<group>"; };
+		3FD0A7E41DABAB5A004BEDD3 /* allcitys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = allcitys.plist; sourceTree = "<group>"; };
 		3FD3F81D1D9D471900736C0B /* FallsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FallsCollectionViewCell.h; sourceTree = "<group>"; };
 		3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FallsCollectionViewCell.m; sourceTree = "<group>"; };
 		3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FallsCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -747,6 +749,7 @@
 				3FFF3A631D9B9FC80069B4A7 /* Assets.xcassets */,
 				3FFF3A651D9B9FC80069B4A7 /* LaunchScreen.storyboard */,
 				3FD0A7CD1DAB2408004BEDD3 /* allworld.plist */,
+				3FD0A7E41DABAB5A004BEDD3 /* allcitys.plist */,
 				3F5433211DA9043000E4D290 /* hotCity.plist */,
 				3FBEB6A41D9E4DE30092E47F /* mainCity.plist */,
 				3FBEB6A61D9E4EFA0092E47F /* country.plist */,
@@ -985,6 +988,7 @@
 				3FBEB6A51D9E4DE30092E47F /* mainCity.plist in Resources */,
 				3FD0A7CE1DAB2408004BEDD3 /* allworld.plist in Resources */,
 				3F03852B1D9C07DF004D5423 /* 趋势.png in Resources */,
+				3FD0A7E51DABAB5A004BEDD3 /* allcitys.plist in Resources */,
 				3F5433271DA9045F00E4D290 /* AddCollectionViewCell.xib in Resources */,
 				3FD3F8211D9D471900736C0B /* FallsCollectionViewCell.xib in Resources */,
 				3FBEB6A11D9E36880092E47F /* cityData.plist in Resources */,

@@ -47,6 +47,14 @@
 //    [_CityCollectionVew reloadData];
     
 }
+-(void)viewWillDisappear:(BOOL)animated{
+     if (isEdit == 1) {
+         [self editCitys];
+     }
+     else{
+         
+     }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -98,21 +106,23 @@
     [NetWorkRequest requestWithMethod:GET URL:urlStr para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 //        NSLog(@"dic_____%@",dic);
-        _BaseModels = [WeatherBaseClass modelObjectWithDictionary:dic];
-        WeatherHeWeatherDataService30 *HeWeatherDataService30 = [_BaseModels heWeatherDataService30][0];
-        WeatherDailyForecast *today = [HeWeatherDataService30 dailyForecast][0];
-        WeatherCond *cond = [today cond];
-        WeatherTmp *tmp = [today tmp];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            AddCitysCollectionViewCell *cell = ( AddCitysCollectionViewCell *)[_CityCollectionVew cellForItemAtIndexPath:indexPath];
-            cell.XYTopTempLabel.text = [tmp.max stringByAppendingString:@"℃"];
-            cell.XYDownTempLabel.text = [tmp.min stringByAppendingString:@"℃"];
-            cell.XYWeatherConLabel.text = [cond txtD];
-            NSString *urlStr = [NSString stringWithFormat:@"http://files.heweather.com/cond_icon/%@.png",cond.codeD];
-            [cell.XYConditionImageView sd_setImageWithURL:[NSURL URLWithString:urlStr]];
-            
-        });
+        if (dic[@"HeWeather data service 3.0"]) {
+            _BaseModels = [WeatherBaseClass modelObjectWithDictionary:dic];
+            WeatherHeWeatherDataService30 *HeWeatherDataService30 = [_BaseModels heWeatherDataService30][0];
+            WeatherDailyForecast *today = [HeWeatherDataService30 dailyForecast][0];
+            WeatherCond *cond = [today cond];
+            WeatherTmp *tmp = [today tmp];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                AddCitysCollectionViewCell *cell = ( AddCitysCollectionViewCell *)[_CityCollectionVew cellForItemAtIndexPath:indexPath];
+                cell.XYTopTempLabel.text = [tmp.max stringByAppendingString:@"℃"];
+                cell.XYDownTempLabel.text = [tmp.min stringByAppendingString:@"℃"];
+                cell.XYWeatherConLabel.text = [cond txtD];
+                NSString *urlStr = [NSString stringWithFormat:@"http://files.heweather.com/cond_icon/%@.png",cond.codeD];
+                [cell.XYConditionImageView sd_setImageWithURL:[NSURL URLWithString:urlStr]];
+                
+            });
+        }
     } error:^(NSError *error) {
         //        NSLog(@"error____%@",[error description]);
     }];
