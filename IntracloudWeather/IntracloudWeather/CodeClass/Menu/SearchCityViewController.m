@@ -42,8 +42,10 @@
     _searchTextField = searchTextField;
     [self.view addSubview:_searchTextField];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(225, 28, 40, 34);
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.backgroundColor = [UIColor whiteColor];
+    button.layer.cornerRadius = 5.0;
+    button.frame = CGRectMake(226, 28, 39, 34);
     [button setTitle:@"取消" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(cancelBtn) forControlEvents:UIControlEventTouchUpInside];
     [button setTitleColor:[UIColor colorWithRed:20/255.0 green:150/255.0 blue:220/255.0 alpha:1] forState:UIControlStateNormal];
@@ -146,7 +148,7 @@
     
 }
 -(void)cancelBtn{
-    
+    [self cancelBlock];
     [self dismissViewControllerAnimated:NO completion:nil];
 //    [_searchTextField resignFirstResponder];
 //    [_searchTextField setText:@""];
