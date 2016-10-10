@@ -48,7 +48,7 @@
     searchTextField.backgroundColor = [UIColor whiteColor];
     searchTextField.borderStyle = UITextBorderStyleRoundedRect;
     searchTextField.clearButtonMode = UITextFieldViewModeAlways;
-    searchTextField.placeholder = @"搜索支持城市英文全称🔍";
+    searchTextField.placeholder = @"搜索城市🔍";
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 279, 50)];
     [headerView addSubview:searchTextField];
     XYMoretableView.tableHeaderView = headerView;

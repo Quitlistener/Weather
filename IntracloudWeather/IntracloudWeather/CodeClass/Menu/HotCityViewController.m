@@ -9,16 +9,22 @@
 #import "HotCityViewController.h"
 #import "MoreCitysViewController.h"
 #import "CityDetailDBManager.h"
+#import "PinYin4Objc.h"
 
-
-@interface HotCityViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface HotCityViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UITextFieldDelegate>
 {
     NSMutableArray *_dataArr;
+    UITextField *_searchTextField;
 }
+@property(nonatomic ,strong)NSMutableArray *searchDataArr;
 @end
 
 @implementation HotCityViewController
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [_searchTextField resignFirstResponder];
+    _searchDataArr = nil;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1];
@@ -132,13 +138,22 @@
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         //初始化头部视图
         UICollectionReusableView *heahView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"hotCity" forIndexPath:indexPath];
-        UITextField *searchTextField = [[UITextField alloc]initWithFrame:CGRectMake(4, 8, 251, 34)];
+        UITextField *searchTextField = [[UITextField alloc]initWithFrame:CGRectMake(4, 8, 211, 34)];
         searchTextField.backgroundColor = [UIColor whiteColor];
         searchTextField.borderStyle = UITextBorderStyleRoundedRect;
         searchTextField.clearButtonMode = UITextFieldViewModeAlways;
-        searchTextField.placeholder = @"搜索城市首字母拼音或全称🔍";
+        searchTextField.placeholder = @"搜索城市🔍";
+        searchTextField.delegate = self;
         [searchTextField addTarget:self action:@selector(textFieldEditChange:) forControlEvents:UIControlEventEditingChanged];
-        [heahView addSubview:searchTextField];
+        _searchTextField = searchTextField;
+        [heahView addSubview:_searchTextField];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(215, 8, 40, 34);
+        [button setTitle:@"取消" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(cancelBtn) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitleColor:[UIColor colorWithRed:20/255.0 green:150/255.0 blue:220/255.0 alpha:1] forState:UIControlStateNormal];
+        [heahView addSubview:button];
         
         UILabel *hotCityLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 47, 259, 21)];
         hotCityLabel.text = @"热门城市";
@@ -164,9 +179,100 @@
     
 }
 #pragma -mark textFiled搜索
+
 -(void)textFieldEditChange:(UITextField *)textField{
     
     NSLog(@"%@",textField.text);
+    NSString *str = textField.text ;
+    if (str.length > 1 &&[[str substringFromIndex:str.length - 1] isEqualToString:@" "]) {
+        str = [str substringToIndex:str.length - 1] ;
+    }
+    [self searchCityWithSubName:str];
+    NSLog(@"*****%@",_searchDataArr);
+    
+}
+
+
+-(void)searchCityWithSubName:(NSString *)subName{
+    _searchDataArr = [NSMutableArray array];
+   
+    if ([self IsChinese:subName])
+    {
+        NSString *filename = [[NSBundle mainBundle] pathForResource:@"allchina" ofType:@"plist"];
+        NSDictionary* dic2 = [NSDictionary dictionaryWithContentsOfFile:filename];
+        CityInfoBaseClass *Models = [CityInfoBaseClass  modelObjectWithDictionary:dic2];
+        NSArray *arr2 = Models.cityInfo;
+        for (int i = 0; i < arr2.count; i++){
+            CityInfoCityInfo *city = (CityInfoCityInfo *)arr2[i];
+            NSString *cityStr = city.city;
+            if ([cityStr containsString:subName] || [cityStr isEqualToString:subName]){
+                //____________
+                [_searchDataArr addObject:city];
+            }
+        }
+        
+    }
+    else{
+         NSArray *arr = [self loadAllWorldCityData];
+        for (int i = 0; i < arr.count; i++)
+        {
+            CityInfoCityInfo *city = (CityInfoCityInfo *)arr[i];
+            NSString *cityStr = city.city;
+            if ([self IsChinese:cityStr]){
+                
+                NSString *sourceText=cityStr;
+                HanyuPinyinOutputFormat *outputFormat=[[HanyuPinyinOutputFormat alloc] init];
+                [outputFormat setToneType:ToneTypeWithoutTone];
+                [outputFormat setVCharType:VCharTypeWithV];
+                [outputFormat setCaseType:CaseTypeLowercase];
+                NSString *pinYin = [PinyinHelper toHanyuPinyinStringWithNSString:sourceText withHanyuPinyinOutputFormat:outputFormat withNSString:@""];
+                if ([pinYin containsString:subName] || [pinYin isEqualToString:subName]) {
+                    [_searchDataArr addObject:city];
+                }
+                
+            }
+            else{
+                
+                NSString *upStr = [subName capitalizedString];
+                if ([cityStr containsString:upStr] || [cityStr isEqualToString:upStr]){
+                    //_____________
+                     [_searchDataArr addObject:city];
+                }
+            }
+            
+        }
+        
+    }
+    
+}
+
+//判断是否中文
+-(BOOL)IsChinese:(NSString *)str {
+    
+    for(int i=0; i< [str length];i++){
+        int a = [str characterAtIndex:i];
+        if( a > 0x4e00 && a < 0x9fff){
+            return YES;
+        }
+    }
+    return NO;
+    
+}
+
+-(NSArray *)loadAllWorldCityData{
+    
+    NSString *filename = [[NSBundle mainBundle] pathForResource:@"allworld" ofType:@"plist"];
+    NSDictionary* dic2 = [NSDictionary dictionaryWithContentsOfFile:filename];
+    CityInfoBaseClass *Models = [CityInfoBaseClass  modelObjectWithDictionary:dic2];
+    NSArray *arr = Models.cityInfo;
+    return arr;
+    
+}
+-(void)cancelBtn{
+    
+    [_searchTextField resignFirstResponder];
+    [_searchTextField setText:@""];
+    _searchDataArr = nil;
     
 }
 

@@ -88,6 +88,13 @@
 		3FD0A7C51DA9E7B4004BEDD3 /* WeatherUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0A7AE1DA9E7B4004BEDD3 /* WeatherUpdate.m */; };
 		3FD0A7C61DA9E7B4004BEDD3 /* WeatherUv.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0A7B01DA9E7B4004BEDD3 /* WeatherUv.m */; };
 		3FD0A7C71DA9E7B4004BEDD3 /* WeatherWind.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0A7B21DA9E7B4004BEDD3 /* WeatherWind.m */; };
+		3FD0A7CE1DAB2408004BEDD3 /* allworld.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FD0A7CD1DAB2408004BEDD3 /* allworld.plist */; };
+		3FD0A7DE1DAB2756004BEDD3 /* ChineseToPinyinResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0A7D21DAB2756004BEDD3 /* ChineseToPinyinResource.m */; };
+		3FD0A7DF1DAB2756004BEDD3 /* HanyuPinyinOutputFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0A7D41DAB2756004BEDD3 /* HanyuPinyinOutputFormat.m */; };
+		3FD0A7E01DAB2756004BEDD3 /* NSString+PinYin4Cocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0A7D61DAB2756004BEDD3 /* NSString+PinYin4Cocoa.m */; };
+		3FD0A7E11DAB2756004BEDD3 /* PinyinFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0A7D91DAB2756004BEDD3 /* PinyinFormatter.m */; };
+		3FD0A7E21DAB2756004BEDD3 /* PinyinHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0A7DB1DAB2756004BEDD3 /* PinyinHelper.m */; };
+		3FD0A7E31DAB2756004BEDD3 /* unicode_to_hanyu_pinyin.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3FD0A7DD1DAB2756004BEDD3 /* unicode_to_hanyu_pinyin.txt */; };
 		3FD3F8201D9D471900736C0B /* FallsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */; };
 		3FD3F8211D9D471900736C0B /* FallsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */; };
 		3FD3F8261D9D49DD00736C0B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8251D9D49DD00736C0B /* SettingViewController.m */; };
@@ -269,6 +276,19 @@
 		3FD0A7B01DA9E7B4004BEDD3 /* WeatherUv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherUv.m; sourceTree = "<group>"; };
 		3FD0A7B11DA9E7B4004BEDD3 /* WeatherWind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherWind.h; sourceTree = "<group>"; };
 		3FD0A7B21DA9E7B4004BEDD3 /* WeatherWind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherWind.m; sourceTree = "<group>"; };
+		3FD0A7CD1DAB2408004BEDD3 /* allworld.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = allworld.plist; sourceTree = "<group>"; };
+		3FD0A7D11DAB2756004BEDD3 /* ChineseToPinyinResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyinResource.h; sourceTree = "<group>"; };
+		3FD0A7D21DAB2756004BEDD3 /* ChineseToPinyinResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyinResource.m; sourceTree = "<group>"; };
+		3FD0A7D31DAB2756004BEDD3 /* HanyuPinyinOutputFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HanyuPinyinOutputFormat.h; sourceTree = "<group>"; };
+		3FD0A7D41DAB2756004BEDD3 /* HanyuPinyinOutputFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HanyuPinyinOutputFormat.m; sourceTree = "<group>"; };
+		3FD0A7D51DAB2756004BEDD3 /* NSString+PinYin4Cocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin4Cocoa.h"; sourceTree = "<group>"; };
+		3FD0A7D61DAB2756004BEDD3 /* NSString+PinYin4Cocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin4Cocoa.m"; sourceTree = "<group>"; };
+		3FD0A7D71DAB2756004BEDD3 /* PinYin4Objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinYin4Objc.h; sourceTree = "<group>"; };
+		3FD0A7D81DAB2756004BEDD3 /* PinyinFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinFormatter.h; sourceTree = "<group>"; };
+		3FD0A7D91DAB2756004BEDD3 /* PinyinFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinFormatter.m; sourceTree = "<group>"; };
+		3FD0A7DA1DAB2756004BEDD3 /* PinyinHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinHelper.h; sourceTree = "<group>"; };
+		3FD0A7DB1DAB2756004BEDD3 /* PinyinHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinHelper.m; sourceTree = "<group>"; };
+		3FD0A7DD1DAB2756004BEDD3 /* unicode_to_hanyu_pinyin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unicode_to_hanyu_pinyin.txt; sourceTree = "<group>"; };
 		3FD3F81D1D9D471900736C0B /* FallsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FallsCollectionViewCell.h; sourceTree = "<group>"; };
 		3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FallsCollectionViewCell.m; sourceTree = "<group>"; };
 		3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FallsCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -467,6 +487,7 @@
 		3F6B086E1DA8AFF600814A0F /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				3FD0A7CF1DAB2756004BEDD3 /* PinYin4Objc */,
 				3FB572AB1DAA062900590913 /* BrokenLine */,
 				3F6B08961DA8C71E00814A0F /* SettingView */,
 				3F6B08731DA8B0E100814A0F /* TTSConfig.h */,
@@ -603,6 +624,41 @@
 			path = WeatherModel;
 			sourceTree = "<group>";
 		};
+		3FD0A7CF1DAB2756004BEDD3 /* PinYin4Objc */ = {
+			isa = PBXGroup;
+			children = (
+				3FD0A7D01DAB2756004BEDD3 /* Classes */,
+				3FD0A7DC1DAB2756004BEDD3 /* Resources */,
+			);
+			path = PinYin4Objc;
+			sourceTree = "<group>";
+		};
+		3FD0A7D01DAB2756004BEDD3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3FD0A7D11DAB2756004BEDD3 /* ChineseToPinyinResource.h */,
+				3FD0A7D21DAB2756004BEDD3 /* ChineseToPinyinResource.m */,
+				3FD0A7D31DAB2756004BEDD3 /* HanyuPinyinOutputFormat.h */,
+				3FD0A7D41DAB2756004BEDD3 /* HanyuPinyinOutputFormat.m */,
+				3FD0A7D51DAB2756004BEDD3 /* NSString+PinYin4Cocoa.h */,
+				3FD0A7D61DAB2756004BEDD3 /* NSString+PinYin4Cocoa.m */,
+				3FD0A7D71DAB2756004BEDD3 /* PinYin4Objc.h */,
+				3FD0A7D81DAB2756004BEDD3 /* PinyinFormatter.h */,
+				3FD0A7D91DAB2756004BEDD3 /* PinyinFormatter.m */,
+				3FD0A7DA1DAB2756004BEDD3 /* PinyinHelper.h */,
+				3FD0A7DB1DAB2756004BEDD3 /* PinyinHelper.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		3FD0A7DC1DAB2756004BEDD3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3FD0A7DD1DAB2756004BEDD3 /* unicode_to_hanyu_pinyin.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		3FD3F81C1D9D465200736C0B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +746,7 @@
 				3FFF3A601D9B9FC80069B4A7 /* Main.storyboard */,
 				3FFF3A631D9B9FC80069B4A7 /* Assets.xcassets */,
 				3FFF3A651D9B9FC80069B4A7 /* LaunchScreen.storyboard */,
+				3FD0A7CD1DAB2408004BEDD3 /* allworld.plist */,
 				3F5433211DA9043000E4D290 /* hotCity.plist */,
 				3FBEB6A41D9E4DE30092E47F /* mainCity.plist */,
 				3FBEB6A61D9E4EFA0092E47F /* country.plist */,
@@ -926,6 +983,7 @@
 				3FBEB6A31D9E36E40092E47F /* allchina.plist in Resources */,
 				3FFF3B041D9CB0490069B4A7 /* ThirddayWeatherView.xib in Resources */,
 				3FBEB6A51D9E4DE30092E47F /* mainCity.plist in Resources */,
+				3FD0A7CE1DAB2408004BEDD3 /* allworld.plist in Resources */,
 				3F03852B1D9C07DF004D5423 /* 趋势.png in Resources */,
 				3F5433271DA9045F00E4D290 /* AddCollectionViewCell.xib in Resources */,
 				3FD3F8211D9D471900736C0B /* FallsCollectionViewCell.xib in Resources */,
@@ -950,6 +1008,7 @@
 				3F03851D1D9C04B1004D5423 /* MenuTableViewCell.xib in Resources */,
 				3FFF3B0F1D9CF4D00069B4A7 /* LifeTableViewCell.xib in Resources */,
 				3F03854A1D9CEB3A004D5423 /* 向右.png in Resources */,
+				3FD0A7E31DAB2756004BEDD3 /* unicode_to_hanyu_pinyin.txt in Resources */,
 				3F6B08A61DA8D15000814A0F /* ChangeVoiceViewController.xib in Resources */,
 				3F4709291DA91D8900452422 /* 删除.png in Resources */,
 				3FD3F8441D9E238E00736C0B /* style.css in Resources */,
@@ -1016,6 +1075,7 @@
 			files = (
 				3F0385581D9CF919004D5423 /* ForeignCitysViewController.m in Sources */,
 				3FFF3AA01D9BB9E00069B4A7 /* ViewController.m in Sources */,
+				3FD0A7DF1DAB2756004BEDD3 /* HanyuPinyinOutputFormat.m in Sources */,
 				3F5433261DA9045F00E4D290 /* AddCollectionViewCell.m in Sources */,
 				3FFF3B021D9CB0320069B4A7 /* ThirddayWeatherView.m in Sources */,
 				3FD0A7BC1DA9E7B4004BEDD3 /* WeatherDrsg.m in Sources */,
@@ -1042,6 +1102,7 @@
 				3FBEB6AA1D9E536B0092E47F /* ForeignCityViewController.m in Sources */,
 				3F0385541D9CF527004D5423 /* DetailCityTableViewCell.m in Sources */,
 				3FB572AE1DAA065E00590913 /* JHLineChart.m in Sources */,
+				3FD0A7E21DAB2756004BEDD3 /* PinyinHelper.m in Sources */,
 				3F6B089E1DA8C71E00814A0F /* SAMath.m in Sources */,
 				3FD0A7861DA9D342004BEDD3 /* userInfoManager.m in Sources */,
 				3FFF3AE71D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m in Sources */,
@@ -1049,6 +1110,8 @@
 				3FBEB69F1D9E36510092E47F /* CityInfoCityInfo.m in Sources */,
 				3FD3F83D1D9DED0400736C0B /* NewsWapPortalV2.m in Sources */,
 				3FFF3AF81D9CAE050069B4A7 /* TodayWeatherView.m in Sources */,
+				3FD0A7DE1DAB2756004BEDD3 /* ChineseToPinyinResource.m in Sources */,
+				3FD0A7E11DAB2756004BEDD3 /* PinyinFormatter.m in Sources */,
 				3FFF3AEB1D9BF82F0069B4A7 /* RightWeatherDetailsView.m in Sources */,
 				3FD3F8471D9E4E9200736C0B /* ChangeVoiceViewController.m in Sources */,
 				3FBEB69E1D9E36510092E47F /* CityInfoBaseClass.m in Sources */,
@@ -1072,6 +1135,7 @@
 				3F03851C1D9C04B1004D5423 /* MenuTableViewCell.m in Sources */,
 				3FB572B61DAA074B00590913 /* TrendViewController.m in Sources */,
 				3FFF3B1A1D9D12CF0069B4A7 /* ItemView.m in Sources */,
+				3FD0A7E01DAB2756004BEDD3 /* NSString+PinYin4Cocoa.m in Sources */,
 				3F03854D1D9CF44D004D5423 /* DetailCityInfoViewController.m in Sources */,
 				3FD0A7B51DA9E7B4004BEDD3 /* WeatherBaseClass.m in Sources */,
 				3FD0A7C61DA9E7B4004BEDD3 /* WeatherUv.m in Sources */,
