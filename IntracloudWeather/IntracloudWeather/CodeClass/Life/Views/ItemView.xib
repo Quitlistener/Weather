@@ -8,36 +8,36 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ItemView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX8-5G-pVI">
                     <constraints>
-                        <constraint firstAttribute="height" constant="36" id="2Zk-Ev-0pU"/>
+                        <constraint firstAttribute="height" constant="22" id="2Zk-Ev-0pU"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K0-4c-PGi">
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="gmY-IM-w8K"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="gmY-IM-w8K"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OJc-r3-mVv">
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="9y5-Nb-BCq"/>
-                        <constraint firstAttribute="width" constant="100" id="vtW-3f-ih5"/>
+                        <constraint firstAttribute="height" constant="70" id="9y5-Nb-BCq"/>
+                        <constraint firstAttribute="width" constant="70" id="vtW-3f-ih5"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="4K0-4c-PGi" firstAttribute="top" secondItem="sX8-5G-pVI" secondAttribute="bottom" constant="2" id="4Ey-ea-MuD"/>
+                <constraint firstItem="4K0-4c-PGi" firstAttribute="top" secondItem="sX8-5G-pVI" secondAttribute="bottom" id="4Ey-ea-MuD"/>
                 <constraint firstItem="sX8-5G-pVI" firstAttribute="centerX" secondItem="OJc-r3-mVv" secondAttribute="centerX" id="66D-X7-LaL"/>
                 <constraint firstItem="4K0-4c-PGi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="FhM-s3-T2w"/>
                 <constraint firstItem="OJc-r3-mVv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="IyU-Kk-bXp"/>
@@ -46,6 +46,10 @@
                 <constraint firstItem="OJc-r3-mVv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="nGi-75-SFs"/>
                 <constraint firstItem="sX8-5G-pVI" firstAttribute="top" secondItem="OJc-r3-mVv" secondAttribute="bottom" constant="2" id="t4f-0j-US0"/>
             </constraints>
+            <connections>
+                <outlet property="contentLabel" destination="4K0-4c-PGi" id="vBg-PY-gMh"/>
+                <outlet property="typeLabel" destination="sX8-5G-pVI" id="quD-Zp-Qf2"/>
+            </connections>
         </view>
     </objects>
 </document>

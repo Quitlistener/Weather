@@ -86,19 +86,8 @@
 }
 
 
-- (void)drawText:(NSString *)text context:(CGContextRef )context atPoint:(CGRect )rect WithColor:(UIColor *)color font:(UIFont*)font{
-    
-    
-//    [[NSString stringWithFormat:@"%@",text] drawAtPoint:rect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:color}];
-    
-    [[NSString stringWithFormat:@"%@",text] drawInRect:rect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:color}];
-    
-    [color setFill];
 
-    
-    CGContextDrawPath(context, kCGPathFill);
-    
-}
+
 /**
  *  判断文本宽度
  *
@@ -107,9 +96,7 @@
  *  @return 文本宽度
  */
 - (CGFloat)getTextWithWhenDrawWithText:(NSString *)text{
-    
     CGSize size = [[NSString stringWithFormat:@"%@",text] boundingRectWithSize:CGSizeMake(100, 15) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:7]} context:nil].size;
-    
     return size.width;
 }
 

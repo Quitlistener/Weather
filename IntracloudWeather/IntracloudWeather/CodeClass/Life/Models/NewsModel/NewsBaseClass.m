@@ -9,7 +9,7 @@
 #import "NewsInternalBaseClass1.h"
 
 
-NSString *const kNewsBaseClass = @"广州";
+NSString *const kNewsBaseClass = @"cityNew";
 
 
 @interface NewsBaseClass ()

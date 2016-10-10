@@ -55,4 +55,7 @@
 
 
 - (CGSize)sizeOfStringWithMaxSize:(CGSize)maxSize textFont:(CGFloat)fontSize aimString:(NSString *)aimString;
+
+
+
 @end

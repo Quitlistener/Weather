@@ -13,7 +13,8 @@
 #import "ItemView.h"
 #import "NetWorkRequest.h"
 #import "UIViewController+MMDrawerController.h"
-
+#import "userInfoManager.h"
+#import "WeatherDataModels.h"
 
 
 @interface LifeViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,CAAnimationDelegate,UIScrollViewDelegate>
@@ -24,6 +25,10 @@
 @property (nonatomic, strong) NewsBaseClass *XYBase;
 @property (nonatomic, strong) NSMutableArray *muArr;
 @property (nonatomic, assign) NSInteger urlIndex;
+@property (nonatomic, strong) userInfoManager *userCity;
+@property (nonatomic, strong) userInfoModel *userModer;
+@property (nonatomic, strong) WeatherBaseClass *weathBase;
+@property (nonatomic, strong) NSArray *arr;
 @end
 
 @implementation LifeViewController
@@ -31,7 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.userCity = [userInfoManager defaultManager];
+    self.userModer = [self.userCity selectData][0];
     self.muArr = [NSMutableArray array];
     [self initUI];
     UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -65,7 +71,7 @@
     
     /** 上拉加载更多 */
     _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        self.urlIndex += 21;
+        self.urlIndex += 20;
         [self requestMoreData];
     }];
     
@@ -80,20 +86,40 @@
 #pragma mark -网络请求
 /** 第一次请求(下来刷新) */
 -(void)requestData{
-    [NetWorkRequest requestWithMethod:GET URL:@"http://c.m.163.com/nc/article/local/5bm%2F5bee/0-20.html" para:nil success:^(NSData *data) {
+    self.urlIndex = 0;
+    /** utf-8编码 */
+    NSString *data = [NSString stringWithFormat:@"%@",self.userModer.city];
+    NSString *dataUTF8 = [data stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [NetWorkRequest requestWithMethod:GET URL:[NSString stringWithFormat:@"http://c.m.163.com/nc/article/local/%@/0-19.html",dataUTF8] para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        _XYBase = [[NewsBaseClass alloc]initWithDictionary:dic];
-        _muArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
-        /** 删除数组中的NewsInternalBaseClass1对象含有imgextra数组的对象 */
-        for (int i = 0 ; i < _XYBase.myProperty1.count; i++) {
-            if ([_XYBase.myProperty1[i] imgextra].count > 0) {
-                [_muArr removeObject:_XYBase.myProperty1[i]];
+        if (dic[self.userModer.city]) {
+            /** 把返回的地名改为cityNew */
+            NSDictionary *dic2 = [NSDictionary dictionaryWithObject:dic[self.userModer.city] forKey:@"cityNew"];
+            _XYBase = [[NewsBaseClass alloc]initWithDictionary:dic2];
+            _muArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
+            /** 删除数组中的NewsInternalBaseClass1对象含有imgextra数组的对象 */
+            for (int i = 0 ; i < _XYBase.myProperty1.count; i++) {
+                if ([_XYBase.myProperty1[i] imgextra].count > 0) {
+                    [_muArr removeObject:_XYBase.myProperty1[i]];
+                }
             }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                [self.collectionView reloadData];
+                [_tableView.mj_header endRefreshing];
+            });
+
         }
+      } error:^(NSError *error) {
+        
+    }];
+    
+    /** 宜忌 */
+    [NetWorkRequest requestWithMethod:GET URL:[NSString stringWithFormat:@"https://api.heweather.com/x3/weather?key=2e39142365f74cba8c3d9ccc09f73eaa&cityid=%@",self.userModer.cityInfoIdentifier] para:nil success:^(NSData *data) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        _weathBase = [[WeatherBaseClass alloc]initWithDictionary:dic];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
             [self.collectionView reloadData];
-            [_tableView.mj_header endRefreshing];
         });
     } error:^(NSError *error) {
         
@@ -102,27 +128,32 @@
 
 /** 上拉加载更多 */
 -(void)requestMoreData{
-    NSString *str1 = @"http://c.m.163.com/nc/article/local/5bm%2F5bee/";
-    NSString *str2 = [NSString stringWithFormat:@"%ld",(long)_urlIndex];
-    NSString *str3 = [str1 stringByAppendingString:str2];
-    NSString *url = [str3 stringByAppendingString:@"-20.html"];
+    NSString *data = [NSString stringWithFormat:@"%@",self.userModer.city];
+    NSString *dataUTF8 = [data stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/local/%@/%ld-19.html",dataUTF8,(long)_urlIndex];
+    NSLog(@">>>>%@",url);
     [NetWorkRequest requestWithMethod:GET URL:url para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        _XYBase = [[NewsBaseClass alloc]initWithDictionary:dic];
-        NSMutableArray *loadArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
-        /** 删除数组中的NewsInternalBaseClass1对象含有imgextra数组的对象 */
-        for (int i = 0 ; i < _XYBase.myProperty1.count; i++) {
-            if ([_XYBase.myProperty1[i] imgextra].count > 0) {
-                [loadArr removeObject:_XYBase.myProperty1[i]];
+        NSLog(@">>>>%@",dic);
+        /** 把返回的地名改为cityNew */
+        if (dic[self.userModer.city]) {
+            NSDictionary *dic2 = [NSDictionary dictionaryWithObject:dic[self.userModer.city] forKey:@"cityNew"];
+            _XYBase = [[NewsBaseClass alloc]initWithDictionary:dic2];
+            NSMutableArray *loadArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
+            /** 删除数组中的NewsInternalBaseClass1对象含有imgextra数组的对象 */
+            for (int i = 0 ; i < _XYBase.myProperty1.count; i++) {
+                if ([_XYBase.myProperty1[i] imgextra].count > 0) {
+                    [loadArr removeObject:_XYBase.myProperty1[i]];
+                }
             }
+            for (id obj in loadArr) {
+                [_muArr addObject:obj];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_tableView reloadData];
+                [_tableView.mj_footer endRefreshing];
+            });
         }
-        for (id obj in loadArr) {
-            [_muArr addObject:obj];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [_tableView reloadData];
-            [_tableView.mj_footer endRefreshing];
-        });
     } error:^(NSError *error) {
         
     }];
@@ -157,8 +188,28 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     HeaderCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Headercollection" forIndexPath:indexPath];
-    cell.suitableText.text = @"hunqu";
-    cell.backgroundColor = [UIColor cyanColor];
+//    cell.weatherSugges = [[_weathBase heWeatherDataService30][0] suggestion];
+    _arr = @[@"洗车",@"穿衣",@"感冒",@"运动",@"旅游",@"紫外线"];
+    NSMutableArray *array = [NSMutableArray array];
+    if ([[_weathBase heWeatherDataService30][0] suggestion].cw.brf) {
+        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].cw.brf];
+        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].drsg.brf];
+        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].flu.brf];
+        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].sport.brf];
+        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].trav.brf];
+        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].uv.brf];
+        cell.suitableText.text = array[indexPath.row];
+    }
+    if (indexPath.row == 0 || indexPath.row == 3) {
+        cell.backgroundColor = LRRGBColor(208, 131, 24);
+    }
+    else if (indexPath.row == 1 || indexPath.row == 4){
+        cell.backgroundColor = LRRGBColor(21, 164, 184);
+    }
+    else{
+        cell.backgroundColor = LRRGBColor(236, 96, 59);
+    }
+    cell.suitable.text = _arr[indexPath.row];
     return cell;
 }
 
@@ -172,6 +223,26 @@
     else{
         _itemView.frame = CGRectMake((SCREEN_width-30)/2+20, 74, (SCREEN_width-30)/2, 200);
     }
+    if (indexPath.row == 0 || indexPath.row == 3) {
+        _itemView.backgroundColor = LRRGBColor(208, 131, 24);
+    }
+    else if (indexPath.row == 1 || indexPath.row == 4){
+        _itemView.backgroundColor = LRRGBColor(21, 164, 184);
+    }
+    else{
+        _itemView.backgroundColor = LRRGBColor(236, 96, 59);
+    }
+    NSMutableArray *array = [NSMutableArray array];
+    if ([[_weathBase heWeatherDataService30][0] suggestion].cw.txt) {
+        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].cw.txt];
+        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].drsg.txt];
+        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].flu.txt];
+        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].sport.txt];
+        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].trav.txt];
+        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].uv.txt];
+        _itemView.contentLabel.text = array[indexPath.row];
+    }
+    _itemView.typeLabel.text = _arr[indexPath.row];
     [self.view addSubview:_itemView];
     /** collectionView的cell交互关闭 */
     _collectionView.allowsSelection = NO;
