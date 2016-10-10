@@ -25,6 +25,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
 //     self.navigationController.navigationBarHidden = NO;
+    [self dismissViewControllerAnimated:NO completion:nil];
     [_searchTextField resignFirstResponder];
     _searchDataArr = nil;
 }
@@ -149,6 +150,7 @@
         searchTextField.backgroundColor = [UIColor whiteColor];
         searchTextField.borderStyle = UITextBorderStyleRoundedRect;
         searchTextField.clearButtonMode = UITextFieldViewModeAlways;
+//        searchTextField.allowsEditingTextAttributes = YES;
         searchTextField.placeholder = @"搜索城市🔍";
         searchTextField.delegate = self;
 //        [searchTextField addTarget:self action:@selector(textFieldEditChange:) forControlEvents:UIControlEventEditingChanged];
@@ -189,7 +191,7 @@
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     
-    [textField resignFirstResponder];
+    
     SearchCityViewController * SCVC = [SearchCityViewController new];
     __weak typeof (self) weakSelf = self;
     SCVC.cancelBlock = ^( ){
@@ -199,6 +201,7 @@
     self.definesPresentationContext = YES; //self is presenting view controller
     SCVC.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.4];
     SCVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [textField resignFirstResponder];
     self.navigationController.navigationBarHidden = YES;
     [self presentViewController:SCVC animated:NO completion:nil];
     return YES;

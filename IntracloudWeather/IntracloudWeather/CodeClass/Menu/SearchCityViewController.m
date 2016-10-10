@@ -11,10 +11,9 @@
 #import "CityDetailDBManager.h"
 #import "PinYin4Objc.h"
 
-@interface SearchCityViewController ()<UITextFieldDelegate>
-{
-    UITextField *_searchTextField;
-}
+@interface SearchCityViewController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
+
+@property(nonatomic ,strong)UITextField *searchTextField;
 @property(nonatomic ,strong)NSMutableArray *searchDataArr;
 @end
 
@@ -22,9 +21,14 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [_searchTextField resignFirstResponder];
+    [self dismissViewControllerAnimated:NO completion:nil];
     _searchDataArr = nil;
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];// 1
+    [self.searchTextField becomeFirstResponder];// 2
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
@@ -55,7 +59,8 @@
 #pragma -mark textFiled搜索
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, 68, 259, SCREENH_height - 68) style:UITableViewStylePlain];
+    [self.view addSubview:tableView];
     return YES;
 }
 
@@ -148,7 +153,7 @@
     
 }
 -(void)cancelBtn{
-    [self cancelBlock];
+    self.cancelBlock();
     [self dismissViewControllerAnimated:NO completion:nil];
 //    [_searchTextField resignFirstResponder];
 //    [_searchTextField setText:@""];
@@ -158,6 +163,10 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    self.cancelBlock();
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

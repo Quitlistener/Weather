@@ -108,8 +108,8 @@
 //        NSLog(@"dic_____%@",dic);
         if (dic[@"HeWeather data service 3.0"]) {
             _BaseModels = [WeatherBaseClass modelObjectWithDictionary:dic];
-            WeatherHeWeatherDataService30 *HeWeatherDataService30 = [_BaseModels heWeatherDataService30][0];
-            WeatherDailyForecast *today = [HeWeatherDataService30 dailyForecast][0];
+            WeatherHeWeatherDataService30 *HeWeatherDataService30 = [_BaseModels heWeatherDataService30].firstObject;
+            WeatherDailyForecast *today = [HeWeatherDataService30 dailyForecast].firstObject;
             WeatherCond *cond = [today cond];
             WeatherTmp *tmp = [today tmp];
             dispatch_async(dispatch_get_main_queue(), ^{
