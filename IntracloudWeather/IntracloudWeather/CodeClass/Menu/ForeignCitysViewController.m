@@ -9,15 +9,28 @@
 #import "ForeignCitysViewController.h"
 #import "MoreCityTableViewCell.h"
 #import "ForeignCityViewController.h"
+#import "SearchCityViewController.h"
 
-@interface ForeignCitysViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ForeignCitysViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 {
     NSMutableArray *_dataArr;
+    BOOL _hasChoose;
 }
+@property(nonatomic,strong)UITextField *searchTextField;
 @end
 
 @implementation ForeignCitysViewController
-
+-(void)viewWillDisappear:(BOOL)animated{
+    [self dismissViewControllerAnimated:NO completion:nil];
+    self.navigationController.navigationBarHidden = NO;
+    [_searchTextField resignFirstResponder];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    if (_hasChoose) {
+        [self dismissViewControllerAnimated:NO completion:nil];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"国际国外";
@@ -49,11 +62,42 @@
     searchTextField.borderStyle = UITextBorderStyleRoundedRect;
     searchTextField.clearButtonMode = UITextFieldViewModeAlways;
     searchTextField.placeholder = @"搜索城市🔍";
+    searchTextField.delegate = self;
+    _searchTextField = searchTextField;
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 279, 50)];
-    [headerView addSubview:searchTextField];
+    [headerView addSubview:_searchTextField];
     XYMoretableView.tableHeaderView = headerView;
     
     [self.view addSubview:XYMoretableView];
+    
+}
+#pragma -mark textFiled搜索
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    
+    
+    SearchCityViewController * SCVC = [SearchCityViewController new];
+    __weak typeof (self) weakSelf = self;
+    SCVC.cancelBlock = ^(BOOL hasChoose){
+        weakSelf.navigationController.navigationBarHidden = NO;
+        [weakSelf.searchTextField resignFirstResponder];
+        if (hasChoose) {
+            _hasChoose = YES;
+//            [self viewWillAppear:NO];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        else{
+            _hasChoose = NO;
+        }
+       
+    };
+    self.definesPresentationContext = YES; //self is presenting view controller
+    SCVC.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.4];
+    SCVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [textField resignFirstResponder];
+    self.navigationController.navigationBarHidden = YES;
+    [self presentViewController:SCVC animated:NO completion:nil];
+    return YES;
     
 }
 

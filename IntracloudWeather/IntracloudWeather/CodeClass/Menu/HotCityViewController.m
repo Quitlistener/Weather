@@ -11,11 +11,12 @@
 #import "CityDetailDBManager.h"
 #import "PinYin4Objc.h"
 #import "SearchCityViewController.h"
+#import "RightMenViewController.h"
 
 @interface HotCityViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UITextFieldDelegate>
 {
     NSMutableArray *_dataArr;
-    
+    BOOL _hasChoose;
 }
 @property(nonatomic,strong)UITextField *searchTextField;
 @property(nonatomic ,strong)NSMutableArray *searchDataArr;
@@ -26,15 +27,22 @@
 -(void)viewWillDisappear:(BOOL)animated{
 //     self.navigationController.navigationBarHidden = NO;
     [self dismissViewControllerAnimated:NO completion:nil];
+    self.navigationController.navigationBarHidden = NO;
     [_searchTextField resignFirstResponder];
     _searchDataArr = nil;
 }
 -(void)viewWillAppear:(BOOL)animated{
 //     self.navigationController.navigationBarHidden = NO;
     [_searchTextField resignFirstResponder];
+    if (_hasChoose) {
+        [self dismissViewControllerAnimated:NO completion:nil];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1];
     [self loadData];
     [self initUI];
@@ -193,10 +201,22 @@
     
     
     SearchCityViewController * SCVC = [SearchCityViewController new];
+//    SCVC addObserver:<#(nonnull NSObject *)#> forKeyPath:<#(nonnull NSString *)#> options:<#(NSKeyValueObservingOptions)#> context:<#(nullable void *)#>
     __weak typeof (self) weakSelf = self;
-    SCVC.cancelBlock = ^( ){
+    SCVC.cancelBlock = ^(BOOL hasChoose){
         weakSelf.navigationController.navigationBarHidden = NO;
         [weakSelf.searchTextField resignFirstResponder];
+    
+        if (hasChoose) {
+            _hasChoose = YES;
+//             [weakSelf viewWillAppear:NO];
+            [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+        }
+        else{
+            _hasChoose = NO;
+        }
+        
+       
     };
     self.definesPresentationContext = YES; //self is presenting view controller
     SCVC.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.4];

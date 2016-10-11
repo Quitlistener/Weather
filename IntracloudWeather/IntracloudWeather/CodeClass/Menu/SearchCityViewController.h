@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void(^cancelBlock)();
+typedef void(^cancelBlock)(BOOL);
 @interface SearchCityViewController : UIViewController
 @property(nonatomic,copy)cancelBlock cancelBlock;
 @end

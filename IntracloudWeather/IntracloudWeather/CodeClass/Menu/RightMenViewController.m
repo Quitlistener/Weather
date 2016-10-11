@@ -19,7 +19,7 @@
 #import "UIViewController+MMDrawerController.h"
 #import "WeatherViewController.h"
 
-@interface RightMenViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface RightMenViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 {
     NSMutableArray *_citysDataArr;
@@ -90,9 +90,54 @@
     CityCollectionVew.dataSource = self;
     [CityCollectionVew registerNib:[UINib nibWithNibName:@"AddCitysCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"City"];
     [CityCollectionVew registerNib:[UINib nibWithNibName:@"AddCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"Add"];
+    
+//    //注册尾视图
+    [CityCollectionVew registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter  withReuseIdentifier:@"City"];
     _CityCollectionVew = CityCollectionVew;
     [self.view addSubview:CityCollectionVew];
 }
+//返回头部和尾部的样式
+-(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    //需要判断返回头部视图还是尾部视图
+    if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+        UICollectionReusableView *footView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"City" forIndexPath:indexPath];
+//        UIView *view = [[UIView alloc]init];
+        UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchesInside)];
+        tapGes.numberOfTapsRequired = 1;
+        tapGes.numberOfTouchesRequired = 1;
+        [footView addGestureRecognizer:tapGes];
+//        [footView addSubview:view];
+        return footView;
+    }
+    else{
+        //初始化头部视图
+       
+        return 0;
+    }
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+    if (_citysDataArr.count < 4) {
+        return CGSizeMake(SCREEN_width, SCREENH_height - 130);
+    }
+    else if (_citysDataArr.count < 7){
+       return CGSizeMake(SCREEN_width, SCREENH_height - 262);
+    }
+    else{
+        return CGSizeMake(SCREEN_width, SCREENH_height - 384);
+    }
+}
+-(void)touchesInside{
+    if (isEdit == 1) {
+        [self editCitys];
+    }
+    else{
+        
+    }
+}
+
+
 -(void)backWeatherController{
      WeatherViewController *WVC = [WeatherViewController new];
      [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
@@ -100,7 +145,7 @@
 #pragma -mark 网络请求
 -(void)dataRequestWithCityid:(NSString *)cityid indexPath:(NSIndexPath *)indexPath{
     
-    NSString *str = [NSString stringWithFormat:@"key=2e39142365f74cba8c3d9ccc09f73eaa&cityid=%@",cityid];
+    NSString *str = [NSString stringWithFormat:@"key=d24d5307be8948d4b9e8ebf043a7f62a&cityid=%@",cityid];
     NSString *urlStr = [@"https://api.heweather.com/x3/weather?" stringByAppendingString:str];
     
     [NetWorkRequest requestWithMethod:GET URL:urlStr para:nil success:^(NSData *data) {
@@ -168,14 +213,36 @@
     [_CityCollectionVew reloadData];
     
 }
+-(void)longGesture:(UILongPressGestureRecognizer *)press{
+    if (press.state == UIGestureRecognizerStateBegan) {
+        [self editCitys];
+    }
+    else{
+        
+    }
+}
 - (void)deleteCellButtonPressed: (id)sender{
     
     UIButton *btn = (UIButton *)sender;
     //删除cell；
-    CityInfoCityInfo *city = _citysDataArr[btn.tag - 10];
-    [[CityDetailDBManager defaultManager] deleteDataWithcityid:city.cityInfoIdentifier];
-    [_citysDataArr removeObjectAtIndex:btn.tag - 10];
-    [_CityCollectionVew reloadData];
+    if ([[CityDetailDBManager defaultManager] selectData].count > 1) {
+        CityInfoCityInfo *city = _citysDataArr[btn.tag - 10];
+        [[CityDetailDBManager defaultManager] deleteDataWithcityid:city.cityInfoIdentifier];
+        [_citysDataArr removeObjectAtIndex:btn.tag - 10];
+        [_CityCollectionVew reloadData];
+    }
+    else{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请至少保留一个城市"
+                                                            message:nil
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:nil];
+        alertView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
+        [alertView show];
+        //            sleep(1.5);
+        [alertView dismissWithClickedButtonIndex:0 animated:YES];
+        return;
+    }
     
 }
 
@@ -210,6 +277,9 @@
         cell.XYCityLabel.text = city.city;
         cell.XYCityLabel.layer.cornerRadius = 5;
         cell.XYCityLabel.layer.masksToBounds = YES;
+        //创建长按手势对象
+        UILongPressGestureRecognizer *longGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longGesture:)];
+        [cell addGestureRecognizer:longGesture];
         //设置删除按钮
         // 点击编辑按钮触发事件
         if(isEdit == 0){
@@ -228,7 +298,11 @@
         CityInfoCityInfo *city = _citysDataArr[indexPath.row];
         AddCitysCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"City" forIndexPath:indexPath];
         cell.XYCityLabel.text = city.city;
-        
+        cell.XYCityLabel.layer.cornerRadius = 5;
+        cell.XYCityLabel.layer.masksToBounds = YES;
+        //创建长按手势对象
+        UILongPressGestureRecognizer *longGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longGesture:)];
+        [cell addGestureRecognizer:longGesture];
         //设置删除按钮
         // 点击编辑按钮触发事件
         if(isEdit == 0){
@@ -296,6 +370,8 @@
     }
    
 }
+
+
 
 
 - (void)didReceiveMemoryWarning {
