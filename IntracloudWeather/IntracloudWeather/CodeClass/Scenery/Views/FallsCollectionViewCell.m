@@ -15,4 +15,28 @@
     // Initialization code
 }
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setBackgroundColor:[UIColor whiteColor]];
+        self.layer.masksToBounds = YES;
+        self.layer.cornerRadius = 7;
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self setBackgroundColor:[UIColor whiteColor]];
+        self.layer.masksToBounds = YES;
+        self.layer.cornerRadius = 7;
+    }
+    return self;
+}
+
+
+
 @end

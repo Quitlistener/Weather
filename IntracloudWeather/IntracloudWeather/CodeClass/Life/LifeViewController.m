@@ -90,6 +90,7 @@
     /** utf-8编码 */
     NSString *data = [NSString stringWithFormat:@"%@",self.userModer.city];
     NSString *dataUTF8 = [data stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@">>>>>>>>%@",dataUTF8);
     [NetWorkRequest requestWithMethod:GET URL:[NSString stringWithFormat:@"http://c.m.163.com/nc/article/local/%@/0-19.html",dataUTF8] para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         if (dic[self.userModer.city]) {

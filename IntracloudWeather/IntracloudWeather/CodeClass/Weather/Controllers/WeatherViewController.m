@@ -123,7 +123,7 @@
 
 #pragma mark -网路请求
 -(void)requestData:(NSString *)str{
-    [NetWorkRequest requestWithMethod:GET URL:[NSString stringWithFormat:@"https://api.heweather.com/x3/weather?key=2e39142365f74cba8c3d9ccc09f73eaa&cityid=%@",str] para:nil success:^(NSData *data) {
+    [NetWorkRequest requestWithMethod:GET URL:[NSString stringWithFormat:@"https://api.heweather.com/x3/weather?key=d24d5307be8948d4b9e8ebf043a7f62a&cityid=%@",str] para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         _weathBase = [[WeatherBaseClass alloc]initWithDictionary:dic];
         dispatch_async(dispatch_get_main_queue(), ^{

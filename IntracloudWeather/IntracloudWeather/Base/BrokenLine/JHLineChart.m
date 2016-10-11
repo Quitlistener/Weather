@@ -348,7 +348,7 @@
                     CGPoint p = P_M(i*xPace+self.chartOrigin.x, self.chartOrigin.y);
                     CGFloat len = [self getTextWithWhenDrawWithText:_xLineDataArr[i]];
                     [self drawLineWithContext:context andStarPoint:p andEndPoint:P_M(p.x, p.y-3) andIsDottedLine:NO andColor:_xAndYLineColor];
-                    [self drawText:[NSString stringWithFormat:@"%@",_xLineDataArr[i]] andContext:context atPoint:P_M(p.x-len/2, p.y-10) WithColor:_xAndYNumberColor andFontSize:17.0];
+                    [self drawText:[NSString stringWithFormat:@"%@",_xLineDataArr[i]] andContext:context atPoint:P_M(p.x-len/2, p.y-30) WithColor:_xAndYNumberColor andFontSize:17.0];
                 }
             }
 //            if (_yLineDataArr.count>0) {
@@ -666,7 +666,7 @@
         for (NSInteger i = 0 ;i<arr.count;i++ ) {
             
             CGPoint p = [arr[i] CGPointValue];
-            CGPoint pp = CGPointMake([arr[i] CGPointValue].x, [arr[i] CGPointValue].y+15);//点的坐标
+            CGPoint pp = CGPointMake([arr[i] CGPointValue].x-15, [arr[i] CGPointValue].y+15);//点的坐标
             UIColor *positionLineColor;
             if (_positionLineColorArr.count == _valueArr.count) {
                 positionLineColor = _positionLineColorArr[m];

@@ -15,6 +15,10 @@
     
     NSURLSession *session = [NSURLSession   sharedSession];
     NSMutableURLRequest *mutUrlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:RequestUrl]];
+    
+    /** 这是Get请求时必须要有apikey参数时 */
+    [mutUrlRequest setValue:@"e3341ef8fa563d004e4132b74bf788d8" forHTTPHeaderField:@"apikey"];
+    
     if (method == POST) {
         mutUrlRequest.HTTPMethod = @"POST";
         mutUrlRequest.HTTPBody = [NSJSONSerialization dataWithJSONObject:paraDic options:NSJSONWritingPrettyPrinted error:nil];

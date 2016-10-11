@@ -54,6 +54,12 @@
 		3F6B089E1DA8C71E00814A0F /* SAMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B089A1DA8C71E00814A0F /* SAMath.m */; };
 		3F6B089F1DA8C71E00814A0F /* SAMultisectorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B089C1DA8C71E00814A0F /* SAMultisectorControl.m */; };
 		3F6B08A61DA8D15000814A0F /* ChangeVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F6B08A51DA8D15000814A0F /* ChangeVoiceViewController.xib */; };
+		3FB4EB451DACD82000308BA5 /* EvernoteTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4EB421DACD82000308BA5 /* EvernoteTransition.m */; };
+		3FB4EB461DACD82000308BA5 /* EvernoteFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4EB441DACD82000308BA5 /* EvernoteFlowLayout.m */; };
+		3FB4EB491DACD91500308BA5 /* SceneryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4EB481DACD91500308BA5 /* SceneryDetailViewController.m */; };
+		3FB4EB531DACF02B00308BA5 /* SceneryBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4EB4E1DACF02B00308BA5 /* SceneryBaseClass.m */; };
+		3FB4EB541DACF02B00308BA5 /* SceneryBooks.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4EB501DACF02B00308BA5 /* SceneryBooks.m */; };
+		3FB4EB551DACF02B00308BA5 /* SceneryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4EB521DACF02B00308BA5 /* SceneryData.m */; };
 		3FB572AE1DAA065E00590913 /* JHLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB572AD1DAA065E00590913 /* JHLineChart.m */; };
 		3FB572B11DAA067000590913 /* JHChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB572B01DAA067000590913 /* JHChart.m */; };
 		3FB572B61DAA074B00590913 /* TrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB572B51DAA074B00590913 /* TrendViewController.m */; };
@@ -230,6 +236,19 @@
 		3F6B089B1DA8C71E00814A0F /* SAMultisectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMultisectorControl.h; sourceTree = "<group>"; };
 		3F6B089C1DA8C71E00814A0F /* SAMultisectorControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMultisectorControl.m; sourceTree = "<group>"; };
 		3F6B08A51DA8D15000814A0F /* ChangeVoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeVoiceViewController.xib; sourceTree = "<group>"; };
+		3FB4EB411DACD82000308BA5 /* EvernoteTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteTransition.h; sourceTree = "<group>"; };
+		3FB4EB421DACD82000308BA5 /* EvernoteTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvernoteTransition.m; sourceTree = "<group>"; };
+		3FB4EB431DACD82000308BA5 /* EvernoteFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteFlowLayout.h; sourceTree = "<group>"; };
+		3FB4EB441DACD82000308BA5 /* EvernoteFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvernoteFlowLayout.m; sourceTree = "<group>"; };
+		3FB4EB471DACD91500308BA5 /* SceneryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneryDetailViewController.h; sourceTree = "<group>"; };
+		3FB4EB481DACD91500308BA5 /* SceneryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneryDetailViewController.m; sourceTree = "<group>"; };
+		3FB4EB4C1DACF02B00308BA5 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
+		3FB4EB4D1DACF02B00308BA5 /* SceneryBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneryBaseClass.h; sourceTree = "<group>"; };
+		3FB4EB4E1DACF02B00308BA5 /* SceneryBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneryBaseClass.m; sourceTree = "<group>"; };
+		3FB4EB4F1DACF02B00308BA5 /* SceneryBooks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneryBooks.h; sourceTree = "<group>"; };
+		3FB4EB501DACF02B00308BA5 /* SceneryBooks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneryBooks.m; sourceTree = "<group>"; };
+		3FB4EB511DACF02B00308BA5 /* SceneryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneryData.h; sourceTree = "<group>"; };
+		3FB4EB521DACF02B00308BA5 /* SceneryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneryData.m; sourceTree = "<group>"; };
 		3FB572AC1DAA065E00590913 /* JHLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHLineChart.h; sourceTree = "<group>"; };
 		3FB572AD1DAA065E00590913 /* JHLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHLineChart.m; sourceTree = "<group>"; };
 		3FB572AF1DAA067000590913 /* JHChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChart.h; sourceTree = "<group>"; };
@@ -567,6 +586,28 @@
 			path = SettingView;
 			sourceTree = "<group>";
 		};
+		3FB4EB4A1DACF00400308BA5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3FB4EB4B1DACF02B00308BA5 /* Scenery */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3FB4EB4B1DACF02B00308BA5 /* Scenery */ = {
+			isa = PBXGroup;
+			children = (
+				3FB4EB4C1DACF02B00308BA5 /* DataModels.h */,
+				3FB4EB4D1DACF02B00308BA5 /* SceneryBaseClass.h */,
+				3FB4EB4E1DACF02B00308BA5 /* SceneryBaseClass.m */,
+				3FB4EB4F1DACF02B00308BA5 /* SceneryBooks.h */,
+				3FB4EB501DACF02B00308BA5 /* SceneryBooks.m */,
+				3FB4EB511DACF02B00308BA5 /* SceneryData.h */,
+				3FB4EB521DACF02B00308BA5 /* SceneryData.m */,
+			);
+			path = Scenery;
+			sourceTree = "<group>";
+		};
 		3FB572AB1DAA062900590913 /* BrokenLine */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,6 +769,10 @@
 		3FD3F81C1D9D465200736C0B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3FB4EB411DACD82000308BA5 /* EvernoteTransition.h */,
+				3FB4EB421DACD82000308BA5 /* EvernoteTransition.m */,
+				3FB4EB431DACD82000308BA5 /* EvernoteFlowLayout.h */,
+				3FB4EB441DACD82000308BA5 /* EvernoteFlowLayout.m */,
 				3FD3F81D1D9D471900736C0B /* FallsCollectionViewCell.h */,
 				3FD3F81E1D9D471900736C0B /* FallsCollectionViewCell.m */,
 				3FD3F81F1D9D471900736C0B /* FallsCollectionViewCell.xib */,
@@ -956,6 +1001,7 @@
 		3FFF3B1D1D9D42A80069B4A7 /* Scenery */ = {
 			isa = PBXGroup;
 			children = (
+				3FB4EB4A1DACF00400308BA5 /* Models */,
 				3FD3F81C1D9D465200736C0B /* Views */,
 				3FFF3B1E1D9D42C10069B4A7 /* Controllers */,
 			);
@@ -967,6 +1013,8 @@
 			children = (
 				3FFF3B1F1D9D43090069B4A7 /* SceneryViewController.h */,
 				3FFF3B201D9D43090069B4A7 /* SceneryViewController.m */,
+				3FB4EB471DACD91500308BA5 /* SceneryDetailViewController.h */,
+				3FB4EB481DACD91500308BA5 /* SceneryDetailViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1173,10 +1221,12 @@
 				3FFF3A991D9BB2230069B4A7 /* WeatherViewController.m in Sources */,
 				3F6B089D1DA8C71E00814A0F /* AKPickerView.m in Sources */,
 				3FD0A7BD1DA9E7B4004BEDD3 /* WeatherFlu.m in Sources */,
+				3FB4EB531DACF02B00308BA5 /* SceneryBaseClass.m in Sources */,
 				3FD0A7831DA9D0BF004BEDD3 /* userInfoModel.m in Sources */,
 				3FD3F8201D9D471900736C0B /* FallsCollectionViewCell.m in Sources */,
 				3FFF3B161D9D07F40069B4A7 /* HeaderCollectionViewCell.m in Sources */,
 				3F0385471D9CEA8A004D5423 /* MoreCityTableViewCell.m in Sources */,
+				3FB4EB461DACD82000308BA5 /* EvernoteFlowLayout.m in Sources */,
 				3FD0A7E81DABB52A004BEDD3 /* SearchCityViewController.m in Sources */,
 				3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */,
 				3FD0A7B41DA9E7B4004BEDD3 /* WeatherAstro.m in Sources */,
@@ -1190,12 +1240,14 @@
 				3FB572AE1DAA065E00590913 /* JHLineChart.m in Sources */,
 				3FD0A7E21DAB2756004BEDD3 /* PinyinHelper.m in Sources */,
 				3F6B089E1DA8C71E00814A0F /* SAMath.m in Sources */,
+				3FB4EB451DACD82000308BA5 /* EvernoteTransition.m in Sources */,
 				3FD0A7861DA9D342004BEDD3 /* userInfoManager.m in Sources */,
 				3FFF3AE71D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m in Sources */,
 				3F0385241D9C0533004D5423 /* RightMenViewController.m in Sources */,
 				3FBEB69F1D9E36510092E47F /* CityInfoCityInfo.m in Sources */,
 				3FD3F83D1D9DED0400736C0B /* NewsWapPortalV2.m in Sources */,
 				3FFF3AF81D9CAE050069B4A7 /* TodayWeatherView.m in Sources */,
+				3FB4EB551DACF02B00308BA5 /* SceneryData.m in Sources */,
 				3FD0A7DE1DAB2756004BEDD3 /* ChineseToPinyinResource.m in Sources */,
 				3FD0A7E11DAB2756004BEDD3 /* PinyinFormatter.m in Sources */,
 				3FFF3AEB1D9BF82F0069B4A7 /* RightWeatherDetailsView.m in Sources */,
@@ -1207,6 +1259,7 @@
 				3F0384EE1D9BC5F2004D5423 /* NetWorkRequest.m in Sources */,
 				3FFF3B121D9CF8690069B4A7 /* NewsDetailsViewController.m in Sources */,
 				3FFF3B0E1D9CF4D00069B4A7 /* LifeTableViewCell.m in Sources */,
+				3FB4EB491DACD91500308BA5 /* SceneryDetailViewController.m in Sources */,
 				3FD0A7B61DA9E7B4004BEDD3 /* WeatherBasic.m in Sources */,
 				3FD0A7C11DA9E7B4004BEDD3 /* WeatherSport.m in Sources */,
 				3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */,
@@ -1225,6 +1278,7 @@
 				3F03854D1D9CF44D004D5423 /* DetailCityInfoViewController.m in Sources */,
 				3FD0A7B51DA9E7B4004BEDD3 /* WeatherBaseClass.m in Sources */,
 				3FD0A7C61DA9E7B4004BEDD3 /* WeatherUv.m in Sources */,
+				3FB4EB541DACF02B00308BA5 /* SceneryBooks.m in Sources */,
 				3FD0A7BF1DA9E7B4004BEDD3 /* WeatherHourlyForecast.m in Sources */,
 				3F0385231D9C0533004D5423 /* LeftMenuViewController.m in Sources */,
 				3FB572B11DAA067000590913 /* JHChart.m in Sources */,

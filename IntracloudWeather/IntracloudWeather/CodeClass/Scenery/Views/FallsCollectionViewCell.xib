@@ -9,23 +9,37 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FallsCell" id="gTV-IL-0wX" customClass="FallsCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="153" height="110"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="153" height="110"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x92-CG-wvS"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLg-Ru-mAr">
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="WUt-B4-zaM"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fz8-T0-CxF"/>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="XLg-Ru-mAr" firstAttribute="top" secondItem="fz8-T0-CxF" secondAttribute="bottom" id="390-Xd-gAs"/>
+                <constraint firstItem="fz8-T0-CxF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="85N-Hg-BBs"/>
                 <constraint firstItem="x92-CG-wvS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="FKl-4e-UCT"/>
+                <constraint firstItem="XLg-Ru-mAr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ffw-5s-ZUy"/>
                 <constraint firstItem="x92-CG-wvS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="VoK-IC-TVN"/>
                 <constraint firstAttribute="trailing" secondItem="x92-CG-wvS" secondAttribute="trailing" id="ZFy-pP-cmT"/>
+                <constraint firstAttribute="trailing" secondItem="fz8-T0-CxF" secondAttribute="trailing" id="iPJ-cC-fQP"/>
                 <constraint firstAttribute="bottom" secondItem="x92-CG-wvS" secondAttribute="bottom" id="jUX-2q-YlH"/>
+                <constraint firstAttribute="trailing" secondItem="XLg-Ru-mAr" secondAttribute="trailing" id="qdp-sf-UMh"/>
+                <constraint firstItem="fz8-T0-CxF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uGl-oA-ngk"/>
+                <constraint firstAttribute="bottom" secondItem="XLg-Ru-mAr" secondAttribute="bottom" id="zRa-vA-dbH"/>
             </constraints>
             <size key="customSize" width="153" height="110"/>
-            <point key="canvasLocation" x="-101" y="22"/>
+            <point key="canvasLocation" x="-102" y="22"/>
         </collectionViewCell>
     </objects>
 </document>
