@@ -34,10 +34,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.isPulldown = YES;
     self.pageIndex = 1;
     userInfoManager *inmanager = [[userInfoManager defaultManager]init];
-    self.cityModer = [inmanager selectData][0];
+    self.cityModer = [inmanager selectData].firstObject;
     NSString *data = [NSString stringWithFormat:@"%@",_cityModer.city];
     _dataUTF8 = [data stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [self initUI];
@@ -46,7 +47,7 @@
 
 -(void)initUI{
     EvernoteFlowLayout *layout = [[EvernoteFlowLayout alloc] init];
-    self.collectionView = [[UICollectionView alloc]initWithFrame:[UIScreen mainScreen].bounds collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_width, SCREENH_height-64) collectionViewLayout:layout];
     self.collectionView.backgroundColor = [UIColor grayColor];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
