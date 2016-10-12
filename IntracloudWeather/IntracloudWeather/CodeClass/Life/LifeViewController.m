@@ -29,6 +29,7 @@
 @property (nonatomic, strong) userInfoModel *userModer;
 @property (nonatomic, strong) WeatherBaseClass *weathBase;
 @property (nonatomic, strong) NSArray *arr;
+@property (nonatomic, assign) BOOL isPullUp;
 @end
 
 @implementation LifeViewController
@@ -36,6 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.urlIndex = 0;
     self.userCity = [userInfoManager defaultManager];
     self.userModer = [self.userCity selectData][0];
     self.muArr = [NSMutableArray array];
@@ -72,12 +75,15 @@
     /** 上拉加载更多 */
     _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         self.urlIndex += 20;
-        [self requestMoreData];
+        self.isPullUp = YES;
+        [self requestData];
     }];
     
     /** 下拉刷新 */
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         //进入刷新状态后会自动调用block
+        self.isPullUp = NO;
+        self.urlIndex = 0;
         [self.muArr removeAllObjects];
         [self requestData];
     }];
@@ -86,28 +92,35 @@
 #pragma mark -网络请求
 /** 第一次请求(下来刷新) */
 -(void)requestData{
-    self.urlIndex = 0;
     /** utf-8编码 */
     NSString *data = [NSString stringWithFormat:@"%@",self.userModer.city];
     NSString *dataUTF8 = [data stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@">>>>>>>>%@",dataUTF8);
-    [NetWorkRequest requestWithMethod:GET URL:[NSString stringWithFormat:@"http://c.m.163.com/nc/article/local/%@/0-19.html",dataUTF8] para:nil success:^(NSData *data) {
+    [NetWorkRequest requestWithMethod:GET URL:[NSString stringWithFormat:@"http://c.m.163.com/nc/article/local/%@/%ld-19.html",dataUTF8,self.urlIndex] para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         if (dic[self.userModer.city]) {
             /** 把返回的地名改为cityNew */
             NSDictionary *dic2 = [NSDictionary dictionaryWithObject:dic[self.userModer.city] forKey:@"cityNew"];
             _XYBase = [[NewsBaseClass alloc]initWithDictionary:dic2];
-            _muArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
+//            _muArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
+            NSMutableArray *loadArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
             /** 删除数组中的NewsInternalBaseClass1对象含有imgextra数组的对象 */
             for (int i = 0 ; i < _XYBase.myProperty1.count; i++) {
                 if ([_XYBase.myProperty1[i] imgextra].count > 0) {
-                    [_muArr removeObject:_XYBase.myProperty1[i]];
+                    [loadArr removeObject:_XYBase.myProperty1[i]];
                 }
             }
+            for (id obj in loadArr) {
+                [self.muArr addObject:obj];
+            }
             dispatch_async(dispatch_get_main_queue(), ^{
+                if (self.isPullUp == YES) {
+                    [_tableView.mj_footer endRefreshing];
+                }
+                else{
+                   [_tableView.mj_header endRefreshing];
+                }
                 [self.tableView reloadData];
                 [self.collectionView reloadData];
-                [_tableView.mj_header endRefreshing];
             });
 
         }
@@ -253,19 +266,14 @@
 /** scrollviewdelegate */
 /** 只要视图滚动,就会检测到这个方法 */
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    [_itemView removeFromSuperview];
-    self.collectionView.allowsSelection = YES;
-    self.tableView.allowsSelection = YES;
+    [self removedFlash];
 }
 
 /** 点击view触发的方法 */
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@"点击了view");
     /** 移除view */
-    [_itemView removeFromSuperview];
-    self.collectionView.allowsSelection = YES;
-    self.tableView.allowsSelection = YES;
-//    _cell.userInteractionEnabled = NO;
+    [self removedFlash];
+
 }
 
 
@@ -286,6 +294,22 @@
     [_itemView.layer addAnimation:groupAnimation forKey:@"eee"];
 }
 
+-(void)removedFlash{
+    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAnimation.delegate = self;
+    scaleAnimation.removedOnCompletion = NO;
+    scaleAnimation.fillMode = kCAFillModeForwards;
+    scaleAnimation.duration = 1;
+    scaleAnimation.toValue = @(0.1);
+    [_itemView.layer addAnimation:scaleAnimation forKey:@"scale"];
+}
+//在动画执行结束之后 继续执行一些操作 还是通过设置代理
+/** 在执行完removedFlash后的操作,删除view */
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    [_itemView removeFromSuperview];
+    self.collectionView.allowsSelection = YES;
+    self.tableView.allowsSelection = YES;
+}
 
 -(void)TapBackAction{
    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];

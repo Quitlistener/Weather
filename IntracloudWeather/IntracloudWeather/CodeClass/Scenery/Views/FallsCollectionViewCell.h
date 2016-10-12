@@ -10,4 +10,7 @@
 
 @interface FallsCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *sceneryImage;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @end

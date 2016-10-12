@@ -15,30 +15,46 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x92-CG-wvS"/>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLg-Ru-mAr">
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="10" id="WUt-B4-zaM"/>
-                        </constraints>
-                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fz8-T0-CxF"/>
+                    <visualEffectView opaque="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTP-ks-yaG">
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="L6M-SQ-4z1">
+                            <frame key="frameInset"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INb-Sx-bFE">
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="INb-Sx-bFE" secondAttribute="bottom" constant="2" id="IGt-Tf-k3e"/>
+                                <constraint firstItem="INb-Sx-bFE" firstAttribute="top" secondItem="L6M-SQ-4z1" secondAttribute="top" constant="2" id="bXZ-e7-7x7"/>
+                                <constraint firstAttribute="trailing" secondItem="INb-Sx-bFE" secondAttribute="trailing" constant="10" id="kcw-eb-Cgb"/>
+                                <constraint firstItem="INb-Sx-bFE" firstAttribute="leading" secondItem="L6M-SQ-4z1" secondAttribute="leading" constant="10" id="kjs-Jq-3we"/>
+                            </constraints>
+                        </view>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="d9s-KI-lKf"/>
+                        </constraints>
+                        <blurEffect style="dark"/>
+                    </visualEffectView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="XLg-Ru-mAr" firstAttribute="top" secondItem="fz8-T0-CxF" secondAttribute="bottom" id="390-Xd-gAs"/>
-                <constraint firstItem="fz8-T0-CxF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="85N-Hg-BBs"/>
-                <constraint firstItem="x92-CG-wvS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="FKl-4e-UCT"/>
-                <constraint firstItem="XLg-Ru-mAr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ffw-5s-ZUy"/>
-                <constraint firstItem="x92-CG-wvS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="VoK-IC-TVN"/>
-                <constraint firstAttribute="trailing" secondItem="x92-CG-wvS" secondAttribute="trailing" id="ZFy-pP-cmT"/>
-                <constraint firstAttribute="trailing" secondItem="fz8-T0-CxF" secondAttribute="trailing" id="iPJ-cC-fQP"/>
-                <constraint firstAttribute="bottom" secondItem="x92-CG-wvS" secondAttribute="bottom" id="jUX-2q-YlH"/>
-                <constraint firstAttribute="trailing" secondItem="XLg-Ru-mAr" secondAttribute="trailing" id="qdp-sf-UMh"/>
-                <constraint firstItem="fz8-T0-CxF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uGl-oA-ngk"/>
-                <constraint firstAttribute="bottom" secondItem="XLg-Ru-mAr" secondAttribute="bottom" id="zRa-vA-dbH"/>
+                <constraint firstAttribute="trailing" secondItem="fz8-T0-CxF" secondAttribute="trailing" id="3ha-6Y-V7D"/>
+                <constraint firstAttribute="trailing" secondItem="jTP-ks-yaG" secondAttribute="trailing" id="FAJ-8p-vRC"/>
+                <constraint firstItem="jTP-ks-yaG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Tf0-WJ-Bbh"/>
+                <constraint firstItem="fz8-T0-CxF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="aja-dL-A0v"/>
+                <constraint firstAttribute="bottom" secondItem="fz8-T0-CxF" secondAttribute="bottom" id="fNb-x3-agk"/>
+                <constraint firstAttribute="bottom" secondItem="jTP-ks-yaG" secondAttribute="bottom" id="pO5-Tw-GKI"/>
+                <constraint firstItem="fz8-T0-CxF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tlK-qj-QqZ"/>
             </constraints>
             <size key="customSize" width="153" height="110"/>
+            <connections>
+                <outlet property="sceneryImage" destination="fz8-T0-CxF" id="waH-z0-3Di"/>
+                <outlet property="titleLabel" destination="INb-Sx-bFE" id="FNH-P1-scp"/>
+            </connections>
             <point key="canvasLocation" x="-102" y="22"/>
         </collectionViewCell>
     </objects>

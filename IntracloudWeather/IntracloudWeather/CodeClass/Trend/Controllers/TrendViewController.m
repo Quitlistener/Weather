@@ -74,12 +74,12 @@
 #pragma mark -创建折线图
 -(void)brokenLine{
     /** 创建表对象 */
-    _lineChart = [[JHLineChart alloc]initWithFrame:CGRectMake(0, 100, SCREEN_width, SCREENH_height/2) andLineChartType:JHChartLineValueNotForEveryX];
+    _lineChart = [[JHLineChart alloc]initWithFrame:CGRectMake(0, SCREEN_width/2, SCREEN_width, SCREENH_height - SCREEN_width/2) andLineChartType:JHChartLineValueNotForEveryX];
     _lineChart.backgroundColor = [UIColor clearColor];
     /* X轴的刻度值 可以传入NSString或NSNumber类型  并且数据结构随折线图类型变化而变化 详情看文档或其他象限X轴数据源示例*/
     _lineChart.xLineDataArr = _weekArr;
     /* 折线图的不同类型  按照象限划分 不同象限对应不同X轴刻度数据源和不同的值数据源 */
-    _lineChart.lineChartQuadrantType = JHLineChartQuadrantTypeFirstQuardrant;
+    _lineChart.lineChartQuadrantType = JHLineChartQuadrantTypeFirstAndFouthQuardrant;
 //    [self Temperature];
     /* 数据源 */
     _lineChart.valueArr = @[self.TemperatureMaxArr,self.TemperatureMinArr];
@@ -128,13 +128,13 @@
         [str deleteCharactersInRange:NSMakeRange(0, 5)];
         /** 替换字符 */
         [str replaceCharactersInRange:NSMakeRange(2, 1) withString:@"."];
-        UILabel *dateLabel = [[UILabel alloc]initWithFrame:CGRectMake((SCREEN_width- 40) / 7 * i + 5*(i+1), 60, (SCREEN_width- 40) / 7, 50)];
+        UILabel *dateLabel = [[UILabel alloc]initWithFrame:CGRectMake((SCREEN_width- 40) / 7 * i + 5*(i+1), 80, (SCREEN_width- 40) / 7, 50)];
         dateLabel.text = str;
         dateLabel.textColor = [UIColor whiteColor];
         [self.toolBar addSubview:dateLabel];
         /** 风速风向 */
-        UILabel *windforce = [[UILabel alloc]initWithFrame:CGRectMake((SCREEN_width- 40) / 7 * i +  5*(i+1), SCREENH_height/2+120, (SCREEN_width- 30) / 7, 30)];
-        UILabel *winddirection = [[UILabel alloc]initWithFrame:CGRectMake((SCREEN_width- 40) / 7 * i + 5*(i+1), SCREENH_height/2+150, (SCREEN_width- 40) / 7, 30)];
+        UILabel *windforce = [[UILabel alloc]initWithFrame:CGRectMake((SCREEN_width- 40) / 7 * i +  5*(i+1), SCREENH_height-90, (SCREEN_width- 30) / 7, 30)];
+        UILabel *winddirection = [[UILabel alloc]initWithFrame:CGRectMake((SCREEN_width- 40) / 7 * i + 5*(i+1), SCREENH_height-60, (SCREEN_width- 40) / 7, 30)];
         windforce.font = [UIFont systemFontOfSize:13];
         windforce.textAlignment = NSTextAlignmentCenter;
         winddirection.font = [UIFont systemFontOfSize:14];
@@ -161,10 +161,12 @@
 
 /** 将气温装进数组 */
 -(void)Temperature{
-    for (int i = 0; i < 7; i ++) {
-        WeatherDailyForecast *weatherDaily = [[_weatherBase heWeatherDataService30][0] dailyForecast][i];
-        [self.TemperatureMaxArr addObject:weatherDaily.tmp.max];
-        [self.TemperatureMinArr addObject:weatherDaily.tmp.min];
+    if ([[_weatherBase heWeatherDataService30][0] dailyForecast].count > 0) {
+        for (int i = 0; i < 7; i ++) {
+            WeatherDailyForecast *weatherDaily = [[_weatherBase heWeatherDataService30][0] dailyForecast][i];
+            [self.TemperatureMaxArr addObject:weatherDaily.tmp.max];
+            [self.TemperatureMinArr addObject:weatherDaily.tmp.min];
+        }
     }
 }
 

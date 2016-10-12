@@ -18,11 +18,13 @@
 @interface SceneryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic , strong) NSMutableArray * dataSource;
 @property (nonatomic , strong) EvernoteTransition * transition;
 @property (nonatomic, strong) SceneryBaseClass *sceneryBase;
 @property (nonatomic, strong) userInfoModel *cityModer;
 @property (nonatomic, strong) NSString *dataUTF8;
+@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, assign) NSInteger pageIndex;
+@property (nonatomic, assign) BOOL isPulldown;
 
 @end
 
@@ -32,6 +34,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.isPulldown = YES;
+    self.pageIndex = 1;
     userInfoManager *inmanager = [[userInfoManager defaultManager]init];
     self.cityModer = [inmanager selectData][0];
     NSString *data = [NSString stringWithFormat:@"%@",_cityModer.city];
@@ -48,25 +52,50 @@
     _collectionView.dataSource = self;
     [_collectionView registerNib:[UINib nibWithNibName:@"FallsCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"FallsCell"];
     [self.view addSubview:_collectionView];
+    
+    /** 上拉加载更多 */
+    self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        self.pageIndex += 1;
+        self.isPulldown = NO;
+        [self requestDatacitySry:_dataUTF8];
+    }];
+    
+    /** 下拉刷新 */
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        //进入刷新状态后会自动调用block
+        _pageIndex = 1;
+         self.isPulldown = YES;
+        [self.dataSource removeAllObjects];
+        [self requestDatacitySry:_dataUTF8];
+    }];
 }
-
 
 #pragma mark -网络请求
 -(void)requestDatacitySry:(NSString *)str{
-    [NetWorkRequest requestWithMethod:GET URL:[NSString stringWithFormat:@"http://apis.baidu.com/qunartravel/travellist/travellist?query=%@&page=1",str] para:nil success:^(NSData *data) {
+    [NetWorkRequest requestWithMethod:GET URL:[NSString stringWithFormat:@"http://apis.baidu.com/qunartravel/travellist/travellist?query=%@&page=%ld",str,self.pageIndex] para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         self.sceneryBase = [[SceneryBaseClass alloc]initWithDictionary:dic];
-        NSLog(@">>>>>>>%@",dic);
+        for (NSDictionary *dic2 in [self.sceneryBase.data books]) {
+            [self.dataSource addObject:dic2];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (self.isPulldown == YES) {
+                [_collectionView.mj_header endRefreshing];
+            }
+            else{
+                [_collectionView.mj_footer endRefreshing];
+            }
+            [self.collectionView reloadData];
+        });
     } error:^(NSError *error) {
         
     }];
 }
 
-
 #pragma mark -Delegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     
-    return self.dataSource.count + 5;
+    return self.dataSource.count;
 }
 
 
@@ -77,32 +106,52 @@
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     FallsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FallsCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
+    cell.titleLabel.text = [self.dataSource[indexPath.section] title];
+    [cell.sceneryImage sd_setImageWithURL:[NSURL URLWithString:[self.dataSource[indexPath.section] headImage]]];
     cell.tag = indexPath.section;
     return cell;
 }
+
+/** itme的高 */
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+//     NSString *imgURL = [self.sceneryBase.data books].count > indexPath.section ? [self.sceneryBase.data books][indexPath.section] :nil;
+//    if (imgURL) {
+//        //根据当前Row的ImageUrl作为Key获取图片缓存
+//        UIImage *img = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey: imgURL];
+//        if (!img) {
+////            img = [UIImage resizedImageWithName:@"childshow_placeholder"];
+//        }
+//        CGFloat height = img.size.height *SCREEN_width/img.size.width;//Image宽度为屏幕宽度 ，计算宽高比求得对应的高度
+//        NSLog(@"----------------return Height:%f",height);
+//        return CGSizeMake(SCREEN_width-20,height);
+//    }
+//    return CGSizeMake(0,0);
+//    //    return CGSizeMake(320,(240 - 60)/6);
+//    
+//}
+
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     FallsCollectionViewCell * selectedCell = (FallsCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     NSArray * visibleCells = collectionView.visibleCells;
 //    UIStoryboard * stb  = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     SceneryDetailViewController * VC = [SceneryDetailViewController new];
+    VC.strURL = [self.dataSource[indexPath.section] bookUrl];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:VC];
     CGRect finalFrame = CGRectMake(10, collectionView.contentOffset.y + 30,  ScreenW- 20, ScreenH - 40);
-    [self.transition evernoteTransitionWithSelectCell:selectedCell visibleCells:visibleCells originFrame:selectedCell.frame finalFrame:finalFrame panViewController:VC listViewController:self];
-    VC.transitioningDelegate = self.transition;
+    [self.transition evernoteTransitionWithSelectCell:selectedCell visibleCells:visibleCells originFrame:selectedCell.frame finalFrame:finalFrame panViewController:nav listViewController:self];
+    nav.transitioningDelegate = self.transition;
     VC.delegate = self.transition;
-    [self presentViewController:VC animated:YES completion:^{
+    [self presentViewController:nav animated:YES completion:^{
         
     }];
     
 }
 
 #pragma mark - getter
-- (NSMutableArray *)dataSource {
-    if (!_dataSource) {
-        _dataSource = [[NSMutableArray alloc] init];
-        for (int i = 0; i< 20; i++) {
-            [_dataSource addObject:[NSString stringWithFormat:@"Evernote%d",i]];
-        }
+-(NSMutableArray *)dataSource{
+    if (_dataSource == nil) {
+        _dataSource = [NSMutableArray array];
     }
     return _dataSource;
 }

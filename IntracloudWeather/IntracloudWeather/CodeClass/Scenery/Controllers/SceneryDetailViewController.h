@@ -12,10 +12,14 @@
 
 - (void)detailGoBack;
 
+
 @end
 
 
 @interface SceneryDetailViewController : UIViewController
 
 @property (nonatomic ,weak) id<SeneryDetailControllerDelegate>delegate;
+
+@property (nonatomic, strong) NSString *strURL;
+
 @end
