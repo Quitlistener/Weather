@@ -42,7 +42,7 @@
     // Do any additional setup after loading the view.
     
     self.userCity = [userInfoManager defaultManager];
-    self.userModer = [self.userCity selectData][0];
+    self.userModer = [self.userCity selectData].firstObject;
     [self initUIcity:_userModer.city];
     [self requestData:self.userModer.cityInfoIdentifier];
 }

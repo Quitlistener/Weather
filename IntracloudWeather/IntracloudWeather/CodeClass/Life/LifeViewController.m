@@ -40,7 +40,7 @@
     
     self.urlIndex = 0;
     self.userCity = [userInfoManager defaultManager];
-    self.userModer = [self.userCity selectData][0];
+    self.userModer = [self.userCity selectData].firstObject;
     self.muArr = [NSMutableArray array];
     [self initUI];
     UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
