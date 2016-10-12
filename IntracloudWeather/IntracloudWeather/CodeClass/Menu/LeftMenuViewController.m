@@ -43,7 +43,7 @@
 -(void)initUI{
   
     UITableView *XYMenuTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, SCREENH_height) style:UITableViewStylePlain];
-    XYMenuTableView.rowHeight = 40;
+    XYMenuTableView.rowHeight = 50;
     [XYMenuTableView registerNib:[UINib nibWithNibName:@"MenuTableViewCell" bundle:nil] forCellReuseIdentifier:@"menu"];
     XYMenuTableView.delegate = self;
     XYMenuTableView.dataSource = self;
@@ -61,6 +61,7 @@
     MenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"menu" forIndexPath:indexPath];
     cell.XYImageView.image = [UIImage imageNamed:_dataArr[indexPath.row]];
     cell.XYTitleLabel.text = _dataArr[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -81,8 +82,8 @@
     }
     if (indexPath.row == 3) {
         SceneryViewController *SCVC = [SceneryViewController new];
-//        UINavigationController *LVNav = [[UINavigationController alloc]initWithRootViewController:LVVC];
-        [self.mm_drawerController setCenterViewController:SCVC withCloseAnimation:YES completion:nil];
+        UINavigationController *SCNav = [[UINavigationController alloc]initWithRootViewController:SCVC];
+        [self.mm_drawerController setCenterViewController:SCNav withCloseAnimation:YES completion:nil];
     }
     if (indexPath.row == 4) {
                 SettingViewController *SEVC = [SettingViewController new];

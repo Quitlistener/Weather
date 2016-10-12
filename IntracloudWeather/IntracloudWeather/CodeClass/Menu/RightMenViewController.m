@@ -15,7 +15,7 @@
 #import "NetWorkRequest.h"
 #import "WeatherDataModels.h"
 #import "UIImageView+WebCache.h"
-#import "userInfoManager.h"
+#import "userInfoModel.h"
 #import "UIViewController+MMDrawerController.h"
 #import "WeatherViewController.h"
 
@@ -54,6 +54,7 @@
      else{
          
      }
+   
 }
 
 - (void)viewDidLoad {
@@ -162,7 +163,12 @@
                 AddCitysCollectionViewCell *cell = ( AddCitysCollectionViewCell *)[_CityCollectionVew cellForItemAtIndexPath:indexPath];
                 cell.XYTopTempLabel.text = [tmp.max stringByAppendingString:@"℃"];
                 cell.XYDownTempLabel.text = [tmp.min stringByAppendingString:@"℃"];
-                cell.XYWeatherConLabel.text = [cond txtD];
+                if ([[cond txtD] isEqualToString:[cond txtN]]) {
+                    cell.XYWeatherConLabel.text = [cond txtD];
+                }
+                else{
+                    cell.XYWeatherConLabel.text = [[cond txtD] stringByAppendingFormat:@"转%@",[cond txtN]];
+                }
                 NSString *urlStr = [NSString stringWithFormat:@"http://files.heweather.com/cond_icon/%@.png",cond.codeD];
                 [cell.XYConditionImageView sd_setImageWithURL:[NSURL URLWithString:urlStr]];
                 
@@ -229,6 +235,11 @@
         CityInfoCityInfo *city = _citysDataArr[btn.tag - 10];
         [[CityDetailDBManager defaultManager] deleteDataWithcityid:city.cityInfoIdentifier];
         [_citysDataArr removeObjectAtIndex:btn.tag - 10];
+        userInfoModel *model = [[CityDetailDBManager defaultManager]selectCityData].firstObject;
+        if ([model.cityInfoIdentifier isEqualToString:city.cityInfoIdentifier]) {
+            CityInfoCityInfo *city2 = _citysDataArr.firstObject;
+            [[CityDetailDBManager defaultManager]updateDataWithNewCity:city2.city newCityid:city2.cityInfoIdentifier newIdenx:0 Cityid:model.cityInfoIdentifier];
+        }
         [_CityCollectionVew reloadData];
     }
     else{
@@ -334,15 +345,21 @@
     
     if (_citysDataArr.count < 9 && indexPath.item != _citysDataArr.count) {
         
-         CityInfoCityInfo *city = _citysDataArr[indexPath.row];
-        [[userInfoManager defaultManager] createTable];
-        NSArray *arr = [[userInfoManager defaultManager] selectData];
-        [[userInfoManager defaultManager] deleteDataWithcityid:[arr.firstObject cityInfoIdentifier]];
+        CityInfoCityInfo *city = _citysDataArr[indexPath.row];
+        [[CityDetailDBManager defaultManager] createCityTable];
+        NSArray *arr = [[CityDetailDBManager defaultManager] selectCityData];
+        userInfoModel *infoModel = arr.firstObject;
+        NSMutableString *voiceAI = [NSMutableString stringWithString:@"xiaoyan"];
+        if (infoModel.voiceAI) {
+             voiceAI = [infoModel.voiceAI copy];
+             [[CityDetailDBManager defaultManager] deleteCityDataWithcityid:[arr.firstObject cityInfoIdentifier]];
+        }
         userInfoModel *model = [userInfoModel new];
+        model.voiceAI = [voiceAI copy];
         model.index = [NSString stringWithFormat:@"%ld",indexPath.row];
         model.city = city.city;
         model.cityInfoIdentifier = city.cityInfoIdentifier;
-        [[userInfoManager defaultManager] insertDataModel:model];
+        [[CityDetailDBManager defaultManager] insertCityDataModel:model];
         WeatherViewController *WVC = [WeatherViewController new];
         [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
         
@@ -350,14 +367,20 @@
     else if (_citysDataArr.count == 9){
         
         CityInfoCityInfo *city = _citysDataArr[indexPath.row];
-        [[userInfoManager defaultManager] createTable];
-        NSArray *arr = [[userInfoManager defaultManager] selectData];
-        [[userInfoManager defaultManager] deleteDataWithcityid:[arr.firstObject cityInfoIdentifier]];
+        [[CityDetailDBManager defaultManager] createCityTable];
+        NSArray *arr = [[CityDetailDBManager defaultManager] selectCityData];
+        userInfoModel *infoModel = arr.firstObject;
+        NSMutableString *voiceAI = [NSMutableString stringWithString:@"xiaoyan"];
+        if (infoModel.voiceAI) {
+            voiceAI = [infoModel.voiceAI copy];
+            [[CityDetailDBManager defaultManager] deleteCityDataWithcityid:[arr.firstObject cityInfoIdentifier]];
+        }
         userInfoModel *model = [userInfoModel new];
+        model.voiceAI = [voiceAI copy];
         model.index = [NSString stringWithFormat:@"%ld",indexPath.row];
         model.city = city.city;
         model.cityInfoIdentifier = city.cityInfoIdentifier;
-        [[userInfoManager defaultManager] insertDataModel:model];
+        [[CityDetailDBManager defaultManager] insertCityDataModel:model];
         WeatherViewController *WVC = [WeatherViewController new];
         [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
         

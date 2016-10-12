@@ -7,6 +7,8 @@
 //
 
 #import "TTSConfig.h"
+#import "userInfoModel.h"
+#import "CityDetailDBManager.h"
 
 @implementation TTSConfig
 
@@ -36,7 +38,10 @@
     _sampleRate = @"16000";
     _engineType = @"auto";
     _vcnName = @"xiaoyan";
-    
+    userInfoModel *model = [[CityDetailDBManager defaultManager]selectCityData].firstObject;
+    if (model.voiceAI) {
+        _vcnName = model.voiceAI;
+    }
     
 //    云端支持发音人：小燕（xiaoyan）、小宇（xiaoyu）、凯瑟琳（Catherine）、
 //    亨利（henry）、玛丽（vimary）、小研（vixy）、小琪（vixq）、

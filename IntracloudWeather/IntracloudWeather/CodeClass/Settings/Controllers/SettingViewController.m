@@ -8,6 +8,9 @@
 
 #import "SettingViewController.h"
 #import "ChangeVoiceViewController.h"
+#import "UIViewController+MMDrawerController.h"
+#import "SDImageCache.h"
+#import "AboutUSViewController.h"
 
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -22,9 +25,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"返回"] style:UIBarButtonItemStylePlain target:self action:@selector(backCenter)];
     [self initUI];
     
+}
+-(void)backCenter{
+     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 #pragma mark -init
 -(void)initUI{
@@ -33,6 +39,7 @@
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"settingCell"];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.separatorColor = [UIColor grayColor];
     [self.view addSubview:_tableView];
     
 }
@@ -46,6 +53,17 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingCell" forIndexPath:indexPath];
     cell.textLabel.text = _array[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (indexPath.row == 1){
+        NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+        [queue addOperationWithBlock:^{
+            SDImageCache *cache = [SDImageCache sharedImageCache];
+            float cacheSize = cache.getDiskCount;
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                cell.textLabel.text = [_array[indexPath.row] stringByAppendingFormat:@" (%.1f K)",cacheSize/1000.0];
+            }];
+        }];
+    }
     return cell;
 }
 
@@ -55,10 +73,12 @@
         [self.navigationController pushViewController:changeVc animated:YES];
     }
     else if (indexPath.row == 1){
-        
+        [[SDImageCache sharedImageCache] clearDisk];
+        [tableView reloadData];
     }
     else{
-        
+        AboutUSViewController *AUVC = [AboutUSViewController new];
+        [self.navigationController pushViewController:AUVC animated:YES];
     }
 }
 

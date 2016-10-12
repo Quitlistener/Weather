@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface CurrentWeatherDetailsView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *XYCurrentTmp;
+@property (weak, nonatomic) IBOutlet UILabel *XYWeatherCondLabel;
+@property (weak, nonatomic) IBOutlet UILabel *XYWindLabel;
+@property (weak, nonatomic) IBOutlet UILabel *XYTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *XYAirLabel;
+@property (weak, nonatomic) IBOutlet UIButton *XYVoiceBtn;
+
 
 @end

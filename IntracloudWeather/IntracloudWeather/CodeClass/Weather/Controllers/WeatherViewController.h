@@ -44,5 +44,6 @@ typedef NS_OPTIONS(NSInteger, Status) {
 
 @property (nonatomic, assign) Status state;
 @property (nonatomic, assign) SynthesizeType synType;
+@property (weak, nonatomic) IBOutlet UIImageView *XYBackgroundImgView;
 
 @end

@@ -14,17 +14,31 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="sHW-v6-uej">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dNS-RN-Egu" customClass="AKPickerView">
-                    <frame key="frameInset" minX="12" minY="94" width="297" height="107"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fog_night.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cCq-1T-uzq"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNS-RN-Egu" customClass="AKPickerView">
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="297" id="Cqb-v6-q3R"/>
+                        <constraint firstAttribute="height" constant="107" id="QUq-jU-3oB"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="276" y="-373"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="dNS-RN-Egu" secondAttribute="bottom" constant="120" id="1Ig-hR-WXJ"/>
+                <constraint firstItem="dNS-RN-Egu" firstAttribute="centerX" secondItem="sHW-v6-uej" secondAttribute="centerX" id="6Mn-hT-JeF"/>
+                <constraint firstItem="cCq-1T-uzq" firstAttribute="top" secondItem="sHW-v6-uej" secondAttribute="top" id="FLn-FO-Rek"/>
+                <constraint firstItem="cCq-1T-uzq" firstAttribute="leading" secondItem="sHW-v6-uej" secondAttribute="leading" id="NO7-1S-xUX"/>
+                <constraint firstAttribute="trailing" secondItem="cCq-1T-uzq" secondAttribute="trailing" id="SLl-mg-fep"/>
+                <constraint firstAttribute="bottom" secondItem="cCq-1T-uzq" secondAttribute="bottom" id="qda-tN-VyM"/>
+            </constraints>
+            <point key="canvasLocation" x="275.5" y="-373.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="fog_night.jpg" width="640" height="1136"/>
+    </resources>
 </document>

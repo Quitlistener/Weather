@@ -21,7 +21,7 @@
 -(id)init{
     self = [super init];
     if (self) {
-        NSString *dbPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/ProjectInfo.sqlite"];
+        NSString *dbPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Project.sqlite"];
         _db = [FMDatabase  databaseWithPath:dbPath];
         NSLog(@"%@",dbPath);
     }
@@ -72,7 +72,12 @@
 //根据原城市id 修改城市
 -(void)updateDataWithNewCity:(NSString *)city newCityid:(NSString *)newCityid newIdenx:(NSString *)newIndex Cityid:(NSString *)cityid {
     [self.db open];
-    BOOL result =  [self.db executeUpdate:@"update UserInfo set city = %@ cityid = %@  inde = %@ where cityid = %@",city,newCityid,newIndex,cityid];
+    
+    NSString *str = [NSString stringWithFormat:@"update UserInfo set city = '%@',cityid = '%@',inde = '%@' where cityid = '%@'",city,newCityid,newIndex,cityid];
+    BOOL result =  [self.db executeUpdate:str];
+    
+    
+    
     if (result) {
         NSLog(@"更新成功");
     }
@@ -84,7 +89,7 @@
 //根据原VoiceAI 修改VoiceAI
 -(void)updateDataWithCityid:(NSString *)cityid newVoiceAI:(NSString *)newVoiceAI{
     [self.db open];
-    BOOL result =  [self.db executeUpdate:@"update UserInfo set voiceAI = %@ where cityid = %@",newVoiceAI,cityid];
+    BOOL result =  [self.db executeUpdate:@"update UserInfo set voiceAI = '%@' where cityid = '%@'",newVoiceAI,cityid];
     if (result) {
         NSLog(@"更新成功");
     }

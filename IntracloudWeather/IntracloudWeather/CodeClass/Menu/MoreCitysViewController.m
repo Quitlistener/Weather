@@ -44,7 +44,7 @@
     // Do any additional setup after loading the view.
 }
 -(void)loadData{
-    _dataArr = [NSMutableArray arrayWithObjects:@"上海",@"云南",@"内蒙古",@"北京",@"台湾",@"吉林",@"四川",@"天津",@"宁夏",@"安徽",@"山东",@"山西",@"广东",@"广西",@"新疆",@"江苏",@"江西",@"河北",@"河南",@"浙江",@"海南",@"湖北",@"湖南",@"澳门",@"甘肃",@"福建",@"西藏",@"贵州",@"辽宁",@"重庆",@"陕西",@"青海",@"香港",@"黑龙江", nil];
+    _dataArr = [NSMutableArray arrayWithObjects:@"国际国外",@"上海",@"云南",@"内蒙古",@"北京",@"台湾",@"吉林",@"四川",@"天津",@"宁夏",@"安徽",@"山东",@"山西",@"广东",@"广西",@"新疆",@"江苏",@"江西",@"河北",@"河南",@"浙江",@"海南",@"湖北",@"湖南",@"澳门",@"甘肃",@"福建",@"西藏",@"贵州",@"辽宁",@"重庆",@"陕西",@"青海",@"香港",@"黑龙江", nil];
 //    NSString *filename=[NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/cityData.plist"];
 //    NSDictionary* dic2 = [NSDictionary dictionaryWithContentsOfFile:filename];
 //    _dataArr = dic2[@"Root"];
@@ -118,17 +118,13 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _dataArr.count;
+    return _dataArr.count+1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     MoreCityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"More" forIndexPath:indexPath];
-    if (indexPath.row == 0) {
-        cell.XYCityNameLabel.text = @"国际国外";
-    }
-    else{
-        cell.XYCityNameLabel.text = _dataArr[indexPath.row - 1];
-    }
+    cell.XYCityNameLabel.text = _dataArr[indexPath.row+1];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
 }

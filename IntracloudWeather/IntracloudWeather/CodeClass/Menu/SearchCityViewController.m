@@ -206,6 +206,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     CityInfoCityInfo *city = (CityInfoCityInfo *)_searchDataArr[indexPath.row];
     cell.textLabel.text = city.city;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

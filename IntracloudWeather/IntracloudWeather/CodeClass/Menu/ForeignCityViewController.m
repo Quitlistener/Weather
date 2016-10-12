@@ -152,6 +152,7 @@
     CityInfoCityInfo *city = _cityInfoArr[indexPath.row];
     NSString *str = city.city;
     cell.XYCityNameLabel.text = str;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
 }

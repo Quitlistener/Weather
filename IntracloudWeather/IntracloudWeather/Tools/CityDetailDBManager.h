@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "FMDB.h"
 #import "CityInfoDataModels.h"
+#import "userInfoModel.h"
 
 @interface CityDetailDBManager : NSObject
 
@@ -21,5 +22,11 @@
 -(void)deleteDataWithcityid:(NSString *)cityid;
 -(NSArray<CityInfoCityInfo *> *)selectData;
 
+-(void)createCityTable;
+-(void)insertCityDataModel:(userInfoModel *)model;
+-(void)deleteCityDataWithcityid:(NSString *)cityid;
+-(void)updateDataWithNewCity:(NSString *)city newCityid:(NSString *)newCityid newIdenx:(NSString *)newIndex Cityid:(NSString *)cityid ;
+-(void)updateDataWithCityid:(NSString *)cityid newVoiceAI:(NSString *)newVoiceAI;
+-(NSArray<userInfoModel *> *)selectCityData;
 
 @end

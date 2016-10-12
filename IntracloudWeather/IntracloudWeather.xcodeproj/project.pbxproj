@@ -35,6 +35,8 @@
 		3F5433221DA9043000E4D290 /* hotCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F5433211DA9043000E4D290 /* hotCity.plist */; };
 		3F5433261DA9045F00E4D290 /* AddCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5433241DA9045F00E4D290 /* AddCollectionViewCell.m */; };
 		3F5433271DA9045F00E4D290 /* AddCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F5433251DA9045F00E4D290 /* AddCollectionViewCell.xib */; };
+		3F5743991DAE678000C80911 /* AboutUSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5743971DAE678000C80911 /* AboutUSViewController.m */; };
+		3F57439A1DAE678000C80911 /* AboutUSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F5743981DAE678000C80911 /* AboutUSViewController.xib */; };
 		3F6B08751DA8B0E100814A0F /* TTSConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B08741DA8B0E100814A0F /* TTSConfig.m */; };
 		3F6B08781DA8B15800814A0F /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B08771DA8B15800814A0F /* iflyMSC.framework */; };
 		3F6B087A1DA8B19900814A0F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B08791DA8B19900814A0F /* libz.tbd */; };
@@ -54,6 +56,7 @@
 		3F6B089E1DA8C71E00814A0F /* SAMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B089A1DA8C71E00814A0F /* SAMath.m */; };
 		3F6B089F1DA8C71E00814A0F /* SAMultisectorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B089C1DA8C71E00814A0F /* SAMultisectorControl.m */; };
 		3F6B08A61DA8D15000814A0F /* ChangeVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F6B08A51DA8D15000814A0F /* ChangeVoiceViewController.xib */; };
+		3F9052E71DAE4ED2003B28E2 /* 语音.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9052E61DAE4ED2003B28E2 /* 语音.png */; };
 		3FB4EB451DACD82000308BA5 /* EvernoteTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4EB421DACD82000308BA5 /* EvernoteTransition.m */; };
 		3FB4EB461DACD82000308BA5 /* EvernoteFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4EB441DACD82000308BA5 /* EvernoteFlowLayout.m */; };
 		3FB4EB491DACD91500308BA5 /* SceneryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4EB481DACD91500308BA5 /* SceneryDetailViewController.m */; };
@@ -209,6 +212,9 @@
 		3F5433231DA9045F00E4D290 /* AddCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCollectionViewCell.h; sourceTree = "<group>"; };
 		3F5433241DA9045F00E4D290 /* AddCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCollectionViewCell.m; sourceTree = "<group>"; };
 		3F5433251DA9045F00E4D290 /* AddCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCollectionViewCell.xib; sourceTree = "<group>"; };
+		3F5743961DAE678000C80911 /* AboutUSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUSViewController.h; sourceTree = "<group>"; };
+		3F5743971DAE678000C80911 /* AboutUSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUSViewController.m; sourceTree = "<group>"; };
+		3F5743981DAE678000C80911 /* AboutUSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUSViewController.xib; sourceTree = "<group>"; };
 		3F6B08721DA8B09300814A0F /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
 		3F6B08731DA8B0E100814A0F /* TTSConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSConfig.h; sourceTree = "<group>"; };
 		3F6B08741DA8B0E100814A0F /* TTSConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSConfig.m; sourceTree = "<group>"; };
@@ -236,6 +242,7 @@
 		3F6B089B1DA8C71E00814A0F /* SAMultisectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMultisectorControl.h; sourceTree = "<group>"; };
 		3F6B089C1DA8C71E00814A0F /* SAMultisectorControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMultisectorControl.m; sourceTree = "<group>"; };
 		3F6B08A51DA8D15000814A0F /* ChangeVoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeVoiceViewController.xib; sourceTree = "<group>"; };
+		3F9052E61DAE4ED2003B28E2 /* 语音.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "语音.png"; sourceTree = "<group>"; };
 		3FB4EB411DACD82000308BA5 /* EvernoteTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteTransition.h; sourceTree = "<group>"; };
 		3FB4EB421DACD82000308BA5 /* EvernoteTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvernoteTransition.m; sourceTree = "<group>"; };
 		3FB4EB431DACD82000308BA5 /* EvernoteFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteFlowLayout.h; sourceTree = "<group>"; };
@@ -541,6 +548,7 @@
 				3F03852A1D9C07DF004D5423 /* 天气.png */,
 				3F54331F1DA9040500E4D290 /* 添加.png */,
 				3F4709281DA91D8900452422 /* 删除.png */,
+				3F9052E61DAE4ED2003B28E2 /* 语音.png */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -796,6 +804,9 @@
 				3FD3F8451D9E4E9200736C0B /* ChangeVoiceViewController.h */,
 				3FD3F8461D9E4E9200736C0B /* ChangeVoiceViewController.m */,
 				3F6B08A51DA8D15000814A0F /* ChangeVoiceViewController.xib */,
+				3F5743961DAE678000C80911 /* AboutUSViewController.h */,
+				3F5743971DAE678000C80911 /* AboutUSViewController.m */,
+				3F5743981DAE678000C80911 /* AboutUSViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -933,29 +944,29 @@
 		3FFF3A771D9BAC280069B4A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3FFF3A9E1D9BB9E00069B4A7 /* ViewController.h */,
-				3FFF3A9F1D9BB9E00069B4A7 /* ViewController.m */,
 				3FFF3ADE1D9BF82F0069B4A7 /* CurrentWeatherDetailsView.h */,
 				3FFF3ADF1D9BF82F0069B4A7 /* CurrentWeatherDetailsView.m */,
 				3FFF3AE01D9BF82F0069B4A7 /* CurrentWeatherDetailsView.xib */,
+				3FD3F8271D9D504F00736C0B /* XYtodayCollectionViewCell.h */,
+				3FD3F8281D9D504F00736C0B /* XYtodayCollectionViewCell.m */,
+				3FD3F8291D9D504F00736C0B /* XYtodayCollectionViewCell.xib */,
+				3FFF3AF61D9CAE050069B4A7 /* TodayWeatherView.h */,
+				3FFF3AF71D9CAE050069B4A7 /* TodayWeatherView.m */,
+				3FFF3AF91D9CAE140069B4A7 /* TodayWeatherView.xib */,
+				3FFF3A9E1D9BB9E00069B4A7 /* ViewController.h */,
+				3FFF3A9F1D9BB9E00069B4A7 /* ViewController.m */,
 				3FFF3AE11D9BF82F0069B4A7 /* LeftWeatherDetailsView.h */,
 				3FFF3AE21D9BF82F0069B4A7 /* LeftWeatherDetailsView.m */,
 				3FFF3AE31D9BF82F0069B4A7 /* LeftWeatherDetailsView.xib */,
 				3FFF3AE41D9BF82F0069B4A7 /* RightWeatherDetailsView.h */,
 				3FFF3AE51D9BF82F0069B4A7 /* RightWeatherDetailsView.m */,
 				3FFF3AE61D9BF82F0069B4A7 /* RightWeatherDetailsView.xib */,
-				3FFF3AF61D9CAE050069B4A7 /* TodayWeatherView.h */,
-				3FFF3AF71D9CAE050069B4A7 /* TodayWeatherView.m */,
-				3FFF3AF91D9CAE140069B4A7 /* TodayWeatherView.xib */,
 				3FFF3AFB1D9CAE9F0069B4A7 /* TomorrowWwatherView.h */,
 				3FFF3AFC1D9CAE9F0069B4A7 /* TomorrowWwatherView.m */,
 				3FFF3AFE1D9CAEB20069B4A7 /* TomorrowWwatherView.xib */,
 				3FFF3B001D9CB0320069B4A7 /* ThirddayWeatherView.h */,
 				3FFF3B011D9CB0320069B4A7 /* ThirddayWeatherView.m */,
 				3FFF3B031D9CB0490069B4A7 /* ThirddayWeatherView.xib */,
-				3FD3F8271D9D504F00736C0B /* XYtodayCollectionViewCell.h */,
-				3FD3F8281D9D504F00736C0B /* XYtodayCollectionViewCell.m */,
-				3FD3F8291D9D504F00736C0B /* XYtodayCollectionViewCell.xib */,
 			);
 			name = Views;
 			path = ..;
@@ -1090,6 +1101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F5433201DA9040500E4D290 /* 添加.png in Resources */,
+				3F57439A1DAE678000C80911 /* AboutUSViewController.xib in Resources */,
 				3FBEB6A71D9E4EFA0092E47F /* country.plist in Resources */,
 				3FB572D41DABBE9800590913 /* rain_day.jpg in Resources */,
 				3F0385381D9CA6AC004D5423 /* 加号.png in Resources */,
@@ -1133,6 +1145,7 @@
 				3F0385551D9CF527004D5423 /* DetailCityTableViewCell.xib in Resources */,
 				3FFF3AEA1D9BF82F0069B4A7 /* LeftWeatherDetailsView.xib in Resources */,
 				3FB572CD1DABBE9800590913 /* cloudy.jpg in Resources */,
+				3F9052E71DAE4ED2003B28E2 /* 语音.png in Resources */,
 				3FFF3A641D9B9FC80069B4A7 /* Assets.xcassets in Resources */,
 				3F03851D1D9C04B1004D5423 /* MenuTableViewCell.xib in Resources */,
 				3FFF3B0F1D9CF4D00069B4A7 /* LifeTableViewCell.xib in Resources */,
@@ -1211,6 +1224,7 @@
 				3FD0A7DF1DAB2756004BEDD3 /* HanyuPinyinOutputFormat.m in Sources */,
 				3F5433261DA9045F00E4D290 /* AddCollectionViewCell.m in Sources */,
 				3FFF3B021D9CB0320069B4A7 /* ThirddayWeatherView.m in Sources */,
+				3F5743991DAE678000C80911 /* AboutUSViewController.m in Sources */,
 				3FD0A7BC1DA9E7B4004BEDD3 /* WeatherDrsg.m in Sources */,
 				3FD0A7C71DA9E7B4004BEDD3 /* WeatherWind.m in Sources */,
 				3FD0A7BB1DA9E7B4004BEDD3 /* WeatherDailyForecast.m in Sources */,

@@ -121,6 +121,7 @@
     NSDictionary *dic = (NSDictionary *)_dataArr[indexPath.row];
     NSString *str = [NSString stringWithFormat:@"%@/",dic[@"english"]];
     cell.XYCityNameLabel.text = [str stringByAppendingString:dic[@"chinese"]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
 }

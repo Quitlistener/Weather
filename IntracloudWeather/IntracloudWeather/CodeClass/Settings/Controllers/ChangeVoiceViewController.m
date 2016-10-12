@@ -8,6 +8,8 @@
 
 #import "ChangeVoiceViewController.h"
 #import "TTSConfig.h"
+#import "userInfoModel.h"
+#import "CityDetailDBManager.h"
 
 #define IOS7_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending )
 
@@ -20,10 +22,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchesInside)];
+    tapGes.numberOfTapsRequired = 1;
+    tapGes.numberOfTouchesRequired = 1;
+    [self.view addGestureRecognizer:tapGes];
     [self initView];
 }
-
+-(void)touchesInside{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
@@ -168,6 +175,9 @@
     }
     else{
         instance.vcnName = [instance.vcnIdentiferArray objectAtIndex:item];
+        userInfoModel *model = [[CityDetailDBManager defaultManager]selectCityData].firstObject;
+        NSString *str = [instance.vcnIdentiferArray objectAtIndex:item];
+        [[CityDetailDBManager defaultManager]updateDataWithCityid:model.cityInfoIdentifier newVoiceAI:str];
     }
 }
 
