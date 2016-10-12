@@ -26,7 +26,7 @@
                     </view>
                     <blurEffect style="extraLight"/>
                 </visualEffectView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7L-Yv-ejy">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7L-Yv-ejy">
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="3Z7-ZP-Fmn"/>
                         <constraint firstAttribute="height" constant="30" id="ESu-Ls-MiW"/>
@@ -42,9 +42,9 @@
                         <constraint firstAttribute="height" constant="1" id="iDB-YI-kHX"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RiL-5W-xcH">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RiL-5W-xcH">
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="G4s-Cc-GAP"/>
+                        <constraint firstAttribute="width" constant="150" id="G4s-Cc-GAP"/>
                         <constraint firstAttribute="height" constant="30" id="s6y-Pp-t18"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -53,7 +53,7 @@
                         <action selector="tapAddCity:" destination="-1" eventType="touchUpInside" id="bOw-vB-Pmt"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elt-Zu-stv">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elt-Zu-stv">
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="M4o-oo-UVS"/>
                         <constraint firstAttribute="height" constant="30" id="tK4-se-v2j"/>
