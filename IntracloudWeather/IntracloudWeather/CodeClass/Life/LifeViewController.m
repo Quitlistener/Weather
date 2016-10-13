@@ -15,6 +15,7 @@
 #import "UIViewController+MMDrawerController.h"
 #import "userInfoManager.h"
 #import "WeatherDataModels.h"
+#import "MBProgressHUD.h"
 
 
 @interface LifeViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,CAAnimationDelegate,UIScrollViewDelegate>
@@ -30,6 +31,7 @@
 @property (nonatomic, strong) WeatherBaseClass *weathBase;
 @property (nonatomic, strong) NSArray *arr;
 @property (nonatomic, assign) BOOL isPullUp;
+@property (nonatomic, strong) MBProgressHUD *hud;
 @end
 
 @implementation LifeViewController
@@ -46,6 +48,7 @@
     UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(TapBackAction)];
     [self requestData];
+    
 }
 
 -(void)initUI{
@@ -53,9 +56,9 @@
     [_tableView registerNib:[UINib nibWithNibName:@"LifeTableViewCell" bundle:nil] forCellReuseIdentifier:@"lifeCell"];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    self.tableView.estimatedRowHeight = 150;
+    self.tableView.estimatedRowHeight = 100;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
+    _tableView.tableFooterView = [UIView new];
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
     flowLayout.itemSize = CGSizeMake((SCREEN_width-30)/2,(180-26)/3);
     //设置每个item的间距
@@ -90,22 +93,22 @@
 }
 
 #pragma mark -网络请求
-/** 第一次请求(下来刷新) */
 -(void)requestData{
     /** utf-8编码 */
     NSString *data = [NSString stringWithFormat:@"%@",self.userModer.city];
     NSString *dataUTF8 = [data stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [NetWorkRequest requestWithMethod:GET URL:[NSString stringWithFormat:@"http://c.m.163.com/nc/article/local/%@/%ld-19.html",dataUTF8,self.urlIndex] para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@">>>>>>>%@",[NSString stringWithFormat:@"http://c.m.163.com/nc/article/local/%@/%ld-19.html",dataUTF8,self.urlIndex]);
         if (dic[self.userModer.city]) {
             /** 把返回的地名改为cityNew */
             NSDictionary *dic2 = [NSDictionary dictionaryWithObject:dic[self.userModer.city] forKey:@"cityNew"];
             _XYBase = [[NewsBaseClass alloc]initWithDictionary:dic2];
 //            _muArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
             NSMutableArray *loadArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
-            /** 删除数组中的NewsInternalBaseClass1对象含有imgextra数组的对象 */
+            /** 删除数组中的NewsInternalBaseClass1对象含有imgextra数组的对象  删除含有editor数组的对象 */
             for (int i = 0 ; i < _XYBase.myProperty1.count; i++) {
-                if ([_XYBase.myProperty1[i] imgextra].count > 0) {
+                if ([_XYBase.myProperty1[i] imgextra].count > 0 || [_XYBase.myProperty1[i] editor]) {
                     [loadArr removeObject:_XYBase.myProperty1[i]];
                 }
             }
@@ -121,6 +124,12 @@
                 }
                 [self.tableView reloadData];
                 [self.collectionView reloadData];
+                
+                /** 判断有没有请求下来数据 */
+                if (_XYBase.myProperty1.count == 0) {
+                    [self showHUD:[NSString stringWithFormat:@"抱歉!小编没有找到%@新闻",_userModer.city]];
+                }
+                
             });
 
         }
@@ -140,38 +149,7 @@
     }];
 }
 
-/** 上拉加载更多 */
--(void)requestMoreData{
-    NSString *data = [NSString stringWithFormat:@"%@",self.userModer.city];
-    NSString *dataUTF8 = [data stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/local/%@/%ld-19.html",dataUTF8,(long)_urlIndex];
-    NSLog(@">>>>%@",url);
-    [NetWorkRequest requestWithMethod:GET URL:url para:nil success:^(NSData *data) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@">>>>%@",dic);
-        /** 把返回的地名改为cityNew */
-        if (dic[self.userModer.city]) {
-            NSDictionary *dic2 = [NSDictionary dictionaryWithObject:dic[self.userModer.city] forKey:@"cityNew"];
-            _XYBase = [[NewsBaseClass alloc]initWithDictionary:dic2];
-            NSMutableArray *loadArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
-            /** 删除数组中的NewsInternalBaseClass1对象含有imgextra数组的对象 */
-            for (int i = 0 ; i < _XYBase.myProperty1.count; i++) {
-                if ([_XYBase.myProperty1[i] imgextra].count > 0) {
-                    [loadArr removeObject:_XYBase.myProperty1[i]];
-                }
-            }
-            for (id obj in loadArr) {
-                [_muArr addObject:obj];
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [_tableView reloadData];
-                [_tableView.mj_footer endRefreshing];
-            });
-        }
-    } error:^(NSError *error) {
-        
-    }];
-}
+
 
 #pragma mark -tableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -212,6 +190,7 @@
         [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].sport.brf];
         [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].trav.brf];
         [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].uv.brf];
+        
         cell.suitableText.text = array[indexPath.row];
     }
     if (indexPath.row == 0 || indexPath.row == 3) {
@@ -311,6 +290,17 @@
     self.tableView.allowsSelection = YES;
 }
 
+#pragma mark -HUD提示
+-(void)showHUD:(NSString *)showHUD{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = showHUD;
+    hud.offset = CGPointMake(0.f, 50.f);
+    //2秒后隐藏
+    [hud hideAnimated:YES afterDelay:2.f];
+}
+
+#pragma mark -返回按钮
 -(void)TapBackAction{
    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }

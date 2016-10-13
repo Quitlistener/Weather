@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,18 +13,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="99"/>
+                <frame key="frameInset" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hC5-ou-dFJ">
                         <constraints>
-                            <constraint firstAttribute="width" constant="90" id="hPx-0Q-EWq"/>
-                            <constraint firstAttribute="height" constant="90" id="qRn-rA-KDS"/>
+                            <constraint firstAttribute="width" secondItem="hC5-ou-dFJ" secondAttribute="height" multiplier="1:1" id="WPb-6c-gVM"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBF-IG-b6R">
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="UUO-8W-AWx"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="54.5" id="nLu-dA-D4z"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
@@ -31,7 +31,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWf-ZQ-Eil">
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="zzR-Wi-m6L"/>
+                            <constraint firstAttribute="height" constant="30" id="PDi-5u-VZ4"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
@@ -39,15 +39,16 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="oWf-ZQ-Eil" secondAttribute="bottom" constant="5" id="5bl-MQ-fGD"/>
-                    <constraint firstAttribute="trailing" secondItem="oWf-ZQ-Eil" secondAttribute="trailing" constant="15" id="VKh-lU-UXq"/>
-                    <constraint firstItem="oWf-ZQ-Eil" firstAttribute="leading" secondItem="hC5-ou-dFJ" secondAttribute="trailing" constant="15" id="VtM-RZ-9on"/>
-                    <constraint firstItem="hC5-ou-dFJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ZFD-Om-BNC"/>
-                    <constraint firstItem="hC5-ou-dFJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="dWC-Id-s1y"/>
-                    <constraint firstAttribute="trailing" secondItem="FBF-IG-b6R" secondAttribute="trailing" constant="15" id="j5y-PB-PaG"/>
-                    <constraint firstItem="oWf-ZQ-Eil" firstAttribute="top" secondItem="FBF-IG-b6R" secondAttribute="bottom" constant="5" id="jTT-8X-ahS"/>
-                    <constraint firstItem="FBF-IG-b6R" firstAttribute="leading" secondItem="hC5-ou-dFJ" secondAttribute="trailing" constant="15" id="uWD-n2-Uvn"/>
-                    <constraint firstItem="FBF-IG-b6R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="wQ0-W4-lux"/>
+                    <constraint firstItem="oWf-ZQ-Eil" firstAttribute="leading" secondItem="hC5-ou-dFJ" secondAttribute="trailing" constant="15" id="Dj6-a9-tJ2"/>
+                    <constraint firstItem="hC5-ou-dFJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Glc-4r-YnX"/>
+                    <constraint firstAttribute="bottom" secondItem="oWf-ZQ-Eil" secondAttribute="bottom" constant="5" id="Gxx-Ai-y1x"/>
+                    <constraint firstAttribute="trailing" secondItem="oWf-ZQ-Eil" secondAttribute="trailing" constant="15" id="Wyf-t5-Z9U"/>
+                    <constraint firstItem="oWf-ZQ-Eil" firstAttribute="top" secondItem="FBF-IG-b6R" secondAttribute="bottom" constant="5" id="e21-1a-hOi"/>
+                    <constraint firstItem="hC5-ou-dFJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="eEy-zw-GHs"/>
+                    <constraint firstItem="FBF-IG-b6R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="fax-Gs-Cj5"/>
+                    <constraint firstItem="FBF-IG-b6R" firstAttribute="leading" secondItem="hC5-ou-dFJ" secondAttribute="trailing" constant="15" id="lrG-Fd-H0g"/>
+                    <constraint firstAttribute="bottom" secondItem="hC5-ou-dFJ" secondAttribute="bottom" constant="5" id="o0o-R3-70N"/>
+                    <constraint firstAttribute="trailing" secondItem="FBF-IG-b6R" secondAttribute="trailing" constant="15" id="wfq-qH-uEc"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
