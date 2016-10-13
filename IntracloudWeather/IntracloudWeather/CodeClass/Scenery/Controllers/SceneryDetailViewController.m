@@ -8,7 +8,7 @@
 
 #import "SceneryDetailViewController.h"
 #import <WebKit/WebKit.h>
-//#import "MBProgressHUD.h"
+#import "MBProgressHUD.h"
 
 #define WKremoveAD(str) ([NSString stringWithFormat:@"document.getElementsByClassName('%@')[0].style.display = 'none'",(str)] )
 
@@ -18,7 +18,8 @@
 @property (nonatomic, strong) WKWebView *WKWebiew;
 @property (nonatomic, strong) NSArray *arrayAD;
 
-//@property (nonatomic, strong) MBProgressHUD *hud;
+@property (nonatomic, strong) MBProgressHUD *hud;
+@property (nonatomic, strong) UIView *shadeView;
 @end
 
 @implementation SceneryDetailViewController
@@ -31,44 +32,89 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    _dbManager = [[ReadDetailDBManager defaultManager]init];
-//    [_dbManager createTable];
+    
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.arrayAD = @[@"tit",@"e_crumb",@"e_banner",@"tool-zan icon",@"tool-comment icon",@"tool-share icon",@"comment",@"relevant-img",@"relevant-list",@"main_nav_wrapper",@"titles relevant-titles",@"footer_nav clearfix",@"mobile_pc clearfix",@"copyright",@"tool-back icon",@"e_banner_bg",@"t_author",@"info-bar"];
+    self.arrayAD = @[@"tit",@"e_crumb",@"e_banner",@"tool-zan icon",@"tool-comment icon",@"tool-share icon",@"comment",@"relevant-img",@"relevant-list",@"main_nav_wrapper",@"titles relevant-titles",@"footer_nav clearfix",@"mobile_pc clearfix",@"copyright",@"tool-back icon",@"e_banner_bg",@"t_author",@"info-bar",@"user_name_icon"];
     
     UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(TapLeftBackAction)];
     
     [self.view setBackgroundColor:[UIColor grayColor]];
+    
     self.backGroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_width, SCREENH_height)];
     self.backGroundView.backgroundColor = [UIColor whiteColor];
     self.backGroundView.layer.masksToBounds = YES;
     self.backGroundView.layer.cornerRadius = 7;
     self.backGroundView.userInteractionEnabled = YES;
+   
     
     self.WKWebiew = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_width, SCREENH_height)];
-    [self.WKWebiew loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.strURL]]];
     self.WKWebiew.navigationDelegate = self;
     self.WKWebiew.UIDelegate = self;
+    _shadeView = [[UIView alloc]initWithFrame:self.view.frame];
+    _shadeView.backgroundColor = [UIColor whiteColor];
+    [self.WKWebiew addSubview:_shadeView];
+    _hud = [MBProgressHUD showHUDAddedTo:self.shadeView animated:YES];
+    _hud.mode = MBProgressHUDModeIndeterminate;
+    _hud.label.text = @"Loading...";
+    [self.WKWebiew loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.strURL]]];
     [self.backGroundView addSubview:_WKWebiew];
     [self.view addSubview:self.backGroundView];
-    NSLog(@">>>>>>>>>>>%@",_strURL);
+    NSLog(@">>>>%@",_strURL);
 }
 
 
 #pragma mark -WKWebView代理
-// 当内容commit时触发该方法
-- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation{
-    
+/** 开始加载页面调用 */
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
+   
 }
+
 /** 页面加载完成后触发该方法 */
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
-    for (int i = 1; i < self.arrayAD.count; i++) {
-        [self.WKWebiew evaluateJavaScript:WKremoveAD(_arrayAD[i]) completionHandler:^(id item, NSError * _Nullable error) {
-            
-        }];
-    }
+   
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; i++) {
+            [self.WKWebiew evaluateJavaScript:WKremoveAD(_arrayAD[i]) completionHandler:^(id item, NSError * _Nullable error) {
+            }];
+        }
+    });
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 4; i++) {
+//            NSLog(@"2******%@",[NSThread currentThread]);
+            [self.WKWebiew evaluateJavaScript:WKremoveAD(_arrayAD[i+3]) completionHandler:^(id item, NSError * _Nullable error) {
+            }];
+        }
+    });
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 4; i++) {
+//            NSLog(@"3******%@",[NSThread currentThread]);
+            [self.WKWebiew evaluateJavaScript:WKremoveAD(_arrayAD[i+7]) completionHandler:^(id item, NSError * _Nullable error) {
+            }];
+        }
+    });
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 4; i++) {
+//            NSLog(@"4******%@",[NSThread currentThread]);
+            [self.WKWebiew evaluateJavaScript:WKremoveAD(_arrayAD[i+11]) completionHandler:^(id item, NSError * _Nullable error) {
+            }];
+        }
+    });
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 4; i++) {
+//            NSLog(@"5******%@",[NSThread currentThread]);
+            [self.WKWebiew evaluateJavaScript:WKremoveAD(_arrayAD[i+15]) completionHandler:^(id item, NSError * _Nullable error) {
+            }];
+        }
+    });
+    /** 去掉广告后删除隐藏内容的View */
+    [_shadeView removeFromSuperview];
+    //隐藏正在加载
+    [self.hud hideAnimated:YES];
+    [_WKWebiew stopLoading];
 }
 
 

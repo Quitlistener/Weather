@@ -14,6 +14,7 @@
 #import "DataModels.h"
 #import "userInfoManager.h"
 #import "userInfoModel.h"
+#import "UIViewController+MMDrawerController.h"
 
 @interface SceneryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -35,6 +36,9 @@
     // Do any additional setup after loading the view.
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(LeftBackAction)];
+    
     self.isPulldown = YES;
     self.pageIndex = 1;
     userInfoManager *inmanager = [[userInfoManager defaultManager]init];
@@ -147,6 +151,10 @@
         
     }];
     
+}
+
+-(void)LeftBackAction{
+     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 #pragma mark - getter
