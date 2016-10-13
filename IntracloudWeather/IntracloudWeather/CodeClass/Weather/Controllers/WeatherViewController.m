@@ -40,7 +40,9 @@
     NSMutableArray *_dailyForecastArr;
     NSMutableString *_voiceStr;
     NSMutableArray *_imagesArray;
-    NSTimer *_timer;
+    NSInteger _index_Code;
+    int _imgWidth_Max ;
+    int _imgWidth_Min ;
 }
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) CurrentWeatherDetailsView *current;
@@ -161,7 +163,9 @@
                         view.XYWindLabel.text = wind;
                         view.XYCurrentTmp.text = [tmp stringByAppendingString:@"℃"];
                         view.XYWeatherCondLabel.text = cond;
-                        [self makeBackgroundAnimationsWithCode:nil date:nil];
+                        NSString *backCode = HeWeatherDataService30.now.cond.code;
+                        NSString *backDate = HeWeatherDataService30.basic.update.loc;
+                        [self makeBackgroundAnimationsWithCode:@"304" date:backDate];
                         if (currentCityIndex + 10 == tag) {
                             NSString *wind1 = HeWeatherDataService30.now.wind.dir;
                             NSMutableString *wind2 = [NSMutableString stringWithString:HeWeatherDataService30.now.wind.sc];
@@ -226,7 +230,12 @@
 }
 #pragma -mark 背景动画
 -(void)makeBackgroundAnimationsWithCode:(NSString *)code date:(NSString *)date{
-    [self rianOrSnowWithCode:nil date:nil];
+    NSArray *codeArr = @[@"300",@"309",@"305",@"304",@"302",@"303",@"301",@"306",@"307",@"308",@"310",@"311",@"312",@"313",@"404",@"405",@"406",@"401",@"402",@"403",@"400",@"407"];
+    if ([codeArr containsObject:code]) {
+         [self rianOrSnowWithCode:code date:date];
+    }
+    
+//    [self rianOrSnowWithCode:code date:date];
 }
 -(void)rianOrSnowWithCode:(NSString *)code date:(NSString *)date{
     NSArray *codeArr = @[@[@"300",@"309",@"305"],@[@"304",],@[@"302",@"303",@"301",@"306",@"307",@"308",@"310",@"311",@"312"],@[@"313",@"404",@"405",@"406"],@[@"401",@"402",@"403"],@[@"400",@"407"]];
@@ -238,24 +247,98 @@
         }
     }
     NSArray *backImageArr_D = @[@"bg_slight_rain_day.jpg",@"blur_bg_shower_rain_day.jpg",@"blur_bg_shower_rain_day.jpg",@"bg_slight_rain_night.jpg",@"blur_bg_snow_day.jpg",@"bg_snow_day.jpg"];
-    NSArray *backImageArr_N = @[@"bg_slight_rain_night.jpg",@"bg_thunder_storm.jpg",@"bg_thunder_storm.jpg",@"bg_heavy_rain_night.jpg",@"bg_night_snow.jpg",@"bg_night_snow.jpg"];
-    NSString *subDate = [date substringWithRange:NSMakeRange(12, 2)];
+    NSArray *backImageArr_N = @[@"rain_night.jpg",@"bg_thunder_storm.jpg",@"bg_thunder_storm.jpg",@"bg_heavy_rain_night.jpg",@"bg_night_snow.jpg",@"bg_night_snow.jpg"];
+    NSString *subDate = [date substringWithRange:NSMakeRange(11, 2)];
     NSInteger intSubDate = [subDate integerValue];
-    if (intSubDate > 6 || intSubDate < 18) {
+    if (intSubDate > 6 && intSubDate < 18) {
         _XYBackgroundImgView.image = [UIImage imageNamed:backImageArr_D[index]];
     }
     else{
         _XYBackgroundImgView.image = [UIImage imageNamed:backImageArr_N[index]];
     }
     NSString *LimageName = @"snow1";
-    
+    NSArray *LimgArr = @[@"rainLine3",@"snow1"];
+    int imgWidth_Max = 20;
+    int imgWidth_Min = 10;
+    switch (index) {
+        case 0:
+            LimageName = @"rainLine3";
+            imgWidth_Max = 30;
+            imgWidth_Min = 15;
+            break;
+            
+        case 1:
+            LimageName = @"rainLine3";
+            imgWidth_Max = 40;
+            imgWidth_Min = 20;
+            break;
+            
+        case 2:
+            LimageName = @"rainLine3";
+            imgWidth_Max = 40;
+            imgWidth_Min = 20;
+            break;
+            
+        case 3:
+            LimageName = @"snow1";
+            imgWidth_Max = 20;
+            imgWidth_Min = 10;
+            break;
+            
+        case 4:
+            LimageName = @"snow1";
+            imgWidth_Max = 20;
+            imgWidth_Min = 10;
+            break;
+            
+        case 6:
+            LimageName = @"snow1";
+            imgWidth_Max = 20;
+            imgWidth_Min = 10;
+            break;
+            
+        default:
+            break;
+    }
     _imagesArray = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 110; ++ i) {
+    for (int i = 0; i < 120; ++ i) {
         //        UIImageView *imageView = [[UIImageView alloc] initWithImage:IMAGENAMED(SNOW_IMAGENAME)];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"snow1"]];
+        UIImageView *imageView = [[UIImageView alloc] init];
+        int a = arc4random()%(1-0+1)+ 0;
+        if (index == 1 || index == 3) {
+            imageView.image = [UIImage imageNamed:LimgArr[a]];
+        }
+        else{
+            imageView.image = [UIImage imageNamed:LimageName];
+        }
         
-        float x = IMAGE_WIDTH;
-        imageView.frame = CGRectMake(IMAGE_X, -30, x, x);
+        float x = arc4random()%imgWidth_Max + imgWidth_Min;
+        if (index == 0 || index == 2) {
+            int b = arc4random()%(4-0+1)+ 0;
+            if (b != 0) {
+                imageView.frame = CGRectMake(arc4random()%((int)Main_Screen_Width ) , -120, x*1.5, x*3);
+                imageView.tag = - 10 + (-i);
+            }
+            else{
+                imageView.frame = CGRectMake(-60, arc4random()%((int)Main_Screen_Height + 100 +1) -100, x*1.5, x*3);
+            }
+        }
+        else if (index == 1 || index == 3){
+            int b = arc4random()%(4-0+1)+ 0;
+            if (b != 0) {
+                imageView.frame = CGRectMake(arc4random()%((int)Main_Screen_Width), -120, x*2, x*4);
+                imageView.tag = -10 - i;
+            }
+            else{
+                imageView.frame = CGRectMake(IMAGE_X, -50, x, x);
+            }
+        }
+        else{
+            
+        }
+        _index_Code = index;
+        _imgWidth_Max = imgWidth_Max;
+        _imgWidth_Min = imgWidth_Min;
         imageView.alpha = IMAGE_ALPHA;
         [_XYFrontImageView addSubview:imageView];
         [_imagesArray addObject:imageView];
@@ -263,7 +346,20 @@
 //    if (_timer) {
 //        [_timer invalidate];
 //    }
-    _timer = [NSTimer scheduledTimerWithTimeInterval:.3 target:self selector:@selector(makeSnow) userInfo:nil repeats:YES];
+    float time = 0.3;
+    if (index == 0) {
+        time = 0.05;
+    }
+    if (index == 2) {
+        time = 0.01;
+    }
+    if (index == 4 ) {
+        //------------------------------?????
+    }
+    if (index == 5) {
+        time = 0.3;
+    }
+     [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(makeSnow) userInfo:nil repeats:YES];
     
     
 }
@@ -273,7 +369,13 @@ static int i = 0;
     i = i + 1;
     if ([_imagesArray count] > 0) {
         UIImageView *imageView = [_imagesArray objectAtIndex:0];
-        imageView.tag = i;
+       
+        if (imageView.tag < 0) {
+            
+        }
+        else{
+            imageView.tag = i;
+        }
         [_imagesArray removeObjectAtIndex:0];
         [self snowFall:imageView];
     }
@@ -283,10 +385,25 @@ static int i = 0;
 - (void)snowFall:(UIImageView *)aImageView
 {
     [UIView beginAnimations:[NSString stringWithFormat:@"%ld",aImageView.tag] context:nil];
-    [UIView setAnimationDuration:6];
+    [UIView setAnimationDuration:5];
     [UIView setAnimationDelegate:self];
-    aImageView.frame = CGRectMake(aImageView.frame.origin.x, Main_Screen_Height, aImageView.frame.size.width, aImageView.frame.size.height);
-    NSLog(@"%@",aImageView);
+    if (_index_Code == 0 || _index_Code == 2) {
+        if (aImageView.tag < 0) {
+             aImageView.frame = CGRectMake(aImageView.frame.origin.x + 200, Main_Screen_Height, aImageView.frame.size.width, aImageView.frame.size.height);
+        }
+        else{
+             aImageView.frame = CGRectMake((((Main_Screen_Height + 100 - aImageView.frame.origin.y) * 200 )/Main_Screen_Height) - 60, Main_Screen_Height, aImageView.frame.size.width, aImageView.frame.size.height);
+        }
+    }
+    else{
+//        if (aImageView) {
+            aImageView.frame = CGRectMake(aImageView.frame.origin.x , Main_Screen_Height, aImageView.frame.size.width, aImageView.frame.size.height);
+//        }
+//        else{
+//            aImageView.frame = CGRectMake(aImageView.frame.origin.x, Main_Screen_Height, aImageView.frame.size.width, aImageView.frame.size.height);
+//        }
+    }
+//    NSLog(@"%@",aImageView);
     [UIView commitAnimations];
 }
 
@@ -297,8 +414,26 @@ static int i = 0;
 - (void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
 {
     UIImageView *imageView = (UIImageView *)[self.view viewWithTag:[animationID intValue]];
-    float x = IMAGE_WIDTH;
-    imageView.frame = CGRectMake(IMAGE_X, -30, x, x);
+//    float x = IMAGE_WIDTH;
+    float x = arc4random()%_imgWidth_Max + _imgWidth_Min;
+    if (_index_Code == 0 || _index_Code == 2) {
+        if (imageView.tag < 0) {
+            imageView.frame = CGRectMake(arc4random()%((int)Main_Screen_Width + 200 + 1) - 200, -120, x*1.5, x*3);
+            
+        }
+        else{
+            imageView.frame = CGRectMake(-60, arc4random()%((int)Main_Screen_Height + 100 +1) -100  , x*1.5, x*3);
+        }
+    }
+    else{
+        if (imageView.tag < 0) {
+            imageView.frame = CGRectMake(arc4random()%((int)Main_Screen_Width), -120, x*2, x*4);
+        }
+        else{
+            imageView.frame = CGRectMake(IMAGE_X, -100, x, x);
+        }
+        
+    }
     [_imagesArray addObject:imageView];
 }
 

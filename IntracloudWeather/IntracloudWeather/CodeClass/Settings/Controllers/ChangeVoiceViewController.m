@@ -177,7 +177,9 @@
         instance.vcnName = [instance.vcnIdentiferArray objectAtIndex:item];
         userInfoModel *model = [[CityDetailDBManager defaultManager]selectCityData].firstObject;
         NSString *str = [instance.vcnIdentiferArray objectAtIndex:item];
-        [[CityDetailDBManager defaultManager]updateDataWithCityid:model.cityInfoIdentifier newVoiceAI:str];
+        if (model.cityInfoIdentifier) {
+             [[CityDetailDBManager defaultManager]updateDataWithCityid:model.cityInfoIdentifier newVoiceAI:str];
+        }
     }
 }
 

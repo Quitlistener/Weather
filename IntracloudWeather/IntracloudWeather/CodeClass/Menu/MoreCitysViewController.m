@@ -108,7 +108,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row != 0) {
         DetailCityInfoViewController *DCIVC = [DetailCityInfoViewController new];
-        DCIVC.cityName = _dataArr[indexPath.row - 1];
+        DCIVC.cityName = _dataArr[indexPath.row];
         [self.navigationController pushViewController:DCIVC animated:YES];
     }
     else{
