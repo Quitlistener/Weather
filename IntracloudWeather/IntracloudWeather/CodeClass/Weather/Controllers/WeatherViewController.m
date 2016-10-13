@@ -234,11 +234,21 @@
     for (int i = 0; i < codeArr.count; i ++) {
         if ([codeArr[i] containsObject:code]) {
             index = i;
+            break;
         }
     }
-    NSArray *backImageArr_D = @[@"bg_slight_rain_night.jpg"];
-    NSArray *backImageArr_N = @[];
-    _XYBackgroundImgView.image = [UIImage imageNamed:@"snow_night.jpg"];
+    NSArray *backImageArr_D = @[@"bg_slight_rain_day.jpg",@"blur_bg_shower_rain_day.jpg",@"blur_bg_shower_rain_day.jpg",@"bg_slight_rain_night.jpg",@"blur_bg_snow_day.jpg",@"bg_snow_day.jpg"];
+    NSArray *backImageArr_N = @[@"bg_slight_rain_night.jpg",@"bg_thunder_storm.jpg",@"bg_thunder_storm.jpg",@"bg_heavy_rain_night.jpg",@"bg_night_snow.jpg",@"bg_night_snow.jpg"];
+    NSString *subDate = [date substringWithRange:NSMakeRange(12, 2)];
+    NSInteger intSubDate = [subDate integerValue];
+    if (intSubDate > 6 || intSubDate < 18) {
+        _XYBackgroundImgView.image = [UIImage imageNamed:backImageArr_D[index]];
+    }
+    else{
+        _XYBackgroundImgView.image = [UIImage imageNamed:backImageArr_N[index]];
+    }
+    NSString *LimageName = @"snow1";
+    
     _imagesArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 110; ++ i) {
         //        UIImageView *imageView = [[UIImageView alloc] initWithImage:IMAGENAMED(SNOW_IMAGENAME)];
@@ -250,9 +260,9 @@
         [_XYFrontImageView addSubview:imageView];
         [_imagesArray addObject:imageView];
     }
-    if (_timer) {
-        [_timer invalidate];
-    }
+//    if (_timer) {
+//        [_timer invalidate];
+//    }
     _timer = [NSTimer scheduledTimerWithTimeInterval:.3 target:self selector:@selector(makeSnow) userInfo:nil repeats:YES];
     
     
