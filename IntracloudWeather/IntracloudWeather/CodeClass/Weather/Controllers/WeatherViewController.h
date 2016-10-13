@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <Foundation/Foundation.h>
 #import "iflyMSC/iflyMSC.h"
 #import "PcmPlayer.h"
 

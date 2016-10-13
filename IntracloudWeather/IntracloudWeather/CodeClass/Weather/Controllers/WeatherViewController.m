@@ -24,17 +24,28 @@
 #import "WeatherBaseClass.h"
 #import "CityDetailDBManager.h"
 #import "CityInfoDataModels.h"
+#import "UConstants.h"
+
+#define SNOW_IMAGENAME         @"snow"
+
+#define IMAGE_X                arc4random()%(int)Main_Screen_Width
+#define IMAGE_ALPHA            ((float)(arc4random()%10))/10
+#define IMAGE_WIDTH            arc4random()%20 + 10
+#define PLUS_HEIGHT            Main_Screen_Height/25
+
 
 @interface WeatherViewController ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,IFlySpeechSynthesizerDelegate,UIActionSheetDelegate>
 {
     NSMutableArray *_CitysDataArr;
     NSMutableArray *_dailyForecastArr;
     NSMutableString *_voiceStr;
-    
+    NSMutableArray *_imagesArray;
+    NSTimer *_timer;
 }
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) CurrentWeatherDetailsView *current;
 @property (weak, nonatomic) IBOutlet UIButton *XYCity;
+@property (weak, nonatomic) IBOutlet UIImageView *XYFrontImageView;
 @property (nonatomic, strong) UICollectionView *XYcollection;
 @property (nonatomic, strong) userInfoModel *userModer;
 @property (nonatomic, strong) WeatherBaseClass *weathBase;
@@ -116,7 +127,7 @@
 #pragma mark -网络请求
 -(void)dataRequestWithCityid:(NSString *)cityid tag:(NSInteger )tag{
     
-    NSString *str = [NSString stringWithFormat:@"key=d24d5307be8948d4b9e8ebf043a7f62a&cityid=%@",cityid];
+    NSString *str = [NSString stringWithFormat:@"key=2e39142365f74cba8c3d9ccc09f73eaa&cityid=%@",cityid];
     NSString *urlStr = [@"https://api.heweather.com/x3/weather?" stringByAppendingString:str];
     
     [NetWorkRequest requestWithMethod:GET URL:urlStr para:nil success:^(NSData *data) {
@@ -150,7 +161,7 @@
                         view.XYWindLabel.text = wind;
                         view.XYCurrentTmp.text = [tmp stringByAppendingString:@"℃"];
                         view.XYWeatherCondLabel.text = cond;
-                        
+                        [self makeBackgroundAnimationsWithCode:nil date:nil];
                         if (currentCityIndex + 10 == tag) {
                             NSString *wind1 = HeWeatherDataService30.now.wind.dir;
                             NSMutableString *wind2 = [NSMutableString stringWithString:HeWeatherDataService30.now.wind.sc];
@@ -213,6 +224,75 @@
     return NO;
     
 }
+#pragma -mark 背景动画
+-(void)makeBackgroundAnimationsWithCode:(NSString *)code date:(NSString *)date{
+    [self rianOrSnowWithCode:nil date:nil];
+}
+-(void)rianOrSnowWithCode:(NSString *)code date:(NSString *)date{
+    NSArray *codeArr = @[@[@"300",@"309",@"305"],@[@"304",],@[@"302",@"303",@"301",@"306",@"307",@"308",@"310",@"311",@"312"],@[@"313",@"404",@"405",@"406"],@[@"401",@"402",@"403"],@[@"400",@"407"]];
+    NSInteger index = 0;
+    for (int i = 0; i < codeArr.count; i ++) {
+        if ([codeArr[i] containsObject:code]) {
+            index = i;
+        }
+    }
+    NSArray *backImageArr_D = @[@"bg_slight_rain_night.jpg"];
+    NSArray *backImageArr_N = @[];
+    _XYBackgroundImgView.image = [UIImage imageNamed:@"snow_night.jpg"];
+    _imagesArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 110; ++ i) {
+        //        UIImageView *imageView = [[UIImageView alloc] initWithImage:IMAGENAMED(SNOW_IMAGENAME)];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"snow1"]];
+        
+        float x = IMAGE_WIDTH;
+        imageView.frame = CGRectMake(IMAGE_X, -30, x, x);
+        imageView.alpha = IMAGE_ALPHA;
+        [_XYFrontImageView addSubview:imageView];
+        [_imagesArray addObject:imageView];
+    }
+    if (_timer) {
+        [_timer invalidate];
+    }
+    _timer = [NSTimer scheduledTimerWithTimeInterval:.3 target:self selector:@selector(makeSnow) userInfo:nil repeats:YES];
+    
+    
+}
+static int i = 0;
+- (void)makeSnow
+{
+    i = i + 1;
+    if ([_imagesArray count] > 0) {
+        UIImageView *imageView = [_imagesArray objectAtIndex:0];
+        imageView.tag = i;
+        [_imagesArray removeObjectAtIndex:0];
+        [self snowFall:imageView];
+    }
+    
+}
+
+- (void)snowFall:(UIImageView *)aImageView
+{
+    [UIView beginAnimations:[NSString stringWithFormat:@"%ld",aImageView.tag] context:nil];
+    [UIView setAnimationDuration:6];
+    [UIView setAnimationDelegate:self];
+    aImageView.frame = CGRectMake(aImageView.frame.origin.x, Main_Screen_Height, aImageView.frame.size.width, aImageView.frame.size.height);
+    NSLog(@"%@",aImageView);
+    [UIView commitAnimations];
+}
+
+- (void)addImage
+{
+}
+
+- (void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
+{
+    UIImageView *imageView = (UIImageView *)[self.view viewWithTag:[animationID intValue]];
+    float x = IMAGE_WIDTH;
+    imageView.frame = CGRectMake(IMAGE_X, -30, x, x);
+    [_imagesArray addObject:imageView];
+}
+
+
 #pragma mark -collectionViewDelegate
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return 3;
@@ -325,6 +405,7 @@
     [_audioPlayer stop];
     [_inidicateView hide];
     _iFlySpeechSynthesizer.delegate = nil;
+   
 }
 
 #pragma mark - 设置合成参数
