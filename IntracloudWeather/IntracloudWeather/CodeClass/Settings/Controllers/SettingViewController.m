@@ -39,7 +39,11 @@
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"settingCell"];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.tableFooterView = [UIView new];
+    _tableView.separatorColor = [UIColor clearColor];
     _tableView.separatorColor = [UIColor grayColor];
+    [_tableView setSeparatorInset:UIEdgeInsetsZero];
+    [_tableView setLayoutMargins:UIEdgeInsetsZero];
     [self.view addSubview:_tableView];
     
 }
@@ -53,6 +57,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingCell" forIndexPath:indexPath];
     cell.textLabel.text = _array[indexPath.row];
+    [cell.textLabel setTextColor:[UIColor brownColor]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.row == 1){
         NSOperationQueue *queue = [[NSOperationQueue alloc]init];
