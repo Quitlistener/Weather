@@ -17,6 +17,7 @@
 #import "CityDetailDBManager.h"
 #import "userInfoModel.h"
 #import "MBProgressHUD.h"
+#import "AFNetworking.h"
 
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
@@ -81,6 +82,27 @@
     //所有服务启动前，需要确保执行createUtility
     [IFlySpeechUtility createUtility:initString];
     
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown:
+                NSLog(@"未识别的网络");
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+                NSLog(@"不可达的网络(未连接)");
+                [self showHUD:@"网络未连接"];
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                NSLog(@"2G,3G,4G...的网络");
+                break;
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                NSLog(@"wifi的网络");
+                break;
+            default:
+                break;
+        }
+    }];
+    [manager startMonitoring];
     
     
     return YES;
