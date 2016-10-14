@@ -425,7 +425,7 @@
     //    CATransform3D
     
     [UIView beginAnimations:@"000" context:nil];
-    [UIView setAnimationDuration:30];
+    [UIView setAnimationDuration:25];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationRepeatCount:10000];
     [_sunnyDayImag setTransform:transform];
