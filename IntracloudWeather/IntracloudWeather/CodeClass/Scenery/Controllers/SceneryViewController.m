@@ -12,7 +12,7 @@
 #import "EvernoteTransition.h"
 #import "SceneryDetailViewController.h"
 #import "DataModels.h"
-#import "userInfoManager.h"
+#import "CityDetailDBManager.h"
 #import "userInfoModel.h"
 #import "UIViewController+MMDrawerController.h"
 
@@ -41,8 +41,8 @@
     
     self.isPulldown = YES;
     self.pageIndex = 1;
-    userInfoManager *inmanager = [[userInfoManager defaultManager]init];
-    self.cityModer = [inmanager selectData].firstObject;
+    CityDetailDBManager *inmanager = [[CityDetailDBManager defaultManager]init];
+    self.cityModer = [inmanager selectCityData].firstObject;
     NSString *data = [NSString stringWithFormat:@"%@",_cityModer.city];
     _dataUTF8 = [data stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [self initUI];

@@ -13,7 +13,7 @@
 #import "ItemView.h"
 #import "NetWorkRequest.h"
 #import "UIViewController+MMDrawerController.h"
-#import "userInfoManager.h"
+#import "CityDetailDBManager.h"
 #import "WeatherDataModels.h"
 #import "MBProgressHUD.h"
 
@@ -26,7 +26,7 @@
 @property (nonatomic, strong) NewsBaseClass *XYBase;
 @property (nonatomic, strong) NSMutableArray *muArr;
 @property (nonatomic, assign) NSInteger urlIndex;
-@property (nonatomic, strong) userInfoManager *userCity;
+@property (nonatomic, strong) CityDetailDBManager *userCity;
 @property (nonatomic, strong) userInfoModel *userModer;
 @property (nonatomic, strong) WeatherBaseClass *weathBase;
 @property (nonatomic, strong) NSArray *arr;
@@ -41,8 +41,8 @@
     // Do any additional setup after loading the view.
     
     self.urlIndex = 0;
-    self.userCity = [userInfoManager defaultManager];
-    self.userModer = [self.userCity selectData].firstObject;
+    self.userCity = [CityDetailDBManager defaultManager];
+    self.userModer = [self.userCity selectCityData].firstObject;
     self.muArr = [NSMutableArray array];
     [self initUI];
     UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
