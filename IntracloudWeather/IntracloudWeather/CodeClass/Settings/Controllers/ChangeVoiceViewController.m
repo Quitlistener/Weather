@@ -22,11 +22,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"返回"] style:UIBarButtonItemStylePlain target:self action:@selector(backVC)];
+    self.navigationItem.leftBarButtonItem = backItem;
+    
     UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchesInside)];
     tapGes.numberOfTapsRequired = 1;
     tapGes.numberOfTouchesRequired = 1;
     [self.view addGestureRecognizer:tapGes];
     [self initView];
+}
+-(void)backVC{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 -(void)touchesInside{
     [self.navigationController popToRootViewControllerAnimated:YES];

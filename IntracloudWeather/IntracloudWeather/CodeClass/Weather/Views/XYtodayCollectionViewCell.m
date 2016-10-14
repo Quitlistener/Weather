@@ -8,7 +8,7 @@
 
 #import "XYtodayCollectionViewCell.h"
 #import "UIImageView+WebCache.h"
-
+#import "SDWebImageDownloader.h"
 
 @implementation XYtodayCollectionViewCell
 
@@ -17,6 +17,14 @@
 -(void)setWeatherDaily:(WeatherDailyForecast *)weatherDaily{
     NSString *str = [NSString stringWithFormat:@"http://files.heweather.com/cond_icon/%@.png",weatherDaily.cond.codeD];
     [self.weatherImage sd_setImageWithURL:[NSURL URLWithString:str]];
+//    self.weatherImage.tintColor = [UIColor colorWithRed:59/255 green:59/255 blue:59/255 alpha:1];
+//    SDWebImageDownloader *downloader = [[SDWebImageDownloader alloc]init];
+//    [downloader downloadImageWithURL:[NSURL URLWithString:str] options:SDWebImageDownloaderProgressiveDownload progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+//    
+//        [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+//        self.weatherImage.image = image;
+//        self.weatherImage.tintColor = [UIColor colorWithRed:59/255 green:59/255 blue:59/255 alpha:1];
+//    }];
     self.maxTemperature.text = [NSString stringWithFormat:@"%@℃",weatherDaily.tmp.max];
     self.minTemperature.text = [NSString stringWithFormat:@"%@℃",weatherDaily.tmp.min];
     if ([weatherDaily.cond.txtD isEqualToString:weatherDaily.cond.txtN]) {
