@@ -26,6 +26,12 @@
 #import "CityInfoDataModels.h"
 #import "UConstants.h"
 
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+#import "WeiboSDK.h"
+
+
 #define SNOW_IMAGENAME         @"snow"
 
 #define IMAGE_X                arc4random()%(int)Main_Screen_Width
@@ -734,7 +740,32 @@ static int i = 0;
 }
 
 - (IBAction)tapShare:(UIButton *)sender {
-    
+    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+    [shareParams SSDKSetupShareParamsByText:_voiceStr
+                                     images:_XYBackgroundImgView.image
+                                        url:nil
+                                      title:@"#今天的天气#"
+                                       type:SSDKContentTypeAuto];
+    [ShareSDK showShareActionSheet:nil //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
+                             items:nil
+                       shareParams:shareParams
+               onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                   switch (state) {
+                       case SSDKResponseStateSuccess:{
+                           UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功" message:nil delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil];
+                           [alertView show];
+                           break;
+                       }
+                       case SSDKResponseStateFail:{
+                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败" message:[NSString stringWithFormat:@"%@",error] delegate:nil  cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                           [alert show];
+                           break;
+                       }
+                       default:
+                           break;
+                   }
+               }
+     ];
 }
 
 //- (IBAction)tapVoice:(id)sender {

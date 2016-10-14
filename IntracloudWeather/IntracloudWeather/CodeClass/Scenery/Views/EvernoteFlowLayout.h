@@ -14,7 +14,7 @@
 #define PaddingV 5
 
 #define ItemW  ScreenW - 2*PaddingH
-#define ItemH  170
+#define ItemH  200
 
 #define SpringFactor 10
 @interface EvernoteFlowLayout : UICollectionViewFlowLayout

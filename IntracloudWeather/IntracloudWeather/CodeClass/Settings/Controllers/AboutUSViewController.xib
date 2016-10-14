@@ -16,21 +16,99 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciU-BE-qtj">
-                    <mutableString key="text">        在计算机科学中，二叉树是每个节点最多有两个子树的树结构。通常子树被称作“左子树”（left subtree）和“右子树”（right subtree）。二叉树常被用于实现二叉查找树和二叉堆。
-二叉树的每个结点至多只有二棵子树(不存在度大于2的结点)，二叉树的子树有左右之分，次序不能颠倒。二叉树的第i层至多有2^{i-1}个结点；深度为k的二叉树至多有2^k-1个结点；对任何一棵二叉树T，如果其终端结点数为n_0，度为2的结点数为n_2，则n_0=n_2+1。
-一棵深度为k，且有2^k-1个节点称之为满二叉树；深度为k，有n个节点的二叉树，当且仅当其每一个节点都与深度为k的满二叉树中，序号为1至n的节点对应时，称之为完全二叉树。</mutableString>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork.png" translatesAutoresizingMaskIntoConstraints="NO" id="ESn-Tw-9aC">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="DnU-op-uBM"/>
+                        <constraint firstAttribute="height" constant="100" id="qG2-Wy-IDe"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="云之天气 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLs-U1-dBp">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="LcQ-Nn-FyY"/>
+                        <constraint firstAttribute="height" constant="30" id="MJj-8Q-u6g"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本V 1.0.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzQ-d8-pWw">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="qEd-qB-iAd"/>
+                        <constraint firstAttribute="height" constant="21" id="yXf-z9-xRA"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" red="0.23301464320000001" green="0.23301464320000001" blue="0.23301464320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@广大神" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPV-Ka-hAk">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="86" id="R2e-xd-Pkw"/>
+                        <constraint firstAttribute="height" constant="36" id="n07-lW-bFS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@佳酱油" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVl-s1-xEy">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="86" id="fhf-Od-ucZ"/>
+                        <constraint firstAttribute="height" constant="43" id="pz1-Pg-4a0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微博:-----------" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2d-ZX-pSz">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="HfM-eS-wEY"/>
+                        <constraint firstAttribute="height" constant="29" id="Q0f-bg-KKY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--------------------------------------" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuL-n5-wR9">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="ZtZ-gW-p3K"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微博:@薛定谔的mark猫" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2c5-YE-VFk">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="VRB-Wd-UPP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="ciU-BE-qtj" secondAttribute="trailing" constant="20" id="3pT-nJ-lH1"/>
-                <constraint firstItem="ciU-BE-qtj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="47l-vF-RQu"/>
-                <constraint firstItem="ciU-BE-qtj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="lRl-b2-c6b"/>
+                <constraint firstItem="kPV-Ka-hAk" firstAttribute="top" secondItem="KuL-n5-wR9" secondAttribute="bottom" constant="18" id="3cT-Cz-JDk"/>
+                <constraint firstItem="SVl-s1-xEy" firstAttribute="top" secondItem="kPV-Ka-hAk" secondAttribute="bottom" constant="20" id="5Ai-6w-OYC"/>
+                <constraint firstItem="SVl-s1-xEy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="8Uy-lK-6ZX"/>
+                <constraint firstAttribute="bottom" secondItem="SVl-s1-xEy" secondAttribute="bottom" constant="20" id="IHg-Z6-rOm"/>
+                <constraint firstItem="bzQ-d8-pWw" firstAttribute="leading" secondItem="vLs-U1-dBp" secondAttribute="trailing" constant="10" id="LaF-kG-mWF"/>
+                <constraint firstAttribute="trailing" secondItem="2c5-YE-VFk" secondAttribute="trailing" constant="2" id="S68-Uc-XBq"/>
+                <constraint firstItem="kPV-Ka-hAk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="UH4-TT-OGD"/>
+                <constraint firstItem="KuL-n5-wR9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="WbC-JE-lrR"/>
+                <constraint firstItem="2c5-YE-VFk" firstAttribute="leading" secondItem="kPV-Ka-hAk" secondAttribute="trailing" constant="10" id="ZXT-fP-JKc"/>
+                <constraint firstItem="vLs-U1-dBp" firstAttribute="top" secondItem="ESn-Tw-9aC" secondAttribute="bottom" constant="10" id="baZ-fs-ycV"/>
+                <constraint firstAttribute="trailing" secondItem="KuL-n5-wR9" secondAttribute="trailing" constant="15" id="fuD-em-c0V"/>
+                <constraint firstItem="vLs-U1-dBp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="kli-WF-6p4"/>
+                <constraint firstItem="ESn-Tw-9aC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="170" id="n2D-t0-ORo"/>
+                <constraint firstItem="Z2d-ZX-pSz" firstAttribute="top" secondItem="2c5-YE-VFk" secondAttribute="bottom" constant="34" id="s8k-TI-2pm"/>
+                <constraint firstAttribute="bottom" secondItem="Z2d-ZX-pSz" secondAttribute="bottom" constant="20" id="tPJ-cK-mt6"/>
+                <constraint firstItem="Z2d-ZX-pSz" firstAttribute="leading" secondItem="SVl-s1-xEy" secondAttribute="trailing" constant="10" id="woi-Rq-kXR"/>
+                <constraint firstItem="bzQ-d8-pWw" firstAttribute="top" secondItem="ESn-Tw-9aC" secondAttribute="bottom" constant="19" id="y7M-vW-Szv"/>
+                <constraint firstItem="ESn-Tw-9aC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yAn-XH-9i1"/>
             </constraints>
+            <point key="canvasLocation" x="25" y="51"/>
         </view>
     </objects>
+    <resources>
+        <image name="iTunesArtwork.png" width="512" height="512"/>
+    </resources>
 </document>

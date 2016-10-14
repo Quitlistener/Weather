@@ -431,7 +431,7 @@
                         len = -2;
                     }
                     
-                     [self drawText:[NSString stringWithFormat:@"%@",_xLineDataArr[i]] andContext:context atPoint:P_M(p.x-len/2 - 15, p.y+20) WithColor:_xAndYNumberColor andFontSize:17.0];
+                     [self drawText:[NSString stringWithFormat:@"%@",_xLineDataArr[i]] andContext:context atPoint:P_M(p.x-len/2 - 15, p.y+30) WithColor:_xAndYNumberColor andFontSize:17.0];
                 }
             }
             [self drawLineWithContext:context andStarPoint:self.chartOrigin andEndPoint:P_M(self.contentInsets.left+_xLength, self.chartOrigin.y) andIsDottedLine:NO andColor:_xAndYLineColor];

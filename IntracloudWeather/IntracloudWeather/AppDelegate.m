@@ -20,6 +20,12 @@
 #import "AFNetworking.h"
 #import "Monitor.h"
 
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+#import "WeiboSDK.h"
+
+
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
 
@@ -108,6 +114,50 @@
     /** 网络监听 */
     [Monitor monitorWithView:self.window];
     
+    /** 分享 */
+    [ShareSDK registerApp:@"16cf00486f91a"
+     
+          activePlatforms:@[
+                            @(SSDKPlatformTypeSinaWeibo),
+                            @(SSDKPlatformTypeWechat),
+                            
+                            ]
+                 onImport:^(SSDKPlatformType platformType)
+     {
+         switch (platformType)
+         {
+             case SSDKPlatformTypeWechat:
+                 
+                 break;
+             case SSDKPlatformTypeSinaWeibo:
+                 [ShareSDKConnector connectWeibo:[WeiboSDK class]];
+                 break;
+             default:
+                 break;
+         }
+     }
+          onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo)
+     {
+         
+         switch (platformType)
+         {
+             case SSDKPlatformTypeSinaWeibo:
+                 //设置新浪微博应用信息,其中authType设置为使用SSO＋Web形式授权
+                 [appInfo SSDKSetupSinaWeiboByAppKey:@"568898243"
+                                           appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
+                                         redirectUri:@"http://www.sharesdk.cn"
+                                            authType:SSDKAuthTypeBoth];
+                 break;
+             case SSDKPlatformTypeWechat:
+                 [appInfo SSDKSetupWeChatByAppId:@"wx4868b35061f87885"
+                                       appSecret:@"64020361b8ec4c99936c0e3999a9f249"];
+                 break;
+                 
+             default:
+                 break;
+         }
+     }];
+    
     return YES;
 }
 
@@ -185,7 +235,7 @@
                         [manager deleteDataWithcityid:city.cityInfoIdentifier];
                         NSInteger count = [manager selectCityData].count;
                         model.index = [NSString stringWithFormat:@"%ld",count - 1];
-                        model.voiceAI = @"xioayan";
+                        model.voiceAI = @"xiaoyan";
                         model.cityInfoIdentifier = city.cityInfoIdentifier;
                         model.city = city.city;
                         [manager insertCityDataModel:model];
