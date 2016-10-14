@@ -10,21 +10,15 @@
 #import "JHLineChart.h"
 #import "WeatherDataModels.h"
 #import "userInfoModel.h"
-#import "userInfoManager.h"
+#import "CityDetailDBManager.h"
 #import "UIImageView+WebCache.h"
 #import "MMDrawerBarButtonItem.h"
 #import "UIViewController+MMDrawerController.h"
 #import "RightMenViewController.h"
 
-#ifdef DEBUG
-#define NSLog(FORMAT, ...) fprintf(stderr,"\n %s:%d   %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],__LINE__, [[[NSString alloc] initWithData:[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] dataUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding] UTF8String]);
-#else
-#define NSLog(...)
-#endif
-
 @interface TrendViewController ()
 @property (nonatomic, strong) WeatherBaseClass *weatherBase;
-@property (nonatomic, strong) userInfoManager *userCity;
+@property (nonatomic, strong) CityDetailDBManager *userCity;
 @property (nonatomic, strong) userInfoModel *userModer;
 @property (nonatomic, strong) NSMutableArray *TemperatureMaxArr;
 @property (nonatomic, strong) NSMutableArray *TemperatureMinArr;
@@ -41,8 +35,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.userCity = [userInfoManager defaultManager];
-    self.userModer = [self.userCity selectData].firstObject;
+    self.userCity = [CityDetailDBManager defaultManager];
+    self.userModer = [self.userCity selectCityData].firstObject;
     [self initUIcity:_userModer.city];
     [self requestData:self.userModer.cityInfoIdentifier];
 }
@@ -55,9 +49,9 @@
     _toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, SCREEN_width, SCREENH_height)];
     /** 毛玻璃 */
     _toolBar.barStyle = UIBarStyleBlack ;// 改变barStyle
-    _toolBar.alpha = 0.7;
+    _toolBar.alpha = 0.5;
     UIButton *cityBnt = [UIButton buttonWithType:UIButtonTypeCustom];
-    cityBnt.frame = CGRectMake(SCREEN_width/2-30, 24, 60, 30);
+    cityBnt.frame = CGRectMake(SCREEN_width/2-75, 24, 150, 30);
     [cityBnt setTitle:[NSString stringWithFormat:@"%@",cityStr] forState:UIControlStateNormal];
     [cityBnt addTarget:self action:@selector(tapCity) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:cityBnt];
@@ -84,9 +78,9 @@
     /* 数据源 */
     _lineChart.valueArr = @[self.TemperatureMaxArr,self.TemperatureMinArr];
     /* 值折线的折线颜色 默认暗黑色*/
-    _lineChart.valueLineColorArr =@[ [UIColor purpleColor], [UIColor brownColor]];
+    _lineChart.valueLineColorArr =@[ LRRGBColor(80, 164, 184), LRRGBColor(205, 205, 180)];
     /* 值点的颜色 默认橘黄色*/
-    _lineChart.pointColorArr = @[[UIColor orangeColor],[UIColor yellowColor]];
+    _lineChart.pointColorArr = @[LRRGBColor(120, 164, 184),[UIColor yellowColor]];
     /* X和Y轴的颜色 默认暗黑色 */
     _lineChart.xAndYLineColor = [UIColor clearColor];
     /* XY轴的刻度颜色 m */

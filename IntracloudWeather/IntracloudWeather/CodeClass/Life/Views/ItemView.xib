@@ -9,7 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ItemView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX8-5G-pVI">
@@ -48,6 +48,7 @@
             </constraints>
             <connections>
                 <outlet property="contentLabel" destination="4K0-4c-PGi" id="vBg-PY-gMh"/>
+                <outlet property="itemImage" destination="OJc-r3-mVv" id="iBf-e0-M50"/>
                 <outlet property="typeLabel" destination="sX8-5G-pVI" id="quD-Zp-Qf2"/>
             </connections>
         </view>

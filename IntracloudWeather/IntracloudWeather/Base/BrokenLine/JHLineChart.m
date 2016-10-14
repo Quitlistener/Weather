@@ -810,10 +810,10 @@
                     case JHLineChartQuadrantTypeFirstAndFouthQuardrant:
                     {
                         if (m == 1) {
-                            [self drawText:[NSString stringWithFormat:@"%@℃",_valueArr[m][i]] andContext:context atPoint:pp WithColor:pointNumberColor andFontSize:15.0];
+                            [self drawText:[NSString stringWithFormat:@"%@℃",_valueArr[m][i]] andContext:context atPoint:pp WithColor:LRRGBColor(205, 205, 180) andFontSize:15.0];
                         }
                         else{
-                            [self drawText:[NSString stringWithFormat:@"%@℃",_valueArr[m][i]] andContext:context atPoint:CGPointMake([arr[i] CGPointValue].x-15, [arr[i] CGPointValue].y-25) WithColor:pointNumberColor andFontSize:15.0];
+                            [self drawText:[NSString stringWithFormat:@"%@℃",_valueArr[m][i]] andContext:context atPoint:CGPointMake([arr[i] CGPointValue].x-15, [arr[i] CGPointValue].y-25) WithColor:[UIColor whiteColor] andFontSize:15.0];
                         }
                     }
                         break;
