@@ -47,6 +47,8 @@
     [XYMenuTableView registerNib:[UINib nibWithNibName:@"MenuTableViewCell" bundle:nil] forCellReuseIdentifier:@"menu"];
     XYMenuTableView.delegate = self;
     XYMenuTableView.dataSource = self;
+    [XYMenuTableView setSeparatorInset:UIEdgeInsetsZero];
+    [XYMenuTableView setLayoutMargins:UIEdgeInsetsZero];
     XYMenuTableView.tableFooterView = [UIView new];
     UIView *myView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 150, 90)];
     myView.backgroundColor = [UIColor cyanColor];

@@ -170,6 +170,7 @@
 		3FD3F83D1D9DED0400736C0B /* NewsWapPortalV2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8381D9DED0400736C0B /* NewsWapPortalV2.m */; };
 		3FD3F8441D9E238E00736C0B /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3F8431D9E238E00736C0B /* style.css */; };
 		3FD3F8471D9E4E9200736C0B /* ChangeVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8461D9E4E9200736C0B /* ChangeVoiceViewController.m */; };
+		3FDFD13E1DB074FF00FDD44B /* cloudy_n_portrait.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FDFD13D1DB074FF00FDD44B /* cloudy_n_portrait.jpg */; };
 		3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A581D9B9FC80069B4A7 /* main.m */; };
 		3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A5B1D9B9FC80069B4A7 /* AppDelegate.m */; };
 		3FFF3A621D9B9FC80069B4A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3A601D9B9FC80069B4A7 /* Main.storyboard */; };
@@ -447,6 +448,7 @@
 		3FD3F8431D9E238E00736C0B /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		3FD3F8451D9E4E9200736C0B /* ChangeVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeVoiceViewController.h; sourceTree = "<group>"; };
 		3FD3F8461D9E4E9200736C0B /* ChangeVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeVoiceViewController.m; sourceTree = "<group>"; };
+		3FDFD13D1DB074FF00FDD44B /* cloudy_n_portrait.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cloudy_n_portrait.jpg; sourceTree = "<group>"; };
 		3FFF3A541D9B9FC80069B4A7 /* IntracloudWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntracloudWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFF3A581D9B9FC80069B4A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FFF3A5A1D9B9FC80069B4A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -718,6 +720,7 @@
 		3FB572B91DABBE9800590913 /* gj */ = {
 			isa = PBXGroup;
 			children = (
+				3FDFD13D1DB074FF00FDD44B /* cloudy_n_portrait.jpg */,
 				3F5743B21DAF777600C80911 /* bg_fog.jpg */,
 				3F5743B31DAF777600C80911 /* bg_heavy_rain_night.jpg */,
 				3F5743B41DAF777600C80911 /* bg_middle_rain.jpg */,
@@ -1240,6 +1243,7 @@
 				3FB572D51DABBE9800590913 /* rain_night.jpg in Resources */,
 				3F5743E41DAF777600C80911 /* blur_bg_snow_day.jpg in Resources */,
 				3F5743D21DAF777600C80911 /* bg_night_sunny.jpg in Resources */,
+				3FDFD13E1DB074FF00FDD44B /* cloudy_n_portrait.jpg in Resources */,
 				3FBEB6A11D9E36880092E47F /* cityData.plist in Resources */,
 				3FB572B81DAA3E1800590913 /* 返回.png in Resources */,
 				3F5743D51DAF777600C80911 /* bg_shower_rain_day.jpg in Resources */,
