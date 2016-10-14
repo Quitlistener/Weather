@@ -16,11 +16,13 @@
 #import "CityInfoDataModels.h"
 #import "CityDetailDBManager.h"
 #import "userInfoModel.h"
+#import "MBProgressHUD.h"
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationMabager;
 @property(nonatomic ,strong) CLGeocoder *geocoder;
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
 
@@ -29,10 +31,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    /** 定位 */
-    [self getLocation];
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"])
+    {
+        // 注意设置为TRUE
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+        /** 定位 */
+        [self getLocation];
+    }
     
     LeftMenuViewController *left = [LeftMenuViewController new];
     WeatherViewController *weather = [WeatherViewController new];
@@ -102,6 +110,7 @@
     CLLocationCoordinate2D coor2D = CLLocationCoordinate2DMake(currLocation.coordinate.latitude,currLocation.coordinate.longitude);
     //    CLLocationCoordinate2D coor2D = CLLocationCoordinate2DMake(39.5427,116.2317);
     [self regeocoordinate:coor2D];
+    [self showHUD:@"定位成功"];
     /** 关掉定位 */
     [self.locationMabager stopUpdatingLocation];
 }
@@ -180,7 +189,18 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    [self showHUD:@"定位失败"];
     NSLog(@"定位失败");
+}
+
+
+-(void)showHUD:(NSString *)showHUD{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.window animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = showHUD;
+    hud.offset = CGPointMake(0.f, 50.f);
+    //2秒后隐藏
+    [hud hideAnimated:YES afterDelay:2.f];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
