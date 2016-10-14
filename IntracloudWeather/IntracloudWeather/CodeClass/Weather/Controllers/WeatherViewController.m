@@ -242,6 +242,9 @@
          [self rianOrSnowWithCode:code date:date];
         return;
     }
+    else{
+        _imagesArray = nil;
+    }
     if ([code isEqualToString:@"100"]) {
         [self sunnyDayWithDate:date];
 //        return;
@@ -706,11 +709,20 @@ static int i = 0;
 
 - (void)viewWillAppear:(BOOL)animated{
     
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"努力加载中..."
+                                                        message:nil
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:nil];
+    alertView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
+    [alertView show];
+    //            sleep(1.5);
+    
     for (int i = 0 ; i < _CitysDataArr.count; i ++) {
         CityInfoCityInfo *city = (CityInfoCityInfo *)_CitysDataArr[i];
         [self dataRequestWithCityid:city.cityInfoIdentifier tag:i+10];
     }
-    
+    [alertView dismissWithClickedButtonIndex:0 animated:YES];
     
     
     /** 讯飞 */

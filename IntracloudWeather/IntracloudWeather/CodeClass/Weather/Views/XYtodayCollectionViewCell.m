@@ -31,7 +31,13 @@
         self.weatherLbel.text = weatherDaily.cond.txtD;
     }
     else{
-        self.weatherLbel.text = [NSString stringWithFormat:@"%@转%@",weatherDaily.cond.txtD,weatherDaily.cond.txtN];
+        if (weatherDaily.cond.txtD.length < 3 && weatherDaily.cond.txtN.length < 3) {
+            self.weatherLbel.text = [NSString stringWithFormat:@"%@转%@",weatherDaily.cond.txtD,weatherDaily.cond.txtN];
+        }
+        else{
+            self.weatherLbel.text = [NSString stringWithFormat:@"%@",weatherDaily.cond.txtD];
+        }
+        
     }
     /** 字符转时间 */
     NSString *string = weatherDaily.date;

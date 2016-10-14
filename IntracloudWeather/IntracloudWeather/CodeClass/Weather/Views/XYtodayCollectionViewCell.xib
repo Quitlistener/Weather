@@ -25,7 +25,6 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图片.png" translatesAutoresizingMaskIntoConstraints="NO" id="SDa-7v-yAw">
-                        <color key="tintColor" red="0.23301464320000001" green="0.23301464320000001" blue="0.23301464320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="SDa-7v-yAw" secondAttribute="height" multiplier="1:1" id="cZv-N0-w8X"/>
                         </constraints>

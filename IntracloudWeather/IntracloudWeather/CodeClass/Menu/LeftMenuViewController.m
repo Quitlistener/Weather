@@ -50,8 +50,8 @@
     [XYMenuTableView setSeparatorInset:UIEdgeInsetsZero];
     [XYMenuTableView setLayoutMargins:UIEdgeInsetsZero];
     XYMenuTableView.tableFooterView = [UIView new];
-    UIView *myView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 150, 90)];
-    myView.backgroundColor = [UIColor cyanColor];
+    UIView *myView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 150, 20)];
+//    myView.backgroundColor = [UIColor cyanColor];
     XYMenuTableView.tableHeaderView = myView;
     
     [self.view addSubview:XYMenuTableView];
