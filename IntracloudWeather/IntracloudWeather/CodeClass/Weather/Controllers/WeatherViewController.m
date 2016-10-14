@@ -184,8 +184,8 @@
                             if (![backCode isEqualToString:@"100"]) {
                                 _sunnyDayImag.hidden = YES;
                             }
-//                            [self makeBackgroundAnimationsWithCode:backCode date:backDate];
-                            [self makeBackgroundAnimationsWithCode:@"100" date:backDate];
+                            [self makeBackgroundAnimationsWithCode:backCode date:backDate];
+//                            [self makeBackgroundAnimationsWithCode:@"313" date:backDate];
                             NSString *wind1 = HeWeatherDataService30.now.wind.dir;
                             NSMutableString *wind2 = [NSMutableString stringWithString:HeWeatherDataService30.now.wind.sc];
                             if ([self IsChinese:model.city]) {
@@ -398,8 +398,8 @@
         _XYBackgroundImgView.image = [UIImage imageNamed:@"sunny.jpg"];
 //        static dispatch_once_t onceToken;
 //        dispatch_once(&onceToken, ^{
-            _sunnyDayImag = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, Main_Screen_Width + 100, Main_Screen_Width)];
-            _sunnyDayImag.center = CGPointMake(SCREEN_width - 30, SCREENH_height*0.6 - 20);
+            _sunnyDayImag = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, Main_Screen_Width + 100, Main_Screen_Width + 100)];
+            _sunnyDayImag.center = CGPointMake(SCREEN_width*0.91, SCREENH_height*0.56);
             _sunnyDayImag.image = [UIImage imageNamed:@"ele_sunnySunshine"];
             [_XYFrontImageView addSubview:_sunnyDayImag];
 //        });
@@ -444,7 +444,7 @@
             break;
         }
     }
-    NSArray *backImageArr_D = @[@"bg_slight_rain_day.jpg",@"blur_bg_shower_rain_day.jpg",@"blur_bg_shower_rain_day.jpg",@"bg_slight_rain_night.jpg",@"blur_bg_snow_day.jpg",@"bg_snow_day.jpg"];
+    NSArray *backImageArr_D = @[@"bg_slight_rain_day.jpg",@"blur_bg_shower_rain_day.jpg",@"blur_bg_shower_rain_day.jpg",@"blur_bg_slight_rain_night.jpg",@"blur_bg_snow_day.jpg",@"bg_snow_day.jpg"];
     NSArray *backImageArr_N = @[@"rain_night.jpg",@"bg_thunder_storm.jpg",@"bg_thunder_storm.jpg",@"bg_heavy_rain_night.jpg",@"bg_night_snow.jpg",@"bg_night_snow.jpg"];
     NSString *subDate = [date substringWithRange:NSMakeRange(11, 2)];
     NSInteger intSubDate = [subDate integerValue];
@@ -499,7 +499,7 @@
             break;
     }
     _imagesArray = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 130; ++ i) {
+    for (int i = 0; i < 180; ++ i) {
         //        UIImageView *imageView = [[UIImageView alloc] initWithImage:IMAGENAMED(SNOW_IMAGENAME)];
         UIImageView *imageView = [[UIImageView alloc] init];
         int a = arc4random()%(4-0+1)+ 0;
@@ -555,17 +555,20 @@
 //    }
     float time = 0.3;
     if (index == 0) {
-        time = 0.25;
+        time = 0.08;
+    }
+    if (index == 1) {
+        time = 0.05;
     }
     if (index == 2) {
-        time = 0.11;
+        time = 0.018;
     }
     if (index == 3) {
-        time = 0.2;
+        time = 0.15;
     }
     if (index == 4 ) {
         //------------------------------?????
-        time = 0.2;
+        time = 0.08;
     }
     if (index == 5) {
         time = 0.5;
@@ -600,7 +603,7 @@ static int i = 0;
         time = 5;
     }
     if (_index_Code == 2) {
-        time = 3;
+        time = 2.5;
     }
     if (_index_Code == 3) {
         time = 3;
@@ -774,7 +777,7 @@ static int i = 0;
                                               otherButtonTitles:nil];
     alertView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
     [alertView show];
-    //            sleep(1.5);
+                sleep(1.5);
     userInfoModel *userInfo = [[CityDetailDBManager defaultManager]selectCityData].firstObject;
     NSInteger index = [userInfo.index integerValue];
     [self dataRequestWithCityid:userInfo.cityInfoIdentifier tag:index+10];

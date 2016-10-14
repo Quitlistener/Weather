@@ -31,10 +31,7 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天气" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQa-OX-6ho">
-                        <constraints>
-                            <constraint firstAttribute="height" constant="18" id="hWH-bB-XcA"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天气" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQa-OX-6ho">
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -61,22 +58,24 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="jI1-wT-MEJ" secondAttribute="trailing" id="0ep-Pd-RRY"/>
                 <constraint firstItem="3le-gZ-8mZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2dE-xg-TCg"/>
                 <constraint firstItem="gPF-TZ-xP6" firstAttribute="leading" secondItem="EPA-dx-uNk" secondAttribute="trailing" id="55q-aZ-Mhr"/>
-                <constraint firstItem="jI1-wT-MEJ" firstAttribute="top" secondItem="mQa-OX-6ho" secondAttribute="bottom" id="5Pq-lH-gKK"/>
                 <constraint firstItem="EPA-dx-uNk" firstAttribute="top" secondItem="3le-gZ-8mZ" secondAttribute="bottom" id="5xJ-qf-glf"/>
+                <constraint firstItem="jI1-wT-MEJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="9ZA-pW-Bo4"/>
                 <constraint firstItem="hzm-jB-Y0x" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="9nf-lY-KRa"/>
-                <constraint firstItem="mQa-OX-6ho" firstAttribute="top" secondItem="EPA-dx-uNk" secondAttribute="bottom" id="ENY-My-sHb"/>
+                <constraint firstAttribute="trailing" secondItem="mQa-OX-6ho" secondAttribute="trailing" id="CzF-pw-U5a"/>
                 <constraint firstItem="3le-gZ-8mZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Iow-eE-4ov"/>
-                <constraint firstAttribute="trailing" secondItem="mQa-OX-6ho" secondAttribute="trailing" id="NWu-b2-zM8"/>
                 <constraint firstAttribute="trailing" secondItem="hzm-jB-Y0x" secondAttribute="trailing" id="Nnn-62-w1M"/>
+                <constraint firstItem="mQa-OX-6ho" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="OKb-Nk-cIy"/>
                 <constraint firstAttribute="trailing" secondItem="jI1-wT-MEJ" secondAttribute="trailing" id="TTR-yt-SGB"/>
                 <constraint firstAttribute="trailing" secondItem="gPF-TZ-xP6" secondAttribute="trailing" id="VQV-75-2vi"/>
                 <constraint firstItem="hzm-jB-Y0x" firstAttribute="leading" secondItem="EPA-dx-uNk" secondAttribute="trailing" id="a3L-Lf-Nqc"/>
                 <constraint firstItem="gPF-TZ-xP6" firstAttribute="top" secondItem="hzm-jB-Y0x" secondAttribute="bottom" id="aXI-nc-ayb"/>
                 <constraint firstAttribute="bottom" secondItem="jI1-wT-MEJ" secondAttribute="bottom" id="hwl-oE-Pg1"/>
                 <constraint firstItem="EPA-dx-uNk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="jbX-ov-a9A"/>
-                <constraint firstItem="mQa-OX-6ho" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="m2L-6F-4vC"/>
+                <constraint firstItem="mQa-OX-6ho" firstAttribute="top" secondItem="EPA-dx-uNk" secondAttribute="bottom" id="rGn-Ha-c7o"/>
+                <constraint firstAttribute="bottom" secondItem="jI1-wT-MEJ" secondAttribute="bottom" id="wDO-Vn-4pn"/>
                 <constraint firstItem="jI1-wT-MEJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="yBs-Xb-obv"/>
             </constraints>
             <size key="customSize" width="96" height="92"/>

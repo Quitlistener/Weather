@@ -83,7 +83,7 @@
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
     flowLayout.minimumInteritemSpacing = 7.0;
     flowLayout.sectionInset = UIEdgeInsetsMake(10, 5, 5, 10);
-    flowLayout.itemSize = CGSizeMake(83, 115);
+    flowLayout.itemSize = CGSizeMake(83, 130);
     
     UICollectionView *CityCollectionVew = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 279, SCREENH_height) collectionViewLayout:flowLayout];
     CityCollectionVew.backgroundColor =  [UIColor whiteColor];

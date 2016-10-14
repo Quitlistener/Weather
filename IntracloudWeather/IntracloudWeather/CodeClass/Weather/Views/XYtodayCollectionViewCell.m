@@ -27,24 +27,24 @@
 //    }];
     self.maxTemperature.text = [NSString stringWithFormat:@"%@℃",weatherDaily.tmp.max];
     self.minTemperature.text = [NSString stringWithFormat:@"%@℃",weatherDaily.tmp.min];
-    self.maxTemperature.shadowColor = [UIColor whiteColor];
+    self.maxTemperature.shadowColor = [UIColor grayColor];
     self.maxTemperature.shadowOffset = CGSizeMake(0.3, 0.3);
-    self.minTemperature.shadowColor = [UIColor whiteColor];
+    self.minTemperature.shadowColor = [UIColor grayColor];
     self.minTemperature.shadowOffset = CGSizeMake(0.3, 0.3);
     if ([weatherDaily.cond.txtD isEqualToString:weatherDaily.cond.txtN]) {
         self.weatherLbel.text = weatherDaily.cond.txtD;
-        self.weatherLbel.shadowColor = [UIColor whiteColor];
+        self.weatherLbel.shadowColor = [UIColor grayColor];
         self.weatherLbel.shadowOffset = CGSizeMake(0.3, 0.3);
     }
     else{
         if (weatherDaily.cond.txtD.length < 3 && weatherDaily.cond.txtN.length < 3) {
             self.weatherLbel.text = [NSString stringWithFormat:@"%@转%@",weatherDaily.cond.txtD,weatherDaily.cond.txtN];
-            self.weatherLbel.shadowColor = [UIColor whiteColor];
+            self.weatherLbel.shadowColor = [UIColor grayColor];
             self.weatherLbel.shadowOffset = CGSizeMake(0.3, 0.3);
         }
         else{
             self.weatherLbel.text = [NSString stringWithFormat:@"%@",weatherDaily.cond.txtD];
-            self.weatherLbel.shadowColor = [UIColor whiteColor];
+            self.weatherLbel.shadowColor = [UIColor grayColor];
             self.weatherLbel.shadowOffset = CGSizeMake(0.3, 0.3);
         }
         
@@ -68,7 +68,7 @@
     NSArray * arrWeek=[NSArray arrayWithObjects:@"周日",@"周一",@"周二",@"周三",@"周四",@"周五",@"周六", nil];
 //    NSLog(@"星期:%@", [NSString stringWithFormat:@"%@",[arrWeek objectAtIndex:[comps weekday] - 1]]);
     self.todayLabel.text = [arrWeek objectAtIndex:[comps weekday] - 1];
-    self.todayLabel.shadowColor = [UIColor whiteColor];
+    self.todayLabel.shadowColor = [UIColor grayColor];
     self.todayLabel.shadowOffset = CGSizeMake(0.3, 0.3);
 }
 

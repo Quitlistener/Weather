@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_sunny.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5O1-z5-1hH"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="猫和马达.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5O1-z5-1hH"/>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -35,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg_sunny.jpg" width="640" height="1136"/>
+        <image name="猫和马达.jpg" width="690" height="1225"/>
     </resources>
 </document>
