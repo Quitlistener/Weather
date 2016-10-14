@@ -12,8 +12,15 @@
 #import "WeatherViewController.h"
 #import "iflyMSC/IFlyMSC.h"
 #import "Definition.h"
+#import <CoreLocation/CoreLocation.h>
+#import "CityInfoDataModels.h"
+#import "CityDetailDBManager.h"
+#import "userInfoModel.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<CLLocationManagerDelegate>
+
+@property (nonatomic, strong) CLLocationManager *locationMabager;
+@property(nonatomic ,strong) CLGeocoder *geocoder;
 
 @end
 
@@ -23,6 +30,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
+    /** 定位 */
+    [self getLocation];
+    
     LeftMenuViewController *left = [LeftMenuViewController new];
     WeatherViewController *weather = [WeatherViewController new];
     RightMenViewController *right = [RightMenViewController new];
@@ -62,9 +73,114 @@
     return YES;
 }
 
+/** 讯飞语音 */
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     [[IFlySpeechUtility getUtility] handleOpenURL:url];
     return YES;
+}
+
+
+#pragma mark -定位
+-(CLGeocoder *)geocoder{
+    if (!_geocoder) {
+        _geocoder = [[CLGeocoder alloc]init];
+    }
+    return _geocoder;
+}
+
+/** 然后初始化变量manager */
+- (void)getLocation{
+    _locationMabager = [[CLLocationManager alloc]init];
+    [_locationMabager requestAlwaysAuthorization];
+    _locationMabager.delegate = self;
+    [_locationMabager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    CLLocation *currLocation= [locations lastObject];
+    //反编码 经纬度转化为具体的地理信息  武宣23.604162 经度 = 109.662870
+    CLLocationCoordinate2D coor2D = CLLocationCoordinate2DMake(currLocation.coordinate.latitude,currLocation.coordinate.longitude);
+    //    CLLocationCoordinate2D coor2D = CLLocationCoordinate2DMake(39.5427,116.2317);
+    [self regeocoordinate:coor2D];
+    /** 关掉定位 */
+    [self.locationMabager stopUpdatingLocation];
+}
+
+//把经纬度转化为地址信息
+-(void)regeocoordinate:(CLLocationCoordinate2D)cood{
+    //把经纬度转化为cllocation位置信息
+    CLLocation *location = [[CLLocation alloc]initWithLatitude:cood.latitude longitude:cood.longitude];
+    [self.geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        //如果有错误
+        if(error){
+            //打印错误
+            NSLog(@"line = %d error = %@",__LINE__,error );
+            //退出
+            return ;
+        }
+        //没有错误 取出一个位置坐标
+        CLPlacemark *placemark = placemarks.firstObject;
+        //遍历打印"CLPlacemark"这个类中"addressDictionary"这个属性的值(一般这个字典中的信息就够用了)
+        [placemark.addressDictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            
+            CLPlacemark * plmark = [placemarks objectAtIndex:0];
+            //            plmark.subLocality
+            NSMutableString *str = [plmark.subLocality mutableCopy];
+            NSMutableString *cityStr = [plmark.locality mutableCopy];
+            [str deleteCharactersInRange:NSMakeRange(0,str.length - 1)];
+            [cityStr deleteCharactersInRange:NSMakeRange(cityStr.length - 1,  1)];
+            NSString *filename = [[NSBundle mainBundle] pathForResource:@"allchina" ofType:@"plist"];
+            NSDictionary* dic = [NSDictionary dictionaryWithContentsOfFile:filename];
+            CityInfoBaseClass *Models = [CityInfoBaseClass  modelObjectWithDictionary:dic];
+            NSArray *arr = Models.cityInfo;
+            CityDetailDBManager *manager = [CityDetailDBManager defaultManager];
+            [manager createTable];
+            [manager createCityTable];
+            userInfoModel *model = [[userInfoModel alloc]init];
+            if ([str isEqualToString:@"区"]) {
+                NSLog(@"赋值city");
+                for (int i = 0; i < Models.cityInfo.count; i++) {
+                    CityInfoCityInfo *city = (CityInfoCityInfo *)arr[i];
+                    if ([city.city isEqualToString:cityStr]) {
+                        [manager insertDataModel:city];
+                        [manager deleteDataWithcityid:city.cityInfoIdentifier];
+                        NSInteger count = [manager selectCityData].count;
+                        model.index = [NSString stringWithFormat:@"%ld",count - 1];
+                        model.voiceAI = @"xioayan";
+                        model.cityInfoIdentifier = city.cityInfoIdentifier;
+                        model.city = city.city;
+                        [manager insertCityDataModel:model];
+                        break;
+                    }
+                }
+            }
+            else{
+                NSLog(@"赋值SubLocality ---->str");
+                for (int i = 0; i < Models.cityInfo.count; i++) {
+                    CityInfoCityInfo *city = (CityInfoCityInfo *)arr[i];
+                    if ([city.city isEqualToString:str]) {
+                        [manager insertDataModel:city];
+                        [manager deleteDataWithcityid:city.cityInfoIdentifier];
+                        NSInteger count = [manager selectCityData].count;
+                        model.index = [NSString stringWithFormat:@"%ld",count - 1];
+                        model.voiceAI = @"xioayan";
+                        model.cityInfoIdentifier = city.cityInfoIdentifier;
+                        model.city = city.city;
+                        [manager insertCityDataModel:model];
+                        break;
+                    }
+                }
+                
+            }
+            
+        }];
+        
+    }];
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    NSLog(@"定位失败");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
