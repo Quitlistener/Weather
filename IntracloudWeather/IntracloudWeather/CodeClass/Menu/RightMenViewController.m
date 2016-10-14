@@ -140,13 +140,15 @@
 
 
 -(void)backWeatherController{
-     WeatherViewController *WVC = [WeatherViewController new];
-     [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//     WeatherViewController *WVC = [WeatherViewController new];
+//     [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
+    [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
 }
 #pragma -mark 网络请求
 -(void)dataRequestWithCityid:(NSString *)cityid indexPath:(NSIndexPath *)indexPath{
     
-    NSString *str = [NSString stringWithFormat:@"key=2e39142365f74cba8c3d9ccc09f73eaa&cityid=%@",cityid];
+    NSString *str = [NSString stringWithFormat:@"key=d24d5307be8948d4b9e8ebf043a7f62a&cityid=%@",cityid];
     NSString *urlStr = [@"https://api.heweather.com/x3/weather?" stringByAppendingString:str];
     
     [NetWorkRequest requestWithMethod:GET URL:urlStr para:nil success:^(NSData *data) {
@@ -360,8 +362,9 @@
         model.city = city.city;
         model.cityInfoIdentifier = city.cityInfoIdentifier;
         [[CityDetailDBManager defaultManager] insertCityDataModel:model];
-        WeatherViewController *WVC = [WeatherViewController new];
-        [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
+//        WeatherViewController *WVC = [WeatherViewController new];
+//        [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
+        [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
         
     }
     else if (_citysDataArr.count == 9){

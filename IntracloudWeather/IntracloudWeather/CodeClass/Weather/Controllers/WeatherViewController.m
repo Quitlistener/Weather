@@ -135,13 +135,9 @@
 
 #pragma mark -网络请求
 -(void)dataRequestWithCityid:(NSString *)cityid tag:(NSInteger )tag{
-    
-    NSString *str = [NSString stringWithFormat:@"key=2e39142365f74cba8c3d9ccc09f73eaa&cityid=%@",cityid];
-    NSString *urlStr = [@"https://api.heweather.com/x3/weather?" stringByAppendingString:str];
-    
+    NSString *urlStr = [NSString stringWithFormat:@"http://apis.baidu.com/heweather/weather/free?cityid=%@",cityid];
     [NetWorkRequest requestWithMethod:GET URL:urlStr para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        //        NSLog(@"dic_____%@",dic);
         if (dic[@"HeWeather data service 3.0"]) {
             _weathBase = [WeatherBaseClass modelObjectWithDictionary:dic];
             WeatherHeWeatherDataService30 *HeWeatherDataService30 = [_weathBase heWeatherDataService30].firstObject;
