@@ -165,7 +165,7 @@
                         view.XYWeatherCondLabel.text = cond;
                         NSString *backCode = HeWeatherDataService30.now.cond.code;
                         NSString *backDate = HeWeatherDataService30.basic.update.loc;
-                        [self makeBackgroundAnimationsWithCode:@"309" date:backDate];
+                        [self makeBackgroundAnimationsWithCode:@"100" date:backDate];
                         if (currentCityIndex + 10 == tag) {
                             NSString *wind1 = HeWeatherDataService30.now.wind.dir;
                             NSMutableString *wind2 = [NSMutableString stringWithString:HeWeatherDataService30.now.wind.sc];
@@ -232,14 +232,136 @@
 -(void)makeBackgroundAnimationsWithCode:(NSString *)code date:(NSString *)date{
     NSArray *codeArr = @[@"300",@"309",@"305",@"304",@"302",@"303",@"301",@"306",@"307",@"308",@"310",@"311",@"312",@"313",@"404",@"405",@"406",@"401",@"402",@"403",@"400",@"407"];
 //    code = @"407";
+    NSArray *codeCloundArr = @[@"102",@"103"];
+    NSArray *windyArr = @[@"200",@"201",@"202",@"203",@"204"];
+    NSArray *bgWindyArr = @[@"205",@"206",@"207",@"208",@"209",@"210",@"211",@"212",@"213"];
+    NSArray *fogArr = @[@"500",@"501",@"502"];
+    NSArray *stormArr = @[@"503",@"504",@"505",@"506",@"507",@"508"];
     if ([codeArr containsObject:code]) {
          [self rianOrSnowWithCode:code date:date];
+        return;
     }
-    
+    if ([code isEqualToString:@"100"]) {
+        [self sunnyDayWithDate:date];
+        return;
+    }
+    if ([codeCloundArr containsObject:code]) {
+        [self MorecloundWithDate:date];
+        return;
+    }
+    if ([windyArr containsObject:code]) {
+        [self windyWithDate:date];
+        return;
+    }
+    if ([bgWindyArr containsObject:code]) {
+        [self bgWindyWithDate:date];
+        return;
+    }
+    if ([fogArr containsObject:code]) {
+        [self fogWithDate:date];
+        return;
+    }
+    if ([stormArr containsObject:code]) {
+        [self stormWithDate:date];
+        return;
+    }
+    if ([code isEqualToString:@"900"]) {
+        [self hotWithDate:date];
+        return;
+    }
+    if ([code isEqualToString:@"901"]) {
+        [self coldWithDate:date];
+    }
 //    [self rianOrSnowWithCode:code date:date];
 }
+-(void)coldWithDate:(NSString *)date{
+    NSString *subDate = [date substringWithRange:NSMakeRange(11, 2)];
+    NSInteger intSubDate = [subDate integerValue];
+    if (intSubDate > 6 && intSubDate < 18) {
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"bg_sunny.jpg"];
+    }
+    else{
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"fog_night.jpg"];
+    }
+}
+-(void)hotWithDate:(NSString *)date{
+    NSString *subDate = [date substringWithRange:NSMakeRange(11, 2)];
+    NSInteger intSubDate = [subDate integerValue];
+    if (intSubDate > 6 && intSubDate < 18) {
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"sunny.jpg"];
+    }
+    else{
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"bg_night_sunny.jpg"];
+    }
+}
+//沙尘暴
+-(void)stormWithDate:(NSString *)date{
+    NSString *subDate = [date substringWithRange:NSMakeRange(11, 2)];
+    NSInteger intSubDate = [subDate integerValue];
+    if (intSubDate > 6 && intSubDate < 18) {
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"haze.jpg"];
+    }
+    else{
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"bg_thunder_storm.jpg"];
+    }
+}
+//雾
+-(void)fogWithDate:(NSString *)date{
+    NSString *subDate = [date substringWithRange:NSMakeRange(11, 2)];
+    NSInteger intSubDate = [subDate integerValue];
+    if (intSubDate > 6 && intSubDate < 18) {
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"bg_middle_rain.jpg"];
+    }
+    else{
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"bg_night_fog.jpg"];
+    }
+}
+//强风
+-(void)bgWindyWithDate:(NSString *)date{
+    NSString *subDate = [date substringWithRange:NSMakeRange(11, 2)];
+    NSInteger intSubDate = [subDate integerValue];
+    if (intSubDate > 6 && intSubDate < 18) {
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"cloud.jpg"];
+    }
+    else{
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"nightcloud.jpg"];
+    }
+}
+//微风 ---------------------------???????
+-(void)windyWithDate:(NSString *)date{
+    NSString *subDate = [date substringWithRange:NSMakeRange(11, 2)];
+    NSInteger intSubDate = [subDate integerValue];
+    if (intSubDate > 6 && intSubDate < 18) {
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"cloud.jpg"];
+    }
+    else{
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"nightcloud.jpg"];
+    }
+}
+//多云
+-(void)MorecloundWithDate:(NSString *)date{
+    NSString *subDate = [date substringWithRange:NSMakeRange(11, 2)];
+    NSInteger intSubDate = [subDate integerValue];
+    if (intSubDate > 6 && intSubDate < 18) {
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"cloud.jpg"];
+    }
+    else{
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"nightcloud.jpg"];
+    }
+}
 
-
+//晴
+-(void)sunnyDayWithDate:(NSString *)date{
+    
+    NSString *subDate = [date substringWithRange:NSMakeRange(11, 2)];
+    NSInteger intSubDate = [subDate integerValue];
+    if (intSubDate > 6 && intSubDate < 18) {
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"sunny.jpg"];
+    }
+    else{
+        _XYBackgroundImgView.image = [UIImage imageNamed:@"bg_night_sunny.jpg"];
+    }
+}
 //雨雪
 -(void)rianOrSnowWithCode:(NSString *)code date:(NSString *)date{
     NSArray *codeArr = @[@[@"300",@"309",@"305"],@[@"304",],@[@"302",@"303",@"301",@"306",@"307",@"308",@"310",@"311",@"312"],@[@"313",@"404",@"405",@"406"],@[@"401",@"402",@"403"],@[@"400",@"407"]];
