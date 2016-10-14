@@ -42,9 +42,9 @@
 }
 #pragma mark -初始化UI
 -(void)initUIcity:(NSString *)cityStr{
-   
+    NSArray *imageArr = @[@"cloudy_n_portrait.jpg",@"bg_middle_rain.jpg",@"bg_thunder_storm.jpg",@"blur_bg_heavy_rain_night",@"cloudy_n_portrait.jpg",@"bg_night_sunny.jpg",@"blur_bg_shower_rain_day.jpg",@"blur_bg_slight_rain_day.jpg"];
     self.imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_width, SCREENH_height)];
-    _imageView.image = [UIImage imageNamed:@"na.jpg"];
+    _imageView.image = [UIImage imageNamed:imageArr[(arc4random()%((imageArr.count-1) - 0 + 1) + 0)]];
     [self.view addSubview:_imageView];
     _toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, SCREEN_width, SCREENH_height)];
     /** 毛玻璃 */
@@ -78,7 +78,7 @@
     /* 数据源 */
     _lineChart.valueArr = @[self.TemperatureMaxArr,self.TemperatureMinArr];
     /* 值折线的折线颜色 默认暗黑色*/
-    _lineChart.valueLineColorArr =@[ LRRGBColor(80, 164, 184), LRRGBColor(205, 205, 180)];
+    _lineChart.valueLineColorArr =@[ LRRGBColor(57, 95, 194), LRRGBColor(205, 205, 180)];
     /* 值点的颜色 默认橘黄色*/
     _lineChart.pointColorArr = @[LRRGBColor(120, 164, 184),[UIColor yellowColor]];
     /* X和Y轴的颜色 默认暗黑色 */

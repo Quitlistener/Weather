@@ -9,6 +9,7 @@
 #import "SceneryDetailViewController.h"
 #import <WebKit/WebKit.h>
 #import "MBProgressHUD.h"
+#import "Monitor.h"
 
 #define WKremoveAD(str) ([NSString stringWithFormat:@"document.getElementsByClassName('%@')[0].style.display = 'none'",(str)] )
 
@@ -67,8 +68,9 @@
 
 #pragma mark -WKWebView代理
 /** 开始加载页面调用 */
-- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
-   
+/** 开始请求 */
+-(void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
+    [Monitor monitorWithView:self.view];
 }
 
 /** 页面加载完成后触发该方法 */

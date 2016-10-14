@@ -15,6 +15,7 @@
 #import "CityDetailDBManager.h"
 #import "userInfoModel.h"
 #import "UIViewController+MMDrawerController.h"
+#import "Monitor.h"
 
 @interface SceneryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -79,6 +80,9 @@
 
 #pragma mark -网络请求
 -(void)requestDatacitySry:(NSString *)str{
+    
+    [Monitor monitorWithView:self.view];
+    
     [NetWorkRequest requestWithMethod:GET URL:[NSString stringWithFormat:@"http://apis.baidu.com/qunartravel/travellist/travellist?query=%@&page=%ld",str,self.pageIndex] para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         self.sceneryBase = [[SceneryBaseClass alloc]initWithDictionary:dic];
