@@ -9,6 +9,7 @@
 #import "NewsDetailsViewController.h"
 #import <WebKit/WebKit.h>
 #import "MBProgressHUD.h"
+#import "Monitor.h"
 
 #define WKremoveAD(str) ([NSString stringWithFormat:@"document.getElementsByClassName('%@')[0].style.display = 'none'",(str)] )
 
@@ -49,6 +50,11 @@
 }
 
 #pragma mark -WKWebiew代理
+/** 开始请求 */
+-(void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
+    [Monitor monitorWithView:self.view];
+}
+
 /** 页面加载完成后触发该方法 */
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
     int a = 0;

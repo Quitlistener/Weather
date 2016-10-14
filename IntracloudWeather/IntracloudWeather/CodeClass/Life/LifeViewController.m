@@ -16,6 +16,7 @@
 #import "CityDetailDBManager.h"
 #import "WeatherDataModels.h"
 #import "MBProgressHUD.h"
+#import "Monitor.h"
 
 
 @interface LifeViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,CAAnimationDelegate,UIScrollViewDelegate>
@@ -104,6 +105,8 @@
 
 #pragma mark -网络请求
 -(void)requestData{
+    /** 监听网络 */
+    [Monitor monitorWithView:self.view];
     /** utf-8编码 */
     NSString *data = [NSString stringWithFormat:@"%@",self.userModer.city];
     NSString *dataUTF8 = [data stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

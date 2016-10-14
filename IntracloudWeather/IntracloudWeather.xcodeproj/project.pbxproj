@@ -32,6 +32,7 @@
 		3F0385581D9CF919004D5423 /* ForeignCitysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */; };
 		3F2EC3311DB081C5009BA74B /* 旅游.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2EC32F1DB081C5009BA74B /* 旅游.png */; };
 		3F2EC3321DB081C5009BA74B /* 感冒指数.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2EC3301DB081C5009BA74B /* 感冒指数.png */; };
+		3F2EC3351DB09CFC009BA74B /* Monitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2EC3341DB09CFC009BA74B /* Monitor.m */; };
 		3F4709291DA91D8900452422 /* 删除.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F4709281DA91D8900452422 /* 删除.png */; };
 		3F5433201DA9040500E4D290 /* 添加.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54331F1DA9040500E4D290 /* 添加.png */; };
 		3F5433221DA9043000E4D290 /* hotCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F5433211DA9043000E4D290 /* hotCity.plist */; };
@@ -248,6 +249,8 @@
 		3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForeignCitysViewController.m; sourceTree = "<group>"; };
 		3F2EC32F1DB081C5009BA74B /* 旅游.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "旅游.png"; sourceTree = "<group>"; };
 		3F2EC3301DB081C5009BA74B /* 感冒指数.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "感冒指数.png"; sourceTree = "<group>"; };
+		3F2EC3331DB09CFC009BA74B /* Monitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monitor.h; sourceTree = "<group>"; };
+		3F2EC3341DB09CFC009BA74B /* Monitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Monitor.m; sourceTree = "<group>"; };
 		3F4709281DA91D8900452422 /* 删除.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除.png"; sourceTree = "<group>"; };
 		3F54331F1DA9040500E4D290 /* 添加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加.png"; sourceTree = "<group>"; };
 		3F5433211DA9043000E4D290 /* hotCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hotCity.plist; sourceTree = "<group>"; };
@@ -1026,6 +1029,8 @@
 				F270AAA71D9F611A0051959A /* CityDetailDBManager.m */,
 				3FD0A7841DA9D342004BEDD3 /* userInfoManager.h */,
 				3FD0A7851DA9D342004BEDD3 /* userInfoManager.m */,
+				3F2EC3331DB09CFC009BA74B /* Monitor.h */,
+				3F2EC3341DB09CFC009BA74B /* Monitor.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1457,6 +1462,7 @@
 				3FB4EB541DACF02B00308BA5 /* SceneryBooks.m in Sources */,
 				3FD0A7BF1DA9E7B4004BEDD3 /* WeatherHourlyForecast.m in Sources */,
 				3F0385231D9C0533004D5423 /* LeftMenuViewController.m in Sources */,
+				3F2EC3351DB09CFC009BA74B /* Monitor.m in Sources */,
 				3FB572B11DAA067000590913 /* JHChart.m in Sources */,
 				3FFF3B081D9CEEFC0069B4A7 /* LifeViewController.m in Sources */,
 				3F6B089F1DA8C71E00814A0F /* SAMultisectorControl.m in Sources */,
