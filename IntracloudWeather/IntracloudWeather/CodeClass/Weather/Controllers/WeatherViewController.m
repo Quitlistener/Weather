@@ -399,7 +399,7 @@
 //        static dispatch_once_t onceToken;
 //        dispatch_once(&onceToken, ^{
             _sunnyDayImag = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, Main_Screen_Width + 100, Main_Screen_Width)];
-            _sunnyDayImag.center = CGPointMake(SCREEN_width* 0.91, SCREENH_height*0.57);
+            _sunnyDayImag.center = CGPointMake(SCREEN_width - 30, SCREENH_height*0.6 - 20);
             _sunnyDayImag.image = [UIImage imageNamed:@"ele_sunnySunshine"];
             [_XYFrontImageView addSubview:_sunnyDayImag];
 //        });
