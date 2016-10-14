@@ -184,7 +184,7 @@
                             if (![backCode isEqualToString:@"100"]) {
                                 _sunnyDayImag.hidden = YES;
                             }
-                            [self makeBackgroundAnimationsWithCode:@"100" date:backDate];
+                            [self makeBackgroundAnimationsWithCode:backCode date:backDate];
                             NSString *wind1 = HeWeatherDataService30.now.wind.dir;
                             NSMutableString *wind2 = [NSMutableString stringWithString:HeWeatherDataService30.now.wind.sc];
                             if ([self IsChinese:model.city]) {
