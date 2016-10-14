@@ -18,11 +18,14 @@
 #import "userInfoModel.h"
 #import "MBProgressHUD.h"
 
+
 @interface AppDelegate ()<CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationMabager;
 @property(nonatomic ,strong) CLGeocoder *geocoder;
 @property (nonatomic, strong) MBProgressHUD *hud;
+
+@property (strong, nonatomic) MMDrawerController *drawer;
 
 @end
 
@@ -77,6 +80,8 @@
     
     //所有服务启动前，需要确保执行createUtility
     [IFlySpeechUtility createUtility:initString];
+    
+    
     
     return YES;
 }

@@ -32,6 +32,7 @@
 @property (nonatomic, strong) NSArray *arr;
 @property (nonatomic, assign) BOOL isPullUp;
 @property (nonatomic, strong) MBProgressHUD *hud;
+@property (nonatomic, strong) NSMutableArray *lifeArr;
 @end
 
 @implementation LifeViewController
@@ -40,10 +41,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    _lifeArr = [NSMutableArray array];
+    [_lifeArr addObject:@"info_9.png"];
+    [_lifeArr addObject:@"info_11.png"];
+    [_lifeArr addObject:@"感冒指数.png"];
+    [_lifeArr addObject:@"info_17.png"];
+    [_lifeArr addObject:@"旅游.png"];
+    [_lifeArr addObject:@"info_12.png"];
+    
     self.urlIndex = 0;
     self.userCity = [CityDetailDBManager defaultManager];
     self.userModer = [self.userCity selectCityData].firstObject;
     self.muArr = [NSMutableArray array];
+    self.navigationItem.title = @"生活";
     [self initUI];
     UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(TapBackAction)];
@@ -203,6 +213,7 @@
         cell.backgroundColor = LRRGBColor(236, 96, 59);
     }
     cell.suitable.text = _arr[indexPath.row];
+    cell.HeaderImage.image = [UIImage imageNamed:_lifeArr[indexPath.row]];
     return cell;
 }
 
@@ -236,6 +247,7 @@
         _itemView.contentLabel.text = array[indexPath.row];
     }
     _itemView.typeLabel.text = _arr[indexPath.row];
+    _itemView.itemImage.image = [UIImage imageNamed:_lifeArr[indexPath.row]];
     [self.view addSubview:_itemView];
     /** collectionView的cell交互关闭 */
     _collectionView.allowsSelection = NO;

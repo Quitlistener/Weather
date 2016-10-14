@@ -26,6 +26,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.newsAD = @[@"share_mask js-share-mask",@"topbar",@"a_adtemp a_topad js-topad",@"back_to_top",@"go_index",@"more_client more-client ",@"templet",@"relative_doc",@"hot_news",@"foot_nav",@"copyright",@"relative_doc"];
+    
+    self.navigationItem.title = @"新闻详情";
     [self initUI];
     UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(tapBackAction)];

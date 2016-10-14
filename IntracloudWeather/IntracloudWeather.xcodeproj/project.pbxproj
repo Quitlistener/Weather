@@ -30,6 +30,8 @@
 		3F0385541D9CF527004D5423 /* DetailCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385521D9CF527004D5423 /* DetailCityTableViewCell.m */; };
 		3F0385551D9CF527004D5423 /* DetailCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */; };
 		3F0385581D9CF919004D5423 /* ForeignCitysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */; };
+		3F2EC3311DB081C5009BA74B /* 旅游.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2EC32F1DB081C5009BA74B /* 旅游.png */; };
+		3F2EC3321DB081C5009BA74B /* 感冒指数.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2EC3301DB081C5009BA74B /* 感冒指数.png */; };
 		3F4709291DA91D8900452422 /* 删除.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F4709281DA91D8900452422 /* 删除.png */; };
 		3F5433201DA9040500E4D290 /* 添加.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54331F1DA9040500E4D290 /* 添加.png */; };
 		3F5433221DA9043000E4D290 /* hotCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F5433211DA9043000E4D290 /* hotCity.plist */; };
@@ -243,6 +245,8 @@
 		3F0385531D9CF527004D5423 /* DetailCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCityTableViewCell.xib; sourceTree = "<group>"; };
 		3F0385561D9CF919004D5423 /* ForeignCitysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForeignCitysViewController.h; sourceTree = "<group>"; };
 		3F0385571D9CF919004D5423 /* ForeignCitysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForeignCitysViewController.m; sourceTree = "<group>"; };
+		3F2EC32F1DB081C5009BA74B /* 旅游.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "旅游.png"; sourceTree = "<group>"; };
+		3F2EC3301DB081C5009BA74B /* 感冒指数.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "感冒指数.png"; sourceTree = "<group>"; };
 		3F4709281DA91D8900452422 /* 删除.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除.png"; sourceTree = "<group>"; };
 		3F54331F1DA9040500E4D290 /* 添加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加.png"; sourceTree = "<group>"; };
 		3F5433211DA9043000E4D290 /* hotCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hotCity.plist; sourceTree = "<group>"; };
@@ -776,6 +780,8 @@
 				3F5743EA1DAF779F00C80911 /* info_11.png */,
 				3F5743EB1DAF779F00C80911 /* info_12.png */,
 				3F5743EC1DAF779F00C80911 /* info_17.png */,
+				3F2EC32F1DB081C5009BA74B /* 旅游.png */,
+				3F2EC3301DB081C5009BA74B /* 感冒指数.png */,
 			);
 			path = gj;
 			sourceTree = "<group>";
@@ -1244,6 +1250,7 @@
 				3F5433271DA9045F00E4D290 /* AddCollectionViewCell.xib in Resources */,
 				3FD3F8211D9D471900736C0B /* FallsCollectionViewCell.xib in Resources */,
 				3FB572D51DABBE9800590913 /* rain_night.jpg in Resources */,
+				3F2EC3321DB081C5009BA74B /* 感冒指数.png in Resources */,
 				3F5743E41DAF777600C80911 /* blur_bg_snow_day.jpg in Resources */,
 				3F5743D21DAF777600C80911 /* bg_night_sunny.jpg in Resources */,
 				3FDFD13E1DB074FF00FDD44B /* cloudy_n_portrait.jpg in Resources */,
@@ -1307,6 +1314,7 @@
 				3FFF3A621D9B9FC80069B4A7 /* Main.storyboard in Resources */,
 				3FFF3AFA1D9CAE140069B4A7 /* TodayWeatherView.xib in Resources */,
 				3FB572D21DABBE9800590913 /* night.jpg in Resources */,
+				3F2EC3311DB081C5009BA74B /* 旅游.png in Resources */,
 				3FB572DA1DABBE9800590913 /* sunny_day.jpg in Resources */,
 				3F5743AD1DAF2AA600C80911 /* snow1.png in Resources */,
 				3F5743B11DAF3FB600C80911 /* rainLine3.png in Resources */,

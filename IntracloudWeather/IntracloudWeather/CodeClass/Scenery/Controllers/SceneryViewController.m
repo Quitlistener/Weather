@@ -39,6 +39,8 @@
     UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(LeftBackAction)];
     
+    self.navigationItem.title = @"本地景色";
+    
     self.isPulldown = YES;
     self.pageIndex = 1;
     CityDetailDBManager *inmanager = [[CityDetailDBManager defaultManager]init];

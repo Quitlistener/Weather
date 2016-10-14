@@ -11,5 +11,7 @@
 @interface ItemView : UIView
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *itemImage;
+
 
 @end
