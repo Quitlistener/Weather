@@ -174,6 +174,7 @@
 		3FD3F8471D9E4E9200736C0B /* ChangeVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3F8461D9E4E9200736C0B /* ChangeVoiceViewController.m */; };
 		3FDFD13E1DB074FF00FDD44B /* cloudy_n_portrait.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FDFD13D1DB074FF00FDD44B /* cloudy_n_portrait.jpg */; };
 		3FDFD1401DB07C3B00FDD44B /* 猫和马达.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FDFD13F1DB07C3B00FDD44B /* 猫和马达.jpg */; };
+		3FDFD1421DB0A3B500FDD44B /* ele_sunnySunshine.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FDFD1411DB0A3B500FDD44B /* ele_sunnySunshine.png */; };
 		3FFF3A591D9B9FC80069B4A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A581D9B9FC80069B4A7 /* main.m */; };
 		3FFF3A5C1D9B9FC80069B4A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF3A5B1D9B9FC80069B4A7 /* AppDelegate.m */; };
 		3FFF3A621D9B9FC80069B4A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF3A601D9B9FC80069B4A7 /* Main.storyboard */; };
@@ -455,6 +456,7 @@
 		3FD3F8461D9E4E9200736C0B /* ChangeVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeVoiceViewController.m; sourceTree = "<group>"; };
 		3FDFD13D1DB074FF00FDD44B /* cloudy_n_portrait.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cloudy_n_portrait.jpg; sourceTree = "<group>"; };
 		3FDFD13F1DB07C3B00FDD44B /* 猫和马达.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "猫和马达.jpg"; sourceTree = "<group>"; };
+		3FDFD1411DB0A3B500FDD44B /* ele_sunnySunshine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ele_sunnySunshine.png; sourceTree = "<group>"; };
 		3FFF3A541D9B9FC80069B4A7 /* IntracloudWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntracloudWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFF3A581D9B9FC80069B4A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FFF3A5A1D9B9FC80069B4A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -782,6 +784,7 @@
 				3F5743EC1DAF779F00C80911 /* info_17.png */,
 				3F2EC32F1DB081C5009BA74B /* 旅游.png */,
 				3F2EC3301DB081C5009BA74B /* 感冒指数.png */,
+				3FDFD1411DB0A3B500FDD44B /* ele_sunnySunshine.png */,
 			);
 			path = gj;
 			sourceTree = "<group>";
@@ -1271,6 +1274,7 @@
 				3F03852D1D9C07DF004D5423 /* 生活.png in Resources */,
 				3F0385481D9CEA8A004D5423 /* MoreCityTableViewCell.xib in Resources */,
 				3FFF3A9A1D9BB2230069B4A7 /* WeatherViewController.xib in Resources */,
+				3FDFD1421DB0A3B500FDD44B /* ele_sunnySunshine.png in Resources */,
 				3F5743D91DAF777600C80911 /* bg_sunny.jpg in Resources */,
 				3F5743AF1DAF3E6700C80911 /* rainLine.png in Resources */,
 				3FB572D11DABBE9800590913 /* na.jpg in Resources */,

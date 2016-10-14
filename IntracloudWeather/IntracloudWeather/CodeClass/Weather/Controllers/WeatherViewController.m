@@ -43,6 +43,7 @@
     NSInteger _index_Code;
     int _imgWidth_Max ;
     int _imgWidth_Min ;
+    UIImageView *_sunnyDayImag;
 }
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) CurrentWeatherDetailsView *current;
@@ -155,18 +156,35 @@
                         NSString *cond = HeWeatherDataService30.now.cond.txt;
                         if (air1) {
                             view.XYAirLabel.text = air;
+                            view.XYAirLabel.shadowColor = [UIColor grayColor];
+                            view.XYAirLabel.shadowOffset = CGSizeMake(1, 1);
                         }
                         else{
                             view.XYAirLabel.hidden = YES;
+                            view.XYAirLabel.shadowColor = [UIColor grayColor];
+                            view.XYAirLabel.shadowOffset = CGSizeMake(1, 1);
                         }
                         view.XYTimeLabel.text = timeStr;
                         view.XYWindLabel.text = wind;
                         view.XYCurrentTmp.text = [tmp stringByAppendingString:@"℃"];
                         view.XYWeatherCondLabel.text = cond;
+                        
+                        view.XYTimeLabel.shadowColor = [UIColor grayColor];
+                        view.XYTimeLabel.shadowOffset = CGSizeMake(1, 1);
+                        view.XYWindLabel.shadowColor = [UIColor grayColor];
+                        view.XYWindLabel.shadowOffset = CGSizeMake(1, 1);
+                        view.XYCurrentTmp.shadowColor = [UIColor grayColor];
+                        view.XYCurrentTmp.shadowOffset = CGSizeMake(1, 1);
+                        view.XYWeatherCondLabel.shadowColor = [UIColor grayColor];
+                        view.XYWeatherCondLabel.shadowOffset = CGSizeMake(1, 1);
+                        
                         if (currentCityIndex + 10 == tag) {
                             NSString *backCode = HeWeatherDataService30.now.cond.code;
                             NSString *backDate = HeWeatherDataService30.basic.update.loc;
-                            [self makeBackgroundAnimationsWithCode:backCode date:backDate];
+                            if (![backCode isEqualToString:@"100"]) {
+                                _sunnyDayImag.hidden = YES;
+                            }
+                            [self makeBackgroundAnimationsWithCode:@"100" date:backDate];
                             NSString *wind1 = HeWeatherDataService30.now.wind.dir;
                             NSMutableString *wind2 = [NSMutableString stringWithString:HeWeatherDataService30.now.wind.sc];
                             if ([self IsChinese:model.city]) {
@@ -178,7 +196,7 @@
                                         [wind2 replaceCharactersInRange:NSMakeRange(i, 1) withString:@"到"];
                                     }
                                 }
-                                NSString *voicestr = [NSString stringWithFormat:@"今天%@天气%@,%@%@级,温度%@摄氏度!",model.city,cond,wind1,wind2,tmp];
+                                NSString *voicestr = [NSString stringWithFormat:@"今天%@天气为%@,%@%@级,温度%@摄氏度!",model.city,cond,wind1,wind2,tmp];
                                 _voiceStr = [NSMutableString stringWithString:voicestr];
                             }
                             else{
@@ -231,7 +249,7 @@
 #pragma -mark 背景动画
 -(void)makeBackgroundAnimationsWithCode:(NSString *)code date:(NSString *)date{
     NSArray *codeArr = @[@"300",@"309",@"305",@"304",@"302",@"303",@"301",@"306",@"307",@"308",@"310",@"311",@"312",@"313",@"404",@"405",@"406",@"401",@"402",@"403",@"400",@"407"];
-//    code = @"407";
+//    code = @"300";
     NSArray *codeCloundArr = @[@"102",@"103"];
     NSArray *moreCodeCloundArr = @[@"101",@"104"];
     NSArray *windyArr = @[@"200",@"201",@"202",@"203",@"204"];
@@ -377,10 +395,43 @@
     NSInteger intSubDate = [subDate integerValue];
     if (intSubDate > 6 && intSubDate < 18) {
         _XYBackgroundImgView.image = [UIImage imageNamed:@"sunny.jpg"];
+//        static dispatch_once_t onceToken;
+//        dispatch_once(&onceToken, ^{
+            _sunnyDayImag = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, Main_Screen_Width + 100, Main_Screen_Width)];
+            _sunnyDayImag.center = CGPointMake(SCREEN_width - 30, SCREENH_height*0.6 - 20);
+            _sunnyDayImag.image = [UIImage imageNamed:@"ele_sunnySunshine"];
+            [_XYFrontImageView addSubview:_sunnyDayImag];
+//        });
+//        [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(makeSunshine) userInfo:nil repeats:YES];
+        [self makeSunshine];
+        
     }
     else{
         _XYBackgroundImgView.image = [UIImage imageNamed:@"bg_night_sunny.jpg"];
     }
+    
+}
+-(void)makeSunshine{
+    if (_sunnyDayImag.hidden) {
+         _sunnyDayImag.hidden = NO;
+    }
+    CGAffineTransform transform;
+    
+    transform = CGAffineTransformRotate(_sunnyDayImag.transform, M_PI);
+    //缩放
+    //    transform = CGAffineTransformScale(_View_0.transform, 2, 1);
+    
+    //    CATransaction
+    //    CATransform3D
+    
+    [UIView beginAnimations:@"000" context:nil];
+    [UIView setAnimationDuration:30];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationRepeatCount:10000];
+    [_sunnyDayImag setTransform:transform];
+    
+    //开始动画
+    [UIView commitAnimations];
 }
 //雨雪
 -(void)rianOrSnowWithCode:(NSString *)code date:(NSString *)date{
@@ -589,31 +640,37 @@ static int i = 0;
 
 - (void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
 {
-    UIImageView *imageView = (UIImageView *)[self.view viewWithTag:[animationID intValue]];
-//    float x = IMAGE_WIDTH;
-    float x = arc4random()%_imgWidth_Max + _imgWidth_Min;
-    if (_index_Code == 0 || _index_Code == 2) {
-        if (imageView.tag < 0) {
-            imageView.frame = CGRectMake(arc4random()%((int)Main_Screen_Width), -130, x*1.3, x*3);
-            
-        }
-        else{
-            imageView.frame = CGRectMake(-60, arc4random()%((int)Main_Screen_Height + 100 +1) -100  , x*1.5, x*3);
-        }
+    if ([animationID isEqualToString:@"000"]) {
+        
     }
-    else if (_index_Code == 1 || _index_Code == 3){
-        if (imageView.tag < 0) {
-            imageView.frame = CGRectMake(arc4random()%((int)Main_Screen_Width), -120, x*1.5, x*4);
+    else{
+        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:[animationID intValue]];
+        //    float x = IMAGE_WIDTH;
+        float x = arc4random()%_imgWidth_Max + _imgWidth_Min;
+        if (_index_Code == 0 || _index_Code == 2) {
+            if (imageView.tag < 0) {
+                imageView.frame = CGRectMake(arc4random()%((int)Main_Screen_Width), -130, x*1.3, x*3);
+                
+            }
+            else{
+                imageView.frame = CGRectMake(-60, arc4random()%((int)Main_Screen_Height + 100 +1) -100  , x*1.5, x*3);
+            }
+        }
+        else if (_index_Code == 1 || _index_Code == 3){
+            if (imageView.tag < 0) {
+                imageView.frame = CGRectMake(arc4random()%((int)Main_Screen_Width), -120, x*1.5, x*4);
+            }
+            else{
+                imageView.frame = CGRectMake(IMAGE_X, -50, x, x);
+            }
+            
         }
         else{
             imageView.frame = CGRectMake(IMAGE_X, -50, x, x);
         }
-        
+        [_imagesArray addObject:imageView];
+
     }
-    else{
-        imageView.frame = CGRectMake(IMAGE_X, -50, x, x);
-    }
-    [_imagesArray addObject:imageView];
 }
 
 
@@ -717,8 +774,13 @@ static int i = 0;
     alertView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
     [alertView show];
     //            sleep(1.5);
-    
+    userInfoModel *userInfo = [[CityDetailDBManager defaultManager]selectCityData].firstObject;
+    NSInteger index = [userInfo.index integerValue];
+    [self dataRequestWithCityid:userInfo.cityInfoIdentifier tag:index+10];
     for (int i = 0 ; i < _CitysDataArr.count; i ++) {
+        if (i == (int)index) {
+            continue;
+        }
         CityInfoCityInfo *city = (CityInfoCityInfo *)_CitysDataArr[i];
         [self dataRequestWithCityid:city.cityInfoIdentifier tag:i+10];
     }
