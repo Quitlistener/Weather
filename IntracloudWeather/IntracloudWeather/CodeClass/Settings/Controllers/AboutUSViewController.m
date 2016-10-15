@@ -19,11 +19,19 @@
     // Do any additional setup after loading the view from its nib.
     UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(LeftBackAction)];
-    
+    /** 手势 */
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapBackAction:)];
+    [self.view addGestureRecognizer:tapGesture];
 }
 
 -(void)LeftBackAction{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)tapBackAction:(UITapGestureRecognizer *)tap{
+   [self dismissViewControllerAnimated:YES completion:^{
+       
+   }];
 }
 
 

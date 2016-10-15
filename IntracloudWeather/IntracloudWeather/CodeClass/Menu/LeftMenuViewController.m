@@ -14,6 +14,7 @@
 #import "SettingViewController.h"
 #import "SceneryViewController.h"
 #import "TrendViewController.h"
+#import "AboutUSViewController.h"
 
 @interface LeftMenuViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -57,6 +58,17 @@
     headerImage.layer.cornerRadius = CGRectGetWidth(headerImage.frame)/2.f;
     headerImage.layer.masksToBounds = YES;
     headerImage.image = [UIImage imageNamed:@"iTunesArtwork.png"];
+    
+    /** 手势 */
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
+    //交互激活,开启
+    headerImage.userInteractionEnabled = YES;
+    //设置手势点击次数
+    tapGesture.numberOfTapsRequired = 1;
+    //设置点击的手指数
+    tapGesture.numberOfTouchesRequired = 1;
+    [headerImage addGestureRecognizer:tapGesture];
+    
     [HeaderView addSubview:headerImage];
     UILabel *headerLabel = [[UILabel alloc]initWithFrame:CGRectMake(65, 40, 100, 30)];
     headerLabel.text = @"云之天气";
@@ -117,6 +129,13 @@
     }
 }
 
+//
+-(void)tapAction:(UITapGestureRecognizer *)tap{
+    AboutUSViewController *abVC = [AboutUSViewController new];
+    [self presentViewController:abVC animated:YES completion:^{
+        
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

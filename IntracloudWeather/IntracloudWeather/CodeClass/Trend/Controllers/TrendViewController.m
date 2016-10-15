@@ -122,8 +122,9 @@
         [str deleteCharactersInRange:NSMakeRange(0, 5)];
         /** 替换字符 */
         [str replaceCharactersInRange:NSMakeRange(2, 1) withString:@"."];
-        UILabel *dateLabel = [[UILabel alloc]initWithFrame:CGRectMake((SCREEN_width- 40) / 7 * i + 5*(i+1), 80, (SCREEN_width- 40) / 7, 50)];
+        UILabel *dateLabel = [[UILabel alloc]initWithFrame:CGRectMake((SCREEN_width- 35) / 7 * i + 5*(i+1), 80, (SCREEN_width- 35) / 7, 50)];
         dateLabel.text = str;
+        dateLabel.font = [UIFont systemFontOfSize:16];
         dateLabel.textColor = [UIColor whiteColor];
         [self.toolBar addSubview:dateLabel];
         /** 风速风向 */
