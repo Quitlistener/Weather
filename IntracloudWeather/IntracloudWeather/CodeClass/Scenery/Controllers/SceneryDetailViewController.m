@@ -36,7 +36,8 @@
     
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.arrayAD = @[@"tit",@"e_crumb",@"e_banner",@"tool-zan icon",@"tool-comment icon",@"tool-share icon",@"comment",@"relevant-img",@"relevant-list",@"main_nav_wrapper",@"titles relevant-titles",@"footer_nav clearfix",@"mobile_pc clearfix",@"copyright",@"tool-back icon",@"e_banner_bg",@"t_author",@"info-bar",@"user_name_icon"];
+//    self.arrayAD = @[@"tit",@"e_crumb",@"e_banner",@"tool-zan icon",@"tool-comment icon",@"tool-share icon",@"comment",@"relevant-img",@"relevant-list",@"main_nav_wrapper",@"titles relevant-titles",@"footer_nav clearfix",@"mobile_pc clearfix",@"copyright",@"tool-back icon",@"e_banner_bg",@"t_author",@"info-bar",@"user_name_icon"];
+    self.arrayAD = @[@"b_banner",@"b_crumb",@"tool",@"t_author",@"user_name_icon",@"comment",@"relevant-list",@"qn_footer",@"titles relevant-titles"];
     
     UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(TapLeftBackAction)];
@@ -73,9 +74,37 @@
     [Monitor monitorWithView:self.view];
 }
 
+-(void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation{
+    NSLog(@"++1");
+//    for (int i = 0; i < _arrayAD.count; i++) {
+//        [self.WKWebiew evaluateJavaScript:WKremoveAD(_arrayAD[i]) completionHandler:^(id item, NSError * _Nullable error) {
+//        }];
+//    }
+//        /** 去掉广告后删除隐藏内容的View */
+//        [_shadeView removeFromSuperview];
+//        //隐藏正在加载
+//        [self.hud hideAnimated:YES];
+//        [_WKWebiew stopLoading];
+    
+}
+
 /** 页面加载完成后触发该方法 */
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
-   
+    NSLog(@"++2");
+    for (int i = 0; i < 5; i++) {
+        [self.WKWebiew evaluateJavaScript:WKremoveAD(_arrayAD[i]) completionHandler:^(id item, NSError * _Nullable error) {
+        }];
+    }
+    /** 去掉广告后删除隐藏内容的View */
+    [_shadeView removeFromSuperview];
+    //隐藏正在加载
+    [self.hud hideAnimated:YES];
+    
+    for (int i = 0; i < 4; i++) {
+        [self.WKWebiew evaluateJavaScript:WKremoveAD(_arrayAD[i+5]) completionHandler:^(id item, NSError * _Nullable error) {
+        }];
+    }
+    /*
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
     dispatch_async(queue, ^{
@@ -112,10 +141,11 @@
             }];
         }
     });
-    /** 去掉广告后删除隐藏内容的View */
-    [_shadeView removeFromSuperview];
-    //隐藏正在加载
-    [self.hud hideAnimated:YES];
+    */
+//    /** 去掉广告后删除隐藏内容的View */
+//    [_shadeView removeFromSuperview];
+//    //隐藏正在加载
+//    [self.hud hideAnimated:YES];
     [_WKWebiew stopLoading];
 }
 
