@@ -33,8 +33,10 @@
                         <constraint firstAttribute="width" constant="50" id="3Z7-ZP-Fmn"/>
                         <constraint firstAttribute="height" constant="30" id="ESu-Ls-MiW"/>
                     </constraints>
+                    <size key="titleShadowOffset" width="1" height="1"/>
                     <state key="normal" title="菜单">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="tapLeftMenu:" destination="-1" eventType="touchUpInside" id="4Gw-3C-15R"/>
@@ -51,8 +53,10 @@
                         <constraint firstAttribute="height" constant="30" id="wjl-vl-GHn"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <size key="titleShadowOffset" width="1" height="1"/>
                     <state key="normal" title="城市">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="tapAddCity:" destination="-1" eventType="touchUpInside" id="bOw-vB-Pmt"/>
@@ -63,8 +67,10 @@
                         <constraint firstAttribute="width" constant="40" id="M4o-oo-UVS"/>
                         <constraint firstAttribute="height" constant="30" id="tK4-se-v2j"/>
                     </constraints>
+                    <size key="titleShadowOffset" width="1" height="1"/>
                     <state key="normal" title="分享">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="tapShare:" destination="-1" eventType="touchUpInside" id="cMk-GI-FVG"/>

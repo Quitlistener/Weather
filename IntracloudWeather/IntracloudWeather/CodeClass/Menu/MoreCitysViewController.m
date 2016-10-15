@@ -36,12 +36,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"更多城市";
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    self.navigationItem.backBarButtonItem = backItem;
-    backItem.title = @"返回";
+    UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    //    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+//    self.navigationItem.leftBarButtonItem = backItem;
+    //    backItem.title = @"返回";
     [self loadData];
     [self initUI];
     // Do any additional setup after loading the view.
+}
+-(void)back{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)loadData{
     _dataArr = [NSMutableArray arrayWithObjects:@"国际国外",@"上海",@"云南",@"内蒙古",@"北京",@"台湾",@"吉林",@"四川",@"天津",@"宁夏",@"安徽",@"山东",@"山西",@"广东",@"广西",@"新疆",@"江苏",@"江西",@"河北",@"河南",@"浙江",@"海南",@"湖北",@"湖南",@"澳门",@"甘肃",@"福建",@"西藏",@"贵州",@"辽宁",@"重庆",@"陕西",@"青海",@"香港",@"黑龙江", nil];

@@ -46,10 +46,13 @@
     self.view.backgroundColor = [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1];
     [self loadData];
     [self initUI];
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    self.navigationItem.backBarButtonItem = backItem;
-    backItem.title = @"返回";
+    UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    //    backItem.title = @"返回";
     // Do any additional setup after loading the view.
+}
+-(void)back{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)loadData{
     

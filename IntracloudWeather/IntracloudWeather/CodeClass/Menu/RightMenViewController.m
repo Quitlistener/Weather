@@ -72,14 +72,17 @@
     }
     [self reloadCitys];
     [self initUI];
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    self.navigationItem.backBarButtonItem = backItem;
-    backItem.title = @"返回";
+//    UIBarButtonItem *backItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"返回"] style:UIBarButtonItemStylePlain target:self action:@selector(backItem)];
+//    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+//    self.navigationItem.backBarButtonItem = backItem;
+//    backItem.title = @"返回";
     
     // Do any additional setup after loading the view.
 }
 -(void)initUI{
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backWeatherController)];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"返回"] style:UIBarButtonItemStylePlain target:self action:@selector(backWeatherController)];
+    UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(backWeatherController)];
     self.navigationItem.title = @"城市管理";
     UIBarButtonItem *reloadItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reloadCitys)];
     _editItem = [[UIBarButtonItem alloc]initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editCitys)];
@@ -245,7 +248,7 @@
                 [UIView animateWithDuration:0.1 delay:0 options:0  animations:^
                  {
                      //顺时针旋转0.05 = 0.05 * 180 = 9°
-                     cell2.transform=CGAffineTransformMakeRotation(-0.04);
+                     cell2.transform=CGAffineTransformMakeRotation(-0.02);
                  } completion:^(BOOL finished)
                  {
                      //  重复                                  反向            动画时接收交互
@@ -262,7 +265,7 @@
                       */
                      [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionRepeat|UIViewAnimationOptionAutoreverse|UIViewAnimationOptionAllowUserInteraction  animations:^
                       {
-                          cell2.transform=CGAffineTransformMakeRotation(0.04);
+                          cell2.transform=CGAffineTransformMakeRotation(0.02);
                       } completion:^(BOOL finished) {}];
                  }];
             }
@@ -272,7 +275,7 @@
                 [UIView animateWithDuration:0.1 delay:0 options:0  animations:^
                  {
                      //顺时针旋转0.05 = 0.05 * 180 = 9°
-                     cell2.transform=CGAffineTransformMakeRotation(-0.04);
+                     cell2.transform=CGAffineTransformMakeRotation(-0.02);
                  } completion:^(BOOL finished)
                  {
                      //  重复                                  反向            动画时接收交互
@@ -289,7 +292,7 @@
                       */
                      [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionRepeat|UIViewAnimationOptionAutoreverse|UIViewAnimationOptionAllowUserInteraction  animations:^
                       {
-                          cell2.transform=CGAffineTransformMakeRotation(0.04);
+                          cell2.transform=CGAffineTransformMakeRotation(0.02);
                       } completion:^(BOOL finished) {}];
                  }];
                 
@@ -483,7 +486,7 @@
             [UIView animateWithDuration:0.1 delay:0 options:0  animations:^
              {
                  //顺时针旋转0.05 = 0.05 * 180 = 9°
-                 cell.transform=CGAffineTransformMakeRotation(-0.04);
+                 cell.transform=CGAffineTransformMakeRotation(-0.02);
              } completion:^(BOOL finished)
              {
                  //  重复                                  反向            动画时接收交互
@@ -500,7 +503,7 @@
                   */
                  [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionRepeat|UIViewAnimationOptionAutoreverse|UIViewAnimationOptionAllowUserInteraction  animations:^
                   {
-                      cell.transform=CGAffineTransformMakeRotation(0.04);
+                      cell.transform=CGAffineTransformMakeRotation(0.02);
                   } completion:^(BOOL finished) {}];
              }];
             
@@ -548,7 +551,7 @@
             [UIView animateWithDuration:0.1 delay:0 options:0  animations:^
              {
                  //顺时针旋转0.05 = 0.05 * 180 = 9°
-                 cell.transform=CGAffineTransformMakeRotation(-0.04);
+                 cell.transform=CGAffineTransformMakeRotation(-0.02);
              } completion:^(BOOL finished)
              {
                  //  重复                                  反向            动画时接收交互
@@ -565,7 +568,7 @@
                   */
                  [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionRepeat|UIViewAnimationOptionAutoreverse|UIViewAnimationOptionAllowUserInteraction  animations:^
                   {
-                      cell.transform=CGAffineTransformMakeRotation(0.04);
+                      cell.transform=CGAffineTransformMakeRotation(0.02);
                   } completion:^(BOOL finished) {}];
              }];
             

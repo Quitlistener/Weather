@@ -205,6 +205,7 @@
 //                            if (![backCode isEqualToString:@"100"]) {
                                 _sunnyDayImag.hidden = YES;
 //                            }
+                            
                             [self makeBackgroundAnimationsWithCode:backCode date:backDate];
 //                            [self makeBackgroundAnimationsWithCode:@"313" date:backDate];
                             NSString *wind1 = HeWeatherDataService30.now.wind.dir;
@@ -283,6 +284,9 @@
         return;
     }
     else{
+//        for (UIImageView *view in _imagesArray) {
+//            view.hidden = YES;
+//        }
         _imagesArray = nil;
     }
     if ([code isEqualToString:@"100"]) {
