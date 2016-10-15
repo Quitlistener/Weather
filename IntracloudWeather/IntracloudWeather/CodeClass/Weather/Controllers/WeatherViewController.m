@@ -797,14 +797,14 @@ static int i = 0;
 
 - (void)viewWillAppear:(BOOL)animated{
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"努力加载中..."
-                                                        message:nil
-                                                       delegate:nil
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:nil];
-    alertView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
-    [alertView show];
-                sleep(1.5);
+//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"努力加载中..."
+//                                                        message:nil
+//                                                       delegate:nil
+//                                              cancelButtonTitle:nil
+//                                              otherButtonTitles:nil];
+//    alertView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
+//    [alertView show];
+//                sleep(1.5);
     userInfoModel *userInfo = [[CityDetailDBManager defaultManager]selectCityData].firstObject;
     NSInteger index = [userInfo.index integerValue];
     [self dataRequestWithCityid:userInfo.cityInfoIdentifier tag:index+10];
@@ -815,7 +815,7 @@ static int i = 0;
         CityInfoCityInfo *city = (CityInfoCityInfo *)_CitysDataArr[i];
         [self dataRequestWithCityid:city.cityInfoIdentifier tag:i+10];
     }
-    [alertView dismissWithClickedButtonIndex:0 animated:YES];
+//    [alertView dismissWithClickedButtonIndex:0 animated:YES];
     
     
     /** 讯飞 */

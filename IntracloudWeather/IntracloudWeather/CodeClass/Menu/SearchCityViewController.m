@@ -96,7 +96,7 @@
     NSLog(@"%@",textField.text);
     NSString *str = textField.text ;
     if (str.length > 1 &&[[str substringFromIndex:str.length - 1] isEqualToString:@" "]) {
-        str = [str substringToIndex:str.length - 1] ;
+        str = [str substringToIndex:str.length - 2] ;
     }
     [self searchCityWithSubName:str];
     [_tableView reloadData];
