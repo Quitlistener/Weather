@@ -18,6 +18,7 @@
 #import "userInfoModel.h"
 #import "UIViewController+MMDrawerController.h"
 #import "WeatherViewController.h"
+#import "Monitor.h"
 
 @interface RightMenViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -153,7 +154,7 @@
 }
 #pragma -mark 网络请求
 -(void)dataRequestWithCityid:(NSString *)cityid indexPath:(NSIndexPath *)indexPath{
-    
+    [Monitor monitorWithView:self.view];
 //    NSString *str = [NSString stringWithFormat:@"key=2e39142365f74cba8c3d9ccc09f73eaa&cityid=%@",cityid];
 //    NSString *urlStr = [@"https://api.heweather.com/x3/weather?" stringByAppendingString:str];
     NSString *urlStr = [NSString stringWithFormat:@"http://apis.baidu.com/heweather/weather/free?cityid=%@",cityid];

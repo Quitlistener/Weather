@@ -13,6 +13,7 @@
 #import "NetWorkRequest.h"
 #import "XYtodayCollectionViewCell.h"
 #import "userInfoModel.h"
+#import "Monitor.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import <AVFoundation/AVAudioSession.h>
@@ -135,6 +136,7 @@
 
 #pragma mark -网络请求
 -(void)dataRequestWithCityid:(NSString *)cityid tag:(NSInteger )tag{
+    [Monitor monitorWithView:self.view];
     NSString *urlStr = [NSString stringWithFormat:@"http://apis.baidu.com/heweather/weather/free?cityid=%@",cityid];
     [NetWorkRequest requestWithMethod:GET URL:urlStr para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -219,7 +221,7 @@
                                         [wind2 replaceCharactersInRange:NSMakeRange(i, 1) withString:@"到"];
                                     }
                                 }
-                                NSString *voicestr = [NSString stringWithFormat:@"今天%@的天气%@,%@%@级,温度%@摄氏度!",model.city,cond,wind1,wind2,tmp];
+                                NSString *voicestr = [NSString stringWithFormat:@"今天%@的天气%@,%@%@级,温度%@摄氏度! 云之天气祝您生活愉快 !",model.city,cond,wind1,wind2,tmp];
                                 _voiceStr = [NSMutableString stringWithString:voicestr];
                             }
                             else{
@@ -239,7 +241,7 @@
                             
                         }
                     }
-              
+                
             });
         }
     } error:^(NSError *error) {
@@ -479,7 +481,7 @@
     [UIView beginAnimations:@"000" context:nil];
     [UIView setAnimationDuration:20];
     [UIView setAnimationDelegate:self];
-    [UIView setAnimationRepeatCount:UIViewAnimationOptionRepeat];
+    [UIView setAnimationRepeatCount:10000];
     [_sunnyDayImag setTransform:transform];
     
     //开始动画
