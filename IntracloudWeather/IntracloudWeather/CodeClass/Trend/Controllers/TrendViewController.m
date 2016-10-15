@@ -84,7 +84,7 @@
     /* X和Y轴的颜色 默认暗黑色 */
     _lineChart.xAndYLineColor = [UIColor clearColor];
     /* XY轴的刻度颜色 m */
-    _lineChart.xAndYNumberColor = [UIColor blueColor];
+    _lineChart.xAndYNumberColor = [UIColor whiteColor];
     /*        设置是否填充内容 默认为否         */
     _lineChart.contentFill = NO;
     /*        设置为曲线路径         */
@@ -173,7 +173,6 @@
             [self weekDateAndWind];
             [self Temperature];
             [self brokenLine];
-            NSLog(@">>>>>%@",_weekArr);
         });
     } error:^(NSError *error) {
         

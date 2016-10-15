@@ -63,7 +63,6 @@
     [self.WKWebiew loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.strURL]]];
     [self.backGroundView addSubview:_WKWebiew];
     [self.view addSubview:self.backGroundView];
-    NSLog(@">>>>%@",_strURL);
 }
 
 
@@ -75,7 +74,6 @@
 }
 
 -(void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation{
-    NSLog(@"++1");
 //    for (int i = 0; i < _arrayAD.count; i++) {
 //        [self.WKWebiew evaluateJavaScript:WKremoveAD(_arrayAD[i]) completionHandler:^(id item, NSError * _Nullable error) {
 //        }];
@@ -90,7 +88,6 @@
 
 /** 页面加载完成后触发该方法 */
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
-    NSLog(@"++2");
     for (int i = 0; i < 5; i++) {
         [self.WKWebiew evaluateJavaScript:WKremoveAD(_arrayAD[i]) completionHandler:^(id item, NSError * _Nullable error) {
         }];
