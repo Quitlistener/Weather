@@ -16,6 +16,7 @@
 #import "userInfoModel.h"
 #import "UIViewController+MMDrawerController.h"
 #import "Monitor.h"
+#import "MBProgressHUD.h"
 
 @interface SceneryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -82,7 +83,7 @@
 -(void)requestDatacitySry:(NSString *)str{
     
     [Monitor monitorWithView:self.view];
-    
+    NSLog(@">>>>%@",str);
     [NetWorkRequest requestWithMethod:GET URL:[NSString stringWithFormat:@"http://apis.baidu.com/qunartravel/travellist/travellist?query=%@&page=%ld",str,self.pageIndex] para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         self.sceneryBase = [[SceneryBaseClass alloc]initWithDictionary:dic];
@@ -96,8 +97,12 @@
             else{
                 [_collectionView.mj_footer endRefreshing];
             }
+            if ([_sceneryBase.data books].count < 1) {
+                [self showHUD:[NSString stringWithFormat:@"抱歉!网友还没上传%@景色",_cityModer.city]];
+            }
             [self.collectionView reloadData];
         });
+        
     } error:^(NSError *error) {
         
     }];
@@ -123,25 +128,6 @@
     return cell;
 }
 
-/** itme的高 */
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-//     NSString *imgURL = [self.sceneryBase.data books].count > indexPath.section ? [self.sceneryBase.data books][indexPath.section] :nil;
-//    if (imgURL) {
-//        //根据当前Row的ImageUrl作为Key获取图片缓存
-//        UIImage *img = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey: imgURL];
-//        if (!img) {
-////            img = [UIImage resizedImageWithName:@"childshow_placeholder"];
-//        }
-//        CGFloat height = img.size.height *SCREEN_width/img.size.width;//Image宽度为屏幕宽度 ，计算宽高比求得对应的高度
-//        NSLog(@"----------------return Height:%f",height);
-//        return CGSizeMake(SCREEN_width-20,height);
-//    }
-//    return CGSizeMake(0,0);
-//    //    return CGSizeMake(320,(240 - 60)/6);
-//    
-//}
-
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     FallsCollectionViewCell * selectedCell = (FallsCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     NSArray * visibleCells = collectionView.visibleCells;
@@ -159,6 +145,19 @@
     
 }
 
+
+#pragma mark -showHUD
+- (void)showHUD:(NSString *)HUDstr{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self.view bringSubviewToFront:hud];
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = HUDstr;
+    hud.offset = CGPointMake(0.f, 0.f);
+    //2秒后隐藏
+    [hud hideAnimated:YES afterDelay:2.f];
+}
+
+#pragma mark -返回
 -(void)LeftBackAction{
      [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }

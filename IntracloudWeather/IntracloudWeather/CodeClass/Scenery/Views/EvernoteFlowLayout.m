@@ -16,6 +16,7 @@
     self = [super init];
     if (self) {
         self.itemSize = CGSizeMake(ItemW, ItemH);
+        NSLog(@"++++++++%lf",ItemH);
         self.headerReferenceSize = CGSizeMake(ScreenW, PaddingV);
     }
     return self;
