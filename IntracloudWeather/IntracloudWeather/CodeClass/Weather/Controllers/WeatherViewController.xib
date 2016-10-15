@@ -33,7 +33,9 @@
                         <constraint firstAttribute="width" constant="50" id="3Z7-ZP-Fmn"/>
                         <constraint firstAttribute="height" constant="30" id="ESu-Ls-MiW"/>
                     </constraints>
-                    <state key="normal" title="菜单"/>
+                    <state key="normal" title="菜单">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="tapLeftMenu:" destination="-1" eventType="touchUpInside" id="4Gw-3C-15R"/>
                     </connections>
@@ -49,7 +51,9 @@
                         <constraint firstAttribute="height" constant="30" id="wjl-vl-GHn"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                    <state key="normal" title="城市"/>
+                    <state key="normal" title="城市">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="tapAddCity:" destination="-1" eventType="touchUpInside" id="bOw-vB-Pmt"/>
                     </connections>
@@ -59,7 +63,9 @@
                         <constraint firstAttribute="width" constant="40" id="M4o-oo-UVS"/>
                         <constraint firstAttribute="height" constant="30" id="tK4-se-v2j"/>
                     </constraints>
-                    <state key="normal" title="分享"/>
+                    <state key="normal" title="分享">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="tapShare:" destination="-1" eventType="touchUpInside" id="cMk-GI-FVG"/>
                     </connections>
