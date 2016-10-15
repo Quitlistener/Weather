@@ -48,13 +48,7 @@
         [_CityCollectionView reloadData];
         isnotFirst = YES;
     }
-    //    [_CityCollectionVew reloadData];
-    //    for (int i = 0; i < _citysDataArr.count; i++) {
-    //        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
-    //        CityInfoCityInfo *city = _citysDataArr[i] ;
-    //        [self dataRequestWithCityid:city.cityInfoIdentifier indexPath:indexPath];
-    //    }
-    //    [_CityCollectionVew reloadData];
+  
     
 }
 -(void)viewWillDisappear:(BOOL)animated{
@@ -72,6 +66,10 @@
     NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
     _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
     _todayArrs = [NSMutableArray array];
+    for (int i = 0; i < _citysDataArr.count; i++) {
+        NSString *str = [NSString stringWithFormat:@"%d",i];
+        [_todayArrs addObject:str];
+    }
     [self reloadCitys];
     [self initUI];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
@@ -153,23 +151,34 @@
 #pragma -mark 网络请求
 -(void)dataRequestWithCityid:(NSString *)cityid indexPath:(NSIndexPath *)indexPath{
     
-    NSString *str = [NSString stringWithFormat:@"key=2e39142365f74cba8c3d9ccc09f73eaa&cityid=%@",cityid];
-    NSString *urlStr = [@"https://api.heweather.com/x3/weather?" stringByAppendingString:str];
-//    NSString *urlStr = [NSString stringWithFormat:@"http://apis.baidu.com/heweather/weather/free?cityid=%@",cityid];
+//    NSString *str = [NSString stringWithFormat:@"key=2e39142365f74cba8c3d9ccc09f73eaa&cityid=%@",cityid];
+//    NSString *urlStr = [@"https://api.heweather.com/x3/weather?" stringByAppendingString:str];
+    NSString *urlStr = [NSString stringWithFormat:@"http://apis.baidu.com/heweather/weather/free?cityid=%@",cityid];
     [NetWorkRequest requestWithMethod:GET URL:urlStr para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         //        NSLog(@"dic_____%@",dic);
         if (dic[@"HeWeather data service 3.0"]) {
             _BaseModels = [WeatherBaseClass modelObjectWithDictionary:dic];
             WeatherHeWeatherDataService30 *HeWeatherDataService30 = [_BaseModels heWeatherDataService30].firstObject;
-            if (HeWeatherDataService30.dailyForecast.count > 0) {
-                WeatherDailyForecast *today = [HeWeatherDataService30 dailyForecast].firstObject;
-                [_todayArrs addObject:today];
-            }
-            
             dispatch_async(dispatch_get_main_queue(), ^{
+               
                 if (isnotFirst) {
+                    if (HeWeatherDataService30.dailyForecast.count > 0) {
+                        WeatherDailyForecast *today = [HeWeatherDataService30 dailyForecast].firstObject;
+                        [_todayArrs addObject:today];
+                    }
                     [_CityCollectionView reloadData];
+                }
+                else{
+                    for (int i = 0; i < _citysDataArr.count; i++) {
+                        CityInfoCityInfo *cityinfo = _citysDataArr[i];
+                        if ([cityinfo.cityInfoIdentifier isEqualToString:cityid]) {
+                            if (HeWeatherDataService30.dailyForecast.count > 0) {
+                                WeatherDailyForecast *today = [HeWeatherDataService30 dailyForecast].firstObject;
+                                [_todayArrs replaceObjectAtIndex:i withObject:today];
+                            }
+                        }
+                    }
                 }
             });
         }
@@ -444,12 +453,13 @@
         cell.XYCityLabel.text = city.city;
         cell.XYCityLabel.layer.cornerRadius = 5;
         cell.XYCityLabel.layer.masksToBounds = YES;
-        if (_todayArrs.count > 0 && _todayArrs.count > indexPath.row) {
+        if ( [_todayArrs[indexPath.row] isKindOfClass:[WeatherDailyForecast class]]){
             WeatherDailyForecast *today = _todayArrs[indexPath.row];
             WeatherCond *cond = [today cond];
             WeatherTmp *tmp = [today tmp];
             cell.XYTopTempLabel.text = [tmp.max stringByAppendingString:@"℃"];
             cell.XYDownTempLabel.text = [tmp.min stringByAppendingString:@"℃"];
+//            NSLog(@"'%@",[cond txtD]);
             if ([[cond txtD] isEqualToString:[cond txtN]]) {
                 cell.XYWeatherConLabel.text = [cond txtD];
             }

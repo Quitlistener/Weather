@@ -155,7 +155,9 @@
                         NSString *timeStr = [HeWeatherDataService30.basic.update.loc substringToIndex:10];
                         NSString *wind = [NSString stringWithFormat:@"%@%@级",HeWeatherDataService30.now.wind.dir,HeWeatherDataService30.now.wind.sc];
                         NSString *tmp = HeWeatherDataService30.now.tmp;
-                        NSString *cond = HeWeatherDataService30.now.cond.txt;
+                        WeatherDailyForecast *today = HeWeatherDataService30.dailyForecast.firstObject;
+                        WeatherCond *tocond = today.cond;
+                        
                         if (air1) {
                             view.XYAirLabel.text = air;
                             view.XYAirLabel.shadowColor = [UIColor grayColor];
@@ -169,7 +171,8 @@
                         view.XYTimeLabel.text = timeStr;
                         view.XYWindLabel.text = wind;
                         view.XYCurrentTmp.text = [tmp stringByAppendingString:@"℃"];
-                        view.XYWeatherCondLabel.text = cond;
+                        
+                        
                         
                         view.XYTimeLabel.shadowColor = [UIColor grayColor];
                         view.XYTimeLabel.shadowOffset = CGSizeMake(1, 1);
@@ -179,13 +182,29 @@
                         view.XYCurrentTmp.shadowOffset = CGSizeMake(1, 1);
                         view.XYWeatherCondLabel.shadowColor = [UIColor grayColor];
                         view.XYWeatherCondLabel.shadowOffset = CGSizeMake(1, 1);
+//                        NSLog(@"%@",cond);
+                        NSString *backCode = tocond.codeD;
+                         NSString *cond = tocond.txtD;
+                        NSString *backDate = HeWeatherDataService30.basic.update.loc;
                         
+                        NSString *subDate = [backDate substringWithRange:NSMakeRange(11, 2)];
+                        NSInteger intSubDate = [subDate integerValue];
+                        if (intSubDate > 6 && intSubDate < 18) {
+                            //                                backCode = tocond.codeD;
+                           
+                        }
+                        else{
+                            backCode = tocond.codeN;
+                             cond = tocond.txtN;
+                        }
+                        
+                        view.XYWeatherCondLabel.text = cond;
                         if (currentCityIndex + 10 == tag) {
-                            NSString *backCode = HeWeatherDataService30.now.cond.code;
-                            NSString *backDate = HeWeatherDataService30.basic.update.loc;
-                            if (![backCode isEqualToString:@"100"]) {
+                            
+                            
+//                            if (![backCode isEqualToString:@"100"]) {
                                 _sunnyDayImag.hidden = YES;
-                            }
+//                            }
                             [self makeBackgroundAnimationsWithCode:backCode date:backDate];
 //                            [self makeBackgroundAnimationsWithCode:@"313" date:backDate];
                             NSString *wind1 = HeWeatherDataService30.now.wind.dir;
@@ -199,7 +218,7 @@
                                         [wind2 replaceCharactersInRange:NSMakeRange(i, 1) withString:@"到"];
                                     }
                                 }
-                                NSString *voicestr = [NSString stringWithFormat:@"今天%@天气为%@,%@%@级,温度%@摄氏度!",model.city,cond,wind1,wind2,tmp];
+                                NSString *voicestr = [NSString stringWithFormat:@"今天%@的天气%@,%@%@级,温度%@摄氏度!",model.city,cond,wind1,wind2,tmp];
                                 _voiceStr = [NSMutableString stringWithString:voicestr];
                             }
                             else{
@@ -418,9 +437,35 @@
     if (_sunnyDayImag.hidden) {
          _sunnyDayImag.hidden = NO;
     }
-    CGAffineTransform transform;
     
-    transform = CGAffineTransformRotate(_sunnyDayImag.transform, M_PI);
+//    [UIView animateWithDuration:5 delay:0 options:0  animations:^
+//     {
+//         //顺时针旋转0.05 = 0.05 * 180 = 9°
+//         _sunnyDayImag.transform=CGAffineTransformMakeRotation(-0.7);
+//     } completion:^(BOOL finished)
+//     {
+//         //  重复                                  反向            动画时接收交互
+//         /**
+//          UIViewAnimationOptionAllowUserInteraction      //动画过程中可交互
+//          UIViewAnimationOptionBeginFromCurrentState     //从当前值开始动画
+//          UIViewAnimationOptionRepeat                    //动画重复执行
+//          UIViewAnimationOptionAutoreverse               //来回运行动画
+//          UIViewAnimationOptionOverrideInheritedDuration //忽略嵌套的持续时间
+//          UIViewAnimationOptionOverrideInheritedCurve    = 1 <<  6, // ignore nested curve
+//          UIViewAnimationOptionAllowAnimatedContent      = 1 <<  7, // animate contents (applies to transitions only)
+//          UIViewAnimationOptionShowHideTransitionViews   = 1 <<  8, // flip to/from hidden state instead of adding/removing
+//          UIViewAnimationOptionOverrideInheritedOptions  = 1 <<  9, // do not inherit any options or animation type
+//          */
+//         [UIView animateWithDuration:5 delay:0 options:UIViewAnimationOptionRepeat|UIViewAnimationOptionAutoreverse|UIViewAnimationOptionAllowUserInteraction  animations:^
+//          {
+//              _sunnyDayImag.transform=CGAffineTransformMakeRotation(0.7);
+//          } completion:^(BOOL finished) {}];
+//     }];
+    
+    
+    CGAffineTransform transform;
+
+    transform = CGAffineTransformRotate(_sunnyDayImag.transform, M_E);
     //缩放
     //    transform = CGAffineTransformScale(_View_0.transform, 2, 1);
     
@@ -428,9 +473,9 @@
     //    CATransform3D
     
     [UIView beginAnimations:@"000" context:nil];
-    [UIView setAnimationDuration:25];
+    [UIView setAnimationDuration:20];
     [UIView setAnimationDelegate:self];
-    [UIView setAnimationRepeatCount:10000];
+    [UIView setAnimationRepeatCount:UIViewAnimationOptionRepeat];
     [_sunnyDayImag setTransform:transform];
     
     //开始动画
