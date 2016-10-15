@@ -50,10 +50,32 @@
     [XYMenuTableView setSeparatorInset:UIEdgeInsetsZero];
     [XYMenuTableView setLayoutMargins:UIEdgeInsetsZero];
     XYMenuTableView.tableFooterView = [UIView new];
-    UIView *myView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 150, 20)];
-//    myView.backgroundColor = [UIColor cyanColor];
-    XYMenuTableView.tableHeaderView = myView;
     
+    UIView *HeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 90)];
+    HeaderView.backgroundColor = [UIColor cyanColor];
+    UIImageView *headerImage = [[UIImageView alloc]initWithFrame:CGRectMake(10, 30, 50, 50)];
+    headerImage.layer.cornerRadius = CGRectGetWidth(headerImage.frame)/2.f;
+    headerImage.layer.masksToBounds = YES;
+    headerImage.image = [UIImage imageNamed:@"iTunesArtwork.png"];
+    [HeaderView addSubview:headerImage];
+    UILabel *headerLabel = [[UILabel alloc]initWithFrame:CGRectMake(65, 40, 100, 30)];
+    headerLabel.text = @"云之天气";
+    headerLabel.textColor = [UIColor whiteColor];
+    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 89, self.view.frame.size.width, 1)];
+    line.backgroundColor = [UIColor grayColor];
+    [HeaderView addSubview:line];
+    
+    UIImageView *backgroundImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_width, SCREENH_height)];
+    backgroundImage.image = [UIImage imageNamed:@"bg_night_fog.jpg"];
+    [self.view addSubview:backgroundImage];
+    
+    [HeaderView addSubview:headerLabel];
+    XYMenuTableView.tableHeaderView = HeaderView;
+    XYMenuTableView.tableHeaderView.backgroundColor = [UIColor clearColor];
+//    myView.backgroundColor = [UIColor cyanColor];
+    XYMenuTableView.backgroundColor = [UIColor clearColor];
+    /** 回弹 */
+    XYMenuTableView.bounces = NO;
     [self.view addSubview:XYMenuTableView];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -64,6 +86,7 @@
     cell.XYImageView.image = [UIImage imageNamed:_dataArr[indexPath.row]];
     cell.XYTitleLabel.text = _dataArr[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -22,7 +22,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天气" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkx-IG-o3i">
-                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -33,7 +33,7 @@
                     <constraint firstAttribute="trailing" secondItem="Fkx-IG-o3i" secondAttribute="trailing" constant="2" id="M3q-gD-Crw"/>
                     <constraint firstAttribute="bottom" secondItem="Fkx-IG-o3i" secondAttribute="bottom" constant="8" id="XWd-D5-KuH"/>
                     <constraint firstAttribute="bottom" secondItem="XNR-rX-XDM" secondAttribute="bottom" constant="8" id="efY-iP-2ks"/>
-                    <constraint firstItem="XNR-rX-XDM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="izg-Sy-S64"/>
+                    <constraint firstItem="XNR-rX-XDM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="izg-Sy-S64"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
