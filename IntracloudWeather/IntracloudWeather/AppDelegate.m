@@ -40,6 +40,7 @@
 @implementation AppDelegate
 
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
@@ -52,7 +53,6 @@
         /** 定位 */
         [self getLocation];
     }
-    
     LeftMenuViewController *left = [LeftMenuViewController new];
     WeatherViewController *weather = [WeatherViewController new];
     RightMenViewController *right = [RightMenViewController new];

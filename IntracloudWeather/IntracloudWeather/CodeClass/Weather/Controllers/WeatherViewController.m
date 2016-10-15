@@ -14,6 +14,7 @@
 #import "XYtodayCollectionViewCell.h"
 #import "userInfoModel.h"
 #import "Monitor.h"
+#import "AppDelegate.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import <AVFoundation/AVAudioSession.h>
