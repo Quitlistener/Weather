@@ -270,6 +270,28 @@
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     [self showHUD:@"定位失败"];
+    NSString *filename = [[NSBundle mainBundle] pathForResource:@"allchina" ofType:@"plist"];
+    NSDictionary* dic = [NSDictionary dictionaryWithContentsOfFile:filename];
+    CityInfoBaseClass *Models = [CityInfoBaseClass  modelObjectWithDictionary:dic];
+    NSArray *arr = Models.cityInfo;
+    CityDetailDBManager *manager1 = [CityDetailDBManager defaultManager];
+    [manager1 createTable];
+    [manager1 createCityTable];
+    userInfoModel *model = [[userInfoModel alloc]init];
+    for (CityInfoCityInfo *city in arr) {
+        if ([city.city isEqualToString:@"北京"]) {
+            [manager1 deleteDataWithcityid:city.cityInfoIdentifier];
+            [manager1 deleteCityDataWithcityid:city.cityInfoIdentifier];
+            [manager1 insertDataModel:city];
+            NSInteger count = [manager1 selectCityData].count;
+            model.index = [NSString stringWithFormat:@"%ld",count - 1];
+            model.voiceAI = @"xiaoyan";
+            model.cityInfoIdentifier = city.cityInfoIdentifier;
+            model.city = city.city;
+            [manager1 insertCityDataModel:model];
+            break;
+        }
+    }
     NSLog(@"定位失败");
 }
 
