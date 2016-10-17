@@ -28,11 +28,9 @@
 
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
-
 @property (nonatomic, strong) CLLocationManager *locationMabager;
 @property(nonatomic ,strong) CLGeocoder *geocoder;
 @property (nonatomic, strong) MBProgressHUD *hud;
-
 @property (strong, nonatomic) MMDrawerController *drawer;
 
 @end
@@ -193,6 +191,8 @@
 //    [self showHUD:@"定位成功"];
     /** 关掉定位 */
     [self.locationMabager stopUpdatingLocation];
+    
+    
 }
 
 //把经纬度转化为地址信息
@@ -264,6 +264,9 @@
         }];
         
     }];
+    if ([self.delegate_reload respondsToSelector:@selector(reloadData)]) {
+        [self.delegate_reload reloadData];
+    }
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
@@ -290,6 +293,9 @@
         }
     }
     NSLog(@"定位失败");
+    if ([self.delegate_reload respondsToSelector:@selector(reloadData)]) {
+        [self.delegate_reload reloadData];
+    }
 }
 
 

@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "MMDrawerController.h"
 
+@protocol reloadData <NSObject>
+
+-(void)reloadData;
+
+@end
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property(nonatomic,assign)id <reloadData> delegate_reload;
 
 @end
 

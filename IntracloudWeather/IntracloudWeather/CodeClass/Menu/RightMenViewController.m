@@ -43,10 +43,15 @@
         _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
         CityInfoCityInfo *city = _citysDataArr.lastObject;
         [self dataRequestWithCityid:city.cityInfoIdentifier indexPath:nil];
-        //        [_CityCollectionView reloadData];
+//        isnotFirst = YES;
+//        [_CityCollectionView reloadData];
     }
     else{
-        [_CityCollectionView reloadData];
+        NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
+        _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
+        CityInfoCityInfo *city = _citysDataArr.lastObject;
+        [self dataRequestWithCityid:city.cityInfoIdentifier indexPath:nil];
+//        [_CityCollectionView reloadData];
         isnotFirst = YES;
     }
   
@@ -150,8 +155,8 @@
 
 
 -(void)backWeatherController{
-    WeatherViewController *WVC = [WeatherViewController new];
-    [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
+//    WeatherViewController *WVC = [WeatherViewController new];
+    [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
 }
 #pragma -mark 网络请求
 -(void)dataRequestWithCityid:(NSString *)cityid indexPath:(NSIndexPath *)indexPath{

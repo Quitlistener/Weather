@@ -32,6 +32,7 @@
 #import <ShareSDKConnector/ShareSDKConnector.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
 #import "WeiboSDK.h"
+#import "AppDelegate.h"
 
 
 #define SNOW_IMAGENAME         @"snow"
@@ -42,7 +43,7 @@
 #define PLUS_HEIGHT            Main_Screen_Height/25
 
 
-@interface WeatherViewController ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,IFlySpeechSynthesizerDelegate,UIActionSheetDelegate>
+@interface WeatherViewController ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,IFlySpeechSynthesizerDelegate,UIActionSheetDelegate,reloadData>
 {
     NSMutableArray *_CitysDataArr;
     NSMutableArray *_dailyForecastArr;
@@ -60,15 +61,34 @@
 @property (nonatomic, strong) UICollectionView *XYcollection;
 @property (nonatomic, strong) userInfoModel *userModer;
 @property (nonatomic, strong) WeatherBaseClass *weathBase;
+
 @end
 
 @implementation WeatherViewController
 
-
+-(void)reloadData{
+    [_scrollView removeFromSuperview];
+    [_XYcollection removeFromSuperview];
+    [self loadCitysData];
+    [self initUI];
+    userInfoModel *userInfo = [[CityDetailDBManager defaultManager]selectCityData].firstObject;
+    NSInteger index = [userInfo.index integerValue];
+    [self dataRequestWithCityid:userInfo.cityInfoIdentifier tag:index+10];
+    for (int i = 0 ; i < _CitysDataArr.count; i ++) {
+        if (i == (int)index) {
+            continue;
+        }
+        CityInfoCityInfo *city = (CityInfoCityInfo *)_CitysDataArr[i];
+        [self dataRequestWithCityid:city.cityInfoIdentifier tag:i+10];
+    }
+    [_XYcollection reloadData];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    AppDelegate *myDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    myDelegate.delegate_reload = self;
     [self loadCitysData];
     [self initUI];
     userInfoModel *userInfo = [[CityDetailDBManager defaultManager]selectCityData].firstObject;
