@@ -101,7 +101,7 @@
         CityInfoCityInfo *city = (CityInfoCityInfo *)_CitysDataArr[i];
         [self dataRequestWithCityid:city.cityInfoIdentifier tag:i+10];
     }
-//    [self viewWillAppear:YES];
+    //    [self viewWillAppear:YES];
 }
 -(void)loadCitysData{
     NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
@@ -122,7 +122,7 @@
     else{
         _scrollView.contentOffset = CGPointMake(SCREEN_width, 0);
     }
-       //水平滚动条隐藏
+    //水平滚动条隐藏
     _scrollView.showsHorizontalScrollIndicator = NO;
     //垂直滚动条隐藏
     _scrollView.showsVerticalScrollIndicator = NO;
@@ -138,11 +138,11 @@
         [_current.XYVoiceBtn addTarget:self action:@selector(VoiceBtn) forControlEvents:UIControlEventTouchUpInside];
         [_scrollView addSubview:_current];
     }
-   
+    
     [self.view addSubview:_scrollView];
     
     [_XYCity setImage:[UIImage imageNamed:@"加号16.png"] forState:UIControlStateNormal];
-     
+    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
     flowLayout.itemSize = CGSizeMake((SCREEN_width-40)/3,(100-20));
     //设置每个item的间距
@@ -150,7 +150,7 @@
     //设置CollectionView的item距离屏幕上左下右的间距(默认都是10)
     flowLayout.sectionInset = UIEdgeInsetsMake(10 , 10, 10, 10);
     //设置每个item的行间距(默认是10.0)
-//    flowLayout.minimumLineSpacing = 3;
+    //    flowLayout.minimumLineSpacing = 3;
     if (model.cityInfoIdentifier) {
         NSInteger index = [model.index integerValue];
         [self dataRequestWithCityid:model.cityInfoIdentifier tag:index + 10];
@@ -182,97 +182,97 @@
                 userInfoModel *model = (userInfoModel *)currentCitys.firstObject;
                 NSInteger currentCityIndex = [model.index integerValue];
                 
-                    if (HeWeatherDataService30.dailyForecast.count > 0) {
-                        CurrentWeatherDetailsView *view = [_scrollView viewWithTag:tag];
-                        NSString *air1 = HeWeatherDataService30.aqi.city.qlty;
-                        NSString *air = [NSString stringWithFormat:@"空气质量 %@ %@",air1,HeWeatherDataService30.aqi.city.aqi];
-                        NSString *timeStr = [HeWeatherDataService30.basic.update.loc substringToIndex:10];
-                        NSString *wind = [NSString stringWithFormat:@"%@%@级",HeWeatherDataService30.now.wind.dir,HeWeatherDataService30.now.wind.sc];
-                        NSString *tmp = HeWeatherDataService30.now.tmp;
-                        WeatherDailyForecast *today = HeWeatherDataService30.dailyForecast.firstObject;
-                        WeatherCond *tocond = today.cond;
+                if (HeWeatherDataService30.dailyForecast.count > 0) {
+                    CurrentWeatherDetailsView *view = [_scrollView viewWithTag:tag];
+                    NSString *air1 = HeWeatherDataService30.aqi.city.qlty;
+                    NSString *air = [NSString stringWithFormat:@"空气质量 %@ %@",air1,HeWeatherDataService30.aqi.city.aqi];
+                    NSString *timeStr = [HeWeatherDataService30.basic.update.loc substringToIndex:10];
+                    NSString *wind = [NSString stringWithFormat:@"%@%@级",HeWeatherDataService30.now.wind.dir,HeWeatherDataService30.now.wind.sc];
+                    NSString *tmp = HeWeatherDataService30.now.tmp;
+                    WeatherDailyForecast *today = HeWeatherDataService30.dailyForecast.firstObject;
+                    WeatherCond *tocond = today.cond;
+                    
+                    if (air1) {
+                        view.XYAirLabel.text = air;
+                        view.XYAirLabel.shadowColor = [UIColor grayColor];
+                        view.XYAirLabel.shadowOffset = CGSizeMake(1, 1);
+                    }
+                    else{
+                        view.XYAirLabel.hidden = YES;
+                        view.XYAirLabel.shadowColor = [UIColor grayColor];
+                        view.XYAirLabel.shadowOffset = CGSizeMake(1, 1);
+                    }
+                    view.XYTimeLabel.text = timeStr;
+                    view.XYWindLabel.text = wind;
+                    view.XYCurrentTmp.text = [tmp stringByAppendingString:@"℃"];
+                    
+                    
+                    
+                    view.XYTimeLabel.shadowColor = [UIColor grayColor];
+                    view.XYTimeLabel.shadowOffset = CGSizeMake(1, 1);
+                    view.XYWindLabel.shadowColor = [UIColor grayColor];
+                    view.XYWindLabel.shadowOffset = CGSizeMake(1, 1);
+                    view.XYCurrentTmp.shadowColor = [UIColor grayColor];
+                    view.XYCurrentTmp.shadowOffset = CGSizeMake(1, 1);
+                    view.XYWeatherCondLabel.shadowColor = [UIColor grayColor];
+                    view.XYWeatherCondLabel.shadowOffset = CGSizeMake(1, 1);
+                    //                        NSLog(@"%@",cond);
+                    NSString *backCode = tocond.codeD;
+                    NSString *cond = tocond.txtD;
+                    NSString *backDate = HeWeatherDataService30.basic.update.loc;
+                    
+                    NSString *subDate = [backDate substringWithRange:NSMakeRange(11, 2)];
+                    NSInteger intSubDate = [subDate integerValue];
+                    if (intSubDate > 6 && intSubDate < 18) {
+                        //                                backCode = tocond.codeD;
                         
-                        if (air1) {
-                            view.XYAirLabel.text = air;
-                            view.XYAirLabel.shadowColor = [UIColor grayColor];
-                            view.XYAirLabel.shadowOffset = CGSizeMake(1, 1);
+                    }
+                    else{
+                        backCode = tocond.codeN;
+                        cond = tocond.txtN;
+                    }
+                    
+                    view.XYWeatherCondLabel.text = cond;
+                    if (currentCityIndex + 10 == tag) {
+                        
+                        
+                        //                            if (![backCode isEqualToString:@"100"]) {
+                        _sunnyDayImag.hidden = YES;
+                        //                            }
+                        
+                        [self makeBackgroundAnimationsWithCode:backCode date:backDate];
+//                        [self makeBackgroundAnimationsWithCode:@"400" date:@"2015-07-15 10:43"];
+                        NSString *wind1 = HeWeatherDataService30.now.wind.dir;
+                        NSMutableString *wind2 = [NSMutableString stringWithString:HeWeatherDataService30.now.wind.sc];
+                        if ([self IsChinese:model.city]) {
+                            if ([[tmp substringToIndex:0] isEqualToString:@"-"]) {
+                                tmp = [@"负" stringByAppendingString:tmp];
+                            }
+                            for (int i = 0; i < wind2.length; i++) {
+                                if ([[wind2 substringWithRange:NSMakeRange(i, 1)] isEqualToString:@"-"]) {
+                                    [wind2 replaceCharactersInRange:NSMakeRange(i, 1) withString:@"到"];
+                                }
+                            }
+                            NSString *voicestr = [NSString stringWithFormat:@"今天%@的天气%@,%@%@级,温度%@摄氏度! 云之天气祝您生活愉快 !",model.city,cond,wind1,wind2,tmp];
+                            _voiceStr = [NSMutableString stringWithString:voicestr];
                         }
                         else{
-                            view.XYAirLabel.hidden = YES;
-                            view.XYAirLabel.shadowColor = [UIColor grayColor];
-                            view.XYAirLabel.shadowOffset = CGSizeMake(1, 1);
-                        }
-                        view.XYTimeLabel.text = timeStr;
-                        view.XYWindLabel.text = wind;
-                        view.XYCurrentTmp.text = [tmp stringByAppendingString:@"℃"];
-                        
-                        
-                        
-                        view.XYTimeLabel.shadowColor = [UIColor grayColor];
-                        view.XYTimeLabel.shadowOffset = CGSizeMake(1, 1);
-                        view.XYWindLabel.shadowColor = [UIColor grayColor];
-                        view.XYWindLabel.shadowOffset = CGSizeMake(1, 1);
-                        view.XYCurrentTmp.shadowColor = [UIColor grayColor];
-                        view.XYCurrentTmp.shadowOffset = CGSizeMake(1, 1);
-                        view.XYWeatherCondLabel.shadowColor = [UIColor grayColor];
-                        view.XYWeatherCondLabel.shadowOffset = CGSizeMake(1, 1);
-//                        NSLog(@"%@",cond);
-                        NSString *backCode = tocond.codeD;
-                         NSString *cond = tocond.txtD;
-                        NSString *backDate = HeWeatherDataService30.basic.update.loc;
-                        
-                        NSString *subDate = [backDate substringWithRange:NSMakeRange(11, 2)];
-                        NSInteger intSubDate = [subDate integerValue];
-                        if (intSubDate > 6 && intSubDate < 18) {
-                            //                                backCode = tocond.codeD;
-                           
-                        }
-                        else{
-                            backCode = tocond.codeN;
-                             cond = tocond.txtN;
-                        }
-                        
-                        view.XYWeatherCondLabel.text = cond;
-                        if (currentCityIndex + 10 == tag) {
                             
-                            
-//                            if (![backCode isEqualToString:@"100"]) {
-                                _sunnyDayImag.hidden = YES;
-//                            }
-                            
-                            [self makeBackgroundAnimationsWithCode:backCode date:backDate];
-//                            [self makeBackgroundAnimationsWithCode:@"313" date:backDate];
-                            NSString *wind1 = HeWeatherDataService30.now.wind.dir;
-                            NSMutableString *wind2 = [NSMutableString stringWithString:HeWeatherDataService30.now.wind.sc];
-                            if ([self IsChinese:model.city]) {
-                                if ([[tmp substringToIndex:0] isEqualToString:@"-"]) {
-                                    tmp = [@"负" stringByAppendingString:tmp];
-                                }
-                                for (int i = 0; i < wind2.length; i++) {
-                                    if ([[wind2 substringWithRange:NSMakeRange(i, 1)] isEqualToString:@"-"]) {
-                                        [wind2 replaceCharactersInRange:NSMakeRange(i, 1) withString:@"到"];
-                                    }
-                                }
-                                NSString *voicestr = [NSString stringWithFormat:@"今天%@的天气%@,%@%@级,温度%@摄氏度! 云之天气祝您生活愉快 !",model.city,cond,wind1,wind2,tmp];
-                                _voiceStr = [NSMutableString stringWithString:voicestr];
+                            if ([[tmp substringToIndex:0] isEqualToString:@"-"]) {
+                                tmp = [self changeToEnglish:[tmp substringFromIndex:1]];
+                                tmp = [@"negative " stringByAppendingString:tmp];
                             }
                             else{
-                                
-                                if ([[tmp substringToIndex:0] isEqualToString:@"-"]) {
-                                    tmp = [self changeToEnglish:[tmp substringFromIndex:1]];
-                                    tmp = [@"negative " stringByAppendingString:tmp];
-                                }
-                                else{
-                                    tmp = [self changeToEnglish:tmp];
-                                }
-                                NSString *voicestr = [NSString stringWithFormat:@"The weather is %@ today in %@ at %@ degrees Celsius!    !",cond,model.city,tmp];
-                                _voiceStr = [NSMutableString stringWithString:voicestr];
+                                tmp = [self changeToEnglish:tmp];
                             }
-                            [self.XYcollection reloadData];
-                            [_XYCity setTitle:model.city forState:UIControlStateNormal ] ;
-                            
+                            NSString *voicestr = [NSString stringWithFormat:@"The weather is %@ today in %@ at %@ degrees Celsius!    !",cond,model.city,tmp];
+                            _voiceStr = [NSMutableString stringWithString:voicestr];
                         }
+                        [self.XYcollection reloadData];
+                        [_XYCity setTitle:model.city forState:UIControlStateNormal ] ;
+                        
                     }
+                }
                 
             });
         }
@@ -306,7 +306,7 @@
 #pragma -mark 背景动画
 -(void)makeBackgroundAnimationsWithCode:(NSString *)code date:(NSString *)date{
     NSArray *codeArr = @[@"300",@"309",@"305",@"304",@"302",@"303",@"301",@"306",@"307",@"308",@"310",@"311",@"312",@"313",@"404",@"405",@"406",@"401",@"402",@"403",@"400",@"407"];
-//    code = @"300";
+    //    code = @"300";
     NSArray *codeCloundArr = @[@"102",@"103"];
     NSArray *moreCodeCloundArr = @[@"101",@"104"];
     NSArray *windyArr = @[@"200",@"201",@"202",@"203",@"204"];
@@ -314,22 +314,22 @@
     NSArray *fogArr = @[@"500",@"501",@"502"];
     NSArray *stormArr = @[@"503",@"504",@"505",@"506",@"507",@"508"];
     if ([codeArr containsObject:code]) {
-         [self rianOrSnowWithCode:code date:date];
+        [self rianOrSnowWithCode:code date:date];
         return;
     }
     else{
-//        for (UIImageView *view in _imagesArray) {
-//            view.hidden = YES;
-//        }
+        //        for (UIImageView *view in _imagesArray) {
+        //            view.hidden = YES;
+        //        }
         _imagesArray = nil;
     }
     if ([code isEqualToString:@"100"]) {
         [self sunnyDayWithDate:date];
-//        return;
+        //        return;
     }
     if ([codeCloundArr containsObject:code]) {
         [self MorecloundWithDate:date];
-//        return;
+        //        return;
     }
     if ([moreCodeCloundArr containsObject:code]) {
         [self bgMorecloundWithDate:date];
@@ -337,28 +337,28 @@
     }
     if ([windyArr containsObject:code]) {
         [self windyWithDate:date];
-//        return;
+        //        return;
     }
     if ([bgWindyArr containsObject:code]) {
         [self bgWindyWithDate:date];
-//        return;
+        //        return;
     }
     if ([fogArr containsObject:code]) {
         [self fogWithDate:date];
-//        return;
+        //        return;
     }
     if ([stormArr containsObject:code]) {
         [self stormWithDate:date];
-//        return;
+        //        return;
     }
     if ([code isEqualToString:@"900"]) {
         [self hotWithDate:date];
-//        return;
+        //        return;
     }
     if ([code isEqualToString:@"901"]) {
         [self coldWithDate:date];
     }
-//    [self rianOrSnowWithCode:code date:date];
+    //    [self rianOrSnowWithCode:code date:date];
 }
 
 -(void)bgMorecloundWithDate:(NSString *)date{
@@ -455,14 +455,14 @@
     NSInteger intSubDate = [subDate integerValue];
     if (intSubDate > 6 && intSubDate < 18) {
         _XYBackgroundImgView.image = [UIImage imageNamed:@"sunny.jpg"];
-//        static dispatch_once_t onceToken;
-//        dispatch_once(&onceToken, ^{
-            _sunnyDayImag = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, Main_Screen_Width + 100, Main_Screen_Width + 100)];
-            _sunnyDayImag.center = CGPointMake(SCREEN_width*0.91, SCREENH_height*0.56);
-            _sunnyDayImag.image = [UIImage imageNamed:@"ele_sunnySunshine"];
-            [_XYFrontImageView addSubview:_sunnyDayImag];
-//        });
-//        [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(makeSunshine) userInfo:nil repeats:YES];
+        //        static dispatch_once_t onceToken;
+        //        dispatch_once(&onceToken, ^{
+        _sunnyDayImag = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, Main_Screen_Width + 100, Main_Screen_Width + 100)];
+        _sunnyDayImag.center = CGPointMake(SCREEN_width*0.91, SCREENH_height*0.56);
+        _sunnyDayImag.image = [UIImage imageNamed:@"ele_sunnySunshine"];
+        [_XYFrontImageView addSubview:_sunnyDayImag];
+        //        });
+        //        [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(makeSunshine) userInfo:nil repeats:YES];
         [self makeSunshine];
         
     }
@@ -473,36 +473,36 @@
 }
 -(void)makeSunshine{
     if (_sunnyDayImag.hidden) {
-         _sunnyDayImag.hidden = NO;
+        _sunnyDayImag.hidden = NO;
     }
     
-//    [UIView animateWithDuration:5 delay:0 options:0  animations:^
-//     {
-//         //顺时针旋转0.05 = 0.05 * 180 = 9°
-//         _sunnyDayImag.transform=CGAffineTransformMakeRotation(-0.7);
-//     } completion:^(BOOL finished)
-//     {
-//         //  重复                                  反向            动画时接收交互
-//         /**
-//          UIViewAnimationOptionAllowUserInteraction      //动画过程中可交互
-//          UIViewAnimationOptionBeginFromCurrentState     //从当前值开始动画
-//          UIViewAnimationOptionRepeat                    //动画重复执行
-//          UIViewAnimationOptionAutoreverse               //来回运行动画
-//          UIViewAnimationOptionOverrideInheritedDuration //忽略嵌套的持续时间
-//          UIViewAnimationOptionOverrideInheritedCurve    = 1 <<  6, // ignore nested curve
-//          UIViewAnimationOptionAllowAnimatedContent      = 1 <<  7, // animate contents (applies to transitions only)
-//          UIViewAnimationOptionShowHideTransitionViews   = 1 <<  8, // flip to/from hidden state instead of adding/removing
-//          UIViewAnimationOptionOverrideInheritedOptions  = 1 <<  9, // do not inherit any options or animation type
-//          */
-//         [UIView animateWithDuration:5 delay:0 options:UIViewAnimationOptionRepeat|UIViewAnimationOptionAutoreverse|UIViewAnimationOptionAllowUserInteraction  animations:^
-//          {
-//              _sunnyDayImag.transform=CGAffineTransformMakeRotation(0.7);
-//          } completion:^(BOOL finished) {}];
-//     }];
+    //    [UIView animateWithDuration:5 delay:0 options:0  animations:^
+    //     {
+    //         //顺时针旋转0.05 = 0.05 * 180 = 9°
+    //         _sunnyDayImag.transform=CGAffineTransformMakeRotation(-0.7);
+    //     } completion:^(BOOL finished)
+    //     {
+    //         //  重复                                  反向            动画时接收交互
+    //         /**
+    //          UIViewAnimationOptionAllowUserInteraction      //动画过程中可交互
+    //          UIViewAnimationOptionBeginFromCurrentState     //从当前值开始动画
+    //          UIViewAnimationOptionRepeat                    //动画重复执行
+    //          UIViewAnimationOptionAutoreverse               //来回运行动画
+    //          UIViewAnimationOptionOverrideInheritedDuration //忽略嵌套的持续时间
+    //          UIViewAnimationOptionOverrideInheritedCurve    = 1 <<  6, // ignore nested curve
+    //          UIViewAnimationOptionAllowAnimatedContent      = 1 <<  7, // animate contents (applies to transitions only)
+    //          UIViewAnimationOptionShowHideTransitionViews   = 1 <<  8, // flip to/from hidden state instead of adding/removing
+    //          UIViewAnimationOptionOverrideInheritedOptions  = 1 <<  9, // do not inherit any options or animation type
+    //          */
+    //         [UIView animateWithDuration:5 delay:0 options:UIViewAnimationOptionRepeat|UIViewAnimationOptionAutoreverse|UIViewAnimationOptionAllowUserInteraction  animations:^
+    //          {
+    //              _sunnyDayImag.transform=CGAffineTransformMakeRotation(0.7);
+    //          } completion:^(BOOL finished) {}];
+    //     }];
     
     
     CGAffineTransform transform;
-
+    
     transform = CGAffineTransformRotate(_sunnyDayImag.transform, M_E);
     //缩放
     //    transform = CGAffineTransformScale(_View_0.transform, 2, 1);
@@ -602,14 +602,14 @@
         
         float x = arc4random()%imgWidth_Max + imgWidth_Min;
         if (index == 0 || index == 2) {
-//            int b = arc4random()%(5-0+1)+ 0;
-//            if (b != 0) {
-                imageView.frame = CGRectMake(arc4random()%((int)Main_Screen_Width ) , -130, x*1.3, x*3);
-                imageView.tag = - 10 + (-i);
-//            }
-//            else{
-//                imageView.frame = CGRectMake(-60, arc4random()%((int)Main_Screen_Height + 100 +1) -100, x*1.5, x*3);
-//            }
+            //            int b = arc4random()%(5-0+1)+ 0;
+            //            if (b != 0) {
+            imageView.frame = CGRectMake(arc4random()%((int)Main_Screen_Width ) , -130, x*1.3, x*3);
+            imageView.tag = - 10 + (-i);
+            //            }
+            //            else{
+            //                imageView.frame = CGRectMake(-60, arc4random()%((int)Main_Screen_Height + 100 +1) -100, x*1.5, x*3);
+            //            }
         }
         else if (index == 1 || index == 3){
             if (a != 0) {
@@ -621,12 +621,12 @@
             }
         }
         else{
-//            if (index == 4) {
-//                imageView.frame = CGRectMake(IMAGE_X, -50, x, x);
-//            }
-//            else{
-                imageView.frame = CGRectMake(IMAGE_X, -50, x, x);
-//            }
+            //            if (index == 4) {
+            //                imageView.frame = CGRectMake(IMAGE_X, -50, x, x);
+            //            }
+            //            else{
+            imageView.frame = CGRectMake(IMAGE_X, -50, x, x);
+            //            }
         }
         _index_Code = index;
         _imgWidth_Max = imgWidth_Max;
@@ -635,30 +635,30 @@
         [_XYFrontImageView addSubview:imageView];
         [_imagesArray addObject:imageView];
     }
-//    if (_timer) {
-//        [_timer invalidate];
-//    }
+    //    if (_timer) {
+    //        [_timer invalidate];
+    //    }
     float time = 0.3;
     if (index == 0) {
-        time = 0.08;
+        time = 0.15;
     }
     if (index == 1) {
-        time = 0.05;
+        time = 0.1;
     }
     if (index == 2) {
-        time = 0.018;
+        time = 0.1;
     }
     if (index == 3) {
         time = 0.15;
     }
     if (index == 4 ) {
         //------------------------------?????
-        time = 0.08;
+        time = 0.1;
     }
     if (index == 5) {
         time = 0.5;
     }
-     [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(makeSnow) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(makeSnow) userInfo:nil repeats:YES];
     
     
 }
@@ -668,7 +668,7 @@ static int i = 0;
     i = i + 1;
     if ([_imagesArray count] > 0) {
         UIImageView *imageView = [_imagesArray objectAtIndex:0];
-       
+        
         if (imageView.tag < 0) {
             
         }
@@ -705,21 +705,21 @@ static int i = 0;
     [UIView setAnimationDelegate:self];
     if (_index_Code == 0 || _index_Code == 2) {
         if (aImageView.tag < 0) {
-             aImageView.frame = CGRectMake(aImageView.frame.origin.x , Main_Screen_Height, aImageView.frame.size.width, aImageView.frame.size.height);
+            aImageView.frame = CGRectMake(aImageView.frame.origin.x , Main_Screen_Height, aImageView.frame.size.width, aImageView.frame.size.height);
         }
         else{
-             aImageView.frame = CGRectMake((((Main_Screen_Height + 100 - aImageView.frame.origin.y) * 200 )/Main_Screen_Height) - 60, Main_Screen_Height, aImageView.frame.size.width, aImageView.frame.size.height);
+            aImageView.frame = CGRectMake((((Main_Screen_Height + 100 - aImageView.frame.origin.y) * 200 )/Main_Screen_Height) - 60, Main_Screen_Height, aImageView.frame.size.width, aImageView.frame.size.height);
         }
     }
     else{
-//        if (aImageView) {
-            aImageView.frame = CGRectMake(aImageView.frame.origin.x , Main_Screen_Height, aImageView.frame.size.width, aImageView.frame.size.height);
-//        }
-//        else{
-//            aImageView.frame = CGRectMake(aImageView.frame.origin.x, Main_Screen_Height, aImageView.frame.size.width, aImageView.frame.size.height);
-//        }
+        //        if (aImageView) {
+        aImageView.frame = CGRectMake(aImageView.frame.origin.x , Main_Screen_Height, aImageView.frame.size.width, aImageView.frame.size.height);
+        //        }
+        //        else{
+        //            aImageView.frame = CGRectMake(aImageView.frame.origin.x, Main_Screen_Height, aImageView.frame.size.width, aImageView.frame.size.height);
+        //        }
     }
-//    NSLog(@"%@",aImageView);
+    //    NSLog(@"%@",aImageView);
     [UIView commitAnimations];
 }
 
@@ -758,7 +758,7 @@ static int i = 0;
             imageView.frame = CGRectMake(IMAGE_X, -50, x, x);
         }
         [_imagesArray addObject:imageView];
-
+        
     }
 }
 
@@ -787,7 +787,7 @@ static int i = 0;
 
 #pragma mark -scrollViewDelegate
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-
+    
     NSArray *currentCitys = [[CityDetailDBManager defaultManager]selectCityData];
     userInfoModel *model = (userInfoModel *)currentCitys.firstObject;
     NSInteger currentCityIndex = [model.index integerValue];
@@ -804,9 +804,9 @@ static int i = 0;
     CityInfoCityInfo *city = (CityInfoCityInfo *)_CitysDataArr[index];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
-         [self dataRequestWithCityid:city.cityInfoIdentifier tag:index+10];
+        [self dataRequestWithCityid:city.cityInfoIdentifier tag:index+10];
     });
-   
+    
 }
 
 #pragma mark -点击事件
@@ -880,14 +880,14 @@ static int i = 0;
 
 - (void)viewWillAppear:(BOOL)animated{
     
-//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"努力加载中..."
-//                                                        message:nil
-//                                                       delegate:nil
-//                                              cancelButtonTitle:nil
-//                                              otherButtonTitles:nil];
-//    alertView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
-//    [alertView show];
-//                sleep(1.5);
+    //    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"努力加载中..."
+    //                                                        message:nil
+    //                                                       delegate:nil
+    //                                              cancelButtonTitle:nil
+    //                                              otherButtonTitles:nil];
+    //    alertView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
+    //    [alertView show];
+    //                sleep(1.5);
     userInfoModel *userInfo = [[CityDetailDBManager defaultManager]selectCityData].firstObject;
     NSInteger index = [userInfo.index integerValue];
     [self dataRequestWithCityid:userInfo.cityInfoIdentifier tag:index+10];
@@ -898,7 +898,7 @@ static int i = 0;
         CityInfoCityInfo *city = (CityInfoCityInfo *)_CitysDataArr[i];
         [self dataRequestWithCityid:city.cityInfoIdentifier tag:i+10];
     }
-//    [alertView dismissWithClickedButtonIndex:0 animated:YES];
+    //    [alertView dismissWithClickedButtonIndex:0 animated:YES];
     
     
     /** 讯飞 */
@@ -914,7 +914,7 @@ static int i = 0;
     [_audioPlayer stop];
     [_inidicateView hide];
     _iFlySpeechSynthesizer.delegate = nil;
-   
+    
 }
 
 -(void)dealloc{
@@ -987,13 +987,13 @@ static int i = 0;
 //}
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

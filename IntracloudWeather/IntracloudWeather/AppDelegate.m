@@ -262,11 +262,10 @@
             }
             
         }];
-        
+        if ([self.delegate_reload respondsToSelector:@selector(reloadData)]) {
+            [self.delegate_reload reloadData];
+        }
     }];
-    if ([self.delegate_reload respondsToSelector:@selector(reloadData)]) {
-        [self.delegate_reload reloadData];
-    }
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
