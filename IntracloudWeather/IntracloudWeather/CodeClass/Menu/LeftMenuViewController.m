@@ -105,6 +105,7 @@
     if (indexPath.row == 0) {
         WeatherViewController *WVC = [WeatherViewController new];
 //        UINavigationController *WNav = [[UINavigationController alloc]initWithRootViewController:WVC];
+//        [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
         [self.mm_drawerController setCenterViewController:WVC withCloseAnimation:YES completion:nil];
     }
     if (indexPath.row == 1) {

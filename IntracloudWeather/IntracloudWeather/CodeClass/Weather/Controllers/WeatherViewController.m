@@ -71,6 +71,17 @@
     // Do any additional setup after loading the view from its nib.
     [self loadCitysData];
     [self initUI];
+    userInfoModel *userInfo = [[CityDetailDBManager defaultManager]selectCityData].firstObject;
+    NSInteger index = [userInfo.index integerValue];
+    [self dataRequestWithCityid:userInfo.cityInfoIdentifier tag:index+10];
+    for (int i = 0 ; i < _CitysDataArr.count; i ++) {
+        if (i == (int)index) {
+            continue;
+        }
+        CityInfoCityInfo *city = (CityInfoCityInfo *)_CitysDataArr[i];
+        [self dataRequestWithCityid:city.cityInfoIdentifier tag:i+10];
+    }
+//    [self viewWillAppear:YES];
 }
 -(void)loadCitysData{
     NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
@@ -884,6 +895,13 @@ static int i = 0;
     [_inidicateView hide];
     _iFlySpeechSynthesizer.delegate = nil;
    
+}
+
+-(void)dealloc{
+    [_iFlySpeechSynthesizer stopSpeaking];
+    [_audioPlayer stop];
+    [_inidicateView hide];
+    _iFlySpeechSynthesizer.delegate = nil;
 }
 
 #pragma mark - 设置合成参数
