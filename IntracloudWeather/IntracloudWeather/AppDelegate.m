@@ -235,8 +235,7 @@
                         [manager deleteDataWithcityid:city.cityInfoIdentifier];
                         [manager deleteCityDataWithcityid:city.cityInfoIdentifier];
                         [manager insertDataModel:city];
-                        NSInteger count = [manager selectCityData].count;
-                        model.index = [NSString stringWithFormat:@"%ld",count - 1];
+                        model.index = @"0";
                         model.voiceAI = @"xiaoyan";
                         model.cityInfoIdentifier = city.cityInfoIdentifier;
                         model.city = city.city;
@@ -252,8 +251,7 @@
                         [manager deleteDataWithcityid:city.cityInfoIdentifier];
                         [manager deleteCityDataWithcityid:city.cityInfoIdentifier];
                         [manager insertDataModel:city];
-                        NSInteger count = [manager selectCityData].count;
-                        model.index = [NSString stringWithFormat:@"%ld",count - 1];
+                        model.index = @"0";
                         model.voiceAI = @"xiaoyan";
                         model.cityInfoIdentifier = city.cityInfoIdentifier;
                         model.city = city.city;
@@ -283,8 +281,7 @@
             [manager1 deleteDataWithcityid:city.cityInfoIdentifier];
             [manager1 deleteCityDataWithcityid:city.cityInfoIdentifier];
             [manager1 insertDataModel:city];
-            NSInteger count = [manager1 selectCityData].count;
-            model.index = [NSString stringWithFormat:@"%ld",count - 1];
+            model.index = @"0";
             model.voiceAI = @"xiaoyan";
             model.cityInfoIdentifier = city.cityInfoIdentifier;
             model.city = city.city;
