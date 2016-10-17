@@ -16,6 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="na.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ssI-FO-IbY"/>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork.png" translatesAutoresizingMaskIntoConstraints="NO" id="ESn-Tw-9aC">
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="DnU-op-uBM"/>
@@ -88,18 +89,22 @@
                 <constraint firstItem="kPV-Ka-hAk" firstAttribute="top" secondItem="KuL-n5-wR9" secondAttribute="bottom" constant="18" id="3cT-Cz-JDk"/>
                 <constraint firstItem="SVl-s1-xEy" firstAttribute="top" secondItem="kPV-Ka-hAk" secondAttribute="bottom" constant="20" id="5Ai-6w-OYC"/>
                 <constraint firstItem="SVl-s1-xEy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="8Uy-lK-6ZX"/>
-                <constraint firstAttribute="bottom" secondItem="SVl-s1-xEy" secondAttribute="bottom" constant="20" id="IHg-Z6-rOm"/>
+                <constraint firstItem="ssI-FO-IbY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HE4-1X-gGt"/>
+                <constraint firstAttribute="bottom" secondItem="SVl-s1-xEy" secondAttribute="bottom" constant="100" id="IHg-Z6-rOm"/>
                 <constraint firstItem="2c5-YE-VFk" firstAttribute="leading" secondItem="kPV-Ka-hAk" secondAttribute="trailing" constant="10" id="IO9-BS-M3h"/>
                 <constraint firstItem="bzQ-d8-pWw" firstAttribute="leading" secondItem="vLs-U1-dBp" secondAttribute="trailing" constant="10" id="LaF-kG-mWF"/>
                 <constraint firstItem="2c5-YE-VFk" firstAttribute="centerY" secondItem="kPV-Ka-hAk" secondAttribute="centerY" id="LdP-3W-bC5"/>
+                <constraint firstAttribute="bottom" secondItem="ssI-FO-IbY" secondAttribute="bottom" id="MOJ-4j-xeX"/>
                 <constraint firstItem="Z2d-ZX-pSz" firstAttribute="centerY" secondItem="SVl-s1-xEy" secondAttribute="centerY" id="Q0y-PX-rby"/>
                 <constraint firstItem="Z2d-ZX-pSz" firstAttribute="leading" secondItem="SVl-s1-xEy" secondAttribute="trailing" constant="10" id="RK2-E5-RB7"/>
+                <constraint firstAttribute="trailing" secondItem="ssI-FO-IbY" secondAttribute="trailing" id="Rlh-Nr-ldm"/>
                 <constraint firstItem="kPV-Ka-hAk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="UH4-TT-OGD"/>
                 <constraint firstItem="KuL-n5-wR9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="WbC-JE-lrR"/>
                 <constraint firstItem="vLs-U1-dBp" firstAttribute="top" secondItem="ESn-Tw-9aC" secondAttribute="bottom" constant="10" id="baZ-fs-ycV"/>
                 <constraint firstAttribute="trailing" secondItem="KuL-n5-wR9" secondAttribute="trailing" constant="15" id="fuD-em-c0V"/>
+                <constraint firstItem="ssI-FO-IbY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iN8-dD-olH"/>
                 <constraint firstItem="vLs-U1-dBp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="kli-WF-6p4"/>
-                <constraint firstItem="ESn-Tw-9aC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="170" id="n2D-t0-ORo"/>
+                <constraint firstItem="ESn-Tw-9aC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="n2D-t0-ORo"/>
                 <constraint firstItem="bzQ-d8-pWw" firstAttribute="top" secondItem="ESn-Tw-9aC" secondAttribute="bottom" constant="19" id="y7M-vW-Szv"/>
                 <constraint firstItem="ESn-Tw-9aC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yAn-XH-9i1"/>
             </constraints>
@@ -108,5 +113,6 @@
     </objects>
     <resources>
         <image name="iTunesArtwork.png" width="512" height="512"/>
+        <image name="na.jpg" width="640" height="1136"/>
     </resources>
 </document>
