@@ -190,7 +190,7 @@
     CLLocationCoordinate2D coor2D = CLLocationCoordinate2DMake(currLocation.coordinate.latitude,currLocation.coordinate.longitude);
     //    CLLocationCoordinate2D coor2D = CLLocationCoordinate2DMake(39.5427,116.2317);
     [self regeocoordinate:coor2D];
-    [self showHUD:@"定位成功"];
+//    [self showHUD:@"定位成功"];
     /** 关掉定位 */
     [self.locationMabager stopUpdatingLocation];
 }
@@ -216,6 +216,8 @@
             //            plmark.subLocality
             NSMutableString *str = [plmark.subLocality mutableCopy];
             NSMutableString *cityStr = [plmark.locality mutableCopy];
+            NSMutableString *str2 = [plmark.subLocality mutableCopy];
+            [str2 deleteCharactersInRange:NSMakeRange(cityStr.length - 1,  1)];
             [str deleteCharactersInRange:NSMakeRange(0,str.length - 1)];
             [cityStr deleteCharactersInRange:NSMakeRange(cityStr.length - 1,  1)];
             NSString *filename = [[NSBundle mainBundle] pathForResource:@"allchina" ofType:@"plist"];
@@ -228,11 +230,11 @@
             userInfoModel *model = [[userInfoModel alloc]init];
             if ([str isEqualToString:@"区"]) {
                 NSLog(@"赋值city");
-                for (int i = 0; i < Models.cityInfo.count; i++) {
-                    CityInfoCityInfo *city = (CityInfoCityInfo *)arr[i];
+                for (CityInfoCityInfo *city in arr) {
                     if ([city.city isEqualToString:cityStr]) {
-                        [manager insertDataModel:city];
                         [manager deleteDataWithcityid:city.cityInfoIdentifier];
+                        [manager deleteCityDataWithcityid:city.cityInfoIdentifier];
+                        [manager insertDataModel:city];
                         NSInteger count = [manager selectCityData].count;
                         model.index = [NSString stringWithFormat:@"%ld",count - 1];
                         model.voiceAI = @"xiaoyan";
@@ -245,27 +247,25 @@
             }
             else{
                 NSLog(@"赋值SubLocality ---->str");
-                for (int i = 0; i < Models.cityInfo.count; i++) {
-                    CityInfoCityInfo *city = (CityInfoCityInfo *)arr[i];
-                    if ([city.city isEqualToString:str]) {
-                        [manager insertDataModel:city];
+                for (CityInfoCityInfo *city in arr) {
+                    if ([city.city isEqualToString:str2]) {
                         [manager deleteDataWithcityid:city.cityInfoIdentifier];
+                        [manager deleteCityDataWithcityid:city.cityInfoIdentifier];
+                        [manager insertDataModel:city];
                         NSInteger count = [manager selectCityData].count;
                         model.index = [NSString stringWithFormat:@"%ld",count - 1];
-                        model.voiceAI = @"xioayan";
+                        model.voiceAI = @"xiaoyan";
                         model.cityInfoIdentifier = city.cityInfoIdentifier;
                         model.city = city.city;
                         [manager insertCityDataModel:model];
                         break;
                     }
                 }
-                
             }
             
         }];
         
     }];
-    
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{

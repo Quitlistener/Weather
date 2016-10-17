@@ -52,6 +52,7 @@
 		3F2EC4181DB0D2A5009BA74B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2EC4171DB0D2A5009BA74B /* ImageIO.framework */; };
 		3F2EC41A1DB0D2BB009BA74B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2EC4191DB0D2BB009BA74B /* libsqlite3.tbd */; };
 		3F2EC41C1DB0D70B009BA74B /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2EC41B1DB0D70B009BA74B /* iTunesArtwork.png */; };
+		3F3AE52D1DB4751F00BE55C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3AE52C1DB4751F00BE55C3 /* MapKit.framework */; };
 		3F4709291DA91D8900452422 /* 删除.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F4709281DA91D8900452422 /* 删除.png */; };
 		3F5433201DA9040500E4D290 /* 添加.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F54331F1DA9040500E4D290 /* 添加.png */; };
 		3F5433221DA9043000E4D290 /* hotCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F5433211DA9043000E4D290 /* hotCity.plist */; };
@@ -303,6 +304,7 @@
 		3F2EC4171DB0D2A5009BA74B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		3F2EC4191DB0D2BB009BA74B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		3F2EC41B1DB0D70B009BA74B /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		3F3AE52C1DB4751F00BE55C3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3F4709281DA91D8900452422 /* 删除.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除.png"; sourceTree = "<group>"; };
 		3F54331F1DA9040500E4D290 /* 添加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加.png"; sourceTree = "<group>"; };
 		3F5433211DA9043000E4D290 /* hotCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hotCity.plist; sourceTree = "<group>"; };
@@ -579,6 +581,7 @@
 				3F2EC4181DB0D2A5009BA74B /* ImageIO.framework in Frameworks */,
 				3F2EC4161DB0D29C009BA74B /* JavaScriptCore.framework in Frameworks */,
 				3F2EC4141DB0D28E009BA74B /* libstdc++.tbd in Frameworks */,
+				3F3AE52D1DB4751F00BE55C3 /* MapKit.framework in Frameworks */,
 				3F2EC4121DB0D284009BA74B /* libicucore.tbd in Frameworks */,
 				3F6B088E1DA8B20700814A0F /* CoreGraphics.framework in Frameworks */,
 				3F6B088C1DA8B1FD00814A0F /* Foundation.framework in Frameworks */,
@@ -610,6 +613,7 @@
 		2CC08F67137B966E3E2B1E6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F3AE52C1DB4751F00BE55C3 /* MapKit.framework */,
 				3F2EC4191DB0D2BB009BA74B /* libsqlite3.tbd */,
 				3F2EC4171DB0D2A5009BA74B /* ImageIO.framework */,
 				3F2EC4151DB0D29C009BA74B /* JavaScriptCore.framework */,
@@ -1394,7 +1398,16 @@
 				TargetAttributes = {
 					3FFF3A531D9B9FC80069B4A7 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = S2CRPD33DC;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -1792,7 +1805,10 @@
 			baseConfigurationReference = 85A146919A3B73C8FCAFEE05 /* Pods-IntracloudWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = S2CRPD33DC;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/IntracloudWeather/lib",
@@ -1810,8 +1826,10 @@
 					"$(PROJECT_DIR)/IntracloudWeather/lib/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/IntracloudWeather/lib/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = llll.IntracloudWeather;
+				PRODUCT_BUNDLE_IDENTIFIER = com.guang.jia.IntracloudWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "210285b8-0ccf-4452-8c33-dfbb6b329a5b";
+				PROVISIONING_PROFILE_SPECIFIER = guangjia;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1821,7 +1839,10 @@
 			baseConfigurationReference = 70DCDCC920066136E11B5CB8 /* Pods-IntracloudWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = S2CRPD33DC;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/IntracloudWeather/lib",
@@ -1839,8 +1860,10 @@
 					"$(PROJECT_DIR)/IntracloudWeather/lib/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/IntracloudWeather/lib/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = llll.IntracloudWeather;
+				PRODUCT_BUNDLE_IDENTIFIER = com.guang.jia.IntracloudWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "210285b8-0ccf-4452-8c33-dfbb6b329a5b";
+				PROVISIONING_PROFILE_SPECIFIER = guangjia;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
