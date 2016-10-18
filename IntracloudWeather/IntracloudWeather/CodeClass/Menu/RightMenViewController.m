@@ -19,8 +19,9 @@
 #import "UIViewController+MMDrawerController.h"
 #import "WeatherViewController.h"
 #import "Monitor.h"
+#import "AppDelegate.h"
 
-@interface RightMenViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface RightMenViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,reloadData>
 
 {
     NSMutableArray *_citysDataArr;
@@ -36,6 +37,13 @@
 
 @implementation RightMenViewController
 
+-(void)reloadData{
+    NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
+    _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
+    CityInfoCityInfo *city = _citysDataArr.lastObject;
+    [self dataRequestWithCityid:city.cityInfoIdentifier indexPath:nil];
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     
     if (isnotFirst) {
@@ -47,11 +55,11 @@
 //        [_CityCollectionView reloadData];
     }
     else{
-        NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
-        _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
-        CityInfoCityInfo *city = _citysDataArr.lastObject;
-        [self dataRequestWithCityid:city.cityInfoIdentifier indexPath:nil];
-//        [_CityCollectionView reloadData];
+//        NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
+//        _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
+//        CityInfoCityInfo *city = _citysDataArr.lastObject;
+//        [self dataRequestWithCityid:city.cityInfoIdentifier indexPath:nil];
+        [_CityCollectionView reloadData];
         isnotFirst = YES;
     }
   
@@ -69,6 +77,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    AppDelegate *mydelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    mydelegate.delegate_reload = self;
     NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
     _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
     _todayArrs = [NSMutableArray array];
