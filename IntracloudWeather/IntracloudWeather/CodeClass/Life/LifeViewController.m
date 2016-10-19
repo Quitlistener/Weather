@@ -117,7 +117,7 @@
             /** 把返回的地名改为cityNew */
             NSDictionary *dic2 = [NSDictionary dictionaryWithObject:dic[self.userModer.city] forKey:@"cityNew"];
             _XYBase = [[NewsBaseClass alloc]initWithDictionary:dic2];
-//            _muArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
+            //            _muArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
             NSMutableArray *loadArr = [NSMutableArray arrayWithArray:_XYBase.myProperty1];
             /** 删除数组中的NewsInternalBaseClass1对象含有imgextra数组的对象  删除含有editor数组的对象 */
             for (int i = 0 ; i < _XYBase.myProperty1.count; i++) {
@@ -133,7 +133,7 @@
                     [_tableView.mj_footer endRefreshing];
                 }
                 else{
-                   [_tableView.mj_header endRefreshing];
+                    [_tableView.mj_header endRefreshing];
                 }
                 [self.tableView reloadData];
                 [self.collectionView reloadData];
@@ -144,9 +144,9 @@
                 }
                 
             });
-
+            
         }
-      } error:^(NSError *error) {
+    } error:^(NSError *error) {
         
     }];
     
@@ -171,9 +171,11 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NewsInternalBaseClass1 *newsModel =_muArr[indexPath.row];
-        LifeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"lifeCell" forIndexPath:indexPath];
+    LifeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"lifeCell" forIndexPath:indexPath];
+    if (_muArr.count > 0) {
         cell.newsLive = newsModel;
-        return cell;
+    }
+    return cell;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -196,15 +198,18 @@
 //    cell.weatherSugges = [[_weathBase heWeatherDataService30][0] suggestion];
     _arr = @[@"洗车",@"穿衣",@"感冒",@"运动",@"旅游",@"紫外线"];
     NSMutableArray *array = [NSMutableArray array];
-    if ([[_weathBase heWeatherDataService30][0] suggestion].cw.brf) {
-        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].cw.brf];
-        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].drsg.brf];
-        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].flu.brf];
-        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].sport.brf];
-        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].trav.brf];
-        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].uv.brf];
-        
-        cell.suitableText.text = array[indexPath.row];
+    if ([_weathBase heWeatherDataService30].count > 0) {
+        if ([[_weathBase heWeatherDataService30][0] suggestion].cw.brf) {
+            [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].cw.brf];
+            [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].drsg.brf];
+            [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].flu.brf];
+            [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].sport.brf];
+            [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].trav.brf];
+            [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].uv.brf];
+            cell.suitableText.text = array[indexPath.row];
+        }
+        cell.suitable.text = _arr[indexPath.row];
+        cell.HeaderImage.image = [UIImage imageNamed:_lifeArr[indexPath.row]];
     }
     if (indexPath.row == 0 || indexPath.row == 3) {
         cell.backgroundColor = LRRGBColor(208, 131, 24);
@@ -215,8 +220,6 @@
     else{
         cell.backgroundColor = LRRGBColor(236, 96, 59);
     }
-    cell.suitable.text = _arr[indexPath.row];
-    cell.HeaderImage.image = [UIImage imageNamed:_lifeArr[indexPath.row]];
     return cell;
 }
 
@@ -240,17 +243,19 @@
         _itemView.backgroundColor = LRRGBColor(236, 96, 59);
     }
     NSMutableArray *array = [NSMutableArray array];
-    if ([[_weathBase heWeatherDataService30][0] suggestion].cw.txt) {
-        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].cw.txt];
-        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].drsg.txt];
-        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].flu.txt];
-        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].sport.txt];
-        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].trav.txt];
-        [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].uv.txt];
-        _itemView.contentLabel.text = array[indexPath.row];
+    if ([_weathBase heWeatherDataService30].count > 0) {
+        if ([[_weathBase heWeatherDataService30][0] suggestion].cw.txt) {
+            [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].cw.txt];
+            [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].drsg.txt];
+            [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].flu.txt];
+            [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].sport.txt];
+            [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].trav.txt];
+            [array addObject:[[_weathBase heWeatherDataService30][0] suggestion].uv.txt];
+            _itemView.contentLabel.text = array[indexPath.row];
+        }
+        _itemView.typeLabel.text = _arr[indexPath.row];
+        _itemView.itemImage.image = [UIImage imageNamed:_lifeArr[indexPath.row]];
     }
-    _itemView.typeLabel.text = _arr[indexPath.row];
-    _itemView.itemImage.image = [UIImage imageNamed:_lifeArr[indexPath.row]];
     [self.view addSubview:_itemView];
     /** collectionView的cell交互关闭 */
     _collectionView.allowsSelection = NO;

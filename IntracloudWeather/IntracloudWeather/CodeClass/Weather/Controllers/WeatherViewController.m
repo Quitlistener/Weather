@@ -89,6 +89,10 @@
     // Do any additional setup after loading the view from its nib.
     AppDelegate *myDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     myDelegate.delegate_reload = self;
+    __weak typeof(self)weakSelf = self;
+    myDelegate.reloadBlock = ^{
+        [weakSelf reloadData];
+    };
     [self loadCitysData];
     [self initUI];
     userInfoModel *userInfo = [[CityDetailDBManager defaultManager]selectCityData].firstObject;

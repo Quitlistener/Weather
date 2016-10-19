@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MMDrawerController.h"
 
+typedef void(^reloadBlock)();
 @protocol reloadData <NSObject>
 
 -(void)reloadData;
@@ -18,6 +19,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property(nonatomic,assign)id <reloadData> delegate_reload;
+@property(nonatomic,copy)reloadBlock reloadBlock;
 
 @end
 

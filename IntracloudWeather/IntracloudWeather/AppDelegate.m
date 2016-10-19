@@ -264,6 +264,7 @@
         }];
         if ([self.delegate_reload respondsToSelector:@selector(reloadData)]) {
             [self.delegate_reload reloadData];
+            self.reloadBlock();
         }
     }];
 }
@@ -294,6 +295,7 @@
     NSLog(@"定位失败");
     if ([self.delegate_reload respondsToSelector:@selector(reloadData)]) {
         [self.delegate_reload reloadData];
+        self.reloadBlock();
     }
 }
 

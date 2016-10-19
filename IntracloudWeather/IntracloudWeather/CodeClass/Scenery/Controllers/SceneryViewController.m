@@ -122,8 +122,10 @@
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     FallsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FallsCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
-    cell.titleLabel.text = [self.dataSource[indexPath.section] title];
-    [cell.sceneryImage sd_setImageWithURL:[NSURL URLWithString:[self.dataSource[indexPath.section] headImage]]];
+    if (self.dataSource.count > 0) {
+        cell.titleLabel.text = [self.dataSource[indexPath.section] title];
+        [cell.sceneryImage sd_setImageWithURL:[NSURL URLWithString:[self.dataSource[indexPath.section] headImage]]];
+    }
     cell.tag = indexPath.section;
     return cell;
 }
