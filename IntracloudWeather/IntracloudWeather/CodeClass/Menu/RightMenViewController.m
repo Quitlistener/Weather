@@ -41,6 +41,11 @@
     NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
     _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
     CityInfoCityInfo *city = _citysDataArr.lastObject;
+    [_todayArrs removeAllObjects];
+    for (int i = 0; i < _citysDataArr.count; i++) {
+        NSString *str = [NSString stringWithFormat:@"%d",i];
+        [_todayArrs addObject:str];
+    }
     [self dataRequestWithCityid:city.cityInfoIdentifier indexPath:nil];
 }
 
@@ -51,18 +56,18 @@
         _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
         CityInfoCityInfo *city = _citysDataArr.lastObject;
         [self dataRequestWithCityid:city.cityInfoIdentifier indexPath:nil];
-//        isnotFirst = YES;
-//        [_CityCollectionView reloadData];
+        //        isnotFirst = YES;
+        //        [_CityCollectionView reloadData];
     }
     else{
-//        NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
-//        _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
-//        CityInfoCityInfo *city = _citysDataArr.lastObject;
-//        [self dataRequestWithCityid:city.cityInfoIdentifier indexPath:nil];
+        //        NSArray *dataArr = [[CityDetailDBManager defaultManager] selectData];
+        //        _citysDataArr = [[NSMutableArray alloc]initWithArray:dataArr];
+        //        CityInfoCityInfo *city = _citysDataArr.lastObject;
+        //        [self dataRequestWithCityid:city.cityInfoIdentifier indexPath:nil];
         [_CityCollectionView reloadData];
         isnotFirst = YES;
     }
-  
+    
     
 }
 -(void)viewWillDisappear:(BOOL)animated{
@@ -89,16 +94,16 @@
     }
     [self reloadCitys];
     [self initUI];
-//    UIBarButtonItem *backItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"返回"] style:UIBarButtonItemStylePlain target:self action:@selector(backItem)];
-//    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-//    self.navigationItem.backBarButtonItem = backItem;
-//    backItem.title = @"返回";
+    //    UIBarButtonItem *backItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"返回"] style:UIBarButtonItemStylePlain target:self action:@selector(backItem)];
+    //    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    //    self.navigationItem.backBarButtonItem = backItem;
+    //    backItem.title = @"返回";
     
     // Do any additional setup after loading the view.
-//    [self viewWillAppear:YES];
+    //    [self viewWillAppear:YES];
 }
 -(void)initUI{
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"返回"] style:UIBarButtonItemStylePlain target:self action:@selector(backWeatherController)];
+    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"返回"] style:UIBarButtonItemStylePlain target:self action:@selector(backWeatherController)];
     UIImage *image = [[UIImage imageNamed:@"返回.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(backWeatherController)];
     self.navigationItem.title = @"城市管理";
@@ -166,14 +171,14 @@
 
 
 -(void)backWeatherController{
-//    WeatherViewController *WVC = [WeatherViewController new];
+    //    WeatherViewController *WVC = [WeatherViewController new];
     [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
 }
 #pragma -mark 网络请求
 -(void)dataRequestWithCityid:(NSString *)cityid indexPath:(NSIndexPath *)indexPath{
     [Monitor monitorWithView:self.view];
-//    NSString *str = [NSString stringWithFormat:@"key=2e39142365f74cba8c3d9ccc09f73eaa&cityid=%@",cityid];
-//    NSString *urlStr = [@"https://api.heweather.com/x3/weather?" stringByAppendingString:str];
+    //    NSString *str = [NSString stringWithFormat:@"key=2e39142365f74cba8c3d9ccc09f73eaa&cityid=%@",cityid];
+    //    NSString *urlStr = [@"https://api.heweather.com/x3/weather?" stringByAppendingString:str];
     NSString *urlStr = [NSString stringWithFormat:@"http://apis.baidu.com/heweather/weather/free?cityid=%@",cityid];
     [NetWorkRequest requestWithMethod:GET URL:urlStr para:nil success:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -182,7 +187,7 @@
             _BaseModels = [WeatherBaseClass modelObjectWithDictionary:dic];
             WeatherHeWeatherDataService30 *HeWeatherDataService30 = [_BaseModels heWeatherDataService30].firstObject;
             dispatch_async(dispatch_get_main_queue(), ^{
-               
+                
                 if (isnotFirst) {
                     if (HeWeatherDataService30.dailyForecast.count > 0) {
                         WeatherDailyForecast *today = [HeWeatherDataService30 dailyForecast].firstObject;
@@ -480,7 +485,7 @@
             WeatherTmp *tmp = [today tmp];
             cell.XYTopTempLabel.text = [tmp.max stringByAppendingString:@"℃"];
             cell.XYDownTempLabel.text = [tmp.min stringByAppendingString:@"℃"];
-//            NSLog(@"'%@",[cond txtD]);
+            //            NSLog(@"'%@",[cond txtD]);
             if ([[cond txtD] isEqualToString:[cond txtN]]) {
                 cell.XYWeatherConLabel.text = [cond txtD];
             }
@@ -670,13 +675,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

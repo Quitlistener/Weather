@@ -43,7 +43,7 @@
 #define PLUS_HEIGHT            Main_Screen_Height/25
 
 
-@interface WeatherViewController ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,IFlySpeechSynthesizerDelegate,UIActionSheetDelegate,reloadData>
+@interface WeatherViewController ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,IFlySpeechSynthesizerDelegate,UIActionSheetDelegate>
 {
     NSMutableArray *_CitysDataArr;
     NSMutableArray *_dailyForecastArr;
@@ -88,7 +88,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     AppDelegate *myDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    myDelegate.delegate_reload = self;
     __weak typeof(self)weakSelf = self;
     myDelegate.reloadBlock = ^{
         [weakSelf reloadData];
@@ -245,7 +244,7 @@
                         //                            }
                         
                         [self makeBackgroundAnimationsWithCode:backCode date:backDate];
-//                        [self makeBackgroundAnimationsWithCode:@"400" date:@"2015-07-15 10:43"];
+                        //                        [self makeBackgroundAnimationsWithCode:@"400" date:@"2015-07-15 10:43"];
                         NSString *wind1 = HeWeatherDataService30.now.wind.dir;
                         NSMutableString *wind2 = [NSMutableString stringWithString:HeWeatherDataService30.now.wind.sc];
                         if ([self IsChinese:model.city]) {
