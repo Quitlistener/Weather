@@ -133,16 +133,17 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     FallsCollectionViewCell * selectedCell = (FallsCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     NSArray * visibleCells = collectionView.visibleCells;
-//    UIStoryboard * stb  = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    //    UIStoryboard * stb  = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     SceneryDetailViewController * VC = [SceneryDetailViewController new];
-    VC.strURL = [self.dataSource[indexPath.section] bookUrl];
+    if (self.dataSource.count > 0) {
+        VC.strURL = [self.dataSource[indexPath.section] bookUrl];
+    }
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:VC];
     CGRect finalFrame = CGRectMake(10, collectionView.contentOffset.y + 30,  ScreenW- 20, ScreenH - 40);
     [self.transition evernoteTransitionWithSelectCell:selectedCell visibleCells:visibleCells originFrame:selectedCell.frame finalFrame:finalFrame panViewController:nav listViewController:self];
     nav.transitioningDelegate = self.transition;
     VC.delegate = self.transition;
     [self presentViewController:nav animated:YES completion:^{
-        
     }];
     
 }
